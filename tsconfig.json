@@ -1,14 +1,40 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "es2015",
+    "target": "ES5",
+    "module": "ES6",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
     "moduleResolution": "node",
     "noImplicitReturns": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "outDir": "./built/",
     "sourceMap": true,
-    "strict": true
+    "removeComments": false,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "lib": ["es7", "dom"],
+    "typeRoots": ["node_modules/@types"],
+    "importHelpers": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"],
+      "@/*": ["./src/*"]
+    }
   },
   "include": [
-    "./src/**/*"
+    "./src/**/*",
+    "./gridsome.*.js"
+  ],
+  "exclude": [
+    "content",
+    "node_modules",
+    "static",
+    "src/.temp",
+    "src/assets",
+    "dist"
   ]
 }

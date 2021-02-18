@@ -23,6 +23,7 @@ module.exports = {
     {
       use: 'gridsome-plugin-typescript',
     },
+    { use: "gridsome-plugin-composition-api" },
     {
       use: 'gridsome-plugin-tailwindcss',
       // these options are optional, as they are copies of the default values...

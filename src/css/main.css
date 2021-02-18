@@ -553,10 +553,16 @@ nav .active {
 }
 
 .button {
-    @apply bg-transparent text-green-500 border-2 border-green-500 rounded text-sm cursor-pointer p-2 hover:bg-green-900;
+    @apply bg-transparent text-green-500 border border-green-500 rounded text-sm cursor-pointer p-2 hover:bg-green-900;
     transition: var(--transition);
 }
 
 .resume-button {
-    @apply button;
+    @apply button capitalize;
+}
+.small-button{
+    @apply button text-sm font-mono p-1;
+}
+.big-button{
+    @apply bg-transparent text-green-500 border-2 border-green-500 rounded cursor-pointer hover:bg-green-900 text-lg font-mono py-4 px-6;
 }

@@ -5,20 +5,17 @@
   </a>
 </template>
 
-<script>
-export default {
-  props: {
-    theme: {
-      type: String,
-      required: true,
-    }
-  },
-  methods: {
-    toggleTheme() {
-      const newTheme = this.theme === 'theme-light' ? 'theme-dark' : 'theme-light'
-      localStorage.setItem('theme', newTheme)
-      this.$emit('themeChanged', newTheme)
-    }
+<script lang="ts">
+import {Component, Prop, Vue} from "vue-property-decorator"
+
+@Component
+export default class ThemeSwitcher extends Vue {
+  @Prop({type: String, required: true,}) readonly theme: string | undefined;
+
+  public toggleTheme() {
+    const newTheme = this.theme === 'theme-light' ? 'theme-dark' : 'theme-light'
+    localStorage.setItem('theme', newTheme)
+    this.$emit('themeChanged', newTheme)
   }
 }
 </script>
