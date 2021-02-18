@@ -85,6 +85,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        '"Calibre"', '"San Francisco"', '"SF Pro Text"',
         'Nunito Sans',
         'Roboto',
         '-apple-system',
@@ -101,12 +102,14 @@ module.exports = {
       ],
       serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: [
+        '"SF Mono"', '"Fira Code"', '"Fira Mono"', '"Roboto Mono"',
         'Menlo',
         'Monaco',
         'Consolas',
         '"Liberation Mono"',
         '"Courier New"',
         'monospace',
+
       ],
     },
   },
