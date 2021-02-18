@@ -1,7 +1,7 @@
 <template>
   <div class="content-wrapper bg-background-primary font-sans text-copy-primary leading-normal flex flex-col min-h-screen" :class="theme">
-    <header class="border-t-14 border-green-700">
-      <nav class="container mx-auto flex flex-wrap justify-between items-center py-8">
+    <header class="fixed z-10 h-24 w-full" :class="{ 'navbar--hidden': !showNavbar, 'navbar--show':scrollDirection === 'UP' && lastScrollPosition !== 0 }">
+      <nav id="acosta-navbar" class="relative flex flex-wrap justify-between items-center py-8">
         <div>
           <g-link v-if="theme === 'theme-light'" to="/"><g-image src="../../static/logo.svg" class="w-40" alt="logo" /></g-link>
           <g-link v-else to="/"><g-image src="../../static/logo_dark_mode.svg" class="w-40" alt="logo" /></g-link>
@@ -23,28 +23,33 @@
             <theme-switcher :theme="theme" @themeChanged="updateTheme" />
           </li>
           <li>
-            <a v-if="$route.path === '/'" href="/#projects" v-scroll-to="'#projects'" class="text-copy-primary hover:text-gray-600" data-cypress="projects">Projects</a>
-            <g-link v-else to="/#projects" class="text-copy-primary hover:text-gray-600">Projects</g-link>
+            <ol class="order-list lg:space-x-8 space-y-6 lg:space-y-0 lg:flex lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0">
+              <li>
+                <a v-if="$route.path === '/'" href="/#projects" v-scroll-to="'#projects'" class="" data-cypress="projects">Projects</a>
+                <g-link v-else to="/#projects" class="">Projects</g-link>
+              </li>
+              <li>
+                <a v-if="$route.path === '/'" href="/#about" v-scroll-to="'#about'" class="" data-cypress="about">About</a>
+                <g-link v-else to="/#about" class="">About</g-link>
+              </li>
+              <li>
+                <a v-if="$route.path === '/'" href="/#contact" v-scroll-to="'#contact'" class="" data-cypress="contact">Contact</a>
+                <g-link v-else to="/#contact" class="">Contact</g-link>
+              </li>
+              <li>
+                <g-link to="/docs" class="" data-cypress="docs">Docs</g-link>
+              </li>
+              <li>
+                <g-link to="/blog" class="" data-cypress="blog">Blog</g-link>
+              </li>
+            </ol>
           </li>
-          <li>
-            <a v-if="$route.path === '/'" href="/#about" v-scroll-to="'#about'" class="text-copy-primary hover:text-gray-600" data-cypress="about">About</a>
-            <g-link v-else to="/#about" class="text-copy-primary hover:text-gray-600">About</g-link>
-          </li>
-          <li>
-            <a v-if="$route.path === '/'" href="/#contact" v-scroll-to="'#contact'" class="text-copy-primary hover:text-gray-600" data-cypress="contact">Contact</a>
-            <g-link v-else to="/#contact" class="text-copy-primary hover:text-gray-600">Contact</g-link>
-          </li>
-          <li>
-            <g-link to="/docs" class="text-copy-primary hover:text-gray-600" data-cypress="docs">Docs</g-link>
-          </li>
-          <li>
-            <g-link to="/blog" class="text-copy-primary hover:text-gray-600" data-cypress="blog">Blog</g-link>
-          </li>
+          <li><a href="/" class="resume-button">Resume</a></li>
         </ul>
       </nav>
     </header>
 
-    <main class="flex-grow">
+    <main class="flex-grow mt-10">
       <slot/>
     </main>
 
@@ -115,12 +120,19 @@ export default {
     ThemeSwitcher
   },
   mounted() {
-    this.theme = localStorage.getItem('theme') || 'theme-light'
+    this.theme = localStorage.getItem('theme') || 'theme-light';
+    window.addEventListener('scroll', this.onScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.onScroll);
   },
   data() {
     return {
       isOpen: false,
       theme: '',
+      showNavbar: true,
+      scrollDirection: 'DOWN',
+      lastScrollPosition: 0
     }
   },
   methods: {
@@ -129,6 +141,21 @@ export default {
     },
     updateTheme(theme) {
       this.theme = theme
+    },
+    onScroll () {
+      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
+      if (currentScrollPosition < 0) {
+        return
+      }
+      // const navbar = document.getElementById('acosta-navbar');
+      // // Stop executing this function if the difference between
+      // // current scroll position and last scroll position is less than some offset
+      // if (Math.abs(currentScrollPosition - this.lastScrollPosition) < navbar.offsetHeight) {
+      //   return
+      // }
+      this.showNavbar = currentScrollPosition < this.lastScrollPosition;
+      this.scrollDirection = (currentScrollPosition < this.lastScrollPosition )? 'UP':'DOWN';
+      this.lastScrollPosition = currentScrollPosition;
     }
   }
 }

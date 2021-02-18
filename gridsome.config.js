@@ -4,13 +4,34 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+// import tailwind at the top of the file
+const tailwindcss = require("tailwindcss");
 module.exports = {
   siteName: 'Gridsome Portfolio Starter',
   siteDescription: 'A simple portfolio theme for Gridsome powered by Tailwind CSS v1',
   siteUrl: 'https://gridsome-portfolio-starter.netlify.com',
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          tailwindcss
+        ],
+      },
+    },
+  },
   plugins: [
     {
+      use: 'gridsome-plugin-typescript',
+    },
+    {
       use: 'gridsome-plugin-tailwindcss',
+      // these options are optional, as they are copies of the default values...
+      options: {
+        tailwindConfig: './tailwind.config.js',
+        presetEnvConfig: {},
+        shouldImport: false,
+        shouldTimeTravel: false
+      }
     },
     {
       use: '@gridsome/vue-remark',
