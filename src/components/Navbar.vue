@@ -28,7 +28,7 @@
           <search-input/>
         </li>
         <li>
-          <theme-switcher :theme="theme" @themeChanged="updateTheme"/>
+          <theme-switcher/>
         </li>
         <li>
           <ol class="order-list lg:space-x-8 space-y-6 lg:space-y-0 lg:flex lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0">
@@ -68,13 +68,14 @@ import ThemeSwitcher from '@/components/ThemeSwitcher.vue';
 @Component({components: {SearchInput, ThemeSwitcher}})
 export default class Navbar extends Vue {
   isOpen: boolean = false;
-  theme: string = '';
   showNavbar: boolean = true;
   scrollDirection: string = 'DOWN';
   lastScrollPosition: number = 0;
 
+  get theme(): string {
+    return this.$store.state.theme;
+  }
   mounted() {
-    this.theme = localStorage.getItem('theme') || 'theme-light';
     window.addEventListener('scroll', this.onScroll);
   }
 
@@ -84,10 +85,6 @@ export default class Navbar extends Vue {
 
   public toggle() {
     this.isOpen = !this.isOpen;
-  }
-
-  public updateTheme(theme) {
-    this.theme = theme;
   }
 
   public onScroll() {

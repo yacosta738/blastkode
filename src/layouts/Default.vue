@@ -1,14 +1,13 @@
 <template>
-  <div
-      class="content-wrapper bg-background-primary font-sans text-copy-primary leading-normal flex flex-col min-h-screen"
+  <div class="content-wrapper bg-background-primary font-sans text-copy-primary leading-normal flex flex-col min-h-screen"
       :class="theme">
 
     <navbar/>
-    <transition name="fade" appear>
-    <main class="flex-grow mt-20">
-      <slot/>
-    </main>
 
+    <transition name="fade" appear>
+      <main class="flex-grow mt-20">
+        <slot/>
+      </main>
     </transition>
 
     <footer class="bg-green-700 text-white">
@@ -99,12 +98,9 @@ import {Component, Vue} from "vue-property-decorator";
 
 @Component({components: {Navbar}})
 export default class Default extends Vue {
-  theme: string = '';
-
-  mounted() {
-    this.theme = localStorage.getItem('theme') || 'theme-light';
+  get theme(): string {
+    return this.$store.state.theme;
   }
-
 }
 </script>
 

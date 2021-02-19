@@ -4,8 +4,23 @@
 import DefaultLayout from '~/layouts/Default.vue'
 import VueScrollTo from 'vue-scrollto'
 import VueFuse from 'vue-fuse'
+import Vuex from 'vuex'
 
-export default function (Vue, { router, head, isClient }) {
+export default function (Vue, { router, head, isClient, appOptions }) {
+  Vue.use(Vuex)
+  appOptions.store = new Vuex.Store({
+    state: {
+      theme: localStorage.getItem('theme') || 'theme-dark'
+    },
+    mutations: {
+      toggleTheme(state) {
+        const newTheme = state.theme === 'theme-light' ? 'theme-dark' : 'theme-light';
+        localStorage.setItem('theme', newTheme);
+        state.theme = newTheme;
+      }
+    }
+  })
+
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 
