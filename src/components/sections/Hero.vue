@@ -15,8 +15,7 @@
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-
-const {email} = require("../../config");
+import {email} from "@/config.ts"
 @Component
 export default class Hero extends Vue {
   get myEmail(): string {

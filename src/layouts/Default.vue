@@ -4,11 +4,13 @@
 
     <navbar/>
 
-    <transition name="fade" appear>
+    <transition name="fade" mode="out-in" appear >
       <main class="flex-grow mt-20">
         <slot/>
       </main>
     </transition>
+
+    <social/>
 
     <footer class="bg-green-700 text-white">
       <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between py-8">
@@ -93,10 +95,11 @@
 </static-query>
 
 <script lang="ts">
-import Navbar from '@/components/Navbar.vue';
 import {Component, Vue} from "vue-property-decorator";
+import Navbar from '@/components/Navbar.vue';
+import Social from "@/components/Social.vue"
 
-@Component({components: {Navbar}})
+@Component({components: {Navbar, Social}})
 export default class Default extends Vue {
   get theme(): string {
     return this.$store.state.theme;

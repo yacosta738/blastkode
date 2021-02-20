@@ -5,6 +5,13 @@ import DefaultLayout from '~/layouts/Default.vue'
 import VueScrollTo from 'vue-scrollto'
 import VueFuse from 'vue-fuse'
 import Vuex from 'vuex'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { config, library } from '@fortawesome/fontawesome-svg-core'
+import { faGithub, faTwitter, faInstagram, faLinkedin, faCodepen } from '@fortawesome/free-brands-svg-icons'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+
+config.autoAddCss = false;
+library.add(faGithub, faTwitter, faInstagram, faLinkedin, faCodepen)
 
 export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.use(Vuex)
@@ -23,6 +30,8 @@ export default function (Vue, { router, head, isClient, appOptions }) {
 
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
+  // Set font-awesome as a global component
+  Vue.component('font-awesome', FontAwesomeIcon)
 
   Vue.use(VueScrollTo, {
     duration: 500,
