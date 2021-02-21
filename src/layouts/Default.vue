@@ -5,12 +5,13 @@
     <navbar/>
 
     <transition name="fade" mode="out-in" appear >
-      <main class="flex-grow mt-20">
+      <main class="flex-grow mt-8 md:mt-20 lg:mt-15">
         <slot/>
       </main>
     </transition>
 
     <social/>
+    <email/>
 
     <footer class="bg-green-700 text-white">
       <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between py-8">
@@ -96,11 +97,15 @@
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
+import { mixins } from 'vue-class-component';
+
 import Navbar from '@/components/Navbar.vue';
 import Social from "@/components/Social.vue"
+import Email from "@/components/Email.vue"
+import ConfigurationMixin from "@/util/configuration.mixin"
 
-@Component({components: {Navbar, Social}})
-export default class Default extends Vue {
+@Component({components: {Navbar, Social, Email}})
+export default class Default extends mixins(ConfigurationMixin) {
   get theme(): string {
     return this.$store.state.theme;
   }
