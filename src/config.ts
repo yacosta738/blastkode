@@ -6,6 +6,8 @@ export interface SocialMedia {
 export interface Menu {
     name?: string;
     url?: string;
+    dataCypress?: string;
+    vScrollTo?: string;
 }
 
 export const email: string = 'yunielacosta738@gmail.com';
@@ -37,18 +39,31 @@ export const navMenus: Menu[] = [
     {
         name: 'About',
         url: '/#about',
+        dataCypress: 'about',
+        vScrollTo: '#about'
     },
     {
         name: 'Experience',
         url: '/#jobs',
+        dataCypress: 'jobs',
+        vScrollTo: '#jobs'
     },
     {
         name: 'Work',
         url: '/#projects',
+        dataCypress: 'projects',
+        vScrollTo: '#projects'
     },
     {
         name: 'Contact',
         url: '/#contact',
+        dataCypress: 'contact',
+        vScrollTo: '#contact'
+    },
+    {
+        name: 'Blog',
+        url: '/blog',
+        dataCypress: 'blog'
     },
 ];
 

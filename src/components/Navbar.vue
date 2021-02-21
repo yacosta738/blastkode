@@ -32,25 +32,10 @@
         </li>
         <li>
           <ol class="order-list lg:space-x-8 space-y-6 lg:space-y-0 lg:flex lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0">
-            <li>
-              <a v-if="$route.path === '/'" href="/#projects" v-scroll-to="'#projects'" class=""
-                 data-cypress="projects">Projects</a>
-              <g-link v-else to="/#projects" class="">Projects</g-link>
-            </li>
-            <li>
-              <a v-if="$route.path === '/'" href="/#about" v-scroll-to="'#about'" class=""
-                 data-cypress="about">About</a>
-              <g-link v-else to="/#about" class="">About</g-link>
-            </li>
-            <li>
-              <a v-if="$route.path === '/'" href="/#contact" v-scroll-to="'#contact'" class="" data-cypress="contact">Contact</a>
-              <g-link v-else to="/#contact" class="">Contact</g-link>
-            </li>
-            <li>
-              <g-link to="/docs" class="" data-cypress="docs">Docs</g-link>
-            </li>
-            <li>
-              <g-link to="/blog" class="" data-cypress="blog">Blog</g-link>
+            <li v-for="(menu, i) in menus" :key="i">
+              <a v-if="$route.path === '/'" :href="menu.url" v-scroll-to="menu.vScrollTo" class=""
+                 data-cypress="projects">{{ menu.name }}</a>
+              <g-link v-else :to="menu.url" class="">{{ menu.name }}</g-link>
             </li>
           </ol>
         </li>
@@ -64,6 +49,7 @@
 import {Component, Vue} from "vue-property-decorator";
 import SearchInput from '@/components/SearchInput.vue';
 import ThemeSwitcher from '@/components/ThemeSwitcher.vue';
+import {Menu, navMenus} from "@/config";
 
 @Component({components: {SearchInput, ThemeSwitcher}})
 export default class Navbar extends Vue {
@@ -72,9 +58,14 @@ export default class Navbar extends Vue {
   scrollDirection: string = 'DOWN';
   lastScrollPosition: number = 0;
 
+  get menus(): Menu[] {
+    return navMenus;
+  }
+
   get theme(): string {
     return this.$store.state.theme;
   }
+
   mounted() {
     window.addEventListener('scroll', this.onScroll);
   }
