@@ -6,7 +6,10 @@
         <li v-for="(job, i) in $static.jobs.edges" :key="job.node.id">
           <button class="styled-tab-button min-w-40 sm:min-w-max"
                   :class="{'text-green-500':activeTabId === i}"
-                  @click="activeTabId = i">
+                  @click="activeTabId = i"
+                  @keyup.up.prevent.stop="(activeTabId - 1 >= 0 )?activeTabId -= 1:activeTabId = $static.jobs.edges.length - 1"
+                  @keyup.down.prevent.stop="(activeTabId + 1 >= $static.jobs.edges.length)?activeTabId = 0:activeTabId+=1"
+          >
             {{ job.node.company }}
           </button>
         </li>
@@ -62,23 +65,9 @@ query Jobs ($page: Int) {
 </static-query>
 
 <script lang="ts">
-import {Component, Vue} from "vue-property-decorator";
+import {Component, Watch, Vue} from "vue-property-decorator";
 import {inlineLinks} from '~/util/utilities';
 
-// // Focus on tabs when using up & down arrow keys
-// const onKeyDown = e => {
-//   if (e.key === KEY_CODES.ARROW_UP || e.key === KEY_CODES.ARROW_DOWN) {
-//     e.preventDefault();
-//     // Move up
-//     if (e.key === KEY_CODES.ARROW_UP) {
-//       setTabFocus(tabFocus - 1);
-//     }
-//     // Move down
-//     if (e.key === KEY_CODES.ARROW_DOWN) {
-//       setTabFocus(tabFocus + 1);
-//     }
-//   }
-// };
 @Component
 export default class Jobs extends Vue {
   activeTabId: number = 0;
