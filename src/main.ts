@@ -9,12 +9,16 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faTwitter, faInstagram, faLinkedin, faCodepen } from '@fortawesome/free-brands-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import VueScreen from 'vue-screen';
 
 config.autoAddCss = false;
 library.add(faGithub, faTwitter, faInstagram, faLinkedin, faCodepen)
 
 export default function (Vue, { router, head, isClient, appOptions }) {
+  // Store
   Vue.use(Vuex)
+  // Vue Screen
+  Vue.use(VueScreen);
   appOptions.store = new Vuex.Store({
     state: {
       theme: localStorage.getItem('theme') || 'theme-dark'

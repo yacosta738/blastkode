@@ -3,6 +3,7 @@
 
     <hero/>
     <about/>
+    <jobs/>
 
     <div class="overflow-x-hidden">
       <div class="contact-me bg-background-secondary pt-16">
@@ -81,8 +82,9 @@
 <script>
 import Hero from "@/components/sections/Hero.vue";
 import About from "@/components/sections/About.vue";
+import Jobs from "@/components/sections/Jobs.vue"
 export default {
-components: {Hero, About},
+components: {Hero, About, Jobs},
   metaInfo: {
     title: 'Home'
   }

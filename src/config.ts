@@ -66,5 +66,20 @@ export const navMenus: Menu[] = [
         dataCypress: 'blog'
     },
 ];
+export const navDelay = 1000;
+export const loaderDelay = 2000;
 
-export default {email, socialMedia, navMenus};
+export const KEY_CODES = {
+    ARROW_LEFT: 'ArrowLeft',
+    ARROW_LEFT_IE11: 'Left',
+    ARROW_RIGHT: 'ArrowRight',
+    ARROW_RIGHT_IE11: 'Right',
+    ESCAPE: 'Escape',
+    ESCAPE_IE11: 'Esc',
+    TAB: 'Tab',
+    SPACE: ' ',
+    SPACE_IE11: 'Spacebar',
+    ENTER: 'Enter',
+};
+
+export default {email, socialMedia, navMenus, navDelay, loaderDelay, KEY_CODES};

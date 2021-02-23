@@ -131,8 +131,6 @@
     --fz-xl: 20px;
     --fz-xxl: 22px;
 
-    --scrollbar-color: var(--bg-background-primary);
-    --scrollbar-bg-color: slategrey;
 }
 
 .theme-light .search-highlighted {
@@ -191,8 +189,6 @@
     --fz-xl: 20px;
     --fz-xxl: 22px;
 
-    --scrollbar-color: var(--bg-background-primary);
-    --scrollbar-bg-color: slategrey;
 }
 
 .theme-dark .markdown-body {
@@ -231,23 +227,23 @@ html {
 ::-webkit-scrollbar {
     width: 4px;
     height: 4px;
-    background-color: var(--scrollbar-bg-color);
+    background-color: #b4eee0;
 }
 
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: var(--scrollbar-bg-color);
+    background-color: #b4eee0;
     border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-color);
+    background-color: #133040;
     border-radius: 3px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 * {
-    scrollbar-color: var(--scrollbar-color) var(--scrollbar-bg-color);
+    scrollbar-color: #133040 #b4eee0;
     scrollbar-width: thin;
 }
 
@@ -477,31 +473,40 @@ a.inline-link:after {
     opacity: 0.5;
 }
 
-header, footer, main{
+main {
+    counter-reset: section;
+}
+
+header, footer, main {
     transition: var(--transition);
 }
-header{
+
+header {
     padding: 0 50px;
     background-color: var(--navy);
-    filter:none;
+    filter: none;
     pointer-events: auto !important;
     backdrop-filter: blur(10px);
     user-select: none;
 }
+
 nav .active {
     font-weight: bold;
     @apply border-black border-b;
 }
-.navbar--show{
+
+.navbar--show {
     transform: translateY(0px);
     background-color: rgba(10, 25, 47, 0.85);
     box-shadow: 0 10px 30px -10px var(--navy-shadow);
-  }
-.navbar--hidden{
-    transform: translate3d(0,-100%,0);
+}
+
+.navbar--hidden {
+    transform: translate3d(0, -100%, 0);
     background-color: rgba(10, 25, 47, 0.85);
     box-shadow: 0 10px 30px -10px var(--navy-shadow);
 }
+
 .container-inner {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -565,6 +570,7 @@ nav .active {
     text-align: right;
     @apply text-green-500
 }
+
 /*transactions*/
 /* Fade up */
 .fadeup-enter {
@@ -596,13 +602,16 @@ nav .active {
 .fade-enter {
     opacity: 0;
 }
+
 .fade-enter-active {
     opacity: 1;
     transition: opacity 300ms var(--easing);
 }
+
 .fade-exit {
     opacity: 1;
 }
+
 .fade-exit-active {
     opacity: 0;
     transition: opacity 300ms var(--easing);
@@ -616,9 +625,11 @@ nav .active {
 .resume-button {
     @apply button capitalize;
 }
-.small-button{
+
+.small-button {
     @apply button text-sm font-mono p-1;
 }
-.big-button{
+
+.big-button {
     @apply bg-transparent text-green-500 border-2 border-green-500 rounded cursor-pointer hover:bg-green-900 text-lg font-mono py-4 px-6;
 }

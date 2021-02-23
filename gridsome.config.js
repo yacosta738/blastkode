@@ -49,14 +49,29 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'blog/**/*.md',
+        path: 'content/blog/**/*.md',
         typeName: 'Post',
         refs: {
+          authors: {
+            typeName: 'Author',
+            create: true
+          },
+          categories: {
+            typeName: 'Category',
+            create: true
+          },
           tags: {
             typeName: 'Tag',
             create: true
-          }
+          },
         }
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/jobs/**/*.md',
+        typeName: 'Job'
       }
     },
     {
@@ -65,14 +80,14 @@ module.exports = {
         contentTypeName: 'Post',
         feedOptions: {
           title: 'Gridsome Portfolio Starter Blog',
-          feed_url: 'https://gridsome-portfolio-starter.netlify.com/rss.xml',
-          site_url: 'https://gridsome-portfolio-starter.netlify.com/'
+          feed_url: 'https://www.blastkode.com/rss.xml',
+          site_url: 'https://www.blastkode.com/'
         },
         feedItemOptions: node => ({
           title: node.title,
           description: node.summary,
-          url: 'https://gridsome-portfolio-starter.netlify.com' + node.path,
-          author: 'Andre Madarang',
+          url: 'https://www.blastkode.com' + node.path,
+          author: 'Yuniel Acosta',
           date: node.date
         }),
         output: {
