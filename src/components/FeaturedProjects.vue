@@ -19,7 +19,11 @@
         <ul class="project-tech-list justify-end">
           <li v-for="tech in project.tech" :key="tech.id"
           class="ml-3 my-2 text-light-slate font-mono text-xs whitespace-nowrap">
-            {{tech.name}}
+            <a v-if="tech.url" :href="tech.url">
+              <font-awesome v-if="tech.icon" :icon="(typeof tech.icon === 'string')?['fab', tech.icon]:[tech.icon.type, tech.icon.value ]"/>
+              {{tech.name}}
+            </a>
+            <span v-else >{{ tech.name }}</span>
           </li>
         </ul>
         <div class="project-links justify-end">
@@ -44,7 +48,11 @@
         <ul class="project-tech-list justify-start">
           <li v-for="tech in project.tech" :key="tech.id"
               class="mr-3 my-2 text-light-slate font-mono text-xs whitespace-nowrap">
-            {{tech.name}}
+            <a v-if="tech.url" :href="tech.url">
+              <font-awesome v-if="tech.icon" :icon="(typeof tech.icon === 'string')?['fab', tech.icon]:[tech.icon.type, tech.icon.value ]"/>
+              {{tech.name}}
+            </a>
+            <span v-else >{{ tech.name }}</span>
           </li>
         </ul>
         <div class="project-links justify-start">

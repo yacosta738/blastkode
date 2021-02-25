@@ -3,73 +3,109 @@
     {
       "id": "vs-code",
       "name": "Vs Code",
-      "icon": "codepen",
+      "icon": {
+        "type": "fab",
+        "value": "codepen"
+      },
       "url": "https://www.facebook.com"
     },
     {
       "id": "sublime-text",
       "name": "Sublime Text",
-      "icon": "codepen",
+      "icon": {
+        "type": "fab",
+        "value": "codepen"
+      },
       "url": "https://www.facebook.com"
     },
     {
       "id": "atom",
       "name": "Atom",
-      "icon": "codepen",
+      "icon": {
+        "type": "fab",
+        "value": "codepen"
+      },
       "url": "https://www.facebook.com"
     },
     {
       "id": "iterm2",
       "name": "iTerm2",
-      "icon": "codepen",
+      "icon": {
+        "type": "fab",
+        "value": "codepen"
+      },
       "url": "https://www.facebook.com"
     },
     {
       "id": "hyper",
       "name": "Hyper",
-      "icon": "codepen",
+      "icon": {
+        "type": "fab",
+        "value": "codepen"
+      },
       "url": "https://www.facebook.com"
     },
     {
       "id": "next.js",
       "name": "Next.js",
-      "icon": "codepen",
+      "icon": {
+        "type": "fab",
+        "value": "codepen"
+      },
       "url": "https://www.facebook.com"
     },
     {
       "id": "chart.js",
       "name": "Chart.js",
-      "icon": "codepen",
+      "icon": {
+        "type": "fab",
+        "value": "codepen"
+      },
       "url": "https://www.facebook.com"
     },
     {
       "id": "github-api",
       "name": "GitHub API",
-      "icon": "codepen",
+      "icon": {
+        "type": "fab",
+        "value": "codepen"
+      },
       "url": "https://www.facebook.com"
     },
     {
       "id": "react",
       "name": "React",
-      "icon": "codepen",
+      "icon": {
+        "type": "fab",
+        "value": "codepen"
+      },
       "url": "https://www.facebook.com"
     },
     {
       "id": "node.js",
       "name": "Node.js",
-      "icon": "codepen",
+      "icon": {
+        "type": "fab",
+        "value": "codepen"
+      },
       "url": "https://www.facebook.com"
     },
     {
       "id": "express",
       "name": "Express",
-      "icon": "codepen",
+      "icon": {
+        "type": "fab",
+        "value": "codepen"
+      },
       "url": "https://www.facebook.com"
     },
     {
       "id": "spotify-web-api",
       "name": "Spotify Web API",
-      "icon": "codepen",
+      "icon": {
+        "type": "fab",
+        "value": "codepen"
+      },
       "url": "https://www.facebook.com"
     }
   ]
