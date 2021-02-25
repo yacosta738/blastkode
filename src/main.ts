@@ -7,12 +7,13 @@ import VueFuse from 'vue-fuse'
 import Vuex from 'vuex'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
-import { faGithub, faTwitter, faInstagram, faLinkedin, faCodepen } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faTwitter, faInstagram, faLinkedin, faCodepen} from '@fortawesome/free-brands-svg-icons'
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt.js';
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import VueScreen from 'vue-screen';
 
 config.autoAddCss = false;
-library.add(faGithub, faTwitter, faInstagram, faLinkedin, faCodepen)
+library.add(faGithub, faTwitter, faInstagram, faLinkedin, faCodepen, faExternalLinkAlt)
 
 export default function (Vue, { router, head, isClient, appOptions }) {
   // Store

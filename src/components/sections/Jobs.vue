@@ -65,7 +65,7 @@ query Jobs ($page: Int) {
 </static-query>
 
 <script lang="ts">
-import {Component, Watch, Vue} from "vue-property-decorator";
+import {Component, Vue} from "vue-property-decorator";
 import {inlineLinks} from '~/util/utilities';
 
 @Component

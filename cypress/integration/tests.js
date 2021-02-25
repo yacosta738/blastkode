@@ -66,7 +66,7 @@ describe('Loading Pages', () => {
 })
 
 describe('Page Scroll to Sections', () => {
-  it('can scroll to Projects', () => {
+  it('can scroll to Project', () => {
     cy.visit('/')
 
     cy.get('[data-cypress=projects]').click()

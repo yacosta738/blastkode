@@ -21,3 +21,7 @@ export const inlineLinks = (className: string) => {
         });
     }
 };
+
+export const urlize = (term: string): string => {
+   return term.trim().toLowerCase().replace(/\s+/g,'-');
+}

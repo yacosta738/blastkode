@@ -4,6 +4,7 @@
     <hero/>
     <about/>
     <jobs/>
+    <projects/>
 
     <div class="overflow-x-hidden">
       <div class="contact-me bg-background-secondary pt-16">
@@ -79,15 +80,18 @@
   </Layout>
 </template>
 
-<script>
+<script lang="ts">
+import {Component, Vue} from "vue-property-decorator"
 import Hero from "@/components/sections/Hero.vue";
 import About from "@/components/sections/About.vue";
 import Jobs from "@/components/sections/Jobs.vue"
-export default {
-components: {Hero, About, Jobs},
-  metaInfo: {
-    title: 'Home'
-  }
+import Projects from "@/components/sections/Projects.vue"
+@Component({components: {Hero, About, Jobs, Projects}})
+export default class Home extends Vue {
+  // metaInfo = {
+  //   title: 'Home'
+  // }
+  title: string = 'Home'
 }
 </script>
 

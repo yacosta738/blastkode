@@ -6,9 +6,10 @@
 
 // import tailwind at the top of the file
 const tailwindcss = require("tailwindcss");
+
 module.exports = {
-  siteName: 'Gridsome Portfolio Starter',
-  siteDescription: 'A simple portfolio theme for Gridsome powered by Tailwind CSS v1',
+  siteName: 'Blastkode',
+  siteDescription: 'Yuniel Acosta\'s blog and portfolio',
   siteUrl: 'https://gridsome-portfolio-starter.netlify.com',
   css: {
     loaderOptions: {
@@ -72,6 +73,13 @@ module.exports = {
       options: {
         path: 'content/jobs/**/*.md',
         typeName: 'Job'
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/projects/**/*.md',
+        typeName: 'Project'
       }
     },
     {
