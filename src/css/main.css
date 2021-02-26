@@ -497,7 +497,7 @@ nav .active {
 
 .navbar--show {
     transform: translateY(0px);
-    background-color: rgba(10, 25, 47, 0.85);
+    background-color: rgba(10, 25, 47, 0.95);
     box-shadow: 0 10px 30px -10px var(--navy-shadow);
 }
 
@@ -618,8 +618,9 @@ nav .active {
 }
 
 .button {
-    @apply bg-transparent text-green-500 border border-green-500 rounded text-sm cursor-pointer p-2 hover:bg-green-900;
     transition: var(--transition);
+    outline: 0;
+    @apply bg-transparent text-green-500 border border-green-500 rounded text-sm cursor-pointer p-2 hover:bg-green-900 select-none;
 }
 
 .resume-button {
@@ -631,5 +632,5 @@ nav .active {
 }
 
 .big-button {
-    @apply bg-transparent text-green-500 border-2 border-green-500 rounded cursor-pointer hover:bg-green-900 text-lg font-mono py-4 px-6;
+    @apply bg-transparent text-green-500 border-2 border-green-500 rounded cursor-pointer hover:bg-green-900 text-lg font-mono py-4 px-6 select-none;
 }

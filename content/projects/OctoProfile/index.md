@@ -1,5 +1,5 @@
 ---
-date: '2017-11-03'
+date: '2017-09-03'
 title: 'OctoProfile'
 cover: './octoprofile.png'
 github: 'https://github.com/bchiang7/octoprofile'

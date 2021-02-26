@@ -1,5 +1,5 @@
 <template>
-  <header class="fixed z-10 w-full"
+  <header class="fixed z-50 w-full"
           :class="{ 'navbar--hidden': !showNavbar, 'navbar--show':scrollDirection === 'UP' && lastScrollPosition !== 0 }">
     <nav id="acosta-navbar" class="relative flex flex-wrap justify-between items-center py-4">
       <div>
