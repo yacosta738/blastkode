@@ -1,0 +1,72 @@
+<template>
+  <article class="">
+    <div class="bg-light-navy shadow-2xl rounded-lg tracking-wide">
+      <div
+          class="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center rounded-lg rounded-b-none"
+          :style="`background-image: url('${(typeof article.cover === 'string')?article.cover:article.cover.src}');`">
+        <div class="absolute top-0 right-0 left-0 flex justify-between items-center px-4 bg-black bg-opacity-50 rounded-lg rounded-b-none">
+          <div class="">
+            <button v-for="category in article.categories" :key="category.id"
+                    class="bg-green-500 rounded text-light-navy text-xs font-bold mr-1 px-5 py-2 uppercase hover:bg-green-600 hover:text-lightest-slate transition ease-in-out duration-500"
+                    @click="window.location.href=category.title">
+              {{ category.title }}
+            </button>
+          </div>
+          <div class="text-lightest-slate font-regular flex flex-col justify-start items-center text-center">
+            <span class="text-3xl leading-0 font-semibold">{{ article.timeToRead }}</span>
+            <span class="-mt-3 text-xl">Min</span>
+          </div>
+        </div>
+      </div>
+      <div class="px-4 py-2 mt-2">
+        <h2 class="font-bold text-3xl tracking-normal">
+          <a :href="article.path">{{ article.title }} </a>
+        </h2>
+        <p class="px-2 mr-1 line-clamp-4 md:line-clamp-3 hover:line-clamp-none">
+          {{ article.summary }}
+        </p>
+        <div class="flex items-center justify-between mt-2 mx-6">
+          <a :href="article.path" :aria-label="`To post ${article.title}`"
+             class="inline-link text-xs -ml-3 ">Read More</a>
+          <a href="#" class="flex text-green-500">
+            <svg fill="none" viewBox="0 0 24 24" class="w-6 h-6" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+            </svg>
+            5
+          </a>
+        </div>
+        <div class="flex items-center space-x-2 mt-5">
+          <!--Author's profile photo-->
+          <img
+              class="w-10 h-10 object-cover object-center rounded-full"
+              src="https://randomuser.me/api/portraits/men/10.jpg"
+              alt="random user"
+          />
+          <div>
+            <!--Author name-->
+            <a :href="article.author" class="inline-link font-semibold">{{ article.author }}</a>
+            <p class="text-gray-500 font-semibold text-sm">
+              {{ article.date }} &middot; {{ article.timeToRead }} min read
+            </p>
+          </div>
+        </div>
+      </div>
+      </div>
+  </article>
+</template>
+
+<script lang="ts">
+import 'reflect-metadata';
+import {Component, Prop, Vue} from "vue-property-decorator";
+import Article from '~/models/Article';
+
+@Component
+export default class CardPost extends Vue {
+  @Prop({required: true}) readonly article: Article | undefined;
+}
+</script>
+
+<style scoped>
+
+</style>

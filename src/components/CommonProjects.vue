@@ -17,12 +17,13 @@
         <project-tech-list :project="project" position="start" :showIcon="false"/>
       </div>
     </div>
-    <button class="big-button my-28" @click="showMore=!showMore">{{ (showMore) ? 'Show Less' : 'Show More' }}</button>
+    <button class="big-button m-5" @click="showMore=!showMore">{{ (showMore) ? 'Show Less' : 'Show More' }}</button>
   </div>
 
 </template>
 
 <script lang="ts">
+import 'reflect-metadata';
 import {Component, Prop, Vue} from "vue-property-decorator";
 import ProjectLinks from "@/components/ProjectLinks.vue";
 import ProjectTechList from "@/components/ProjectTechList.vue";

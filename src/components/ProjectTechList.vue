@@ -30,9 +30,6 @@ export default class ProjectLinks extends Vue {
   get classLinks() {
     return (this.position === 'end') ? 'ml-3' : (this.position === 'center') ? 'mx-2' : 'mr-3';
   }
-  mounted():void{
-    console.log(this.showIcon);
-  }
 }
 </script>
 

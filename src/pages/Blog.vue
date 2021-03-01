@@ -1,12 +1,12 @@
 <template>
   <Layout>
     <div class="container-inner mx-auto py-16">
-      <div v-for="post in $page.posts.edges" :key="post.id" class="post border-gray-400 border-b mb-12">
+      <div v-for="post in $page.posts.edges" :key="post.node.id" class="post border-gray-400 border-b mb-12">
+        <g-image alt="Cover image" v-if="post.node.cover" class="post-card__image" :src="post.node.cover" />
         <h2 class="text-3xl font-bold"><g-link :to="post.node.path" class="text-copy-primary">{{ post.node.title }}</g-link></h2>
         <div class="text-copy-secondary mb-4">
           <span>{{ post.node.date }}</span>
-          <span> &middot; </span>
-          <span>{{ post.node.timeToRead }} min read</span>
+          <span> &middot; {{ post.node.timeToRead }} min read</span>
         </div>
 
         <div class="text-lg mb-4">
@@ -43,6 +43,7 @@ query Posts ($page: Int) {
         date (format: "MMMM D, Y")
         summary
         timeToRead
+        cover
         path
       }
     }
@@ -50,15 +51,27 @@ query Posts ($page: Int) {
 }
 </page-query>
 
-<script>
-import PaginationPosts from '../components/PaginationPosts'
+<script lang="ts">
+import {Component, Vue} from "vue-property-decorator";
+import PaginationPosts from '@/components/PaginationPosts.vue';
+import "@/declarations/vue-meta";
 
-export default {
-  metaInfo: {
-    title: 'Blog'
+@Component<Blog>({
+  metaInfo() {
+    return {
+      title: 'Blog'
+    };
   },
   components: {
     PaginationPosts
+  }
+})
+export default class Blog extends Vue {
+  // ? $context has to be defined here. Otherwise TypeScript complains about not existin variable
+  public $context: any;
+
+  private get pageTitle() {
+    return this.$context.title;
   }
 }
 </script>

@@ -1,8 +1,8 @@
 <template>
   <side :is-home="isHome" orientation="left">
     <ul class="social-links">
-      <li v-for="sm in socialMedia">
-        <a :href="sm.url"><font-awesome :icon="['fab', sm.name.toLowerCase() ]"/></a>
+      <li v-for="social in socialMedia">
+        <a :href="social.url"><font-awesome :icon="['fab', social.name.toLowerCase() ]"/></a>
       </li>
     </ul>
   </side>

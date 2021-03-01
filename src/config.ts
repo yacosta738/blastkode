@@ -55,6 +55,12 @@ export const navMenus: Menu[] = [
         vScrollTo: '#projects'
     },
     {
+        name: 'Last Articles',
+        url: '/#lastarticles',
+        dataCypress: 'lastarticles',
+        vScrollTo: '#plastarticles'
+    },
+    {
         name: 'Contact',
         url: '/#contact',
         dataCypress: 'contact',
@@ -68,6 +74,5 @@ export const navMenus: Menu[] = [
 ];
 export const navDelay = 1000;
 export const loaderDelay = 2000;
-
 
 export default {email, socialMedia, navMenus, navDelay, loaderDelay};

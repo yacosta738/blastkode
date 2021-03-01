@@ -3,7 +3,11 @@ title: Top 5 Static Site Generators in Vue
 path: /top-5-static-site-generators-in-vue
 date: 2019-04-03
 summary: Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic rerum earum quos explicabo suscipit maxime iste qui nihil. Reiciendis asperiores minus necessitatibus
+author: Yuniel Acosta
 tags: ['frontend', 'coding', 'vue']
+categories: [Developer]
+cover: ./images/blog_bg_4.jpg
+draft: false
 ---
 
 ![background](content/blog/images/blog_bg_3.jpg)
