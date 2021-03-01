@@ -15,7 +15,10 @@ import Side from './Side.vue';
 
 @Component({components: {Side}})
 export default class Social extends Vue {
-  isHome: boolean = true;
+  get isHome(){
+    console.log(this);
+    return true;
+  }
 
   get socialMedia(): SocialMedia[] {
     return socialMedia;

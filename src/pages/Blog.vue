@@ -2,13 +2,12 @@
   <Layout>
     <div class="container-inner mx-auto py-16">
       <div v-for="post in $page.posts.edges" :key="post.node.id" class="post border-gray-400 border-b mb-12">
-        <g-image alt="Cover image" v-if="post.node.cover" class="post-card__image" :src="post.node.cover" />
         <h2 class="text-3xl font-bold"><g-link :to="post.node.path" class="text-copy-primary">{{ post.node.title }}</g-link></h2>
         <div class="text-copy-secondary mb-4">
           <span>{{ post.node.date }}</span>
           <span> &middot; {{ post.node.timeToRead }} min read</span>
         </div>
-
+        <g-image alt="Cover image" v-if="post.node.cover" class="post-card__image" :src="post.node.cover" />
         <div class="text-lg mb-4">
           {{ post.node.summary }}
         </div>
