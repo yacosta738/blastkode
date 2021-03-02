@@ -9,9 +9,11 @@ import {Component, Vue} from "vue-property-decorator";
 import {email} from '~/config';
 import Side from './Side.vue';
 
-@Component({components:{Side}})
+@Component({components: {Side}})
 export default class Email extends Vue {
-  isHome: boolean = true;
+  get isHome() {
+    return window.location.pathname === '/';
+  }
 
   get email() {
     return email;

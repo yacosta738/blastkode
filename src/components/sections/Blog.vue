@@ -1,6 +1,6 @@
 <template>
-  <section id="lastarticles">
-    <div  class="-mx-12">
+  <section id="last3articles">
+    <div  class="lg:-mx-12">
       <h2 class="numbered-heading">Last Articles</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-2">
         <card-post v-for="post in last3Post" :key="post.id" :article="post"/>

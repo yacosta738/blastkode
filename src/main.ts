@@ -10,11 +10,12 @@ import {config, library} from '@fortawesome/fontawesome-svg-core';
 import {faCodepen, faGithub, faInstagram, faLinkedin, faTwitter, faVuejs} from '@fortawesome/free-brands-svg-icons';
 import {faExternalLinkAlt} from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt.js';
 import {faFolder} from '@fortawesome/free-solid-svg-icons/faFolder.js';
+import {faCalendarAlt} from '@fortawesome/free-solid-svg-icons/faCalendarAlt.js';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import VueScreen from 'vue-screen';
 
 config.autoAddCss = false;
-library.add(faGithub, faTwitter, faInstagram, faLinkedin, faCodepen, faExternalLinkAlt, faFolder, faVuejs);
+library.add(faGithub, faTwitter, faInstagram, faLinkedin, faCodepen, faExternalLinkAlt, faFolder, faVuejs, faCalendarAlt);
 
 export default function(Vue, {router, head, isClient, appOptions}) {
     // Store

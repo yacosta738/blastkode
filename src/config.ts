@@ -56,9 +56,9 @@ export const navMenus: Menu[] = [
     },
     {
         name: 'Last Articles',
-        url: '/#lastarticles',
-        dataCypress: 'lastarticles',
-        vScrollTo: '#plastarticles'
+        url: '/#last3articles',
+        dataCypress: 'last3articles',
+        vScrollTo: '#plast3articles'
     },
     {
         name: 'Contact',

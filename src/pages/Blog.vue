@@ -1,19 +1,26 @@
 <template>
-  <Layout>
-    <div class="container-inner mx-auto py-16">
-      <div v-for="post in $page.posts.edges" :key="post.node.id" class="post border-gray-400 border-b mb-12">
-        <h2 class="text-3xl font-bold"><g-link :to="post.node.path" class="text-copy-primary">{{ post.node.title }}</g-link></h2>
-        <div class="text-copy-secondary mb-4">
-          <span>{{ post.node.date }}</span>
-          <span> &middot; {{ post.node.timeToRead }} min read</span>
-        </div>
-        <g-image alt="Cover image" v-if="post.node.cover" class="post-card__image" :src="post.node.cover" />
-        <div class="text-lg mb-4">
-          {{ post.node.summary }}
-        </div>
-
-        <div class="mb-8">
-          <g-link :to="post.node.path" class="font-bold uppercase">Read More</g-link>
+  <Layout aside>
+    <div class="container-inner mx-auto pl-80 py-16">
+      <div v-for="post in $page.posts.edges" :key="post.node.id" class="post border-gray-400 border-b mb-20">
+        <h2 class="text-3xl font-bold"><g-link :to="post.node.path" class="text-lightest-slate">{{ post.node.title }}</g-link></h2>
+        <ul class="flex flex-wrap relative list-none p-0 mb-4 text-light-slate font-mono text-sm">
+          <li class="my-2 whitespace-nowrap mx-1">
+            <font-awesome :icon="['fa', 'calendar-alt']"/>
+            <span class="mx-2">{{ post.node.date }}</span>
+          </li>
+          <li class="my-2 whitespace-nowrap mx-1">
+            <span>Reading time &middot; {{ post.node.timeToRead }} min</span>
+          </li>
+          <li class="my-2 whitespace-nowrap mx-1">
+            <span>Author: {{ post.node.author }}</span>
+          </li>
+        </ul>
+        <div class="flex flex-col md:flex-row mb-16">
+          <g-image alt="Cover image" v-if="post.node.cover" class="object-cover md:w-1/3 border border-green-500 md:mr-5" :src="post.node.cover" />
+          <div class="text-center md:text-left mt-5 md:mt-0">
+            {{ post.node.summary }}
+            <g-link :to="post.node.path" class="font-bold uppercase inline-link">Read&nbsp;→</g-link>
+          </div>
         </div>
       </div> <!-- end post -->
 
@@ -29,7 +36,7 @@
 
 <page-query>
 query Posts ($page: Int) {
-  posts: allPost (sortBy: "date", order: DESC, perPage: 3, page: $page) @paginate {
+  posts: allPost (sortBy: "date", order: DESC, perPage: 5, page: $page) @paginate {
     totalCount
     pageInfo {
       totalPages
@@ -42,6 +49,7 @@ query Posts ($page: Int) {
         date (format: "MMMM D, Y")
         summary
         timeToRead
+        author
         cover
         path
       }

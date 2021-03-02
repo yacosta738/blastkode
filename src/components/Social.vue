@@ -2,7 +2,9 @@
   <side :is-home="isHome" orientation="left">
     <ul class="social-links">
       <li v-for="social in socialMedia">
-        <a :href="social.url"><font-awesome :icon="['fab', social.name.toLowerCase() ]"/></a>
+        <a :href="social.url">
+          <font-awesome :icon="['fab', social.name.toLowerCase() ]"/>
+        </a>
       </li>
     </ul>
   </side>
@@ -15,9 +17,8 @@ import Side from './Side.vue';
 
 @Component({components: {Side}})
 export default class Social extends Vue {
-  get isHome(){
-    console.log(this);
-    return true;
+  get isHome() {
+    return window.location.pathname === '/';
   }
 
   get socialMedia(): SocialMedia[] {

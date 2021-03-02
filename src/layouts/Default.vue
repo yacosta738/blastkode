@@ -1,15 +1,22 @@
 <template>
-  <div class="content-wrapper bg-background-primary font-sans text-copy-primary leading-normal flex flex-col min-h-screen"
+  <div
+      class="content-wrapper bg-background-primary font-sans text-light-slate leading-normal flex flex-col min-h-screen"
       :class="theme">
 
     <navbar/>
 
-    <transition name="fade" mode="out-in" appear >
-      <main class="flex-grow mt-8 md:mt-20 lg:mt-15">
-        <slot/>
-      </main>
-    </transition>
-
+    <div class="flex flex-wrap flex-col md:flex-row justify-between">
+      <transition name="fade" mode="out-in" appear>
+        <main x-ref="content" class="flex-grow mt-8 md:mt-20 lg:mt-15">
+          <slot/>
+        </main>
+      </transition>
+      <aside v-if="aside" id="sidebar" class="bg-red-200 mr-80">
+        <!--      {{ partial "shared/tag-cloud.html" . }}-->
+        <!--      {{ partial "shared/categories-widget.html" . }}-->
+       <p class="w-80"> Hola Mundo</p>
+      </aside>
+    </div>
     <social/>
     <email/>
     <footer-section/>
@@ -32,19 +39,24 @@
 </static-query>
 
 <script lang="ts">
-import {Component, Vue} from "vue-property-decorator";
-import { mixins } from 'vue-class-component';
+import {Component, Prop} from "vue-property-decorator";
+import {mixins} from 'vue-class-component';
 
 import Navbar from '@/components/Navbar.vue';
-import Social from "@/components/Social.vue"
-import Email from "@/components/Email.vue"
-import FooterSection from "~/components/FooterSection.vue"
-import ConfigurationMixin from "@/util/configuration.mixin"
+import Social from "@/components/Social.vue";
+import Email from "@/components/Email.vue";
+import FooterSection from "~/components/FooterSection.vue";
+import ConfigurationMixin from "@/util/configuration.mixin";
 
 @Component({components: {Navbar, Social, Email, FooterSection}})
 export default class Default extends mixins(ConfigurationMixin) {
+  @Prop({default: false, type: Boolean}) readonly aside: boolean | undefined;
+
   get theme(): string {
     return this.$store.state.theme;
+  }
+  mounted():void{
+    console.log(`aside: ${this.aside}`);
   }
 }
 </script>
