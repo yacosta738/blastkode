@@ -4,8 +4,6 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-// import tailwind at the top of the file
-const tailwindcss = require("tailwindcss");
 
 module.exports = {
   siteName: 'Blastkode',
