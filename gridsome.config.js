@@ -9,15 +9,6 @@ module.exports = {
   siteName: 'Blastkode',
   siteDescription: 'Yuniel Acosta\'s blog and portfolio',
   siteUrl: 'https://gridsome-portfolio-starter.netlify.com',
-  css: {
-    loaderOptions: {
-      postcss: {
-        plugins: [
-          tailwindcss
-        ],
-      },
-    },
-  },
   plugins: [
     {
       use: 'gridsome-plugin-typescript',
