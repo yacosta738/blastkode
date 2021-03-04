@@ -18,7 +18,8 @@ import Side from './Side.vue';
 @Component({components: {Side}})
 export default class Social extends Vue {
   get isHome() {
-    return window.location.pathname === '/';
+    //@ts-ignore
+    return (process.isClient)?window.location.pathname === '/' : true;
   }
 
   get socialMedia(): SocialMedia[] {

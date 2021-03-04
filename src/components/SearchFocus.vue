@@ -11,9 +11,13 @@ export default class SearchFocus extends Vue {
     this.handler = event => {
       this.$emit('keyup', event)
     }
+    //@ts-ignore
+    if (process.isClient)
     window.addEventListener('keyup', this.handler)
   }
   beforeDestroy() {
+    //@ts-ignore
+    if (process.isClient)
     window.removeEventListener('keyup', this.handler)
   }
 }

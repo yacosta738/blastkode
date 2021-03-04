@@ -67,10 +67,14 @@ export default class Navbar extends Vue {
   }
 
   mounted() {
+    //@ts-ignore
+    if(process.isClient)
     window.addEventListener('scroll', this.onScroll);
   }
 
   beforeDestroy() {
+    //@ts-ignore
+    if(process.isClient)
     window.removeEventListener('scroll', this.onScroll);
   }
 
@@ -79,7 +83,8 @@ export default class Navbar extends Vue {
   }
 
   public onScroll() {
-    const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    //@ts-ignore
+    const currentScrollPosition = (process.isClient)? window.pageYOffset || document.documentElement.scrollTop:0;
     if (currentScrollPosition < 0) {
       return;
     }

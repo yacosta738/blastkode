@@ -12,7 +12,8 @@ import Side from './Side.vue';
 @Component({components: {Side}})
 export default class Email extends Vue {
   get isHome() {
-    return window.location.pathname === '/';
+    //@ts-ignore
+    return (process.isClient)?window.location.pathname === '/':true;
   }
 
   get email() {

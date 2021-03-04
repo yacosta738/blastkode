@@ -8,7 +8,7 @@
           <div class="">
             <button v-for="category in article.categories" :key="category.id"
                     class="bg-green-500 rounded text-light-navy text-xs font-bold mr-1 px-5 py-2 uppercase hover:bg-green-600 hover:text-lightest-slate transition ease-in-out duration-500"
-                    @click="window.location.href=category.title">
+                  >
               {{ category.title }}
             </button>
           </div>

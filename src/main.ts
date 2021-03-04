@@ -11,11 +11,12 @@ import {faCodepen, faGithub, faInstagram, faLinkedin, faTwitter, faVuejs} from '
 import {faExternalLinkAlt} from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt.js';
 import {faFolder} from '@fortawesome/free-solid-svg-icons/faFolder.js';
 import {faCalendarAlt} from '@fortawesome/free-solid-svg-icons/faCalendarAlt.js';
+import {faChevronRight} from '@fortawesome/free-solid-svg-icons/faChevronRight.js';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import VueScreen from 'vue-screen';
 
 config.autoAddCss = false;
-library.add(faGithub, faTwitter, faInstagram, faLinkedin, faCodepen, faExternalLinkAlt, faFolder, faVuejs, faCalendarAlt);
+library.add(faGithub, faTwitter, faInstagram, faLinkedin, faCodepen, faExternalLinkAlt, faFolder, faVuejs, faCalendarAlt, faChevronRight);
 
 export default function(Vue, {router, head, isClient, appOptions}) {
     // Store
@@ -24,12 +25,16 @@ export default function(Vue, {router, head, isClient, appOptions}) {
     Vue.use(VueScreen);
     appOptions.store = new Vuex.Store({
         state: {
-            theme: localStorage.getItem('theme') || 'theme-dark'
+            //@ts-ignore
+            theme: (process.isClient) ? !localStorage.getItem('theme') || 'theme-dark' : 'theme-dark'
         },
         mutations: {
             toggleTheme(state) {
                 const newTheme = state.theme === 'theme-light' ? 'theme-dark' : 'theme-light';
-                localStorage.setItem('theme', newTheme);
+                //@ts-ignore
+                if (process.isClient) {
+                    localStorage.setItem('theme', newTheme);
+                }
                 state.theme = newTheme;
             }
         }

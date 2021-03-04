@@ -11,11 +11,12 @@
           <slot/>
         </main>
       </transition>
-      <aside v-if="aside" id="sidebar" class="bg-red-200 mr-80">
-        <!--      {{ partial "shared/tag-cloud.html" . }}-->
-        <!--      {{ partial "shared/categories-widget.html" . }}-->
-       <p class="w-80"> Hola Mundo</p>
-      </aside>
+      <transition  v-if="aside"  name="fade" mode="out-in" appear>
+        <aside id="sidebar" class="w-80 mt-8 md:mr-80 md:mt-20 lg:mt-15">
+          <tag-cloud-widget/>
+          <category-widget/>
+        </aside>
+      </transition>
     </div>
     <social/>
     <email/>
@@ -46,9 +47,11 @@ import Navbar from '@/components/Navbar.vue';
 import Social from "@/components/Social.vue";
 import Email from "@/components/Email.vue";
 import FooterSection from "~/components/FooterSection.vue";
+import TagCloudWidget from "~/components/shared/TagCloudWidget.vue"
+import CategoryWidget from "~/components/shared/CategoryWidget.vue"
 import ConfigurationMixin from "@/util/configuration.mixin";
 
-@Component({components: {Navbar, Social, Email, FooterSection}})
+@Component({components: {Navbar, Social, Email, FooterSection, TagCloudWidget, CategoryWidget}})
 export default class Default extends mixins(ConfigurationMixin) {
   @Prop({default: false, type: Boolean}) readonly aside: boolean | undefined;
 

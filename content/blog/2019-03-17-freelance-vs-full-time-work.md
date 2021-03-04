@@ -4,7 +4,7 @@ path: /freelance-vs-full-time-work
 date: 2019-03-17
 summary: Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic rerum earum quos explicabo suscipit maxime iste qui nihil. Reiciendis asperiores minus necessitatibus
 author: Yuniel Acosta
-tags: ['business']
+tags: ['business', frontend]
 categories: [Tooling]
 cover: ./images/blog_bg_2.jpg
 draft: false
