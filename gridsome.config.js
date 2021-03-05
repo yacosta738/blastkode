@@ -11,18 +11,10 @@ module.exports = {
   siteUrl: 'https://gridsome-portfolio-starter.netlify.com',
   plugins: [
     {
-      use: 'gridsome-plugin-typescript',
-    },
-    { use: "gridsome-plugin-composition-api" },
-    {
       use: 'gridsome-plugin-tailwindcss',
-      // these options are optional, as they are copies of the default values...
-      options: {
-        tailwindConfig: './tailwind.config.js',
-        presetEnvConfig: {},
-        shouldImport: false,
-        shouldTimeTravel: false
-      }
+    },
+    {
+      use: 'gridsome-plugin-typescript',
     },
     {
       use: '@gridsome/vue-remark',
@@ -33,7 +25,7 @@ module.exports = {
         template: './src/templates/Documentation.vue', // Optional
         plugins: [
           [ 'gridsome-plugin-remark-shiki', { theme: 'Material-Theme-Palenight', skipInline: true } ]
-      ],
+        ],
       }
     },
     {
@@ -76,7 +68,7 @@ module.exports = {
       options: {
         contentTypeName: 'Post',
         feedOptions: {
-          title: 'Gridsome Portfolio Starter Blog',
+          title: 'Yuniel Acosta\'s blog and portfolio',
           feed_url: 'https://www.blastkode.com/rss.xml',
           site_url: 'https://www.blastkode.com/'
         },

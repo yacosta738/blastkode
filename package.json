@@ -37,7 +37,6 @@
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "autoprefixer": "^9",
     "cypress": "^6.0.0",
-    "gridsome-plugin-composition-api": "^0.0.3",
     "gridsome-plugin-tailwindcss": "^4.1.1",
     "gridsome-plugin-typescript": "^0.4.0",
     "husky": "^5.0.9",
