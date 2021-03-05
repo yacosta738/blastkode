@@ -68,7 +68,7 @@ export const navMenus: Menu[] = [
     },
     {
         name: 'Blog',
-        url: '/blog',
+        url: '/blog/',
         dataCypress: 'blog'
     },
 ];
