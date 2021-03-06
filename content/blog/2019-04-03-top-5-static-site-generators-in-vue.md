@@ -10,7 +10,7 @@ cover: ./images/blog_bg_4.jpg
 draft: false
 ---
 
-![background](content/blog/images/blog_bg_3.jpg)
+![background](./images/blog_bg_3.jpg)
 
 An h1 header
 ============

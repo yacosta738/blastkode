@@ -99,7 +99,8 @@ module.exports = {
     },
   ],
   templates: {
-    Tag: '/tag/:id'
+    Tag: '/tag/:id',
+    Category: '/category/:id'
   },
   transformers: {
     remark: {

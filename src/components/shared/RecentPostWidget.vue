@@ -1,15 +1,14 @@
 <template>
-  <widget title="Categories" v-if="totalCount > 0">
+  <widget v-if="$store.state.postId !== -1" title="Recent Post">
     <ul class="flex flex-col relative list-none p-0 my-4">
-      <li v-for="category in allCategories" :key="category.id"
+      <li v-for="post in recentPosts" :key="post.id"
           class="my-2 flex flex-row text-light-slate font-mono text-base whitespace-nowrap">
-        <g-link :to="category.path" class="inline-link">
+        <g-link :to="post.path" class="inline-link">
           <div class="flex flex-row">
             <font-awesome :icon="['fa', 'chevron-right']"/>
-            <p class="pl-2"> {{ category.title }} </p>
+            <p class="pl-2"> {{ post.title }} </p>
           </div>
         </g-link>
-        <p>({{ category.totalCountInArticles }})</p>
       </li>
     </ul>
   </widget>
@@ -17,16 +16,12 @@
 
 <static-query>
 query {
-  categories: allCategory {
-    totalCount
+  recentPost: allPost( sortBy: "date" order: DESC perPage: 5 filter: { draft: { eq: false }}) {
     edges {
       node {
         id
         title
         path
-        belongsTo {
-          totalCount
-        }
       }
     }
   }
@@ -36,17 +31,15 @@ query {
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
 import Widget from '~/components/shared/Widget.vue';
-import Category from '~/models/Category';
+import IArticle from '~/models/Article';
 
 @Component({components:{Widget}})
-export default class CategoryWidget extends Vue {
-  get totalCount():number{
+export default class RecentPostWidget extends Vue {
+  get recentPosts(): IArticle[]{
     // @ts-ignore
-    return this.$static.categories.totalCount;
-  }
-  get allCategories(): Category[]{
-    // @ts-ignore
-    return this.$static.categories.edges.map(edge => Category.fromJson(edge.node));
+    return this.$static.recentPost.edges.filter(rp=>rp.node.id!==this.$store.state.postId).map(edge => {
+      return {id: edge.node.id,title: edge.node.title, path: edge.node.path}
+    });
   }
 }
 </script>

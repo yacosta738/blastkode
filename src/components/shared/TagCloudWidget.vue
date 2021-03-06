@@ -1,9 +1,9 @@
 <template>
   <widget title="Tags" v-if="totalCount > 0">
     <div class="tag-cloud-tags">
-    <a v-for="tag in allTags" :key="tag.id" href="/tags/alpine.js"
+    <g-link v-for="tag in allTags" :key="tag.id" :to="tag.path"
        :aria-label="`${tag.title} (${tag.totalCountInArticles} posts)`"
-       :class="textSize(tag)" class="inline-link">{{ tag.title }}</a>
+       :class="textSize(tag)" class="inline-link">{{ tag.title }}</g-link>
     </div>
   </widget>
 </template>
@@ -16,6 +16,7 @@ query {
       node {
         id
         title
+        path
         belongsTo {
           totalCount
         }

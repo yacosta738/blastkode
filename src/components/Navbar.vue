@@ -33,8 +33,8 @@
         <li>
           <ol class="order-list lg:space-x-8 space-y-6 lg:space-y-0 lg:flex lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0">
             <li v-for="(menu, i) in menus" :key="i">
-              <a v-if="$route.path === '/'" :href="menu.url" v-scroll-to="menu.vScrollTo" class=""
-                 data-cypress="projects">{{ menu.name }}</a>
+              <g-link v-if="$route.path === '/'" :to="menu.url" v-scroll-to="menu.vScrollTo" class=""
+                 data-cypress="projects">{{ menu.name }}</g-link>
               <g-link v-else :to="menu.url" class="">{{ menu.name }}</g-link>
             </li>
           </ol>

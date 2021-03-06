@@ -10,13 +10,16 @@ import {config, library} from '@fortawesome/fontawesome-svg-core';
 import {faCodepen, faGithub, faInstagram, faLinkedin, faTwitter, faVuejs} from '@fortawesome/free-brands-svg-icons';
 import {faExternalLinkAlt} from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt.js';
 import {faFolder} from '@fortawesome/free-solid-svg-icons/faFolder.js';
+import {faFolderOpen} from '@fortawesome/free-solid-svg-icons/faFolderOpen.js';
 import {faCalendarAlt} from '@fortawesome/free-solid-svg-icons/faCalendarAlt.js';
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons/faChevronRight.js';
+import {faTags} from '@fortawesome/free-solid-svg-icons/faTags.js';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import VueScreen from 'vue-screen';
 
 config.autoAddCss = false;
-library.add(faGithub, faTwitter, faInstagram, faLinkedin, faCodepen, faExternalLinkAlt, faFolder, faVuejs, faCalendarAlt, faChevronRight);
+library.add(faGithub, faTwitter, faInstagram, faLinkedin, faCodepen, faExternalLinkAlt, faFolder, faVuejs, faCalendarAlt, faChevronRight, faTags,
+    faFolderOpen);
 
 export default function(Vue, {router, head, isClient, appOptions}) {
     // Store
@@ -26,7 +29,8 @@ export default function(Vue, {router, head, isClient, appOptions}) {
     appOptions.store = new Vuex.Store({
         state: {
             //@ts-ignore
-            theme: (process.isClient) ? !localStorage.getItem('theme') || 'theme-dark' : 'theme-dark'
+            theme: (process.isClient) ? !localStorage.getItem('theme') || 'theme-dark' : 'theme-dark',
+            postId: -1
         },
         mutations: {
             toggleTheme(state) {
@@ -36,6 +40,9 @@ export default function(Vue, {router, head, isClient, appOptions}) {
                     localStorage.setItem('theme', newTheme);
                 }
                 state.theme = newTheme;
+            },
+            changePostId(state, id){
+                state.postId = id;
             }
         }
     });

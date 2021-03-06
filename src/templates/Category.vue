@@ -1,7 +1,9 @@
 <template>
   <Layout aside>
-    <div class="container-inner mx-auto pl-80 py-16">
-      <div v-for="post in $page.posts.edges" :key="post.node.id" class="post border-gray-400 border-b mb-20">
+    <div class="container-inner mx-auto my-16">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-wider mb-10 uppercase">Category: {{ $page.category.title }}</h2>
+
+      <div v-for="post in $page.category.belongsTo.edges" :key="post.node.id" class="post border-gray-400 border-b mb-12">
         <h2 class="text-3xl md:text-4xl font-bold tracking-wider"><g-link :to="post.node.path" class="inline-link">{{ post.node.title }}</g-link></h2>
         <ul class="flex flex-wrap relative list-none p-0 mb-4 text-light-slate font-mono text-sm">
           <li class="my-2 whitespace-nowrap mx-1">
@@ -25,33 +27,39 @@
       </div> <!-- end post -->
 
       <pagination-posts
-        v-if="$page.posts.pageInfo.totalPages > 1"
-        base="/blog"
-        :totalPages="$page.posts.pageInfo.totalPages"
-        :currentPage="$page.posts.pageInfo.currentPage"
+          v-if="$page.category.belongsTo.pageInfo.totalPages > 1"
+          :base="`/category/${$page.category.title}`"
+          :totalPages="$page.category.belongsTo.pageInfo.totalPages"
+          :currentPage="$page.category.belongsTo.pageInfo.currentPage"
       />
+
     </div>
   </Layout>
 </template>
 
 <page-query>
-query Posts ($page: Int) {
-  posts: allPost (sortBy: "date", order: DESC, perPage: 5, page: $page) @paginate {
-    totalCount
-    pageInfo {
-      totalPages
-      currentPage
-    }
-    edges {
-      node {
-        id
-        title
-        date (format: "MMMM D, Y")
-        summary
-        timeToRead
-        author
-        cover
-        path
+query Category ($id: ID!, $page: Int) {
+  category: category (id: $id) {
+    title
+    belongsTo (page: $page, perPage: 3) @paginate {
+      totalCount
+      pageInfo {
+        totalPages
+        currentPage
+      }
+      edges {
+        node {
+          ...on Post {
+            title
+            timeToRead
+    	      date (format: "MMMM D, YYYY")
+            path
+            summary
+            categories {
+              title
+            }
+          }
+        }
       }
     }
   }
@@ -59,21 +67,21 @@ query Posts ($page: Int) {
 </page-query>
 
 <script lang="ts">
-import {Component, Vue} from "vue-property-decorator";
+import {Component, Vue} from 'vue-property-decorator';
 import PaginationPosts from '@/components/PaginationPosts.vue';
-import "@/declarations/vue-meta";
 
-@Component<Blog>({
+@Component<Category>({
   metaInfo() {
     return {
-      title: 'Blog'
+      //@ts-ignore
+      title: 'Category: ' + this.$page.category.title
     };
   },
   components: {
     PaginationPosts
   }
 })
-export default class Blog extends Vue {
+export default class Category extends Vue {
   // ? $context has to be defined here. Otherwise TypeScript complains about not existing variable
   public $context: any;
 
@@ -81,8 +89,8 @@ export default class Blog extends Vue {
     return this.$context.title;
   }
   mounted() {
-    this.$store.commit('changePostId', -1)
+    //@ts-ignore
+    this.$store.commit('changePostId', 0)
   }
 }
 </script>
-

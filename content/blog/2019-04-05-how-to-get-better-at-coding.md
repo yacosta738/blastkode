@@ -10,7 +10,7 @@ cover: ./images/blog_bg_4.jpg
 draft: false
 ---
 
-![background](content/blog/images/blog_bg_2.jpg)
+![background](./images/blog_bg_2.jpg)
 
 Lorem ipsum dolor sit amet, [consectetur adipisicing](https://google.ca) elit. Praesentium inventore hic possimus, cum nesciunt ea debitis, tempora officia perferendis vero ratione nam laudantium aliquid voluptatem velit? Open `/src/layouts.vue` and then edit the `main.css` file.
 
