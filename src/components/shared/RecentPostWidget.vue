@@ -2,7 +2,7 @@
   <widget v-if="$store.state.postId !== -1" title="Recent Post">
     <ul class="flex flex-col relative list-none p-0 my-4">
       <li v-for="post in recentPosts" :key="post.id"
-          class="my-2 flex flex-row text-light-slate font-mono text-base whitespace-nowrap">
+          class="my-2 flex flex-row text-light-slate font-mono text-base">
         <g-link :to="post.path" class="inline-link">
           <div class="flex flex-row">
             <font-awesome :icon="['fa', 'chevron-right']"/>

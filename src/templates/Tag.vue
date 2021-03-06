@@ -1,10 +1,10 @@
 <template>
   <Layout aside>
     <div class="container-inner mx-auto my-16">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-wider mb-10 uppercase">Tag: {{ $page.tag.title }}</h2>
+      <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider mb-10 uppercase">Tag: {{ $page.tag.title }}</h2>
 
       <div v-for="post in $page.tag.belongsTo.edges" :key="post.node.id" class="post border-gray-400 border-b mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold tracking-wider"><g-link :to="post.node.path" class="inline-link">{{ post.node.title }}</g-link></h2>
+        <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider"><g-link :to="post.node.path" class="inline-link">{{ post.node.title }}</g-link></h2>
         <ul class="flex flex-wrap relative list-none p-0 mb-4 text-light-slate font-mono text-sm">
           <li class="my-2 whitespace-nowrap mx-1">
             <font-awesome :icon="['fa', 'calendar-alt']"/>
@@ -55,6 +55,7 @@ query Tag ($id: ID!, $page: Int) {
     	      date (format: "MMMM D, YYYY")
             path
             summary
+            cover
             author
             tags {
               title

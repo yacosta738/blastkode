@@ -33,13 +33,9 @@ import Tag from '~/models/Tag';
 
 @Component({components:{Widget}})
 export default class TagCloudWidget extends Vue {
-  public fontUnit = "rem";
-  public largestFontSize = 1.8;
-  public smallestFontSize = 1.0;
-  public fontSizeSpread = this.largestFontSize - this.smallestFontSize;
-  get allTags(): Tag[]{
+  get allTags(): Tag[] {
     // @ts-ignore
-    return this.$static.tags.edges.map(edge => Tag.fromJson(edge.node));
+    return this.$static.tags.edges.map(edge => Tag.fromJson(edge.node)).sort((tag1: Tag, tag2: Tag) => tag1.title < tag2.title ? -1 : tag1.title > tag2.title ? 1 : 0);
   }
   get totalCount():number{
     // @ts-ignore

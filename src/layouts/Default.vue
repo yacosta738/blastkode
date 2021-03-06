@@ -11,13 +11,13 @@
           <slot/>
         </main>
       </transition>
-      <transition  v-if="aside"  name="fade" mode="out-in" appear>
-        <aside id="sidebar" class="md:w-80 mt-8 md:mr-80 md:mt-20 lg:mt-15">
-        <div class="my-16">
-          <recent-post-widget/>
-          <tag-cloud-widget/>
-          <category-widget/>
-        </div>
+      <transition v-if="aside" name="fade" mode="out-in" appear>
+        <aside id="sidebar" class="w-auto md:w-80 mt-2 md:mr-80 md:mt-20 lg:mt-15">
+          <div class="my-2 md:my-16">
+            <recent-post-widget/>
+            <tag-cloud-widget/>
+            <category-widget/>
+          </div>
         </aside>
       </transition>
     </div>
@@ -50,9 +50,9 @@ import Navbar from '@/components/Navbar.vue';
 import Social from "@/components/Social.vue";
 import Email from "@/components/Email.vue";
 import FooterSection from "~/components/FooterSection.vue";
-import TagCloudWidget from "~/components/shared/TagCloudWidget.vue"
-import CategoryWidget from "~/components/shared/CategoryWidget.vue"
-import RecentPostWidget from "~/components/shared/RecentPostWidget.vue"
+import TagCloudWidget from "~/components/shared/TagCloudWidget.vue";
+import CategoryWidget from "~/components/shared/CategoryWidget.vue";
+import RecentPostWidget from "~/components/shared/RecentPostWidget.vue";
 import ConfigurationMixin from "@/util/configuration.mixin";
 
 @Component({components: {Navbar, Social, Email, FooterSection, TagCloudWidget, CategoryWidget,RecentPostWidget}})

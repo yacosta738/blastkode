@@ -2,7 +2,7 @@
   <Layout aside>
     <div class="container-inner mx-auto pl-80 py-16">
       <div v-for="post in $page.posts.edges" :key="post.node.id" class="post border-gray-400 border-b mb-20">
-        <h2 class="text-3xl md:text-4xl font-bold tracking-wider"><g-link :to="post.node.path" class="inline-link">{{ post.node.title }}</g-link></h2>
+        <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider"><g-link :to="post.node.path" class="inline-link">{{ post.node.title }}</g-link></h2>
         <ul class="flex flex-wrap relative list-none p-0 mb-4 text-light-slate font-mono text-sm">
           <li class="my-2 whitespace-nowrap mx-1">
             <font-awesome :icon="['fa', 'calendar-alt']"/>
