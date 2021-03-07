@@ -1,16 +1,16 @@
 <template>
   <div class="flex flex-col md:flex-row items-center my-28">
-    <div v-if="layout === 'left'" class="w-3/5 text-center md:text-left">
-      <div class="flex items-center justify-center md:text-left project-image">
-        <a :href="(project.external)?project. external : project.github ? project.github : '#'">
+    <div v-if="layout === 'left'" class="w-auto md:w-3/5 text-center md:text-left">
+      <div class="flex items-center justify-center text-center md:text-left project-image">
+        <g-link :to="(project.external)?project. external : project.github ? project.github : '#'">
           <g-image v-if="project.cover" class="object-cover img" :src="project.cover" :alt="project.title"/>
-        </a>
+        </g-link>
       </div>
     </div>
-    <div v-if="layout === 'left'" class="mt-8 lg:mt-0 w-2/5 relative z-10">
-      <div class="text-center md:text-right -ml-28 transform -translate-x-2">
+    <div v-if="layout === 'left'" class="mt-8 lg:mt-0 w-auto md:w-2/5 relative z-10">
+      <div class="text-center md:text-right m-0 md:-ml-28 transform transform-none md:-translate-x-2">
         <p class="text-green-500 font-mono text-sm font-normal py-2.5 pr-0">Featured Project</p>
-        <h3 class="text-lightest-slate text-3xl">{{ project.title }}</h3>
+        <h3 class="text-lightest-slate text-xl md:text-3xl">{{ project.title }}</h3>
         <div
             class="project-description relative rounded p-6 text-light-slate my-4 text-center md:text-right bg-light-navy text-xl">
           <p v-html="project.content" class="">
@@ -21,10 +21,10 @@
         <project-links :project="project" position="end"/>
       </div>
     </div>
-    <div v-if="layout === 'right'" class="w-2/5 mt-8 lg:mt-0 relative z-10">
-      <div class="text-center md:text-left -ml-28 transform translate-x-28">
+    <div v-if="layout === 'right'" class="w-auto md:w-2/5 mt-8 lg:mt-0 relative z-10">
+      <div class="text-center md:text-left m-0 md:-ml-28 transform transform-none md:translate-x-28">
         <p class="text-green-500 font-mono text-sm font-normal py-2.5 pl-0">Featured Project</p>
-        <h3 class="text-lightest-slate text-3xl">{{ project.title }}</h3>
+        <h3 class="text-lightest-slate text-xl md:text-3xl">{{ project.title }}</h3>
         <div
             class="project-description relative rounded p-6 text-light-slate my-4 text-center md:text-left bg-light-navy text-xl">
           <p v-html="project.content" class="">
@@ -36,11 +36,11 @@
         <project-links :project="project" position="start"/>
       </div>
     </div>
-    <div v-if="layout === 'right'" class="w-3/5 text-center md:text-right">
+    <div v-if="layout === 'right'" class="w-auto md:w-3/5 text-center md:text-right">
       <div class="flex items-center justify-center md:text-right project-image">
-        <a :href="(project.external)?project. external : project.github ? project.github : '#'">
+        <g-link :to="(project.external)?project. external : project.github ? project.github : '#'">
           <g-image v-if="project.cover" class="object-cover img" :src="project.cover" :alt="project.title"/>
-        </a>
+        </g-link>
       </div>
     </div>
   </div>
