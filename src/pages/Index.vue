@@ -1,13 +1,11 @@
 <template>
   <Layout>
-
     <hero/>
     <about/>
     <jobs/>
     <projects/>
     <blog/>
     <contact/>
-
   </Layout>
 </template>
 

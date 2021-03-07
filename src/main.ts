@@ -20,7 +20,17 @@ import VueScreen from 'vue-screen';
 config.autoAddCss = false;
 library.add(faGithub, faTwitter, faInstagram, faLinkedin, faCodepen, faExternalLinkAlt, faFolder, faVuejs, faCalendarAlt, faChevronRight, faTags,
     faFolderOpen);
-
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+        if (!isSafari) {
+            const imageUrl = window.location.origin + '/images/you-are-the-best.png'
+            const css = `padding:200px 0 0 0;text-align:bottom;font-size: 1.5rem;background:url(${imageUrl}) no-repeat left top;background-size:200px`
+            console.log("%c So, you're reading the console messages - how geeky! 🤓", css)
+        }
+    } catch (error) {
+    }
+})
 export default function(Vue, {router, head, isClient, appOptions}) {
     // Store
     Vue.use(Vuex);

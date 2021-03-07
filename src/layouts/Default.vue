@@ -1,6 +1,5 @@
 <template>
-  <div
-      class="content-wrapper bg-background-primary font-sans text-light-slate leading-normal flex flex-col min-h-screen"
+  <div class="content-wrapper bg-background-primary font-sans text-light-slate leading-normal flex flex-col min-h-screen"
       :class="theme">
 
     <navbar/>
@@ -66,3 +65,70 @@ export default class Default extends mixins(ConfigurationMixin) {
 </script>
 
 <style src="../css/main.css"/>
+<style lang="scss">
+ul {
+  &.fancy-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: var(--fz-lg);
+    li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 10px;
+      &:before {
+        content: '▹';
+        position: absolute;
+        left: 0;
+        color: var(--green);
+      }
+    }
+  }
+}
+blockquote {
+  border-left-color: var(--green);
+  border-left-style: solid;
+  border-left-width: 1px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 1.5rem;
+
+  p {
+    font-style: italic;
+    font-size: 24px;
+  }
+}
+
+hr {
+  background-color: var(--lightest-navy);
+  height: 1px;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  margin: 1rem;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: var(--fz-md);
+}
+.overline {
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: var(--fz-md);
+  font-weight: 400;
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  color: var(--green);
+
+  .arrow {
+    display: block;
+    margin-right: 10px;
+    padding-top: 4px;
+  }
+}
+</style>

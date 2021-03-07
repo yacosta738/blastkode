@@ -123,6 +123,7 @@
     --green-tint: rgba(100, 255, 218, 0.1);
     --font-sans: "Calibre", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
     --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+
     --fz-xxs: 12px;
     --fz-xs: 13px;
     --fz-sm: 14px;
@@ -130,6 +131,12 @@
     --fz-lg: 18px;
     --fz-xl: 20px;
     --fz-xxl: 22px;
+    --fz-heading: 32px;
+    --border-radius: 4px;
+    --nav-height: 100px;
+    --nav-scroll-height: 70px;
+    --tab-height: 42px;
+    --tab-width: 120px;
 
 }
 
@@ -181,6 +188,7 @@
     --green-tint: rgba(100, 255, 218, 0.1);
     --font-sans: "Calibre", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
     --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+
     --fz-xxs: 12px;
     --fz-xs: 13px;
     --fz-sm: 14px;
@@ -188,6 +196,12 @@
     --fz-lg: 18px;
     --fz-xl: 20px;
     --fz-xxl: 22px;
+    --fz-heading: 32px;
+    --border-radius: 4px;
+    --nav-height: 100px;
+    --nav-scroll-height: 70px;
+    --tab-height: 42px;
+    --tab-width: 120px;
 
 }
 
@@ -199,9 +213,7 @@
     @apply border-white border-b;
 }
 
-.content-wrapper {
-    transition: background-color .25s;
-}
+
 
 .content-wrapper > main {
     background-color: var(--bg-background-primary);
@@ -213,10 +225,10 @@ html {
     scroll-behavior: smooth;
 }
 
-*, *:before, *:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 ::selection {
@@ -227,12 +239,12 @@ html {
 ::-webkit-scrollbar {
     width: 4px;
     height: 4px;
-    background-color: #b4eee0;
+    background-color: #58625f;
 }
 
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #b4eee0;
+    background-color: #58625f;
     border-radius: 3px;
 }
 
@@ -243,7 +255,7 @@ html {
 }
 
 * {
-    scrollbar-color: #133040 #b4eee0;
+    scrollbar-color: #133040 #58625f;
     scrollbar-width: thin;
 }
 

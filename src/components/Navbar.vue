@@ -24,9 +24,9 @@
           :class="isOpen ? 'block': 'hidden'"
           data-cypress="menu"
       >
-        <li class="mb-6 lg:mb-0">
-          <search-input/>
-        </li>
+<!--        <li class="mb-6 lg:mb-0">-->
+<!--          <search-input/>-->
+<!--        </li>-->
         <li>
           <theme-switcher/>
         </li>
@@ -47,11 +47,10 @@
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import SearchInput from '@/components/SearchInput.vue';
 import ThemeSwitcher from '@/components/ThemeSwitcher.vue';
 import {Menu, navMenus} from "@/config";
 
-@Component({components: {SearchInput, ThemeSwitcher}})
+@Component({components: {ThemeSwitcher}})
 export default class Navbar extends Vue {
   isOpen: boolean = false;
   showNavbar: boolean = true;
