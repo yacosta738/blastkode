@@ -2,11 +2,11 @@
   <ul class="project-tech-list" :class="classProjectList">
     <li v-for="tech in project.tech" :key="tech.id"
         class="my-2 text-light-slate font-mono text-xs whitespace-nowrap" :class="classLinks">
-      <a v-if="tech.url" :href="tech.url">
+      <g-link v-if="tech.url" :to="tech.url">
         <font-awesome v-if="tech.icon && showIcon"
                       :icon="(typeof tech.icon === 'string')?['fab', tech.icon]:[tech.icon.type, tech.icon.value ]"/>
         {{ tech.name }}
-      </a>
+      </g-link>
       <span v-else>{{ tech.name }}</span>
     </li>
   </ul>

@@ -1,5 +1,5 @@
 <template>
-  <section id="last3articles">
+  <section id="last3articles" class="mx-4 md:mx-auto">
     <div  class="lg:-mx-12">
       <h2 class="numbered-heading">Last Articles</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-2">

@@ -1,9 +1,6 @@
 <template>
-  <section id="projects">
-    <h2 class="numbered-heading">Some Things I’ve Built</h2>
-    <div>
-      <featured-projects v-for="(project, i) in featuredProjects" :key="project.id" :project="project" :layout="(i%2 ===0)?'left':'right'"/>
-    </div>
+  <section id="projects" class="mx-4 md:mx-auto">
+    <featured-projects  :projects="featuredProjects" />
     <common-projects :projects="commonProjects"/>
   </section>
 </template>
