@@ -14,8 +14,8 @@
 
           <p>
             Shortly after graduating from
-            <a href="https://www.ccis.northeastern.edu" class="inline-link">Northeastern University</a>, I joined the
-            engineering team at <a href="https://www.upstatement.com" class="inline-link">Upstatement</a> where I work
+            <g-link to="https://www.ccis.northeastern.edu" class="inline-link">Northeastern University</g-link>, I joined the
+            engineering team at <g-link to="https://www.upstatement.com" class="inline-link">Upstatement</g-link> where I work
             on a wide variety of interesting and meaningful projects on a daily basis.
           </p>
 

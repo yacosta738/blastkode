@@ -30,6 +30,12 @@ module.exports = {
         '80': '20rem',
         '108': '27rem',
       },
+      lineClamp: {
+        7: '7',
+        8: '8',
+        9: '9',
+        10: '10',
+      },
       borderWidth: {
         '14': '14px',
       },  colors: {
@@ -124,5 +130,7 @@ module.exports = {
     transitionProperty: ['responsive', 'motion-safe', 'motion-reduce'],
     lineClamp: ['responsive', 'hover']
   },
-  plugins: ["@tailwindcss/line-clamp"]
+  plugins: [
+    require('@tailwindcss/line-clamp')
+  ],
 }

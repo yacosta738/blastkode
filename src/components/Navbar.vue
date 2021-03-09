@@ -39,7 +39,7 @@
             </li>
           </ol>
         </li>
-        <li><a href="/" class="resume-button">Resume</a></li>
+        <li><g-link to="/" class="resume-button">Resume</g-link></li>
       </ul>
     </nav>
   </header>

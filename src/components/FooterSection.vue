@@ -4,12 +4,12 @@
       <div class="flex flex-col items-center">
         <ul class="flex flex-wrap relative list-none p-0 md:hidden">
           <li class="my-2 text-light-slate font-mono text-3xl whitespace-nowrap mx-1" v-for="social in socialMedia">
-            <a :href="social.url"><font-awesome :icon="['fab', social.name.toLowerCase() ]"/></a>
+            <g-link :href="social.url"><font-awesome :icon="['fab', social.name.toLowerCase() ]"/></g-link>
           </li>
         </ul>
         <p class="text-sm text-lightest-slate font-mono">Built by Yuniel Acosta Pérez</p>
         <p class="text-xs text-light-slate font-mono my-2">Design based on
-          <a href="https://brittanychiang.com/" class="inline-link">brittanychiang.com</a>
+          <g-link to="https://brittanychiang.com/" class="inline-link">brittanychiang.com</g-link>
         </p>
         <ul class="flex flex-wrap relative list-none p-0">
           <li class="my-2 text-light-slate font-mono text-xs whitespace-nowrap mx-1">

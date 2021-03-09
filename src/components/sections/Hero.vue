@@ -9,7 +9,7 @@
         designing) exceptional websites, applications, and everything in between.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aut cum cupiditate debitis dolor doloremque, earum enim exercitationem impedit laudantium molestias necessitatibus quibusdam quos reprehenderit rerum sequi unde veritatis?
       </p>
-      <a :href="`mailto:${myEmail}`" class="big-button my-10">Get In Touch</a>
+      <g-link :to="`mailto:${myEmail}`" class="big-button my-10">Get In Touch</g-link>
     </div>
   </section>
 </template>

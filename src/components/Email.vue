@@ -1,6 +1,6 @@
 <template>
   <side :is-home="isHome" orientation="right">
-    <div class="email-side"><a :href="`mailto:${email}`">{{ email }}</a></div>
+    <div class="email-side"><g-link :to="`mailto:${email}`">{{ email }}</g-link></div>
   </side>
 </template>
 

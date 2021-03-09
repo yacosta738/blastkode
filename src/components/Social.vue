@@ -2,9 +2,9 @@
   <side :is-home="isHome" orientation="left">
     <ul class="social-links">
       <li v-for="social in socialMedia">
-        <a :href="social.url">
+        <g-link :to="social.url">
           <font-awesome :icon="['fab', social.name.toLowerCase() ]"/>
-        </a>
+        </g-link>
       </li>
     </ul>
   </side>

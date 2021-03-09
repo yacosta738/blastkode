@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center">
     <div class="mt-10 mb-20 text-center">
       <h2 class="section-title">Other Noteworthy Projects</h2>
-      <a href="/" class="inline-link">view the archive</a>
+      <g-link :to="'/'" class="inline-link">view the archive</g-link>
     </div>
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
       <div v-for="project in projectsToShow" class="style-project-card">

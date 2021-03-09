@@ -1,11 +1,11 @@
 <template>
   <div class="project-links" :class="classProjectLinks">
-    <a v-if="project.github" :href="project.github" aria-label="GitHub Link" :class="classLinks">
+    <g-link v-if="project.github" :to="project.github" aria-label="GitHub Link" :class="classLinks">
       <font-awesome :icon="['fab', 'github' ]"/>
-    </a>
-    <a v-if="project.external" :href="project.external" aria-label="External Link" :class="classLinks">
+    </g-link>
+    <g-link v-if="project.external" :to="project.external" aria-label="External Link" :class="classLinks">
       <font-awesome :icon="['fa', 'external-link-alt' ]"/>
-    </a>
+    </g-link>
   </div>
 </template>
 

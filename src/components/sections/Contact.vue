@@ -1,12 +1,12 @@
 <template>
-  <section id="contact">
+  <section id="contact" class="mx-4 md:mx-auto">
     <div class="">
       <div class="grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-light-navy text-light-slate rounded-lg shadow-lg">
         <div class="flex flex-col justify-between">
           <div>
             <h2 class="numbered-heading">Contact me</h2>
-            <h3 class="text-4xl lg:text-5xl font-bold leading-tight text-lightest-slate">Lets talk about everything!</h3>
-            <div class="text-light-slate mt-8">
+            <h3 class="text-4xl lg:text-5xl text-center md:text-left font-bold leading-tight text-lightest-slate">Lets talk about everything!</h3>
+            <div class="text-light-slate mt-8  text-center md:text-left">
               I am interested in new opportunities especially ambitious or large projects. However, if you have other request or question, don't hesitate [to contact me](/#contact-me) using below form either.
             </div>
           </div>
@@ -515,32 +515,32 @@
             </svg>
           </div>
         </div>
-        <form id="contact-form" class="" method="POST" action="https://formspree.io/f/xknperzd">
+        <form id="contact-form" class="mx-auto" method="POST" action="https://formspree.io/f/xknperzd">
           <div>
             <span class="uppercase text-sm text-lightest-slate font-bold">Your Full Name</span>
             <input id="form-name"
-                   class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                   class="w-full bg-transparent text-green-500 border-2 border-green-500 rounded-lg mt-2 p-3 focus:outline-none focus:shadow-outline"
                    name="name" required type="text" placeholder="Your Full Name">
           </div>
           <div class="mt-8">
             <span class="uppercase text-sm text-lightest-slate font-bold">Your Email</span>
             <input id="form-email"
-                   class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                   class="w-full bg-transparent text-green-500 border-2 border-green-500 rounded-lg mt-2 p-3 focus:outline-none focus:shadow-outline"
                    placeholder="Your Email" name="email" required type="email">
           </div>
           <div class="mt-8">
             <span class="uppercase text-sm text-lightest-slate font-bold">Subject</span>
             <input id="form-subject"
-                   class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                   class="w-full bg-transparent text-green-500 border-2 border-green-500 rounded-lg mt-2 p-3 focus:outline-none focus:shadow-outline"
                    placeholder="Subject" name="subject" required type="text">
           </div>
           <div class="mt-8">
             <span class="uppercase text-sm text-lightest-slate font-bold">Message</span>
             <textarea id="form-message" placeholder="Message" name="message" required
-                      class="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
+                      class="w-full h-32 bg-transparent text-green-500 border-2 border-green-500 rounded-lg mt-2 p-3 focus:outline-none focus:shadow-outline"></textarea>
           </div>
           <div class="mt-8">
-            <button class="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline"
+            <button class="big-button w-full"
                     type="submit" value="Send Message">
               Send Message
             </button>

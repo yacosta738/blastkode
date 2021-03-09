@@ -8,7 +8,11 @@
           <h3 class="project-title">{{ project.title }}</h3>
           <div class="project-description" v-html="project.content"></div>
           <ul class="project-tech-list">
-            <li v-for="tech in project.tech" :key="tech.id">{{ tech.name }}</li>
+            <li v-for="tech in project.tech" :key="tech.id">
+              <font-awesome v-if="tech.icon"
+                            :icon="[tech.icon.type, tech.icon.value ]"/>
+              {{ tech.name }}
+            </li>
           </ul>
           <div class="project-links">
             <g-link v-if="project.github" :to="project.github" aria-label="GitHub Link">
