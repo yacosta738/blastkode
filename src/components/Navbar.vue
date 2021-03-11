@@ -10,56 +10,42 @@
           <g-image src="../../static/logo_dark_mode.svg" class="w-40" alt="logo"/>
         </g-link>
       </div>
-      <div class="block lg:hidden">
-        <button @click="toggle"
-                class="flex items-center px-3 py-2 border rounded border-gray-500 hover:text-gray-600 hover:border-gray-600"
-                data-cypress="hamburger">
-          <svg class="current-color h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" fill="gray"/>
-          </svg>
-        </button>
+      <div class="z-50 block lg:hidden">
+        <svg @click="$store.commit('toggle')" class="ham hamRotate ham7" :class="{'active-menu': isOpen}" viewBox="0 0 100 100"
+             width="50">
+          <path
+              class="line top"
+              d="m 70,33 h -40 c 0,0 -6,1.368796 -6,8.5 0,7.131204 6,8.5013 6,8.5013 l 20,-0.0013"/>
+          <path
+              class="line middle"
+              d="m 70,50 h -40"/>
+          <path
+              class="line bottom"
+              d="m 69.575405,67.073826 h -40 c -5.592752,0 -6.873604,-9.348582 1.371031,-9.348582 8.244634,0 19.053564,21.797129 19.053564,12.274756 l 0,-40"/>
+        </svg>
       </div>
-      <ul
-          class="uppercase tracking-wide font-bold w-full block flex-grow lg:space-x-8 space-y-6 lg:space-y-0 lg:flex lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0"
-          :class="isOpen ? 'block': 'hidden'"
-          data-cypress="menu"
-      >
-<!--        <li class="mb-6 lg:mb-0">-->
-<!--          <search-input/>-->
-<!--        </li>-->
-        <li>
-          <theme-switcher/>
-        </li>
-        <li>
-          <ol class="order-list lg:space-x-8 space-y-6 lg:space-y-0 lg:flex lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0">
-            <li v-for="(menu, i) in menus" :key="i">
-              <g-link v-if="$route.path === '/'" :to="menu.url" v-scroll-to="menu.vScrollTo" class=""
-                 data-cypress="projects">{{ menu.name }}</g-link>
-              <g-link v-else :to="menu.url" class="">{{ menu.name }}</g-link>
-            </li>
-          </ol>
-        </li>
-        <li><g-link to="/" class="resume-button">Resume</g-link></li>
-      </ul>
+      <menus class="hidden lg:block"></menus>
+      <div v-if="isOpen" :class="{ 'navbar-menu-open':isOpen, 'navbar-menu-close':!isOpen}"
+           class="navbar-menu z-40 w-64 absolute bg-light-navy top-0 right-0 h-screen flex-grow px-4 py-8 md:pb-0 overflow-y-hidden -mx-14">
+          <menus/>
+      </div>
     </nav>
   </header>
 </template>
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import ThemeSwitcher from '@/components/ThemeSwitcher.vue';
-import {Menu, navMenus} from "@/config";
-
-@Component({components: {ThemeSwitcher}})
+import Menus from "./Menus.vue";
+@Component({components: {Menus}})
 export default class Navbar extends Vue {
-  isOpen: boolean = false;
   showNavbar: boolean = true;
   scrollDirection: string = 'DOWN';
   lastScrollPosition: number = 0;
 
-  get menus(): Menu[] {
-    return navMenus;
+  get isOpen(): boolean {
+    return this.$store.state.drawer;
   }
+
 
   get theme(): string {
     return this.$store.state.theme;
@@ -67,24 +53,22 @@ export default class Navbar extends Vue {
 
   mounted() {
     //@ts-ignore
-    if(process.isClient)
-    window.addEventListener('scroll', this.onScroll);
+    if (process.isClient) {
+      window.addEventListener('scroll', this.onScroll);
+    }
   }
 
   beforeDestroy() {
     //@ts-ignore
-    if(process.isClient)
-    window.removeEventListener('scroll', this.onScroll);
-  }
-
-  public toggle() {
-    this.isOpen = !this.isOpen;
+    if (process.isClient) {
+      window.removeEventListener('scroll', this.onScroll);
+    }
   }
 
   public onScroll() {
     //@ts-ignore
-    const currentScrollPosition = (process.isClient)? window.pageYOffset || document.documentElement.scrollTop:0;
-    if (currentScrollPosition < 0) {
+    const currentScrollPosition = (process.isClient) ? window.pageYOffset || document.documentElement.scrollTop : 0;
+    if (currentScrollPosition < 0 || this.isOpen) {
       return;
     }
     // const navbar = document.getElementById('acosta-navbar');
@@ -100,6 +84,72 @@ export default class Navbar extends Vue {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.navbar-menu {
+  transition: all 530ms ease-out;
+}
+
+.navbar-menu-open {
+  transform: translateX(0%);
+}
+
+.navbar-menu-close {
+  transform: translateX(100%);
+}
+
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hamRotate.active-menu {
+  transform: rotate(45deg);
+}
+
+.hamRotate180.active-menu {
+  transform: rotate(180deg);
+}
+
+.line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: #64ffda;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+.ham7 {
+  .top {
+    stroke-dasharray: 40 82;
+  }
+
+  .middle {
+    stroke-dasharray: 40 111;
+  }
+
+  .bottom {
+    stroke-dasharray: 40 161;
+  }
+}
+
+.ham7.active-menu {
+  .top {
+    stroke-dasharray: 17 82;
+    stroke-dashoffset: -62px;
+  }
+
+  .middle {
+    stroke-dashoffset: 23px;
+  }
+
+  .bottom {
+    stroke-dashoffset: -83px;
+  }
+}
 
 </style>

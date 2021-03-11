@@ -47,7 +47,8 @@ export default function(Vue, {router, head, isClient, appOptions}) {
         state: {
             //@ts-ignore
             theme: (process.isClient) ? !localStorage.getItem('theme') || 'theme-dark' : 'theme-dark',
-            postId: -1
+            postId: -1,
+            drawer: false
         },
         mutations: {
             toggleTheme(state) {
@@ -60,6 +61,13 @@ export default function(Vue, {router, head, isClient, appOptions}) {
             },
             changePostId(state, id){
                 state.postId = id;
+            },
+            toggle(state){
+                state.drawer = !state.drawer;
+            },
+            updateDrawer(state, drawer){
+                console.log(`update the drawer state old ${state.drawer} new ${drawer}`);
+                state.drawer = drawer;
             }
         }
     });
