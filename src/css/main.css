@@ -490,7 +490,11 @@ header {
     backdrop-filter: blur(10px);
     user-select: none;
 }
-
+@media (max-width: 768px) {
+    header {
+        padding: 0 25px;
+    }
+}
 nav .active {
     font-weight: bold;
     @apply border-black border-b;
@@ -625,7 +629,7 @@ nav .active {
 }
 
 .resume-button {
-    @apply button capitalize;
+    @apply bg-transparent text-green-500 border border-green-500 rounded text-sm cursor-pointer p-2 hover:bg-green-900 select-none capitalize;
 }
 
 .small-button {

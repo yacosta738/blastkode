@@ -16,58 +16,60 @@ import {faChevronRight} from '@fortawesome/free-solid-svg-icons/faChevronRight.j
 import {faTags} from '@fortawesome/free-solid-svg-icons/faTags.js';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import VueScreen from 'vue-screen';
+import {isClient} from '~/util/utilities';
 
 config.autoAddCss = false;
 library.add(faGithub, faTwitter, faInstagram, faLinkedin, faCodepen, faExternalLinkAlt, faFolder, faVuejs, faCalendarAlt, faChevronRight, faTags,
     faFolderOpen);
-const init = () => {
-    //@ts-ignore
-    if (process.isClient){
-        document.addEventListener('DOMContentLoaded', function () {
+const init = (appOptions) => {
+    if (isClient()) {
+        document.addEventListener('DOMContentLoaded', function() {
+            appOptions.store.commit('updateShowNavbar', true);
             try {
-                const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+                const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
                 if (!isSafari) {
-                    const imageUrl = window.location.origin + '/images/you-are-the-best.png'
-                    const css = `padding:200px 0 0 0;text-align:bottom;font-size: 1.5rem;background:url(${imageUrl}) no-repeat left top;background-size:200px`
-                    console.log("%c So, you're reading the console messages - how geeky! 🤓", css)
+                    const imageUrl = window.location.origin + '/images/you-are-the-best.png';
+                    const css = `padding:200px 0 0 0;text-align:bottom;font-size: 1.5rem;background:url(${imageUrl}) no-repeat left top;background-size:200px`;
+                    console.log("%c So, you're reading the console messages - how geeky! 🤓", css);
                 }
             } catch (error) {
             }
-        })
+        });
     }
-}
+};
 
 export default function(Vue, {router, head, isClient, appOptions}) {
-    init();
+    init(appOptions);
     // Store
     Vue.use(Vuex);
     // Vue Screen
     Vue.use(VueScreen);
     appOptions.store = new Vuex.Store({
         state: {
-            //@ts-ignore
-            theme: (process.isClient) ? !localStorage.getItem('theme') || 'theme-dark' : 'theme-dark',
+            theme: (isClient) ? !localStorage.getItem('theme') || 'theme-dark' : 'theme-dark',
             postId: -1,
-            drawer: false
+            drawer: false,
+            showNavbar: true
         },
         mutations: {
             toggleTheme(state) {
                 const newTheme = state.theme === 'theme-light' ? 'theme-dark' : 'theme-light';
-                //@ts-ignore
-                if (process.isClient) {
+                if (isClient) {
                     localStorage.setItem('theme', newTheme);
                 }
                 state.theme = newTheme;
             },
-            changePostId(state, id){
+            changePostId(state, id) {
                 state.postId = id;
             },
-            toggle(state){
+            toggle(state) {
                 state.drawer = !state.drawer;
             },
-            updateDrawer(state, drawer){
-                console.log(`update the drawer state old ${state.drawer} new ${drawer}`);
+            updateDrawer(state, drawer) {
                 state.drawer = drawer;
+            },
+            updateShowNavbar(state, showNavbar) {
+                state.showNavbar = showNavbar;
             }
         }
     });

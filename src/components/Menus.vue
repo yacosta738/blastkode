@@ -13,16 +13,15 @@
     <li>
       <ol class="order-list lg:space-x-8 space-y-6 lg:space-y-0 lg:flex lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0">
         <li v-for="(menu, i) in menus" :key="i">
-          <g-link v-if="$route.path === '/'" :to="menu.url" v-scroll-to="menu.vScrollTo" class=""
-                  @click="$store.commit('updateDrawer',false)"
+          <g-link v-if="$route.path === '/'" :to="menu.url" v-scroll-to="menu.vScrollTo" class="close-menu-dummy"
                   data-cypress="projects">{{ menu.name }}
           </g-link>
-          <g-link @click="$store.commit('updateDrawer',false)" v-else :to="menu.url" class="">{{ menu.name }}</g-link>
+          <g-link v-else :to="menu.url" class="close-menu-dummy">{{ menu.name }}</g-link>
         </li>
       </ol>
     </li>
     <li>
-      <g-link to="/" @click="$store.commit('updateDrawer',false)" class="resume-button">Resume</g-link>
+      <g-link to="/resume" class="resume-button">Resume</g-link>
     </li>
   </ul>
 </template>
@@ -31,11 +30,23 @@
 import {Component, Vue} from 'vue-property-decorator';
 import {Menu, navMenus} from '~/config';
 import ThemeSwitcher from './ThemeSwitcher.vue';
+import {addEventToClassName} from '~/util/utilities';
 
 @Component({components: {ThemeSwitcher}})
 export default class Menus extends Vue {
   get menus(): Menu[] {
     return navMenus;
+  }
+
+  private closeMenu(): void {
+    this.$store.commit('updateDrawer', false);
+    setTimeout(() => {
+      this.$store.commit('updateShowNavbar', true);
+    }, 2000);
+  }
+
+  mounted() {
+    addEventToClassName('close-menu-dummy', this.closeMenu);
   }
 }
 </script>

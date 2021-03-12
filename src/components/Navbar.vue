@@ -1,7 +1,7 @@
 <template>
   <header class="fixed z-50 w-full"
           :class="{ 'navbar--hidden': !showNavbar, 'navbar--show':scrollDirection === 'UP' && lastScrollPosition !== 0 }">
-    <nav id="acosta-navbar" class="relative flex flex-wrap justify-between items-center py-4">
+    <nav id="acosta-navbar" class="relative flex flex-wrap w-full justify-between items-center py-2 md:py-4">
       <div>
         <g-link v-if="theme === 'theme-light'" to="/">
           <g-image src="../../static/logo.svg" class="w-40" alt="logo"/>
@@ -11,8 +11,9 @@
         </g-link>
       </div>
       <div class="z-50 block lg:hidden">
-        <svg @click="$store.commit('toggle')" class="ham hamRotate ham7" :class="{'active-menu': isOpen}" viewBox="0 0 100 100"
-             width="50">
+        <svg @click="$store.commit('toggle')" class="ham hamRotate ham7" :class="{'active-menu': isOpen}"
+             viewBox="0 0 100 100"
+             width="60">
           <path
               class="line top"
               d="m 70,33 h -40 c 0,0 -6,1.368796 -6,8.5 0,7.131204 6,8.5013 6,8.5013 l 20,-0.0013"/>
@@ -27,7 +28,7 @@
       <menus class="hidden lg:block"></menus>
       <div v-if="isOpen" :class="{ 'navbar-menu-open':isOpen, 'navbar-menu-close':!isOpen}"
            class="navbar-menu z-40 w-64 absolute bg-light-navy top-0 right-0 h-screen flex-grow px-4 py-8 md:pb-0 overflow-y-hidden -mx-14">
-          <menus/>
+        <menus/>
       </div>
     </nav>
   </header>
@@ -36,38 +37,43 @@
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
 import Menus from "./Menus.vue";
+import {isClient} from '~/util/utilities';
+
 @Component({components: {Menus}})
 export default class Navbar extends Vue {
-  showNavbar: boolean = true;
   scrollDirection: string = 'DOWN';
   lastScrollPosition: number = 0;
+
+  get showNavbar(): boolean {
+    return this.$store.state.showNavbar;
+  }
+
+  set showNavbar(show: boolean) {
+    this.$store.commit('updateShowNavbar', show);
+  }
 
   get isOpen(): boolean {
     return this.$store.state.drawer;
   }
-
 
   get theme(): string {
     return this.$store.state.theme;
   }
 
   mounted() {
-    //@ts-ignore
-    if (process.isClient) {
+    if (isClient()) {
       window.addEventListener('scroll', this.onScroll);
     }
   }
 
   beforeDestroy() {
-    //@ts-ignore
-    if (process.isClient) {
+    if (isClient()) {
       window.removeEventListener('scroll', this.onScroll);
     }
   }
 
   public onScroll() {
-    //@ts-ignore
-    const currentScrollPosition = (process.isClient) ? window.pageYOffset || document.documentElement.scrollTop : 0;
+    const currentScrollPosition = (isClient()) ? window.pageYOffset || document.documentElement.scrollTop : 0;
     if (currentScrollPosition < 0 || this.isOpen) {
       return;
     }
@@ -129,26 +135,28 @@ export default class Navbar extends Vue {
   }
 
   .middle {
-    stroke-dasharray: 40 111;
+    stroke-dasharray: 30 111;
   }
 
   .bottom {
-    stroke-dasharray: 40 161;
+    stroke-dasharray: 20 161;
   }
 }
 
 .ham7.active-menu {
   .top {
-    stroke-dasharray: 17 82;
+    stroke-dasharray: 40 82;
     stroke-dashoffset: -62px;
   }
 
   .middle {
+    stroke-dasharray: 40 60;
     stroke-dashoffset: 23px;
   }
 
   .bottom {
-    stroke-dashoffset: -83px;
+    stroke-dasharray: 40 82;
+    stroke-dashoffset: -82px;
   }
 }
 

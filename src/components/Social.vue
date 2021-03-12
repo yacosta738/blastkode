@@ -14,12 +14,12 @@
 import {Component, Vue} from "vue-property-decorator";
 import {socialMedia, SocialMedia} from '~/config';
 import Side from './Side.vue';
+import {isClient} from '~/util/utilities';
 
 @Component({components: {Side}})
 export default class Social extends Vue {
   get isHome() {
-    //@ts-ignore
-    return (process.isClient)?window.location.pathname === '/' : true;
+    return (isClient())?window.location.pathname === '/' : true;
   }
 
   get socialMedia(): SocialMedia[] {
