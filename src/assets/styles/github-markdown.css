@@ -686,7 +686,11 @@
   .markdown-body pre {
     word-wrap: normal;
   }
-
+  @media (max-width: 640px) {
+    .markdown-body pre  {
+      max-width: 342px;
+    }
+  }
   .markdown-body pre>code {
     background: transparent;
     border: 0;
