@@ -3,6 +3,4 @@ target
 build
 package-lock.json
 .git
-.mvn
-gradle
-.gradle
+dist

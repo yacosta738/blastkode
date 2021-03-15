@@ -29,4 +29,4 @@ export default {
 }
 </script>
 
-<style src="../css/github-markdown.css" />
+<style src="../assets/styles/github-markdown.css" />

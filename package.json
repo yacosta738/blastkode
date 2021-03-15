@@ -20,6 +20,7 @@
     "@gridsome/vue-remark": "^0.2.6",
     "@tailwindcss/line-clamp": "^0.2.0",
     "axios": "^0.21.1",
+    "date-fns": "^2.19.0",
     "gridsome": "^0.7.23",
     "gridsome-plugin-remark-shiki": "^0.6.0",
     "gridsome-plugin-rss": "^1.2.0",

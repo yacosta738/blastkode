@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import {socialMedia, SocialMedia} from '~/config';
+import {socialMedia, SocialMedia} from '~/config/config';
 import Side from './Side.vue';
 import {isClient} from '~/util/utilities';
 

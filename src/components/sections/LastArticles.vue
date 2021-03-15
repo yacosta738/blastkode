@@ -46,7 +46,7 @@ import {Component, Vue} from "vue-property-decorator";
 import CardPost from "@/components/CardPost.vue"
 import Article from '~/models/Article';
 @Component({components:{CardPost}})
-export default class Blog extends Vue {
+export default class LastArticles extends Vue {
   get last3Post(): Article[] {
     //@ts-ignore
     return this.$static.last3Post.edges.map(edge => Article.fromJson(edge.node));

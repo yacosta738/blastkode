@@ -5,22 +5,10 @@ import DefaultLayout from '~/layouts/Default.vue';
 import VueScrollTo from 'vue-scrollto';
 import VueFuse from 'vue-fuse';
 import Vuex from 'vuex';
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
-import {config, library} from '@fortawesome/fontawesome-svg-core';
-import {faCodepen, faGithub, faInstagram, faLinkedin, faTwitter, faVuejs} from '@fortawesome/free-brands-svg-icons';
-import {faExternalLinkAlt} from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt.js';
-import {faFolder} from '@fortawesome/free-solid-svg-icons/faFolder.js';
-import {faFolderOpen} from '@fortawesome/free-solid-svg-icons/faFolderOpen.js';
-import {faCalendarAlt} from '@fortawesome/free-solid-svg-icons/faCalendarAlt.js';
-import {faChevronRight} from '@fortawesome/free-solid-svg-icons/faChevronRight.js';
-import {faTags} from '@fortawesome/free-solid-svg-icons/faTags.js';
-import '@fortawesome/fontawesome-svg-core/styles.css';
 import VueScreen from 'vue-screen';
 import {isClient} from '~/util/utilities';
+import initFontawesome from '~/config/fontawesome';
 
-config.autoAddCss = false;
-library.add(faGithub, faTwitter, faInstagram, faLinkedin, faCodepen, faExternalLinkAlt, faFolder, faVuejs, faCalendarAlt, faChevronRight, faTags,
-    faFolderOpen);
 const init = (appOptions) => {
     if (isClient()) {
         document.addEventListener('DOMContentLoaded', function() {
@@ -49,7 +37,8 @@ export default function(Vue, {router, head, isClient, appOptions}) {
             theme: (isClient) ? !localStorage.getItem('theme') || 'theme-dark' : 'theme-dark',
             postId: -1,
             drawer: false,
-            showNavbar: true
+            showNavbar: true,
+            loading: false
         },
         mutations: {
             toggleTheme(state) {
@@ -70,14 +59,19 @@ export default function(Vue, {router, head, isClient, appOptions}) {
             },
             updateShowNavbar(state, showNavbar) {
                 state.showNavbar = showNavbar;
+            },
+            loadingOn(state) {
+                state.loading = !state.loading;
+            },
+            loadingOff(state) {
+                state.loading = !state.loading;
             }
         }
     });
 
     // Set default layout as a global component
     Vue.component('Layout', DefaultLayout);
-    // Set font-awesome as a global component
-    Vue.component('font-awesome', FontAwesomeIcon);
+    initFontawesome(Vue);
 
     Vue.use(VueScrollTo, {
         duration: 500,

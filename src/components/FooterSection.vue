@@ -34,7 +34,7 @@
 import {Component, Vue} from "vue-property-decorator";
 //@ts-ignore
 import {GraphQlIcon, GridsomeIcon, NetlifyIcon} from "vue-simple-icons";
-import {socialMedia, SocialMedia} from '~/config';
+import {socialMedia, SocialMedia} from '~/config/config';
 
 @Component({components: {GraphQlIcon, NetlifyIcon, GridsomeIcon}})
 export default class FooterSection extends Vue {

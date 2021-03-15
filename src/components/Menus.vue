@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-import {Menu, navMenus} from '~/config';
+import {Menu, navMenus} from '~/config/config';
 import ThemeSwitcher from './ThemeSwitcher.vue';
 import {addEventToClassName} from '~/util/utilities';
 

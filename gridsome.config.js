@@ -8,7 +8,7 @@
 module.exports = {
   siteName: 'Blastkode',
   siteDescription: 'Yuniel Acosta\'s blog and portfolio',
-  siteUrl: 'https://gridsome-portfolio-starter.netlify.com',
+  siteUrl: 'https://blastkode.com',
   plugins: [
     {
       use: 'gridsome-plugin-tailwindcss',
@@ -40,10 +40,6 @@ module.exports = {
         path: 'content/blog/**/*.md',
         typeName: 'Post',
         refs: {
-          authors: {
-            typeName: 'Author',
-            create: true
-          },
           categories: {
             typeName: 'Category',
             create: true
@@ -67,6 +63,13 @@ module.exports = {
       options: {
         path: 'content/projects/**/*.md',
         typeName: 'Project'
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/authors/**/*.md',
+        typeName: 'Author'
       }
     },
     {

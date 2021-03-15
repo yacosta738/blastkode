@@ -39,16 +39,16 @@
         </div>
           <div class="flex items-center space-x-2 mt-5">
             <!--Author's profile photo-->
-            <img
+            <g-image
                 class="w-10 h-10 object-cover object-center rounded-full"
-                src="https://randomuser.me/api/portraits/men/10.jpg"
+                :src="author.image"
                 alt="random user"
             />
             <div>
               <!--Author name-->
-              <g-link :to="article.author" class="inline-link font-semibold">{{ article.author }}</g-link>
+              <g-link :to="author.path" class="inline-link font-semibold">{{ article.author }}</g-link>
               <p class="text-gray-500 font-semibold text-sm">
-                {{ article.date }} &middot; {{ article.timeToRead }} min read
+                {{ author.rol }}
               </p>
             </div>
           </div>
@@ -56,7 +56,22 @@
     </div>
   </article>
 </template>
-
+<static-query>
+  query Authors {
+    author: allAuthor(sortBy: "title", order: DESC) {
+      totalCount
+      edges {
+        node {
+          id
+          title
+          path
+          rol
+          image
+        }
+      }
+    }
+  }
+</static-query>
 <script lang="ts">
 import 'reflect-metadata';
 import {Component, Prop, Vue} from "vue-property-decorator";
@@ -65,6 +80,13 @@ import Article from '~/models/Article';
 @Component
 export default class CardPost extends Vue {
   @Prop({required: true}) readonly article: Article | undefined;
+
+  get author() {
+    //@ts-ignore
+    const edges = this.$static.author.edges;
+    const author = edges.filter(edge => edge?.node?.title === this.article?.author);
+    return author ? author[0]?.node : edges[0];
+  }
 }
 </script>
 

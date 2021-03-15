@@ -43,122 +43,124 @@ export default class About extends Vue {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 section {
   max-width: 900px;
-}
-
-section .inner {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  grid-gap: 50px;
-}
-
-@media (max-width: 768px) {
-  section .inner {
-    display: block;
+  .inner {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-gap: 50px;
   }
 }
-
-.styled-text ul.skills-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(140px, 200px));
-  padding: 0;
-  margin: 20px 0 0 0;
-  overflow: hidden;
-  list-style: none;
+.styled-text {
+  ul.skills-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 200px));
+    padding: 0;
+    margin: 20px 0 0 0;
+    overflow: hidden;
+    list-style: none;
+    li {
+      position: relative;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      font-family: var(--font-mono);
+      font-size: var(--fz-xs);
+      &:before {
+        content: '▹';
+        position: absolute;
+        left: 0;
+        color: var(--green);
+        font-size: var(--fz-sm);
+        line-height: 12px;
+      }
+    }
+  }
 }
-
-.styled-text ul.skills-list li {
-  position: relative;
-  margin-bottom: 10px;
-  padding-left: 20px;
-  font-family: var(--font-mono);
-  font-size: var(--fz-xs);
-}
-
-.styled-text ul.skills-list li:before {
-  content: '▹';
-  position: absolute;
-  left: 0;
-  color: var(--green);
-  font-size: var(--fz-sm);
-  line-height: 12px;
-}
-
 .styled-pic {
   position: relative;
   max-width: 300px;
+  .wrapper {
+    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+    transition: var(--transition);
+    display: block;
+    position: relative;
+    width: 100%;
+    border-radius: 4px;
+    background-color: var(--green);
+    z-index: 1;
+    &:hover {
+      box-shadow: 0 20px 30px -15px var(--navy-shadow);
+      background: transparent;
+      outline: 0;
+      &:after {
+        top: 15px;
+        left: 15px;
+      }
+      .img {
+        filter: none;
+        mix-blend-mode: normal;
+      }
+    }
+    &:focus {
+      box-shadow: 0 20px 30px -15px var(--navy-shadow);
+      background: transparent;
+      outline: 0;
+      &:after {
+        top: 15px;
+        left: 15px;
+      }
+      .img {
+        filter: none;
+        mix-blend-mode: normal;
+      }
+    }
+    .img {
+      overflow: hidden;
+      position: relative;
+      border-radius: 4px;
+      mix-blend-mode: multiply;
+      filter: grayscale(100%) contrast(1);
+      transition: var(--transition);
+    }
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+      transition: var(--transition);
+      top: 0;
+      left: 0;
+      background-color: var(--navy);
+      mix-blend-mode: screen;
+    }
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+      transition: var(--transition);
+      border: 2px solid var(--green);
+      top: 20px;
+      left: 20px;
+      z-index: -1;
+    }
+  }
 }
-
 @media (max-width: 768px) {
+  section {
+    .inner {
+      display: block;
+    }
+  }
   .styled-pic {
     margin: 50px auto 0;
     width: 70%;
   }
-}
-
-.styled-pic .wrapper {
-  box-shadow: 0 10px 30px -15px var(--navy-shadow);
-  transition: var(--transition);
-  display: block;
-  position: relative;
-  width: 100%;
-  border-radius: 4px;
-  background-color: var(--green);
-  z-index: 1;
-}
-
-.styled-pic .wrapper:hover, .styled-pic .wrapper:focus {
-  box-shadow: 0 20px 30px -15px var(--navy-shadow);
-}
-
-.styled-pic .wrapper:hover, .styled-pic .wrapper:focus {
-  background: transparent;
-  outline: 0;
-}
-
-.styled-pic .wrapper:hover:after, .styled-pic .wrapper:focus:after {
-  top: 15px;
-  left: 15px;
-}
-
-.styled-pic .wrapper:hover .img, .styled-pic .wrapper:focus .img {
-  filter: none;
-  mix-blend-mode: normal;
-}
-
-.styled-pic .wrapper .img {
-  overflow: hidden;
-  position: relative;
-  border-radius: 4px;
-  mix-blend-mode: multiply;
-  filter: grayscale(100%) contrast(1);
-  transition: var(--transition);
-}
-
-.styled-pic .wrapper:before, .styled-pic .wrapper:after {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-  transition: var(--transition);
-}
-
-.styled-pic .wrapper:before {
-  top: 0;
-  left: 0;
-  background-color: var(--navy);
-  mix-blend-mode: screen;
-}
-
-.styled-pic .wrapper:after {
-  border: 2px solid var(--green);
-  top: 20px;
-  left: 20px;
-  z-index: -1;
 }
 
 </style>

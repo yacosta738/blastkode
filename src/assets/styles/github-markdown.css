@@ -223,7 +223,7 @@
   .markdown-body hr {
     box-sizing: content-box;
     height: 0;
-    overflow: visible;
+    overflow: auto;
   }
 
   .markdown-body input {
@@ -232,7 +232,7 @@
   }
 
   .markdown-body input {
-    overflow: visible;
+    overflow: auto;
   }
 
   .markdown-body [type=checkbox] {
@@ -600,7 +600,7 @@
   }
 
   .markdown-body li {
-    word-wrap: break-all;
+    word-wrap: break-word;
   }
 
   .markdown-body ul li {
@@ -722,8 +722,7 @@
     display: inline;
     line-height: inherit;
     margin: 0;
-    max-width: auto;
-    overflow: visible;
+    overflow: auto;
     padding: 0;
     word-wrap: normal;
   }
@@ -739,7 +738,7 @@
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: auto;
   }
 
   .markdown-body .blob-wrapper-embedded {
@@ -786,7 +785,7 @@
     color: #24292e;
     font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
     font-size: 12px;
-    overflow: visible;
+    overflow: auto;
     white-space: pre;
     word-wrap: normal;
   }

@@ -3,18 +3,7 @@
     <div class="container-inner mx-auto pl-80 py-16">
       <div v-for="post in $page.posts.edges" :key="post.node.id" class="post border-gray-400 border-b mb-20">
         <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider"><g-link :to="post.node.path" class="inline-link">{{ post.node.title }}</g-link></h2>
-        <ul class="flex flex-wrap relative list-none p-0 mb-4 text-light-slate font-mono text-sm">
-          <li class="my-2 whitespace-nowrap mx-1">
-            <font-awesome :icon="['fa', 'calendar-alt']"/>
-            <span class="mx-2">{{ post.node.date }}</span>
-          </li>
-          <li class="my-2 whitespace-nowrap mx-1">
-            <span>Reading time &middot; {{ post.node.timeToRead }} min</span>
-          </li>
-          <li class="my-2 whitespace-nowrap mx-1">
-            <span>Author: {{ post.node.author }}</span>
-          </li>
-        </ul>
+        <post-header :article="post.node"/>
         <div class="flex flex-col md:flex-row mb-16">
           <g-image alt="Cover image" v-if="post.node.cover" class="object-cover md:w-1/3 border border-green-500 md:mr-5" :src="post.node.cover" />
           <div class="text-center md:text-left mt-5 md:mt-0">
@@ -62,6 +51,7 @@ query Posts ($page: Int) {
 import {Component, Vue} from "vue-property-decorator";
 import PaginationPosts from '@/components/PaginationPosts.vue';
 import "@/declarations/vue-meta";
+import PostHeader from '~/pages/PostHeader.vue';
 
 @Component<Blog>({
   metaInfo() {
@@ -70,6 +60,7 @@ import "@/declarations/vue-meta";
     };
   },
   components: {
+    PostHeader,
     PaginationPosts
   }
 })

@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import {email} from '~/config';
+import {email} from '~/config/config';
 import Side from './Side.vue';
 import {isClient} from '~/util/utilities';
 
