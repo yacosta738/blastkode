@@ -51,7 +51,7 @@ query Posts ($page: Int) {
 import {Component, Vue} from "vue-property-decorator";
 import PaginationPosts from '@/components/PaginationPosts.vue';
 import "@/declarations/vue-meta";
-import PostHeader from '~/pages/PostHeader.vue';
+import PostHeader from '~/components/PostHeader.vue';
 
 @Component<Blog>({
   metaInfo() {
@@ -71,9 +71,12 @@ export default class Blog extends Vue {
   private get pageTitle() {
     return this.$context.title;
   }
+
   mounted() {
-    this.$store.commit('changePostId', -1)
+    this.$store.commit('changePostId', -1);
+    this.$store.commit('updateShowSide', false);
   }
+
 }
 </script>
 

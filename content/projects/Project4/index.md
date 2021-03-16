@@ -3,6 +3,9 @@ date: '2010-11-22'
 title: 'Project 3'
 github: 'https://github.com/bchiang7/spotify-profile'
 external: 'https://spotify-profile.herokuapp.com/'
+ios: 'https://www.facebook.com'
+android: 'https://www.facebook.com'
+company: Desoft
 tech:
   - React
   - Node.js

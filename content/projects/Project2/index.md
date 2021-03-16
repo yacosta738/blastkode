@@ -3,6 +3,9 @@ date: '2016-10-10'
 title: 'MuelaXZ'
 github: 'https://github.com/bchiang7/halcyon-site'
 external: 'https://halcyon-theme.netlify.com/'
+ios: 'https://www.facebook.com'
+android: 'https://www.facebook.com'
+company: Desoft
 tech:
   - VS Code
   - Sublime Text

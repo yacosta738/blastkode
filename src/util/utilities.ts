@@ -38,8 +38,8 @@ export const addEventToClassName = (className: string, func: Function, event: st
 };
 // this function get string with text [-YEAR-{2017}] and return the years of experience
 export const yearsOfExperience = (text: string): string => {
-    const mask: RegExpMatchArray | null = text.match("\{[0-9]+\}");
+    const mask: RegExpMatchArray | null = text?.match("\{[0-9]+\}");
     const year: number = mask ? Number.parseInt(mask[0].replace('{', '').replace('}', '')) : 1993;
-    const currentYear: number = new Date().getFullYear();
-    return text.replace(`[-YEAR-{${year}}]`, `${currentYear - year}`);
+    const currentYear: number = new Date()?.getFullYear();
+    return text?.replace(`[-YEAR-{${year}}]`, `${currentYear - year}`);
 };

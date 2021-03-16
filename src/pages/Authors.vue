@@ -102,6 +102,9 @@ export default class Authors extends Vue {
   yearsExperience(text: string): string {
     return yearsOfExperience(text);
   }
+  mounted() {
+    this.$store.commit('updateShowSide', false);
+  }
 }
 </script>
 

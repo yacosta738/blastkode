@@ -38,7 +38,9 @@ export default function(Vue, {router, head, isClient, appOptions}) {
             postId: -1,
             drawer: false,
             showNavbar: true,
-            loading: false
+            showSide: true,
+            loading: false,
+            firstTimeLoading: true
         },
         mutations: {
             toggleTheme(state) {
@@ -59,6 +61,12 @@ export default function(Vue, {router, head, isClient, appOptions}) {
             },
             updateShowNavbar(state, showNavbar) {
                 state.showNavbar = showNavbar;
+            },
+            updateShowSide(state, showSide) {
+                state.showSide = showSide;
+            },
+            updateFirstTimeLoading(state, firstTimeLoading) {
+                state.firstTimeLoading = firstTimeLoading;
             },
             loadingOn(state) {
                 state.loading = !state.loading;
@@ -82,7 +90,7 @@ export default function(Vue, {router, head, isClient, appOptions}) {
 
     head.meta.push({
         name: 'keywords',
-        content: 'Gridsome,Vue,Tailwind,Tailwind CSS,JavaScript,HTML,CSS,Vue.js,VueJS, Portfolio, Yuniel Acosta'
+        content: 'Gridsome,Vue,Tailwind,Tailwind CSS,JavaScript, Typescript,HTML,CSS,Vue.js,VueJS, Blog, Portfolio, Yuniel Acosta'
     });
 
     head.meta.push({

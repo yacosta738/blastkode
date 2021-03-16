@@ -18,12 +18,37 @@ import LastArticles from "~/components/sections/LastArticles.vue";
 import Projects from "@/components/sections/Projects.vue";
 import Contact from "@/components/sections/Contact.vue";
 
-@Component({components: {Hero, About, Jobs, Projects, LastArticles, Contact}})
+@Component<Home>({
+  components: {Hero, About, Jobs, Projects, LastArticles, Contact},
+  metaInfo() {
+    return {
+      title: 'Home'
+    };
+  }
+})
 export default class Home extends Vue {
-  // metaInfo = {
-  //   title: 'Home'
-  // }
-  title: string = 'Home';
+  // ? $context has to be defined here. Otherwise TypeScript complains about not existing variable
+  public $context: any;
+
+  private get pageTitle() {
+    return this.$context.title;
+  }
+
+  mounted() {
+    this.$store.commit('updateShowSide', true);
+
+    if( this.$store.state.firstTimeLoading ){
+      this.$store.commit('loadingOn');
+
+      setTimeout(() => {
+        this.$store.commit('loadingOff');
+      }, 2000);
+    }
+  }
+
+  beforeDestroy() {
+    this.$store.commit('updateShowSide', false);
+  }
 }
 </script>
 

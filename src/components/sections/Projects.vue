@@ -16,6 +16,9 @@ query {
         cover
         github
         external
+        ios
+        android
+        company
         tech
         showInProjects
         featured
@@ -32,6 +35,9 @@ query {
         cover
         github
         external
+        ios
+        android
+        company
         tech
         showInProjects
         featured

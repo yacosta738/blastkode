@@ -4,6 +4,9 @@ title: 'Otro mas'
 cover: './cover.jpg'
 github: 'https://github.com/bchiang7/octoprofile'
 external: 'https://octoprofile.now.sh'
+ios: 'https://www.facebook.com'
+android: 'https://www.facebook.com'
+company: Desoft
 tech:
   - Next.js
   - Chart.js

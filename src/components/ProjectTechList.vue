@@ -18,7 +18,7 @@ import {Component, Prop, Vue} from "vue-property-decorator";
 import Project from '~/models/Project';
 
 @Component
-export default class ProjectLinks extends Vue {
+export default class ProjectTechList extends Vue {
   @Prop({default: 'end', type: String}) readonly position: string | undefined;
   @Prop({default: true, type: Boolean}) readonly showIcon: boolean | undefined;
 

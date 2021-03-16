@@ -1,5 +1,5 @@
 <template>
-  <side :is-home="isHome" orientation="left">
+  <side :show="show" orientation="left">
     <ul class="social-links">
       <li v-for="social in socialMedia">
         <g-link :to="social.url">
@@ -18,8 +18,8 @@ import {isClient} from '~/util/utilities';
 
 @Component({components: {Side}})
 export default class Social extends Vue {
-  get isHome() {
-    return (isClient())?window.location.pathname === '/' : true;
+  get show() {
+    return this.$store.state.showSide;
   }
 
   get socialMedia(): SocialMedia[] {

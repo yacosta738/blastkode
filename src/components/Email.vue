@@ -1,5 +1,5 @@
 <template>
-  <side :is-home="isHome" orientation="right">
+  <side :show="show" orientation="right">
     <div class="email-side"><g-link :to="`mailto:${email}`">{{ email }}</g-link></div>
   </side>
 </template>
@@ -12,8 +12,8 @@ import {isClient} from '~/util/utilities';
 
 @Component({components: {Side}})
 export default class Email extends Vue {
-  get isHome() {
-    return (isClient())?window.location.pathname === '/':true;
+  get show() {
+    return this.$store.state.showSide;
   }
 
   get email() {

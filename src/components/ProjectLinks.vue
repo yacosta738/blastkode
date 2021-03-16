@@ -6,6 +6,12 @@
     <g-link v-if="project.external" :to="project.external" aria-label="External Link" :class="classLinks">
       <font-awesome :icon="['fa', 'external-link-alt' ]"/>
     </g-link>
+    <g-link v-if="project.ios" :to="project.ios" aria-label="AppStore Link" :class="classLinks">
+      <app-store-icon :size="size" fill="currentColor" class="mb-1"/>
+    </g-link>
+    <g-link v-if="project.android" :to="project.android" aria-label="GooglePlay Link" :class="classLinks">
+      <google-play-icon :size="size" fill="currentColor" class="mb-1"/>
+    </g-link>
   </div>
 </template>
 
@@ -13,8 +19,10 @@
 import 'reflect-metadata';
 import {Component, Prop, Vue} from "vue-property-decorator";
 import Project from '~/models/Project';
+//@ts-ignore
+import {AppStoreIcon, GooglePlayIcon} from "vue-simple-icons";
 
-@Component
+@Component({components:{AppStoreIcon, GooglePlayIcon}})
 export default class ProjectLinks extends Vue {
   @Prop({default: 'end', type: String}) readonly position: string | undefined;
 
@@ -26,11 +34,20 @@ export default class ProjectLinks extends Vue {
   get classLinks() {
     return (this.position === 'end') ? 'mr-2' : (this.position === 'center') ? 'mx-1' : 'ml-2';
   }
+  get size(){
+    switch (this.$screen.breakpoint){
+      case 'xs':return '1x';
+      case 'sm':return '1.05x';
+      case 'md':return '1.15x';
+      case 'xl':return '1.1x';
+    }
+    return '1.2x';
+  }
 }
 </script>
 
 <style scoped>
 .project-links {
-  @apply flex flex-wrap relative p-0 text-lightest-slate;
+  @apply flex flex-wrap relative p-0;
 }
 </style>

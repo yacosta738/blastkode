@@ -60,7 +60,7 @@ query Post ($path: String!) {
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-import PostHeader from '~/pages/PostHeader.vue';
+import PostHeader from '~/components/PostHeader.vue';
 
 @Component<Post>({
   metaInfo() {

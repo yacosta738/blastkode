@@ -21,7 +21,7 @@ export class Image implements IImage {
         if (typeof cover === 'string') {
             return cover;
         } else {
-            return new Image(cover.type, cover.mimeType, cover.src, cover.size, cover.sizes, cover.srcset, cover.dataUri);
+            return new Image(cover?.type, cover?.mimeType, cover?.src, cover?.size, cover?.sizes, cover?.srcset, cover?.dataUri);
         }
     }
 }

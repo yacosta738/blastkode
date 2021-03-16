@@ -70,18 +70,10 @@ import ConfigurationMixin from "@/util/configuration.mixin";
 })
 export default class Default extends mixins(ConfigurationMixin) {
   @Prop({default: false, type: Boolean}) readonly aside: boolean | undefined;
-
   get theme(): string {
     return this.$store.state.theme;
   }
 
-  mounted() {
-    this.$store.commit('loadingOn');
-
-    setTimeout(() => {
-      this.$store.commit('loadingOff');
-    }, 2000);
-  }
 }
 </script>
 

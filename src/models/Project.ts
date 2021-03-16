@@ -11,6 +11,9 @@ export interface IProject {
     cover?: string | Image | undefined;
     github?: string | undefined;
     external?: string | undefined;
+    ios?: string | undefined;
+    android?: string | undefined;
+    company?: string | undefined;
     tech?: ITech[];
     showInProjects?: boolean;
     featured?: boolean;
@@ -20,14 +23,14 @@ export interface IProject {
 export default class Project implements IProject {
 
     constructor(public id?: string, public title?: string, public date?: string | Date, public cover?: string | Image,
-                public github?: string, public external?: string, public tech?: ITech[], public showInProjects?: boolean,
-                public featured?: boolean, public content?: string) {
+                public github?: string, public external?: string, public ios?: string, public android?: string, public company?: string,
+                public tech?: ITech[], public showInProjects?: boolean, public featured?: boolean, public content?: string) {
     }
 
     static fromJson(node): Project {
-        const techId = node.tech.map(tech => urlize(tech));
-        const tech = allTech.tech.filter(te => techId.includes(te.id)).map(t => new Tech(t.id, t.name, t.icon, t.url));
-        return new Project(node.id, node.title, node.date, (node.cover !== null) ? Image.fromJson(node.cover) : undefined,
-            node.github, node.external, tech, node.showInProjects, node.featured, node.content);
+        const techId = node?.tech?.map(tech => urlize(tech));
+        const tech = allTech?.tech?.filter(te => techId?.includes(te.id))?.map(t => new Tech(t.id, t.name, t.icon, t.url));
+        return new Project(node?.id, node?.title, node?.date, (node?.cover !== null) ? Image.fromJson(node?.cover) : undefined,
+            node?.github, node?.external,node?.ios,node?.android,node?.company, tech, node?.showInProjects, node?.featured, node?.content);
     }
 }
