@@ -1,5 +1,5 @@
 <template>
-  <div class="loader-body">
+  <div class="loader-body" :class="{'opacity-0':!$store.state.loading, 'opacity-100':$store.state.loading}">
     <div class="loader">
       <div class="inner one"></div>
       <div class="inner two"></div>
@@ -21,8 +21,16 @@ export default class Loader extends Vue {
 
 <style scoped lang="scss">
 .loader-body {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   height:100vh;
   background-image: radial-gradient(circle farthest-corner at center, #112240 0%, #0a192f 100%);
+  z-index: 99;
+  transition: var(--transition);
 }
 
 .loader {

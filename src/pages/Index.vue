@@ -11,12 +11,12 @@
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import Hero from "@/components/sections/Hero.vue";
-import About from "@/components/sections/About.vue";
-import Jobs from "@/components/sections/Jobs.vue";
-import LastArticles from "~/components/sections/LastArticles.vue";
-import Projects from "@/components/sections/Projects.vue";
-import Contact from "@/components/sections/Contact.vue";
+const Hero = () => import("@/components/sections/Hero.vue");
+const About = () => import("@/components/sections/About.vue");
+const Jobs = () => import("@/components/sections/Jobs.vue");
+const LastArticles = () => import("@/components/sections/LastArticles.vue");
+const Projects = () => import("@/components/sections/Projects.vue");
+const Contact = () => import("@/components/sections/Contact.vue");
 
 @Component<Home>({
   components: {Hero, About, Jobs, Projects, LastArticles, Contact},

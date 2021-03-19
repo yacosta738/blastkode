@@ -1,0 +1,14 @@
+---
+date: '2020-08-21'
+title: 'Software Architect'
+company: 'Desoft'
+location: 'Ciego de Avila, Cuba'
+range: 'Aug 2020 - Present'
+url: 'https://www.desoft.cu/'
+---
+
+  - Constructed architecture governance processes, communicating parameters to development staff during adoption training.
+  - Authored development guidelines to expedite application design efforts through ready-made frameworks.
+  - Created migration strategies to bridge development gaps between existing software architecture and future updates.
+  - Developed application architecture strategy to specifically align with employer business goals.
+  - Communicated software architecture strategies to senior leadership and third-party business leaders.

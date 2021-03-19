@@ -7,9 +7,9 @@
     <!--        <li class="mb-6 lg:mb-0">-->
     <!--          <search-input/>-->
     <!--        </li>-->
-    <li>
-      <theme-switcher/>
-    </li>
+<!--    <li>-->
+<!--      <theme-switcher/>-->
+<!--    </li>-->
     <li>
       <ol class="order-list lg:space-x-8 space-y-6 lg:space-y-0 lg:flex lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0">
         <li v-for="(menu, i) in menus" :key="i">
@@ -21,7 +21,8 @@
       </ol>
     </li>
     <li>
-      <g-link to="/resume" class="resume-button">Resume</g-link>
+      <g-link to="https://uc3160ca1a85738f701d9cc3bd69.dl.dropboxusercontent.com/cd/0/get/BK_tS_iXWVP4ZtzmbzYjbQkg-ojqm_qwpZxHCfAx6yq6JZ87GN4PveTP5moMRIJfBfaotYreCYuR_d9uwySXBQgc3RBFB7jlu2hlGlgqdzJG-0EFGUMEgQzC5ayCP-8gb8KO_6mdlJ4t-dFWxcxuYAU0/file#" 
+      class="resume-button">Resume</g-link>
     </li>
   </ul>
 </template>

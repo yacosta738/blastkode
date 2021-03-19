@@ -4,19 +4,18 @@
     <div class="inner">
       <div class="styled-text">
         <div class="styled-text">
-          <p>Hello! I'm Yuniel, a software engineer based in Ciego de Ávila, Cuba.</p>
-
           <p>
-            I enjoy creating things that live on the internet, whether that be websites,
-            applications, or anything in between. My goal is to always build products that provide
-            pixel-perfect, performant experiences.
+            I'm a very outgoing and curious person, who's passionate about coding, space, nature, and sports.
+            I enjoy creating awesome software, whether that be websites, applications, or anything in between. My goal
+            is always to create products that deliver high-performance experiences.
           </p>
 
           <p>
             Shortly after graduating from
-            <g-link to="https://www.ccis.northeastern.edu" class="inline-link">Northeastern University</g-link>, I joined the
-            engineering team at <g-link to="https://www.upstatement.com" class="inline-link">Upstatement</g-link> where I work
-            on a wide variety of interesting and meaningful projects on a daily basis.
+            <g-link to="https://www.uclv.edu.cu/institucion" class="inline-link">Central University “Marta Abreu” Of Las Villas</g-link>
+            , I joined the development team at
+            <g-link to="https://www.desoft.cu/en" class="inline-link">Desoft</g-link>
+            where I work on a wide variety of interesting and meaningful projects on a daily basis.
           </p>
 
           <p>Here are a few technologies I've been working with recently:</p>
@@ -39,19 +38,21 @@ import {Component, Vue} from "vue-property-decorator";
 
 @Component
 export default class About extends Vue {
-  skills = ['JavaScript (ES6+)', 'HTML & (S)CSS', 'React', 'Vue', 'Node.js', 'WordPress'];
+  skills = ['TypeScript', 'HTML & (S)CSS', 'Angular', 'Vue', 'Node.js', 'Spring Boot'];
 }
 </script>
 
 <style scoped lang="scss">
 section {
   max-width: 900px;
+
   .inner {
     display: grid;
     grid-template-columns: 3fr 2fr;
     grid-gap: 50px;
   }
 }
+
 .styled-text {
   ul.skills-list {
     display: grid;
@@ -60,12 +61,14 @@ section {
     margin: 20px 0 0 0;
     overflow: hidden;
     list-style: none;
+
     li {
       position: relative;
       margin-bottom: 10px;
       padding-left: 20px;
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
+
       &:before {
         content: '▹';
         position: absolute;
@@ -77,9 +80,11 @@ section {
     }
   }
 }
+
 .styled-pic {
   position: relative;
   max-width: 300px;
+
   .wrapper {
     box-shadow: 0 10px 30px -15px var(--navy-shadow);
     transition: var(--transition);
@@ -89,32 +94,39 @@ section {
     border-radius: 4px;
     background-color: var(--green);
     z-index: 1;
+
     &:hover {
       box-shadow: 0 20px 30px -15px var(--navy-shadow);
       background: transparent;
       outline: 0;
+
       &:after {
         top: 15px;
         left: 15px;
       }
+
       .img {
         filter: none;
         mix-blend-mode: normal;
       }
     }
+
     &:focus {
       box-shadow: 0 20px 30px -15px var(--navy-shadow);
       background: transparent;
       outline: 0;
+
       &:after {
         top: 15px;
         left: 15px;
       }
+
       .img {
         filter: none;
         mix-blend-mode: normal;
       }
     }
+
     .img {
       overflow: hidden;
       position: relative;
@@ -123,6 +135,7 @@ section {
       filter: grayscale(100%) contrast(1);
       transition: var(--transition);
     }
+
     &:before {
       content: '';
       display: block;
@@ -136,6 +149,7 @@ section {
       background-color: var(--navy);
       mix-blend-mode: screen;
     }
+
     &:after {
       content: '';
       display: block;
@@ -151,6 +165,7 @@ section {
     }
   }
 }
+
 @media (max-width: 768px) {
   section {
     .inner {

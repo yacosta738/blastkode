@@ -5,7 +5,7 @@
       <div  v-else>
       <navbar/>
       <div class="flex flex-wrap flex-col md:flex-row justify-between">
-        <transition name="fade" mode="out-in" appear>
+        <transition name="fade" appear>
           <main x-ref="content" class="flex-grow mt-8 md:mt-20 lg:mt-15">
             <slot/>
           </main>
@@ -45,16 +45,16 @@
 <script lang="ts">
 import {Component, Prop} from "vue-property-decorator";
 import {mixins} from 'vue-class-component';
-
-import Navbar from '@/components/Navbar.vue';
-import Social from "@/components/Social.vue";
-import Email from "@/components/Email.vue";
-import FooterSection from "~/components/FooterSection.vue";
-import TagCloudWidget from "~/components/shared/TagCloudWidget.vue";
-import CategoryWidget from "~/components/shared/CategoryWidget.vue";
-import RecentPostWidget from "~/components/shared/RecentPostWidget.vue";
-import Loader from "~/components/shared/Loader.vue";
 import ConfigurationMixin from "@/util/configuration.mixin";
+
+const Navbar = () => import("@/components/Navbar.vue");
+const Social = () => import("@/components/Social.vue");
+const Email = () => import("@/components/Email.vue");
+const FooterSection = () => import("@/components/FooterSection.vue");
+const TagCloudWidget = () => import("@/components/shared/TagCloudWidget.vue");
+const CategoryWidget = () => import("@/components/shared/CategoryWidget.vue");
+const RecentPostWidget = () => import( "~/components/shared/RecentPostWidget.vue");
+const Loader = () => import( "~/components/shared/Loader.vue");
 
 @Component({
   components: {
@@ -78,3 +78,36 @@ export default class Default extends mixins(ConfigurationMixin) {
 </script>
 
 <style src="../assets/styles/main.css"/>
+<style>
+
+/* Fade down */
+.fadedown-enter {
+  opacity: 0.01;
+  transform: translateY(-20px);
+  transition: opacity 1.5s var(--easing), transform 1.5s var(--easing);
+}
+
+.fadedown-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 1.5s var(--easing), transform 1.5s var(--easing);
+}
+
+/* Fade */
+.fade-enter-active {
+  transition: opacity 1.5s var(--easing);
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 1.5s var(--easing);
+}
+</style>
