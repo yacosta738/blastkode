@@ -95,6 +95,84 @@ module.exports = {
       }
     },
     {
+      use: 'gridsome-plugin-pwa',
+      options: {
+        // Service Worker Options
+        disableServiceWorker: false,
+        serviceWorkerPath: './src/registerServiceWorker.js',
+        cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg,gif',
+        disableTemplatedUrls: false,       // Optional
+        // Manifest Options (https://developer.mozilla.org/en-US/docs/Web/Manifest)
+        manifestPath: 'manifest.json',
+        title: 'Blastkode',
+        startUrl: '/',
+        display: 'standalone',
+        statusBarStyle: 'default',
+        themeColor: '#666600',
+        backgroundColor: '#ffffff',
+        icon: 'static/logo.svg',
+        shortName: 'Blastkode',              // Optional
+        description: 'Yuniel Acosta\'s blog and portfolio',// Optional
+        categories: ['blog', 'tech', 'portfolio'],          // Optional
+        lang: 'en-GB',                      // Optional
+        dir: 'auto',                        // Optional
+        maskableIcon: true,                 // Optional
+        screenshots: [                      // Optional
+          {
+            src: 'screenshots/demo.png',
+            sizes: '1280x720',
+            type: 'image/png',
+          },
+        ],
+        gcmSenderId: undefined,             // Optional
+
+        // Standard Meta Tags
+        svgFavicon: './src/favicon.png',          // Optional. Requires favicon.ico fallback
+
+        // Microsoft Windows Meta Tags
+        msTileColor: '#666600',             // Optional
+
+        // Apple MacOS Meta Tags
+        appleMaskIcon: './src/favicon.png',       // Optional
+        appleMaskIconColor: '#666600',      // Optional
+
+      }
+    },
+    {
+      use: "gridsome-plugin-manifest",
+      options: {
+        background_color: "#ffffff",
+        icon_path: "static/logo.svg",
+        name: "Blastkode",
+        short_name: "Blastkode",
+        theme_color: "#ffffff",
+        lang: "en",
+        display: "standalone"
+      },
+    },
+    {
+      use: 'gridsome-plugin-robots-txt',
+      options: {
+        host: 'https://blastkode.com',
+        sitemap: 'https://blastkode.com/configs/sitemap.xml',
+        policy: [
+          {
+            userAgent: "Googlebot",
+            allow: "/",
+            disallow: "/search",
+            crawlDelay: 2
+          },
+          {
+            userAgent: "*",
+            allow: "/",
+            disallow: "/search",
+            crawlDelay: 10,
+            cleanParam: "ref /articles/"
+          }
+        ]
+      }
+    },
+    {
       use: '@gridsome/plugin-sitemap',
       options: {
         cacheTime: 600000, // default

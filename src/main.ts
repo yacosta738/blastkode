@@ -4,10 +4,10 @@
 import DefaultLayout from '~/layouts/Default.vue';
 import VueScrollTo from 'vue-scrollto';
 import VueFuse from 'vue-fuse';
-import Vuex from 'vuex';
 import VueScreen from 'vue-screen';
 import {isClient} from '~/util/utilities';
 import initFontawesome from '~/config/fontawesome';
+import initStore from '~/config/store';
 
 const init = (appOptions) => {
     if (isClient()) {
@@ -28,54 +28,14 @@ const init = (appOptions) => {
 
 export default function(Vue, {router, head, isClient, appOptions}) {
     init(appOptions);
-    // Store
-    Vue.use(Vuex);
+    if (isClient && process.env.NODE_ENV === 'production') {
+        require('./registerServiceWorker')
+    }
+
     // Vue Screen
     Vue.use(VueScreen);
-    appOptions.store = new Vuex.Store({
-        state: {
-            theme: (isClient) ? !localStorage.getItem('theme') || 'theme-dark' : 'theme-dark',
-            postId: -1,
-            drawer: false,
-            showNavbar: true,
-            showSide: true,
-            loading: false,
-            firstTimeLoading: true
-        },
-        mutations: {
-            toggleTheme(state) {
-                const newTheme = state.theme === 'theme-light' ? 'theme-dark' : 'theme-light';
-                if (isClient) {
-                    localStorage.setItem('theme', newTheme);
-                }
-                state.theme = newTheme;
-            },
-            changePostId(state, id) {
-                state.postId = id;
-            },
-            toggle(state) {
-                state.drawer = !state.drawer;
-            },
-            updateDrawer(state, drawer) {
-                state.drawer = drawer;
-            },
-            updateShowNavbar(state, showNavbar) {
-                state.showNavbar = showNavbar;
-            },
-            updateShowSide(state, showSide) {
-                state.showSide = showSide;
-            },
-            updateFirstTimeLoading(state, firstTimeLoading) {
-                state.firstTimeLoading = firstTimeLoading;
-            },
-            loadingOn(state) {
-                state.loading = !state.loading;
-            },
-            loadingOff(state) {
-                state.loading = !state.loading;
-            }
-        }
-    });
+    // Store
+    appOptions.store = initStore(Vue, isClient);
 
     // Set default layout as a global component
     Vue.component('Layout', DefaultLayout);

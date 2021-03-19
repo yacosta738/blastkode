@@ -7,7 +7,7 @@
           <p>
             I'm a very outgoing and curious person, who's passionate about coding, space, nature, and sports.
             I enjoy creating awesome software, whether that be websites, applications, or anything in between. My goal
-            is always to create products that deliver high-performance experiences.
+            is always to create products that deliver high-performance
           </p>
 
           <p>
