@@ -6,7 +6,7 @@
       <h3 class="text-4xl md:text-7xl md:my-2 text-gray-500">If I cannot do great things, I can do small things in a
         great way</h3>
       <p class="my-4 max-w-none md:max-w-2xl">
-        I’m a software engineer, technology and science enthusiast, specializing in building mobile and web applications.
+        I’m a software engineer, technology and science enthusiast, specialized in building mobile and web applications.
       </p>
       <g-link :to="`mailto:${myEmail}`" class="big-button my-10">Get In Touch</g-link>
     </div>
