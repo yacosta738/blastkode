@@ -1,5 +1,5 @@
 <template>
-  <section id="contact" class="mx-4 md:mx-auto">
+  <section id="contact" class="mx-4 md:mx-auto" v-scroll-reveal.reset="{ delay: 550 }">
     <div class="">
       <div class="grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-light-navy text-light-slate rounded-lg shadow-lg">
         <div class="flex flex-col justify-between">

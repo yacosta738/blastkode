@@ -108,7 +108,7 @@ module.exports = {
         startUrl: '/',
         display: 'standalone',
         statusBarStyle: 'default',
-        themeColor: '#666600',
+        themeColor: '#0a192f',
         backgroundColor: '#ffffff',
         icon: 'static/logo.svg',
         shortName: 'Blastkode',              // Optional
@@ -130,11 +130,11 @@ module.exports = {
         svgFavicon: './src/favicon.png',          // Optional. Requires favicon.ico fallback
 
         // Microsoft Windows Meta Tags
-        msTileColor: '#666600',             // Optional
+        msTileColor: '#0a192f',             // Optional
 
         // Apple MacOS Meta Tags
         appleMaskIcon: './src/favicon.png',       // Optional
-        appleMaskIconColor: '#666600',      // Optional
+        appleMaskIconColor: '#0a192f',      // Optional
 
       }
     },
@@ -142,7 +142,7 @@ module.exports = {
       use: "gridsome-plugin-manifest",
       options: {
         background_color: "#ffffff",
-        icon_path: "static/logo.svg",
+        icon_path: "logo.svg",
         name: "Blastkode",
         short_name: "Blastkode",
         theme_color: "#ffffff",

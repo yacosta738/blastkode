@@ -1,5 +1,5 @@
 <template>
-  <section class="min-h-screen">
+  <section class="min-h-screen" v-scroll-reveal.reset="{ delay: 550 }">
     <div class="container mx-auto flex flex-col items-start h-full">
       <h1 class="text-base text-green-500 font-mono my-2 md:my-6 font-normal">Hi, my name is</h1>
       <h2 class="text-5xl md:text-8xl">Yuniel Acosta</h2>

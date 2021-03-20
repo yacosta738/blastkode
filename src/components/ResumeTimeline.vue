@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <div class="w-full"  v-scroll-reveal.reset="{ delay: 550 }">
     <h3 class="text-4xl ml-12 font-bold"> {{ experience.title }} </h3>
     <div class="relative m-8">
       <div class="border-r-4 border-light-navy absolute h-full top-0" style="left: 18px"></div>

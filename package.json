@@ -31,6 +31,7 @@
     "vue-fuse": "^3.0.0",
     "vue-property-decorator": "^9.1.2",
     "vue-screen": "^1.5.3",
+    "vue-scroll-reveal": "^1.0.11",
     "vue-scrollto": "^2.20.0",
     "vue-simple-icons": "^4.7.0",
     "vuex": "^3.6.2"
@@ -50,6 +51,7 @@
     "node-sass": "4.12.0",
     "postcss": "^7",
     "prettier": "^2.2.1",
+    "register-service-worker": "^1.7.2",
     "sass-loader": "^8.0.0",
     "shx": "^0.3.3",
     "tailwindcss": "^2.0.3",

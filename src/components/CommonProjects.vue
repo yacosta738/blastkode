@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center"  v-scroll-reveal.reset="{ delay: 550 }">
     <div class="mt-10 mb-20 text-center">
       <h2 class="section-title">Other Noteworthy Projects</h2>
       <g-link to="/projects/" class="inline-link">view all projects</g-link>

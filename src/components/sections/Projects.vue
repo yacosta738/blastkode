@@ -1,5 +1,5 @@
 <template>
-  <section id="projects" class="mx-4 md:mx-auto">
+  <section id="projects" class="mx-4 md:mx-auto" v-scroll-reveal.reset="{ delay: 550 }">
     <featured-projects  :projects="featuredProjects" />
     <common-projects :projects="commonProjects"/>
   </section>

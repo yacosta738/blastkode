@@ -1,5 +1,5 @@
 <template>
-  <section id="about" class="container mx-auto">
+  <section id="about" class="container mx-auto" v-scroll-reveal.reset="{ delay: 550 }">
     <h2 class="numbered-heading">About Me</h2>
     <div class="inner">
       <div class="styled-text">

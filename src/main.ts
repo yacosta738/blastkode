@@ -3,6 +3,7 @@
 
 import DefaultLayout from '~/layouts/Default.vue';
 import VueScrollTo from 'vue-scrollto';
+import VueScrollReveal from 'vue-scroll-reveal';
 import VueFuse from 'vue-fuse';
 import VueScreen from 'vue-screen';
 import {isClient} from '~/util/utilities';
@@ -29,9 +30,16 @@ const init = (appOptions) => {
 export default function(Vue, {router, head, isClient, appOptions}) {
     init(appOptions);
     if (isClient && process.env.NODE_ENV === 'production') {
-        require('./registerServiceWorker')
+        require('./registerServiceWorker.js');
     }
-
+    // Using ScrollReveal's default configuration
+    Vue.use(VueScrollReveal, {
+        class: 'v-scroll-reveal', // A CSS class applied to elements with the v-scroll-reveal directive; useful for animation overrides.
+        duration: 800,
+        scale: 1,
+        distance: '5px',
+        mobile: false
+    });
     // Vue Screen
     Vue.use(VueScreen);
     // Store

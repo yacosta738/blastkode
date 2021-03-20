@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <section id="about-author" class="container mx-auto">
+    <section id="about-author" class="container mx-auto"  v-scroll-reveal.reset="{ delay: 550 }">
       <div class="text-center text-5xl capitalize">
         <h2 class="transition duration-500 ease-in-out font-black tracking-widest m-3 text-lightest-slate">
           {{ $page.author.title.split(" ")[0] }}
