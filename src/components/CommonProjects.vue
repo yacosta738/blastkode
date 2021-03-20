@@ -1,11 +1,12 @@
 <template>
-  <div class="flex flex-col items-center"  v-scroll-reveal.reset="{ delay: 550 }">
+  <div class="flex flex-col items-center" v-scroll-reveal.reset="{ delay: 550 }">
     <div class="mt-10 mb-20 text-center">
       <h2 class="section-title">Other Noteworthy Projects</h2>
       <g-link to="/projects/" class="inline-link">view all projects</g-link>
     </div>
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-      <div v-for="project in projectsToShow" class="style-project-card">
+      <div v-for="project in projectsToShow" class="style-project-card" :key="project.id"
+           v-scroll-reveal.reset>
         <div class="project-top">
           <font-awesome :icon="['fa', 'folder']"/>
           <project-links :project="project" position="center"></project-links>

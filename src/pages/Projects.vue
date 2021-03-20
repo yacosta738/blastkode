@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="container mx-auto py-16">
+    <div class="container mx-auto py-16" v-scroll-reveal.reset>
       <div>
         <h1 class="big-heading">All Projects</h1>
         <p class="subtitle">A big list of things I've worked on</p>
@@ -17,7 +17,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr v-for="project in projects" :key="project.id">
+          <tr v-for="project in projects" :key="project.id" v-scroll-reveal.reset>
             <td class="overline year">
               {{
                 (typeof project.date === 'string') ? new Date(project.date).getFullYear() : project.date.getFullYear()

@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="container-inner mx-auto py-16">
+    <div class="container-inner mx-auto py-16" v-scroll-reveal.reset>
       <div v-for="doc in $page.docs.edges" :key="doc.id" class="post border-gray-400 border-b mb-12">
         <h2 class="text-3xl font-bold"><g-link :to="doc.node.path" class="text-copy-primary">{{ doc.node.title }}</g-link></h2>
 

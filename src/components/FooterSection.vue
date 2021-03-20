@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer v-scroll-reveal.reset>
     <div class="container mx-auto flex flex-col lg:flex-row items-center justify-center m-5">
       <div class="flex flex-col items-center">
         <ul class="flex flex-wrap relative list-none p-0 md:hidden">

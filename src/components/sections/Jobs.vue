@@ -1,5 +1,5 @@
 <template>
-  <section id="jobs" class="container styled-jobs-section" v-scroll-reveal.reset="{ delay: 550 }">
+  <section id="jobs" class="container styled-jobs-section" v-scroll-reveal.reset>
     <h2 class="numbered-heading">Where I've Worked</h2>
     <div class="inner">
       <ul class="styled-tab-list" role="tablist" aria-label="Job tabs">

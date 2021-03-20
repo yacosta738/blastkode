@@ -1,7 +1,6 @@
 <template>
   <header class="fixed z-50 w-full"
-          :class="{ 'navbar--hidden': !showNavbar, 'navbar--show':scrollDirection === 'UP' && lastScrollPosition !== 0 }"
-          v-scroll-reveal.reset="{ delay: 550 }">
+          :class="{ 'navbar--hidden': !showNavbar, 'navbar--show':scrollDirection === 'UP' && lastScrollPosition !== 0 }">
     <nav id="acosta-navbar" class="relative flex flex-wrap w-full justify-between items-center py-2 md:py-4">
       <g-link to="/" class="py-0 my-0 border-none">
         <g-image src="../../static/logo.svg" class="w-12  py-0 my-0" alt="logo"/>

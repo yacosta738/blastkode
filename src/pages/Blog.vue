@@ -1,6 +1,6 @@
 <template>
   <Layout aside>
-    <div class="container-inner mx-auto pl-80 py-16">
+    <div class="container-inner mx-auto pl-80 py-16" v-scroll-reveal.reset>
       <div v-for="post in $page.posts.edges" :key="post.node.id" class="post border-gray-400 border-b mb-20">
         <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider"><g-link :to="post.node.path" class="inline-link">{{ post.node.title }}</g-link></h2>
         <post-header :article="post.node"/>

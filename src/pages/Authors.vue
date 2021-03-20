@@ -1,6 +1,6 @@
 <template>
   <Layout aside>
-    <div class="container-inner mx-auto pl-80 py-16">
+    <div class="container-inner mx-auto pl-80 py-16" v-scroll-reveal.reset>
       <div v-for="author in $page.authors.edges" :key="author.node.id" class="post border-gray-400 border-b mb-20">
         <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider"><g-link :to="author.node.path" class="inline-link">{{ author.node.title }}</g-link></h2>
         <ul class="flex flex-wrap relative list-none p-0 mb-4 text-light-slate font-mono text-sm">
