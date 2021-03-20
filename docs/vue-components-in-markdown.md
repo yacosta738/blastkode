@@ -1,2 +1,6 @@
-#Blastkode Blog
-this is a guide for use this code base for your portfolio or personal blog.
+---
+title: Vue Components in Markdown
+excerpt: An example markdown page that has Vue Components inside of it!
+---
+#Blastkode
+This is my personal blog and portfolio
