@@ -26,12 +26,12 @@
     "gridsome-plugin-remark-shiki": "^0.6.0",
     "gridsome-plugin-robots-txt": "^1.0.2",
     "gridsome-plugin-rss": "^1.2.0",
+    "gridsome-scroll-reveal": "^1.0.11",
     "reflect-metadata": "^0.1.13",
     "vue-class-component": "^7.2.6",
     "vue-fuse": "^3.0.0",
     "vue-property-decorator": "^9.1.2",
     "vue-screen": "^1.5.3",
-    "vue-scroll-reveal": "^1.0.11",
     "vue-scrollto": "^2.20.0",
     "vue-simple-icons": "^4.7.0",
     "vuex": "^3.6.2"

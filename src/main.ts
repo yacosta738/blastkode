@@ -3,12 +3,12 @@
 
 import DefaultLayout from '~/layouts/Default.vue';
 import VueScrollTo from 'vue-scrollto';
-import VueScrollReveal from 'vue-scroll-reveal';
 import VueFuse from 'vue-fuse';
 import VueScreen from 'vue-screen';
 import {isClient} from '~/util/utilities';
 import initFontawesome from '~/config/fontawesome';
 import initStore from '~/config/store';
+import initVueScrollReveal from '~/config/vue-scroll-reveal';
 
 const init = (appOptions) => {
     if (isClient()) {
@@ -30,31 +30,14 @@ const init = (appOptions) => {
 export default function(Vue, {router, head, isClient, appOptions}) {
     init(appOptions);
     if (isClient && process.env.NODE_ENV === 'production') {
-        require('./registerServiceWorker.js');
+        require('./service-worker.js');
     }
-    let duration = 800;
-    let lastScrollPosition = 0;
-    if(isClient)
-    window.addEventListener('scroll', ()=>{
-        const currentScrollPosition = (isClient) ? window.pageYOffset || document.documentElement.scrollTop : 0;
-        if (currentScrollPosition < 0) {
-            return;
-        }
-        // currentScrollPosition < lastScrollPosition? 'UP' : 'DOWN
-        duration= (currentScrollPosition < lastScrollPosition) ? 50 : 800;
-        lastScrollPosition = currentScrollPosition;
-    })
-    // Using ScrollReveal's default configuration
-    Vue.use(VueScrollReveal, {
-        class: 'v-scroll-reveal', // A CSS class applied to elements with the v-scroll-reveal directive; useful for animation overrides.
-        duration: duration,
-        scale: 1,
-        distance: '10px',
-        easing: 'cubic-bezier(0.5, 0, 0, 1)',
-        mobile: false,
-        reset: true,
-        cleanup: true
-    });
+    if (isClient) {
+        // Vue Scroll Reveal
+        initVueScrollReveal(Vue, isClient);
+        // Fontawesome
+        initFontawesome(Vue);
+    }
     // Vue Screen
     Vue.use(VueScreen);
     // Store
@@ -62,7 +45,7 @@ export default function(Vue, {router, head, isClient, appOptions}) {
 
     // Set default layout as a global component
     Vue.component('Layout', DefaultLayout);
-    initFontawesome(Vue);
+
 
     Vue.use(VueScrollTo, {
         duration: 500,
