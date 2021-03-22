@@ -8,9 +8,9 @@
         <div class="mb-8">
           <g-link to="/blog" class="font-bold uppercase">Back to Blog</g-link>
         </div>
-        <div class="flex">
+        <div class="flex flex-col md:flex-row">
           <!--category-->
-          <div class="flex mb-8 text-sm mx-1">
+          <div class="mb-8 text-sm mx-1">
             <font-awesome :icon="['fa', 'folder-open']" class="mr-2"/>
             <g-link
                 :to="category.path"
@@ -21,7 +21,7 @@
             </g-link>
           </div>
           <!-- tags -->
-          <div class="flex mb-8 text-sm mx-1">
+          <div class="mb-8 text-sm mx-1">
             <font-awesome :icon="['fa', 'tags']" class="mr-2"/>
             <g-link
                 :to="tag.path"
@@ -65,6 +65,7 @@ query Post ($path: String!) {
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 import PostHeader from '~/components/PostHeader.vue';
+import {inlineLinks} from '~/util/utilities';
 
 @Component<Post>({
   metaInfo() {
@@ -84,6 +85,8 @@ export default class Post extends Vue {
   mounted() {
     //@ts-ignore
     this.$store.commit('changePostId', this.$page.post.id)
+
+    inlineLinks('markdown-body');
   }
 }
 </script>
