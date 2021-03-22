@@ -7,7 +7,7 @@
             <h2 class="numbered-heading">Contact me</h2>
             <h3 class="text-4xl lg:text-5xl text-center md:text-left font-bold leading-tight text-lightest-slate">Lets talk about everything!</h3>
             <div class="text-light-slate mt-8  text-center md:text-left">
-              I am interested in new opportunities especially ambitious or large projects. However, if you have other request or question, don't hesitate [to contact me](/#contact-me) using below form either.
+              I am interested in new opportunities especially ambitious or large projects. However, if you have other request or question, don't hesitate to contact me using below form either.
             </div>
           </div>
           <div class="mt-8 text-center">

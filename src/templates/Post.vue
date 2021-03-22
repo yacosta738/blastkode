@@ -32,6 +32,9 @@
             </g-link>
           </div>
         </div>
+        <div class='comments'>
+          <Disqus :identifier="$page.post.path" />
+        </div>
       </article>
     </div>
   </Layout>
@@ -44,6 +47,7 @@ query Post ($path: String!) {
     title
     date (format: "MMMM D, Y")
     timeToRead
+    path
     author
     content
     tags {

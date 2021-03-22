@@ -4,13 +4,13 @@ path: /introduction-to-gridsome
 date: 2019-04-08
 summary: Gridsome is a Vue.js-powered, modern site generator for building the fastest possible websites for any Headless CMS, APIs or Markdown-files. Gridsome makes it easy and fun for developers to create fast, beautiful websites without needing to become a performance expert.
 author: Yuniel Acosta
-tags: ['coding', 'frontend', 'backend']
+tags: ['coding', 'frontend', 'gridsome']
 categories: [Developer, Web]
-cover: ./images/blog_bg_1.jpg
+cover: ./images/gridsome-portada.png
 draft: false
 ---
 
-![background](./images/blog_bg_1.jpg)
+![background](./images/gridsome-portada.png)
 
 > Gridsome is a Vue.js-powered, modern site generator for building the fastest possible websites for any Headless CMS, APIs or Markdown-files. Gridsome makes it easy and fun for developers to create fast, beautiful websites without needing to become a performance expert.
 
@@ -19,12 +19,12 @@ draft: false
 - **Local development with hot-reloading** - See code changes in real-time.
 - **Data source plugins** - Use it for any popular Headless CMSs, APIs or Markdown-files.
 - **File-based page routing** - Quickly create and manage routes with files.
-- **Centralized data managment** - Pull data into a local, unified GraphQL data layer.
+- **Centralized data management** - Pull data into a local, unified GraphQL data layer.
 - **Vue.js for frontend** - A lightweight and approachable front-end framework.
 - **Auto-optimized code** - Get code-splitting and asset optimization out-of-the-box.
 - **Static files generation** - Deploy securely to any CDN or static web host.
 
-[Learn more about how Gridsome works](/docs/how-it-works)
+[Learn more about how Gridsome works](https://gridsome.org/docs/#how-it-works)
 
 ```js
 <template>
@@ -42,9 +42,9 @@ draft: false
 ### Prerequisites
 You should have basic knowledge about HTML, CSS, [Vue.js](https://vuejs.org) and how to use the [Terminal](https://www.linode.com/docs/tools-reference/tools/using-the-terminal/). Knowing how [Vue Single File components](https://vuejs.org/v2/guide/single-file-components.html) & [GraphQL](https://www.graphql.com/) works is a plus, but not required. Gridsome is a great way to learn both.
 
-Gridsome requires **Node.js** and recommends **Yarn**. [How to setup](/docs/prerequisites)
+Gridsome requires **Node.js** and recommends **Yarn**. [How to setup](https://gridsome.org/docs/#prerequisites)
 
-![background](./images/background.jpg)
+![background](./images/gridsome-stack.png)
 
 ### 1. Install Gridsome CLI tool
 
@@ -67,6 +67,6 @@ Using npm:
 2. Use `gridsome build` to generate static files in a `/dist` folder
 
 
-- [How it works](/docs/how-it-works)
-- [How Pages work](/docs/pages)
-- [How to deploy](/docs/deployment)
+- [How it works](https://gridsome.org/docs/#how-it-works)
+- [How Pages work](https://gridsome.org/docs/pages/)
+- [How to deploy](https://gridsome.org/docs/deployment/)
