@@ -31,7 +31,7 @@ const init = (appOptions) => {
 export default function(Vue, {router, head, isClient, appOptions}) {
     init(appOptions);
     if (isClient && process.env.NODE_ENV === 'production') {
-        require('./service-worker.js');
+        require('../static/service-worker.js');
     }
     if (isClient) {
         // Vue Scroll Reveal

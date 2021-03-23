@@ -99,7 +99,7 @@ module.exports = {
       options: {
         // Service Worker Options
         disableServiceWorker: false,
-        serviceWorkerPath: './src/service-worker.js',
+        serviceWorkerPath: 'static/service-worker.js',
         cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg,gif',
         disableTemplatedUrls: false,       // Optional
         // Manifest Options (https://developer.mozilla.org/en-US/docs/Web/Manifest)
