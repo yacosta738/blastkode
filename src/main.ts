@@ -9,6 +9,7 @@ import {isClient} from '~/util/utilities';
 import initFontawesome from '~/config/fontawesome';
 import initStore from '~/config/store';
 import initVueScrollReveal from '~/config/vue-scroll-reveal';
+import VueDisqus from 'vue-disqus';
 
 const init = (appOptions) => {
     if (isClient()) {
@@ -38,6 +39,8 @@ export default function(Vue, {router, head, isClient, appOptions}) {
         // Fontawesome
         initFontawesome(Vue);
     }
+    // Vue Disqus
+    Vue.use(VueDisqus, {shortname: 'blastkode'});
     // Vue Screen
     Vue.use(VueScreen);
     // Store
@@ -45,7 +48,6 @@ export default function(Vue, {router, head, isClient, appOptions}) {
 
     // Set default layout as a global component
     Vue.component('Layout', DefaultLayout);
-
 
     Vue.use(VueScrollTo, {
         duration: 500,

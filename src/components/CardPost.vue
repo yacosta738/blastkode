@@ -29,12 +29,12 @@
           <g-link :to="article.path" :aria-label="`To post ${article.title}`"
                   class="inline-link text-xs -ml-3 ">Read More
           </g-link>
-          <g-link :to="'#'" class="flex text-green-500">
+          <g-link :to="article.path" class="flex text-green-500">
             <svg fill="none" viewBox="0 0 24 24" class="w-6 h-6" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
             </svg>
-            <span class="mx-1">5</span>
+            <DisqusCount shortname='blastkode' :identifier="article.path" class="mx-1" />
           </g-link>
         </div>
           <div class="flex items-center space-x-2 mt-5">
@@ -76,8 +76,10 @@
 import 'reflect-metadata';
 import {Component, Prop, Vue} from "vue-property-decorator";
 import Article from '~/models/Article';
+//@ts-ignore
+import { DisqusCount } from 'vue-disqus'
 
-@Component
+@Component({components:{DisqusCount}})
 export default class CardPost extends Vue {
   @Prop({required: true}) readonly article: Article | undefined;
 
