@@ -3,9 +3,17 @@ import Vuex from 'vuex';
 
 export default function initStore(Vue, isClient: boolean) {
     Vue.use(Vuex);
+
+    function getTheme() {
+        if (isClient && !localStorage.getItem('theme')){
+            localStorage.setItem('theme', 'theme-dark');
+        }
+        return (isClient) ? !localStorage.getItem('theme') || 'theme-dark' : 'theme-dark';
+    }
+
     return new Vuex.Store({
         state: {
-            theme: (isClient) ? !localStorage.getItem('theme') || 'theme-dark' : 'theme-dark',
+            theme: getTheme(),
             postId: -1,
             drawer: false,
             showNavbar: true,

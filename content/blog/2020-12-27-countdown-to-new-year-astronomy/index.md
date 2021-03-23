@@ -1,26 +1,25 @@
 ---
 title: Countdown to new year
 url: /countdown-to-new-year-astronomy
-date: 2020-12-27T21:34:00+02:00
-description: Countdown to new year (Planetary System)
+date: 2020-12-27
 summary: After switching from Windows to Mac, I have reconsidered a few of the applications I use. To my own surprise I ended up with a paid one that’s only available on Apple devices – Bear.
 author: Yuniel Acosta
 tags: [JavaScript, TypeScript]
 categories: [Programming]
-ogimage: portada.jpg
+cover: ./portada.jpg
 draft: false
 ---
 
 
-{{<post-image image="portada.jpg" with="500" alt="Portada" />}}
+![background](./portada.jpg)
 
-La astronomía y la programación son dos de mis pasiones que en esta ocasión he decidido juntar. Con este objetivo crearemos una web sencilla para llevar la cuenta regresiva de cuantos días faltan hasta el nuevo año simulando el movimiento del planeta tierra. El demo se puede apreciar en el siguiente link [https://yacosta738.github.io/countdown-to-new-year/](https://yacosta738.github.io/countdown-to-new-year/)
+Astronomy and programming are two of my passions that this time I have decided to join together. With this objective in mind, we will create a simple website to count down how many days until the new year, simulating the movement of the planet earth. The demo can be seen at the following link [https://yacosta738.github.io/countdown-to-new-year/](https://yacosta738.github.io/countdown-to-new-year/)
 
-{{<post-image image="example.png" with="500" alt="Example" />}}
+![Example](./example.png)
 
 Lo primero es crear un fichero **`style.css`** donde se define el estilo y la órbita de cada planeta:
 
-```
+~~~css
     html {
     box-sizing: border-box;
     }
@@ -384,10 +383,10 @@ Lo primero es crear un fichero **`style.css`** donde se define el estilo y la ó
     from {transform: rotate(0deg) }
     to {transform: rotate(-360deg);}
     }
-```
+~~~
 Después creamos el fichero **`script.js`** donde se define toda la lógica para calcular la cantidad de días que faltan para el nuevo año:
 
-```
+~~~js
 //prevent loading error
 document.getElementById('warning').remove();
 
@@ -457,7 +456,7 @@ const countDown = setInterval(function () {
     }
 
 }, 1000);
-```
+~~~
 
 Por último se crea un fichero **`index.html`** que contendrá todo el código html de nuestra página web. El documento html comienza con la definición del tipo de documento seguido por el lenguaje de la página, en la sección del encabezado encontramos el título, algunos metadatos así como la importación de los estilos de la página. En el cuerpo del documento hacemos usos de las clases creadas previamente para poder visualizar los planetas y sus órbitas. Al final importamos el fichero javascript creado con anterioridad:
 
