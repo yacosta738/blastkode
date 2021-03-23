@@ -384,7 +384,7 @@ Lo primero es crear un fichero **`style.css`** donde se define el estilo y la ó
     to {transform: rotate(-360deg);}
     }
 ~~~
-Después creamos el fichero **`script.js`** donde se define toda la lógica para calcular la cantidad de días que faltan para el nuevo año:
+Then we create the file **`script.js`** where all the logic is defined to calculate the number of days left for the new year:
 
 ~~~js
 //prevent loading error
@@ -458,10 +458,10 @@ const countDown = setInterval(function () {
 }, 1000);
 ~~~
 
-Por último se crea un fichero **`index.html`** que contendrá todo el código html de nuestra página web. El documento html comienza con la definición del tipo de documento seguido por el lenguaje de la página, en la sección del encabezado encontramos el título, algunos metadatos así como la importación de los estilos de la página. En el cuerpo del documento hacemos usos de las clases creadas previamente para poder visualizar los planetas y sus órbitas. Al final importamos el fichero javascript creado con anterioridad:
+Finally, a file **`index.html`** is created that will contain all the html code for our website. The html document begins with the definition of the document type followed by the language of the page, in the header section we find the title, some metadata as well as the import of the page styles. In the body of the document we make use of the classes created previously to be able to visualize the planets and their orbits. At the end we import the previously created javascript file:
 
 
-```
+~~~html
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -510,9 +510,8 @@ Por último se crea un fichero **`index.html`** que contendrá todo el código h
 </body>
 </html>
 
-```
+~~~
 
-{{<post-image image="project-structure.png" with="500" alt="Portada" />}}
-
-Todo el código se puede descargar desde GitHub en el siguiente link [https://github.com/yacosta738/countdown-to-new-year](https://github.com/yacosta738/countdown-to-new-year)
+~[Project Structure](./project-structure.png)
+All the code can be downloaded from GitHub at the following link [https://github.com/yacosta738/countdown-to-new-year](https://github.com/yacosta738/countdown-to-new-year)
 
