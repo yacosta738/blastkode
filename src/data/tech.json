@@ -1,6 +1,78 @@
 {
   "tech": [
     {
+      "id": "flutter",
+      "name": "Flutter",
+      "icon": {
+        "type": "simple-icon",
+        "value": "flutter-icon"
+      },
+      "url": "https://flutter.dev/"
+    },
+    {
+      "id": "dart",
+      "name": "Dart",
+      "icon": {
+        "type": "simple-icon",
+        "value": "dart-icon"
+      },
+      "url": "https://dart.dev/"
+    },
+    {
+      "id": "typescript",
+      "name": "Typescript",
+      "icon": {
+        "type": "simple-icon",
+        "value": "type-script-icon"
+      },
+      "url": "https://www.typescriptlang.org/"
+    },
+    {
+      "id": "angular",
+      "name": "Angular",
+      "icon": {
+        "type": "simple-icon",
+        "value": "angular-icon"
+      },
+      "url": "https://angular.io/"
+    },
+    {
+      "id": "lumen",
+      "name": "Lumen",
+      "icon": {
+        "type": "simple-icon",
+        "value": "lumen-icon"
+      },
+      "url": "https://lumen.laravel.com/"
+    },
+    {
+      "id": "postgresql",
+      "name": "PostgreSQL",
+      "icon": {
+        "type": "simple-icon",
+        "value": "postgre-sql-icon"
+      },
+      "url": "https://www.postgresql.org/"
+    },
+    {
+      "id": "php",
+      "name": "PHP",
+      "icon": {
+        "type": "simple-icon",
+        "value": "php-icon"
+      },
+      "url": "https://www.php.net/"
+    },
+    {
+      "id": "idea",
+      "name": "IntelliJ Idea",
+      "icon": {
+        "type": "simple-icon",
+        "value": "intelli-j-idea-icon"
+      },
+      "url": "https://www.jetbrains.com/idea/"
+    },
+    {
       "id": "vs-code",
       "name": "Vs Code",
       "icon": {
