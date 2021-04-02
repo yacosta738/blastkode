@@ -30,6 +30,7 @@
     "gridsome-scroll-reveal": "^1.0.11",
     "netlify-cms": "^2.10.105",
     "reflect-metadata": "^0.1.13",
+    "shiki": "^0.9.3",
     "vue-class-component": "^7.2.6",
     "vue-disqus": "^4.0.1",
     "vue-fuse": "^3.0.0",
