@@ -26,8 +26,8 @@ contact_items:
         type: "fa"
         value: "globe"
     name: "Website"
-    link: "https://yacosta738.github.io"
-    text: "yacosta738.github.io"
+    link: "https://blastkode.com/"
+    text: "blastkode.com"
     target: "_blank"
   - icon: 
         type: "fa"
