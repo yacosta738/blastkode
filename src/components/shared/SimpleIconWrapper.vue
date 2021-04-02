@@ -12,7 +12,7 @@ import {
   GridsomeIcon,
   IntelliJIdeaIcon,
   NetlifyIcon,
-  TypeScriptIcon,AngularIcon,LumenIcon,PostgreSqlIcon,PhpIcon
+  TypeScriptIcon,AngularIcon,LumenIcon,PostgreSqlIcon,PhpIcon, VisualStudioCodeIcon
 } from "vue-simple-icons";
 
 @Component({
@@ -23,7 +23,7 @@ import {
     FlutterIcon,
     DartIcon,
     IntelliJIdeaIcon,
-    TypeScriptIcon,AngularIcon,LumenIcon,PostgreSqlIcon,PhpIcon
+    TypeScriptIcon,AngularIcon,LumenIcon,PostgreSqlIcon,PhpIcon, VisualStudioCodeIcon
   }
 })
 export default class SimpleIconWrapper extends Vue {
