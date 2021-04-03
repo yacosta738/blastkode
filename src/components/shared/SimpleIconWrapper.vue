@@ -6,13 +6,18 @@
 import {Component, Prop, Vue} from 'vue-property-decorator';
 //@ts-ignore
 import {
+  AngularIcon,
   DartIcon,
   FlutterIcon,
   GraphQlIcon,
   GridsomeIcon,
   IntelliJIdeaIcon,
+  LumenIcon,
   NetlifyIcon,
-  TypeScriptIcon,AngularIcon,LumenIcon,PostgreSqlIcon,PhpIcon, VisualStudioCodeIcon
+  PhpIcon,
+  PostgreSqlIcon,
+  TypeScriptIcon,
+  VisualStudioCodeIcon
 } from "vue-simple-icons";
 
 @Component({
@@ -23,7 +28,7 @@ import {
     FlutterIcon,
     DartIcon,
     IntelliJIdeaIcon,
-    TypeScriptIcon,AngularIcon,LumenIcon,PostgreSqlIcon,PhpIcon, VisualStudioCodeIcon
+    TypeScriptIcon, AngularIcon, LumenIcon, PostgreSqlIcon, PhpIcon, VisualStudioCodeIcon
   }
 })
 export default class SimpleIconWrapper extends Vue {

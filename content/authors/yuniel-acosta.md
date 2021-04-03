@@ -1,7 +1,7 @@
 ---
-title: "Yuniel Acosta"
+name: "Yuniel Acosta"
 path: /yuniel-acosta
-image: ./yuniel-acosta.jpg
+image: /uploads/yuniel-acosta.jpg
 rol: "Full Stack Developer"
 summary: "Web, mobile and desktop application developer. Science and technology enthusiast. More than [-YEAR-{2017}] years of experience in the software industry."
 social:

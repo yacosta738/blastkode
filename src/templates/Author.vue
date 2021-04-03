@@ -3,8 +3,8 @@
     <section id="about-author" class="container mx-auto"  v-scroll-reveal.reset>
       <div class="text-center text-5xl capitalize">
         <h2 class="transition duration-500 ease-in-out font-black tracking-widest m-3 text-lightest-slate">
-          {{ $page.author.title.split(" ")[0] }}
-          <span class="text-green-500"> {{ $page.author.title.replace($page.author.title.split(" ")[0], "") }}</span></h2>
+          {{ $page.author.name.split(" ")[0] }}
+          <span class="text-green-500"> {{ $page.author.name.replace($page.author.name.split(" ")[0], "") }}</span></h2>
         <div class="title-underline"></div>
       </div>
 
@@ -15,7 +15,7 @@
         <div class="">
           <div class="styled-pic">
             <div class="wrapper">
-              <g-image :src="$page.author.image" class="img" :alt="$page.author.title"/>
+              <g-image :src="$page.author.image" class="img" :alt="$page.author.name"/>
             </div>
             <div class="flex justify-center my-8 remove-link-css-background">
               <g-link v-for="(social, i) in $page.author.social" :to="social.url" class="" :key="`social-${social.value}-${i}`">
@@ -65,7 +65,7 @@
   query Author ($path: String!) {
     author: author (path: $path) {
           id
-          title
+          name
           image
           rol
           summary

@@ -6,16 +6,16 @@ summary: After switching from Windows to Mac, I have reconsidered a few of the a
 author: Yuniel Acosta
 tags: [JavaScript, TypeScript]
 categories: [Programming]
-cover: ./portada.jpg
+cover: ./images/portada.jpg
 draft: false
 ---
 
 
-![background](./portada.jpg)
+![background](./images/portada.jpg)
 
 Astronomy and programming are two of my passions that this time I have decided to join together. With this objective in mind, we will create a simple website to count down how many days until the new year, simulating the movement of the planet earth. The demo can be seen at the following link [https://yacosta738.github.io/countdown-to-new-year/](https://yacosta738.github.io/countdown-to-new-year/)
 
-![Example](./example.png)
+![Example](./images/example.png)
 
 Lo primero es crear un fichero **`style.css`** donde se define el estilo y la órbita de cada planeta:
 
@@ -585,6 +585,6 @@ Finally, a file **`index.html`** is created that will contain all the html code 
 
 ~~~
 
-~[Project Structure](./project-structure.png)
+~[Project Structure](./images/project-structure.png)
 All the code can be downloaded from GitHub at the following link [https://github.com/yacosta738/countdown-to-new-year](https://github.com/yacosta738/countdown-to-new-year)
 

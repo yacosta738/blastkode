@@ -106,6 +106,7 @@ module.exports = {
             options: {
                 // Service Worker Options
                 disableServiceWorker: false,
+                preventAssignment: true,
                 serviceWorkerPath: 'static/service-worker.js',
                 cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg,gif',
                 disableTemplatedUrls: false,       // Optional

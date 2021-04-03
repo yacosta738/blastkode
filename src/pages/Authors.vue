@@ -2,7 +2,7 @@
   <Layout aside>
     <div class="container-inner mx-auto pl-80 py-16" v-scroll-reveal.reset>
       <div v-for="author in $page.authors.edges" :key="author.node.id" class="post border-gray-400 border-b mb-20">
-        <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider"><g-link :to="author.node.path" class="inline-link">{{ author.node.title }}</g-link></h2>
+        <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider"><g-link :to="author.node.path" class="inline-link">{{ author.node.name }}</g-link></h2>
         <ul class="flex flex-wrap relative list-none p-0 mb-4 text-light-slate font-mono text-sm">
           <li class="my-2 whitespace-nowrap mx-1">
             <font-awesome :icon="['fa', 'newspaper']"/>
@@ -14,7 +14,7 @@
           </li>
         </ul>
         <div class="flex flex-col md:flex-row mb-16">
-          <g-image :alt="author.node.title" v-if="author.node.image" class="object-cover md:w-1/3 border border-green-500 md:mr-5" :src="author.node.image" />
+          <g-image :alt="author.node.name" v-if="author.node.image" class="object-cover md:w-1/3 border border-green-500 md:mr-5" :src="author.node.image" />
           <div class="text-center md:text-left mt-5 md:mt-0">
             {{ yearsExperience(author.node.summary) }}
             <g-link :to="author.node.path" class="font-bold uppercase inline-link">More&nbsp;→</g-link>
@@ -43,7 +43,7 @@ query Authors ($page: Int) {
     edges {
       node {
         id
-        title
+        name
         image
         path
         rol

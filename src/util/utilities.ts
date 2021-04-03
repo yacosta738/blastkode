@@ -1,3 +1,5 @@
+import {format} from 'date-fns';
+
 // Sets target="_blank" rel="noopener noreferrer" on external links
 export const handleExternalLinks = () => {
     const allLinks = Array.from(document.querySelectorAll('a'));
@@ -42,4 +44,10 @@ export const yearsOfExperience = (text: string): string => {
     const year: number = mask ? Number.parseInt(mask[0].replace('{', '').replace('}', '')) : 1993;
     const currentYear: number = new Date()?.getFullYear();
     return text?.replace(`[-YEAR-{${year}}]`, `${currentYear - year}`);
+};
+
+export const formatDate = (date: string, dateFormat: string = 'MMMM, yyyy'): string => {
+    console.log(date)
+    const dateT = date? Date.parse(date): new Date();
+    return format(dateT, dateFormat);
 };
