@@ -30,7 +30,7 @@ query {
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import Widget from '~/components/shared/Widget.vue';
+const Widget = () => import( '~/components/shared/Widget.vue');
 import IArticle from '~/models/Article';
 
 @Component({components:{Widget}})

@@ -1,22 +1,152 @@
 backend:
   name: github
   repo: yacosta738/blastkode
+  branch: main
 
-media_folder: "static/images"
-public_folder: "/content"
+publish_mode: editorial_workflow
+media_folder: "static/uploads"
+public_folder: "/uploads"
+site_url: https://blastkode.com
+display_url: https://blastkode.com
+logo_url: https://blastkode.com/logo.svg
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
 
 collections:
   - name: "posts"
     label: "Posts"
-    folder: "blog"
+    folder: "content/blog"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    label_singular: "Post"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Summary", name: "summary", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "date"}
-      - {label: "Featured Image", name: "cover", widget: "image", required: false}
-      - {label: "Author", name: "author", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list", allow_add: false, default: ["IT"]}
-      - {label: "Categories", name: "categories", widget: "list", allow_add: false, default: ["IT"]}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Summary", name: "summary", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "cover", widget: "image", required: false }
+      - label: "Post Author"
+        name: "author"
+        widget: "relation"
+        collection: "authors"
+        search_fields: [ "name" ]
+        value_field: "name"
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", allow_add: true, default: [ "IT" ] }
+      - { label: "Categories", name: "categories", widget: "list", allow_add: true, default: [ "IT" ] }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+  - name: "authors" # Used in routes, e.g., /admin/collections/blog
+    label: "Authors" # Used in the UI
+    label_singular: "Author"
+    folder: "content/authors" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    identifier_field: name
+    fields: # The fields for each document, usually in front matter
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Rol", name: "rol", widget: "string" }
+      - { label: "Author image", name: "image", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "string" }
+      - label: "Social"
+        name: "social"
+        widget: "list"
+        fields:
+          - label: "Icon"
+            name: "icon"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Type", name: "type", widget: "string" }
+              - { label: "Value", name: "value", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - label: "Contact"
+        name: "contact_items"
+        widget: "list"
+        fields:
+          - label: "Icon"
+            name: "icon"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Type", name: "type", widget: "string" }
+              - { label: "Value", name: "value", widget: "string" }
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Link", name: "link", widget: "string" }
+          - { label: "Text", name: "text", widget: "string" }
+          - label: "Target"
+            name: "target"
+            widget: "string"
+            options: [ "_blank", "_self",  "_parent", "_top", "framename" ]
+            default: "_blank"
+      - label: "Resume"
+        name: "resume"
+        widget: "list"
+        fields:
+          - label: "Experience"
+            name: "experience"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - label: "Icon"
+                    name: "icon"
+                    widget: "object"
+                    fields:
+                      - { label: "Type", name: "type", widget: "string" }
+                      - { label: "Value", name: "value", widget: "string" }
+                  - { label: "Start Date", name: "start_date", widget: "datetime" }
+                  - { label: "End Date", name: "end_date", widget: "datetime" }
+                  - { label: "Location", name: "location", widget: "string" }
+                  - label: "Content"
+                    name: "content"
+                    widget: "object"
+                    collapsed: false
+                    fields:
+                      - { label: "Text", name: "text", widget: "string", default: "Main task" }
+                      - label: "Options"
+                        name: "options"
+                        widget: "list"
+                        required: false
+                        fields:
+                          - { label: "Main Tasks", name: "li", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "jobs"
+    label: "Jobs"
+    folder: "content/jobs"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    label_singular: "Job"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Role", name: "rol", widget: "string" }
+      - { label: "Company`", name: "company", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Start Date", name: "start_date", widget: "datetime" }
+      - { label: "End Date", name: "end_date", widget: "datetime" }
+      - { label: "URL", name: "url", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    label_singular: "Project"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Cover", name: "cover", widget: "image", required: false }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Github", name: "github", widget: "string", required: false }
+      - { label: "External", name: "external", widget: "string", required: false }
+      - { label: "IOS", name: "ios", widget: "string", required: false }
+      - { label: "Android", name: "android", widget: "string", required: false }
+      - { label: "Company", name: "company", widget: "string" }
+      - { label: "Technologies", name: "tech", widget: "list" }
+      - { label: "Show in Projects", name: "showInProjects", widget: "boolean", default: false }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }

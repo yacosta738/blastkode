@@ -6,12 +6,12 @@ summary: The image picker is a common component that we often need for user prof
 author: Yuniel Acosta
 tags: [Flutter, Image Picker, Dart]
 categories: [Programming]
-cover: ./portada.png
+cover: ./images/portada-add-images-selector-flutter.png
 draft: false
 ---
 
 
-![background](./portada.png)
+![background](./images/portada-add-images-selector-flutter.png)
 
 The image picker is a common component that is often needed to change user profile photos among many other options where an image needs to be uploaded. In order to provide our application with the option to upload selected images from our device, either in the camera or the gallery, we will use the [plugin](https://pub.dev/packages/image_picker) made by developers of Flutter.
 
@@ -153,4 +153,4 @@ Widget build(BuildContext context) {
 
 Done, run the app, and you should see something like this.
 
-![Result](./resultado.gif)
+![Result](./images/resultado.gif)

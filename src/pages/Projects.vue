@@ -67,8 +67,8 @@ query Project {
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 import Project from '~/models/Project';
-import ProjectLinks from '~/components/ProjectLinks.vue';
-import ProjectTechList from '~/components/ProjectTechList.vue';
+const ProjectLinks = () => import('~/components/ProjectLinks.vue');
+const ProjectTechList = () => import('~/components/ProjectTechList.vue');
 
 @Component<Projects>({
   components: {ProjectTechList, ProjectLinks},

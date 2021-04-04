@@ -28,7 +28,7 @@
                :aria-labelledby="`tab-${i}`"
                :aria-hidden="activeTabId !== i" :hidden="activeTabId !== i">
             <h3>
-              <span>{{ job.node.title }}</span>
+              <span>{{ job.node.rol }}</span>
               <span class="company">
                 &nbsp;@&nbsp;
                 <g-link :to="job.node.url" class="inline-link">
@@ -36,7 +36,7 @@
                 </g-link>
               </span>
             </h3>
-            <p class="range">{{ job.node.range }}</p>
+            <p class="range">{{ range(job.node) }}</p>
             <div v-html="job.node.content"></div>
           </div>
         </div>
@@ -47,7 +47,7 @@
 
 <static-query>
 query Jobs ($page: Int) {
-  jobs: allJob (sortBy: "date", order: DESC, perPage: 10, page: $page) @paginate {
+  jobs: allJob (sortBy: "start_date", order: DESC, perPage: 10, page: $page) @paginate {
     totalCount
     pageInfo {
       totalPages
@@ -56,12 +56,12 @@ query Jobs ($page: Int) {
     edges {
       node {
         id
-        title
-        date (format: "MMMM D, Y")
+        rol
+        start_date
+        end_date
         company
         location
         url
-        range
         content
       }
     }
@@ -71,7 +71,7 @@ query Jobs ($page: Int) {
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import {inlineLinks} from '~/util/utilities';
+import {formatDate, inlineLinks} from '~/util/utilities';
 
 @Component
 export default class Jobs extends Vue {
@@ -79,6 +79,9 @@ export default class Jobs extends Vue {
 
   get isSmallScreen(){
     return this.$screen.breakpoint === 'xs' || this.$screen.breakpoint === 'sm';
+  }
+  range(job): string{
+    return `${formatDate(job.start_date)} - ${job.end_date ? formatDate(job.end_date) : 'Present'}`;
   }
   mounted():void {
     inlineLinks('styled-tab-content');

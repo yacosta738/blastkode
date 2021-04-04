@@ -70,7 +70,7 @@ query Category ($id: ID!, $page: Int) {
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-import PaginationPosts from '@/components/PaginationPosts.vue';
+const PaginationPosts = () => import('@/components/PaginationPosts.vue');
 
 @Component<Category>({
   metaInfo() {

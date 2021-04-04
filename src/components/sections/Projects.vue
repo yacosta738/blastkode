@@ -49,9 +49,10 @@ query {
 </static-query>
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import FeaturedProjects from "@/components/FeaturedProjects.vue"
-import CommonProjects from "@/components/CommonProjects.vue"
 import Project from '~/models/Project';
+
+const FeaturedProjects = () => import("@/components/FeaturedProjects.vue");
+const CommonProjects = () => import("@/components/CommonProjects.vue");
 
 @Component({components:{FeaturedProjects, CommonProjects}})
 export default class Projects extends Vue {

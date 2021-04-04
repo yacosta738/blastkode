@@ -42,14 +42,14 @@
 <script lang="ts">
 import "reflect-metadata";
 import {Component, Prop, Vue} from 'vue-property-decorator';
-import { format } from 'date-fns';
+import { formatDate } from "~/util/utilities";
 
 @Component
 export default class ResumeTimeline extends Vue {
   @Prop({required: true}) readonly experience: any;
 
   formatDate(date: string): string{
-    return format(Date.parse(date), 'MMMM, yyyy')
+    return formatDate(date);
   }
 }
 </script>
