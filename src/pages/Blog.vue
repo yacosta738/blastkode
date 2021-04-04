@@ -49,9 +49,9 @@ query Posts ($page: Int) {
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import PaginationPosts from '@/components/PaginationPosts.vue';
+const PaginationPosts = () => import('@/components/PaginationPosts.vue');
 import "@/declarations/vue-meta";
-import PostHeader from '~/components/PostHeader.vue';
+const PostHeader = () => import('~/components/PostHeader.vue');
 
 @Component<Blog>({
   metaInfo() {

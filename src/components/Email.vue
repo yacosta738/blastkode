@@ -7,8 +7,7 @@
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
 import {email} from '~/config/config';
-import Side from './Side.vue';
-import {isClient} from '~/util/utilities';
+const Side = () => import( './Side.vue');
 
 @Component({components: {Side}})
 export default class Email extends Vue {

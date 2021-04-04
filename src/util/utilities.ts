@@ -47,7 +47,6 @@ export const yearsOfExperience = (text: string): string => {
 };
 
 export const formatDate = (date: string, dateFormat: string = 'MMMM, yyyy'): string => {
-    console.log(date)
     const dateT = date? Date.parse(date): new Date();
     return format(dateT, dateFormat);
 };

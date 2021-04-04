@@ -1,7 +1,7 @@
 ---
 date: '2020-12-12'
 title: 'ExpensesApp'
-cover: './cover.png'
+cover: '/uploads/cover-expenses-app.png'
 github: 'https://github.com/yacosta738/flutter_expenses_app'
 external: 'https://imgur.com/hQRUqNH'
 company: Personal Project

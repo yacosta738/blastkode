@@ -18,7 +18,9 @@
         <project-tech-list :project="project" position="start" :showIcon="false"/>
       </div>
     </div>
-    <button class="big-button m-5" @click="showMore=!showMore">{{ (showMore) ? 'Show Less' : 'Show More' }}</button>
+    <button v-if="projectsToShow.length >= 6" class="big-button m-5" @click="showMore=!showMore">
+      {{ (showMore) ? 'Show Less' : 'Show More' }}
+    </button>
   </div>
 
 </template>
@@ -26,10 +28,11 @@
 <script lang="ts">
 import 'reflect-metadata';
 import {Component, Prop, Vue} from "vue-property-decorator";
-import ProjectLinks from "@/components/ProjectLinks.vue";
-import ProjectTechList from "@/components/ProjectTechList.vue";
 import Project from '~/models/Project';
 import {inlineLinks} from '~/util/utilities';
+
+const ProjectLinks = () => import("@/components/ProjectLinks.vue");
+const ProjectTechList = () => import("@/components/ProjectTechList.vue");
 
 @Component({components: {ProjectLinks, ProjectTechList}})
 export default class CommonProjects extends Vue {

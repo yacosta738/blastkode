@@ -30,7 +30,7 @@ collections:
         name: "author"
         widget: "relation"
         collection: "authors"
-        search_fields: ["name"]
+        search_fields: [ "name" ]
         value_field: "name"
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list", allow_add: true, default: [ "IT" ] }
@@ -77,7 +77,7 @@ collections:
           - label: "Target"
             name: "target"
             widget: "string"
-            options: ["_blank", "_self",  "_parent", "_top", "framename"]
+            options: [ "_blank", "_self",  "_parent", "_top", "framename" ]
             default: "_blank"
       - label: "Resume"
         name: "resume"
@@ -101,7 +101,7 @@ collections:
                       - { label: "Type", name: "type", widget: "string" }
                       - { label: "Value", name: "value", widget: "string" }
                   - { label: "Start Date", name: "start_date", widget: "datetime" }
-                  - { label: "End Date", name: "end_date", widget: "datetime", required: false }
+                  - { label: "End Date", name: "end_date", widget: "datetime" }
                   - { label: "Location", name: "location", widget: "string" }
                   - label: "Content"
                     name: "content"
@@ -123,10 +123,30 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     label_singular: "Job"
     fields:
+      - { label: "Title", name: "title", widget: "string" }
       - { label: "Role", name: "rol", widget: "string" }
       - { label: "Company`", name: "company", widget: "string" }
       - { label: "Location", name: "location", widget: "string" }
-      - { label: "Publish Date", name: "start_date", widget: "datetime" }
-      - { label: "Publish Date", name: "end_date", widget: "datetime", required: false}
+      - { label: "Start Date", name: "start_date", widget: "datetime" }
+      - { label: "End Date", name: "end_date", widget: "datetime" }
       - { label: "URL", name: "url", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    label_singular: "Project"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Cover", name: "cover", widget: "image", required: false }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Github", name: "github", widget: "string", required: false }
+      - { label: "External", name: "external", widget: "string", required: false }
+      - { label: "IOS", name: "ios", widget: "string", required: false }
+      - { label: "Android", name: "android", widget: "string", required: false }
+      - { label: "Company", name: "company", widget: "string" }
+      - { label: "Technologies", name: "tech", widget: "list" }
+      - { label: "Show in Projects", name: "showInProjects", widget: "boolean", default: false }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
       - { label: "Body", name: "body", widget: "markdown" }

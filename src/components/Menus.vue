@@ -7,9 +7,9 @@
     <!--        <li class="mb-6 lg:mb-0">-->
     <!--          <search-input/>-->
     <!--        </li>-->
-<!--    <li>-->
-<!--      <theme-switcher/>-->
-<!--    </li>-->
+    <!--    <li>-->
+    <!--      <theme-switcher/>-->
+    <!--    </li>-->
     <li>
       <ol class="order-list lg:space-x-8 space-y-6 lg:space-y-0 lg:flex lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0">
         <li v-for="(menu, i) in menus" :key="i">
@@ -31,8 +31,9 @@
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 import {Menu, navMenus} from '~/config/config';
-import ThemeSwitcher from './ThemeSwitcher.vue';
 import {addEventToClassName} from '~/util/utilities';
+
+const ThemeSwitcher = () => import('./ThemeSwitcher.vue');
 
 @Component({components: {ThemeSwitcher}})
 export default class Menus extends Vue {

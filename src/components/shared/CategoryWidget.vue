@@ -35,9 +35,8 @@ query {
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import Widget from '~/components/shared/Widget.vue';
+const Widget = () => import( '~/components/shared/Widget.vue');
 import Category from '~/models/Category';
-import Tag from '~/models/Tag';
 
 @Component({components:{Widget}})
 export default class CategoryWidget extends Vue {

@@ -64,7 +64,7 @@ query Post ($path: String!) {
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-import PostHeader from '~/components/PostHeader.vue';
+const PostHeader = () => import('~/components/PostHeader.vue');
 import {inlineLinks} from '~/util/utilities';
 
 @Component<Post>({

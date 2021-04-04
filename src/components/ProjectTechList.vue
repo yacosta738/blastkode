@@ -18,7 +18,8 @@
 import 'reflect-metadata';
 import {Component, Prop, Vue} from "vue-property-decorator";
 import Project from '~/models/Project';
-import SimpleIconWrapper from "~/components/shared/SimpleIconWrapper.vue";
+
+const SimpleIconWrapper = () => import("~/components/shared/SimpleIconWrapper.vue");
 
 @Component({components: {SimpleIconWrapper}})
 export default class ProjectTechList extends Vue {

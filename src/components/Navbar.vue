@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import Menus from "./Menus.vue";
+const Menus = ()=> import("./Menus.vue");
 import {isClient} from '~/util/utilities';
 
 @Component({components: {Menus}})
