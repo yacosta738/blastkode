@@ -28,11 +28,10 @@
 <script lang="ts">
 import 'reflect-metadata';
 import {Component, Prop, Vue} from "vue-property-decorator";
+import ProjectLinks from "@/components/ProjectLinks.vue";
+import ProjectTechList from "@/components/ProjectTechList.vue";
 import Project from '~/models/Project';
 import {inlineLinks} from '~/util/utilities';
-
-const ProjectLinks = () => import("@/components/ProjectLinks.vue");
-const ProjectTechList = () => import("@/components/ProjectTechList.vue");
 
 @Component({components: {ProjectLinks, ProjectTechList}})
 export default class CommonProjects extends Vue {
