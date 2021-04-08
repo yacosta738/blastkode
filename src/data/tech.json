@@ -82,103 +82,27 @@
       "url": "https://code.visualstudio.com/"
     },
     {
-      "id": "sublime-text",
-      "name": "Sublime Text",
+      "id": "flask",
+      "name": "Flask",
       "icon": {
-        "type": "fab",
-        "value": "codepen"
+        "type": "simple-icon",
+        "value": "flask-icon"
       },
-      "url": "https://www.facebook.com"
+      "url": "https://flask.palletsprojects.com/"
     },
     {
-      "id": "atom",
-      "name": "Atom",
+      "id": "python",
+      "name": "Python",
       "icon": {
-        "type": "fab",
-        "value": "codepen"
+        "type": "simple-icon",
+        "value": "python-icon"
       },
-      "url": "https://www.facebook.com"
+      "url": "https://www.python.org/"
     },
     {
-      "id": "iterm2",
-      "name": "iTerm2",
-      "icon": {
-        "type": "fab",
-        "value": "codepen"
-      },
-      "url": "https://www.facebook.com"
-    },
-    {
-      "id": "hyper",
-      "name": "Hyper",
-      "icon": {
-        "type": "fab",
-        "value": "codepen"
-      },
-      "url": "https://www.facebook.com"
-    },
-    {
-      "id": "next.js",
-      "name": "Next.js",
-      "icon": {
-        "type": "fab",
-        "value": "codepen"
-      },
-      "url": "https://www.facebook.com"
-    },
-    {
-      "id": "chart.js",
-      "name": "Chart.js",
-      "icon": {
-        "type": "fab",
-        "value": "codepen"
-      },
-      "url": "https://www.facebook.com"
-    },
-    {
-      "id": "github-api",
-      "name": "GitHub API",
-      "icon": {
-        "type": "fab",
-        "value": "codepen"
-      },
-      "url": "https://www.facebook.com"
-    },
-    {
-      "id": "react",
-      "name": "React",
-      "icon": {
-        "type": "fab",
-        "value": "codepen"
-      },
-      "url": "https://www.facebook.com"
-    },
-    {
-      "id": "node.js",
-      "name": "Node.js",
-      "icon": {
-        "type": "fab",
-        "value": "codepen"
-      },
-      "url": "https://www.facebook.com"
-    },
-    {
-      "id": "express",
-      "name": "Express",
-      "icon": {
-        "type": "fab",
-        "value": "codepen"
-      },
-      "url": "https://www.facebook.com"
-    },
-    {
-      "id": "spotify-web-api",
-      "name": "Spotify Web API",
-      "icon": {
-        "type": "fab",
-        "value": "codepen"
-      },
-      "url": "https://www.facebook.com"
+      "id": "libinsane",
+      "name": "Libinsane",
+      "url": "https://gitlab.gnome.org/World/OpenPaperwork/libinsane"
     }
   ]
 }
