@@ -17,7 +17,7 @@ import {
   PhpIcon,
   PostgreSqlIcon,
   TypeScriptIcon,
-  VisualStudioCodeIcon
+  VisualStudioCodeIcon, FlaskIcon, PythonIcon
 } from "vue-simple-icons";
 
 @Component({
@@ -28,7 +28,7 @@ import {
     FlutterIcon,
     DartIcon,
     IntelliJIdeaIcon,
-    TypeScriptIcon, AngularIcon, LumenIcon, PostgreSqlIcon, PhpIcon, VisualStudioCodeIcon
+    TypeScriptIcon, AngularIcon, LumenIcon, PostgreSqlIcon, PhpIcon, VisualStudioCodeIcon, FlaskIcon, PythonIcon
   }
 })
 export default class SimpleIconWrapper extends Vue {
