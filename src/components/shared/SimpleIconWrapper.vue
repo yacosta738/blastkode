@@ -8,16 +8,24 @@ import {Component, Prop, Vue} from 'vue-property-decorator';
 import {
   AngularIcon,
   DartIcon,
+  FlaskIcon,
   FlutterIcon,
   GraphQlIcon,
   GridsomeIcon,
   IntelliJIdeaIcon,
+  JavaIcon,
+  JavaScriptIcon,
+  KotlinIcon,
   LumenIcon,
+  Neo4jIcon,
   NetlifyIcon,
   PhpIcon,
   PostgreSqlIcon,
+  PythonIcon,
+  ScalaIcon,
+  SpringIcon,
   TypeScriptIcon,
-  VisualStudioCodeIcon, FlaskIcon, PythonIcon
+  VisualStudioCodeIcon, VueJsIcon, NodeJsIcon
 } from "vue-simple-icons";
 
 @Component({
@@ -28,7 +36,20 @@ import {
     FlutterIcon,
     DartIcon,
     IntelliJIdeaIcon,
-    TypeScriptIcon, AngularIcon, LumenIcon, PostgreSqlIcon, PhpIcon, VisualStudioCodeIcon, FlaskIcon, PythonIcon
+    TypeScriptIcon,
+    AngularIcon,
+    LumenIcon,
+    PostgreSqlIcon,
+    PhpIcon,
+    VisualStudioCodeIcon,
+    FlaskIcon,
+    PythonIcon,
+    JavaIcon,
+    KotlinIcon,
+    SpringIcon,
+    Neo4jIcon,
+    JavaScriptIcon,
+    ScalaIcon, VueJsIcon, NodeJsIcon
   }
 })
 export default class SimpleIconWrapper extends Vue {

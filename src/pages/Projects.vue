@@ -24,7 +24,7 @@
               }}
             </td>
             <td class="title">{{ project.title }}</td>
-            <td class="company hide-on-mobile">{{ (project.company)?project.company: "Personal Project" }}</td>
+            <td class="company hide-on-mobile">{{ (project.company) ? project.company : "Personal Project" }}</td>
             <td class="tech hide-on-mobile">
               <project-tech-list :project="project" position="start" :showIcon="true"/>
             </td>
@@ -41,32 +41,34 @@
 
 <page-query>
 query Project {
-  projects: allProject (sortBy: "date", order: DESC) {
-    edges {
-      node {
-        id
-        path
-        title
-        date (format: "MMMM D, Y")
-        cover
-        github
-        external
-        ios
-        android
-        company
-        tech
-        showInProjects
-        featured
-        content
-      }
-    }
-  }
+projects: allProject (sortBy: "date", order: DESC) {
+edges {
+node {
+id
+path
+title
+date (format: "MMMM D, Y")
+cover
+github
+external
+ios
+android
+company
+tech
+showInProjects
+featured
+content
+}
+}
+}
 }
 </page-query>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 import Project from '~/models/Project';
+import {isAfter, isBefore} from 'date-fns';
+
 const ProjectLinks = () => import('~/components/ProjectLinks.vue');
 const ProjectTechList = () => import('~/components/ProjectTechList.vue');
 
@@ -88,8 +90,19 @@ export default class Projects extends Vue {
 
   get projects(): Project[] {
     //@ts-ignore
-    return this.$page.projects.edges.map(edge => Project.fromJson(edge.node));
+    return this.$page.projects.edges.map(edge => Project.fromJson(edge.node)).sort((a, b) => {
+     const dateA = typeof a?.date === 'string'? Date.parse(a.date) : a.date;
+     const dateB = typeof b?.date === 'string'? Date.parse(b.date) : b.date;
+      if (isBefore(dateA, dateB)) {
+        return 1;
+      }
+      if (isAfter(dateA, dateB)) {
+        return -1;
+      }
+      return 0;
+    });
   }
+
   mounted() {
     this.$store.commit('updateShowSide', true);
   }
@@ -101,7 +114,7 @@ export default class Projects extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.styled-table-container{
+.styled-table-container {
   table {
     width: 100%;
     border-collapse: collapse;
@@ -131,6 +144,7 @@ export default class Projects extends Vue {
           padding-left: 10px;
         }
       }
+
       &:last-child {
         padding-right: 20px;
 
@@ -152,6 +166,7 @@ export default class Projects extends Vue {
         border-top-left-radius: var(--border-radius);
         border-bottom-left-radius: var(--border-radius);
       }
+
       td:last-child {
         border-top-right-radius: var(--border-radius);
         border-bottom-right-radius: var(--border-radius);
@@ -186,9 +201,11 @@ export default class Projects extends Vue {
         font-size: var(--fz-xxs);
         font-family: var(--font-mono);
         line-height: 1.5;
+
         .separator {
           margin: 0 5px;
         }
+
         span {
           display: inline-block;
         }

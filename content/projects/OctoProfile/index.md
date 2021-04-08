@@ -8,9 +8,9 @@ ios: 'https://www.facebook.com'
 android: 'https://www.facebook.com'
 company: Desoft
 tech:
-  - Next.js
-  - Chart.js
-  - GitHub API
+  - VueJS
+  - Scala
+  - Neo4j
 showInProjects: true 
 featured: true
 ---

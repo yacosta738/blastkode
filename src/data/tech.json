@@ -103,6 +103,83 @@
       "id": "libinsane",
       "name": "Libinsane",
       "url": "https://gitlab.gnome.org/World/OpenPaperwork/libinsane"
+    },
+    {
+      "id": "java",
+      "name": "Java",
+      "icon": {
+        "type": "simple-icon",
+        "value": "java-icon"
+      },
+      "url": "https://www.java.com/"
+    },
+    {
+      "id": "kotlin",
+      "name": "Kotlin",
+      "icon": {
+        "type": "simple-icon",
+        "value": "kotlin-icon"
+      },
+      "url": "https://kotlinlang.org/"
+    },
+    {
+      "id": "spring",
+      "name": "Spring",
+      "icon": {
+        "type": "simple-icon",
+        "value": "spring-icon"
+      },
+      "url": "https://spring.io/"
+    },
+    {
+      "id": "neo4j",
+      "name": "Neo4j",
+      "icon": {
+        "type": "simple-icon",
+        "value": "neo4j-icon"
+      },
+      "url": "https://neo4j.com/"
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "icon": {
+        "type": "simple-icon",
+        "value": "java-script-icon"
+      },
+      "url": "https://www.javascript.com/"
+    },
+    {
+      "id": "scala",
+      "name": "Scala",
+      "icon": {
+        "type": "simple-icon",
+        "value": "scala-icon"
+      },
+      "url": "https://www.scala-lang.org/"
+    },
+    {
+      "id": "vuejs",
+      "name": "VueJS",
+      "icon": {
+        "type": "simple-icon",
+        "value": "vue-js-icon"
+      },
+      "url": "https://vuejs.org/"
+    },
+    {
+      "id": "node.js",
+      "name": "Node.js",
+      "icon": {
+        "type": "simple-icon",
+        "value": "node-js-icon"
+      },
+      "url": "https://nodejs.org/"
+    },
+    {
+      "id": "spotify-web-api",
+      "name": "Spotify Web API",
+      "url": "https://developer.spotify.com/documentation/web-api/"
     }
   ]
 }
