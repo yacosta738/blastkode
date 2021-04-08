@@ -7,21 +7,8 @@
           <p class="project-overline">Featured Project</p>
           <h3 class="project-title">{{ project.title }}</h3>
           <div class="project-description" v-html="project.content"></div>
-          <ul class="project-tech-list">
-            <li v-for="tech in project.tech" :key="tech.id">
-              <font-awesome v-if="tech.icon"
-                            :icon="[tech.icon.type, tech.icon.value ]"/>
-              {{ tech.name }}
-            </li>
-          </ul>
-          <div class="project-links">
-            <g-link v-if="project.github" :to="project.github" aria-label="GitHub Link">
-              <font-awesome :icon="['fab', 'github' ]"/>
-            </g-link>
-            <g-link v-if="project.external" :to="project.external" aria-label="External Link">
-              <font-awesome :icon="['fa', 'external-link-alt' ]"/>
-            </g-link>
-          </div>
+          <project-tech-list :project="project" :position="(i % 2 === 0)? 'end' : 'start'"/>
+          <project-links :project="project" :position="(i % 2 === 0)? 'end' : 'start'"/>
         </div>
         <div class="project-image">
           <g-link :to="project.external? project.external: project.github?project.github:'#'">
@@ -38,8 +25,10 @@ import 'reflect-metadata';
 import {Component, Prop, Vue} from "vue-property-decorator";
 import Project from '~/models/Project';
 import {inlineLinks} from '~/util/utilities';
+import ProjectTechList from '~/components/ProjectTechList.vue';
+import ProjectLinks from '~/components/ProjectLinks.vue';
 
-@Component
+@Component({components: {ProjectLinks, ProjectTechList}})
 export default class FeaturedProjects extends Vue {
   @Prop({required: true}) readonly projects: Project[] | undefined;
 
@@ -181,6 +170,7 @@ export default class FeaturedProjects extends Vue {
     }
   }
 }
+
 .project-tech-list {
   display: flex;
   flex-wrap: wrap;
@@ -236,6 +226,7 @@ export default class FeaturedProjects extends Vue {
     }
   }
 }
+
 .project-image {
   box-shadow: 0 10px 30px -15px var(--navy-shadow);
   transition: var(--transition);

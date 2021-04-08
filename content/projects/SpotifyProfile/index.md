@@ -5,9 +5,9 @@ cover: './demo.png'
 github: 'https://github.com/bchiang7/spotify-profile'
 external: 'https://spotify-profile.herokuapp.com/'
 tech:
-  - React
+  - VueJS
   - Node.js
-  - Express
+  - Spring
   - Spotify Web API
 showInProjects: true
 featured: true

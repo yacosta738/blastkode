@@ -9,10 +9,7 @@ android: 'https://www.facebook.com'
 company: Desoft
 tech:
   - VS Code
-  - Sublime Text
-  - Atom
-  - iTerm2
-  - Hyper
+  - JavaScript
 showInProjects: true
 featured: true
 ---
