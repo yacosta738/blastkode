@@ -26,7 +26,7 @@
       </div>
       <div class="styled-pic">
         <div class="wrapper">
-          <g-image src="../../../static/avatar.jpg" alt="avatar" class="img"/>
+          <g-image src="../../../static/me.png" alt="avatar" class="img"/>
         </div>
       </div>
     </div>

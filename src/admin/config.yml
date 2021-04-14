@@ -76,7 +76,7 @@ collections:
           - { label: "Text", name: "text", widget: "string" }
           - label: "Target"
             name: "target"
-            widget: "string"
+            widget: "select"
             options: [ "_blank", "_self",  "_parent", "_top", "framename" ]
             default: "_blank"
       - label: "Resume"
@@ -103,18 +103,7 @@ collections:
                   - { label: "Start Date", name: "start_date", widget: "datetime" }
                   - { label: "End Date", name: "end_date", widget: "datetime" }
                   - { label: "Location", name: "location", widget: "string" }
-                  - label: "Content"
-                    name: "content"
-                    widget: "object"
-                    collapsed: false
-                    fields:
-                      - { label: "Text", name: "text", widget: "string", default: "Main task" }
-                      - label: "Options"
-                        name: "options"
-                        widget: "list"
-                        required: false
-                        fields:
-                          - { label: "Main Tasks", name: "li", widget: "string" }
+                  - { label: "Content", name: "content", widget: "markdown", minimal: true }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "jobs"
     label: "Jobs"
