@@ -1,58 +1,64 @@
 ---
-name: "Yuniel Acosta"
-path: /yuniel-acosta
-image: /uploads/yuniel-acosta.jpg
-rol: "Full Stack Developer"
-summary: "Web, mobile and desktop application developer. Science and technology enthusiast. More than [-YEAR-{2017}] years of experience in the software industry."
-social:
-  - icon : 
-        type: "fab" 
-        value: "facebook" 
-    url : "https://facebook.com/yacosta738"
-  - icon : 
-        type: "fab" 
-        value: "twitter" 
-    url : "https://twitter.com/yacosta738"
-  - icon : 
-        type: "fab" 
-        value: "github" 
-    url : "https://github.com/yacosta738"
-  - icon : 
-        type: "fab"
-        value: "linkedin"
-    url : "https://linkedin.com/in/yacosta738"
 contact_items:
-  - icon: 
-        type: "fa"
-        value: "globe"
-    name: "Website"
-    link: "https://blastkode.com/"
-    text: "blastkode.com"
-    target: "_blank"
-  - icon: 
-        type: "fa"
-        value: "at"
-    name: "Email"
-    link: "mailto:yunielacosta738@gmail.com"
-    text: "yunielacosta738@gmail.com"
-  - icon: 
-        type: "fa"
-        value: "graduation-cap"
-    name: "Degree"
-    text: "Bachelor's Degree in Computer Science"
-  - icon: 
-        type: "fa"
-        value: "phone"
-    name: "Phone"
-    text: "+53 54739922"
-    target: "_blank"
-  - icon: 
-        type: "fa"
-        value: "map-marker"
-    name: "City"
-    link: "https://goo.gl/maps/HoNArb98EDX9GbFGA"
-    text: "Ciego de Ávila, Cuba"
-    target: "_blank"
+  - icon:
+      type: fa
+      value: globe
+    name: Website
+    link: https://blastkode.com/
+    text: blastkode.com
+    target: _blank
+  - icon:
+      type: fa
+      value: at
+    name: Email
+    link: mailto:yunielacosta738@gmail.com
+    text: yunielacosta738@gmail.com
+    target: _blank
+  - icon:
+      type: fa
+      value: graduation-cap
+    name: Degree
+    text: Bachelor's Degree in Computer Science
+    link: _self
+    target: _self
+  - icon:
+      type: fa
+      value: phone
+    name: Phone
+    text: +53 54739922
+    target: _blank
+    link: _self
+  - icon:
+      type: fa
+      value: map-marker
+    name: City
+    link: https://goo.gl/maps/HoNArb98EDX9GbFGA
+    text: Ciego de Ávila, Cuba
+    target: _blank
+path: /yuniel-acosta
+name: Yuniel Acosta
+rol: Full Stack Developer
+image: /uploads/yuniel-acosta.jpg
+summary: Web, mobile and desktop application developer. Science and technology
+  enthusiast. More than [-YEAR-{2017}] years of experience in the software
+  industry.
+social:
+  - icon:
+      type: fab
+      value: facebook
+    url: https://facebook.com/yacosta738
+  - icon:
+      type: fab
+      value: twitter
+    url: https://twitter.com/yacosta738
+  - icon:
+      type: fab
+      value: github
+    url: https://github.com/yacosta738
+  - icon:
+      type: fab
+      value: linkedin
+    url: https://linkedin.com/in/yacosta738
 resume:
   - experience:
         title: "Professional Experience"
