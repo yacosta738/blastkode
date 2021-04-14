@@ -97,12 +97,7 @@
                 start_date
                 end_date
                 location
-                content {
-                  text
-                  options {
-                    li
-                  }
-                }
+                content
               }
             }
           }
