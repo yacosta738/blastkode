@@ -1,38 +1,53 @@
 ---
-title: Configure global proxy on linux
-path: /configure-proxy-global-on-linux
-date: 2020-12-06
-summary: In this article I share some tips to In this article I share some tips to configure a global proxy in GNU/Linux operating systems
-author: Yuniel Acosta
-tags: [Proxy, Linux, Windscribe, Proxifier, VPN, Redsock, Proxychains]
-categories: [Tooling]
-cover: ./images/configure-proxy-global-on-linux/portada-proxy.jpg
 draft: false
+path: /configure-proxy-global-on-linux
+title: Configure global proxy on linux
+summary: In this article I share some tips to In this article I share some tips
+  to configure a global proxy in GNU/Linux operating systems
+date: 2020-12-06
+cover: ./images/configure-proxy-global-on-linux/portada-proxy.jpg
+author: Yuniel Acosta
+tags:
+  - Proxy
+  - Linux
+  - Windscribe
+  - Proxifier
+  - VPN
+  - Redsock
+  - Proxychains
+categories:
+  - Tooling
 ---
-
 ![background](./images/configure-proxy-global-on-linux/portada-proxy.jpg)
 
 In GNU/Linux operating systems when we are behind a proxy server, it can become a bit cumbersome to use programs that do not have their own proxy configuration or commands like **apt-get**, or we simply want to configure it globally. Many of the GNU/Linux distributions use different package managers which are configured in different ways, in addition there are many programs that need their specifications to configure the Internet output through a proxy server. All this process becomes very cumbersome to do in environments where you use a proxy with authentication and it changes from time to time or you use a laptop where you can constantly connect to networks where proxy is not used. Imagine changing all the settings every time you change networks.
 
-![Proxy schema](./images/configure-proxy-global-on-linux/proxy-schema.png)
+![Proxy schema](./images/configure-proxy-global-on-linux/proxy-schema.png "Configure proxy global on linux")
 
 Here are some examples of how to configure proxy in some GNU / Linux distros
 
 ![Proxy global](./images/configure-proxy-global-on-linux/proxy-global.jpg)
 
 ## Terminal Proxy Settings
+
 If we want to use a proxy temporarily in the terminal, we execute the following commands:
-~~~shell
+
+```shell
     export http_proxy=http://username:password@proxyserver:puerto
     export https_proxy=$http_proxy
-~~~
+```
+
 ## Setting environment variables for Debian | Ubuntu family distributions:
+
 Edit file `/etc/environment` with your favorite text editor.
-~~~shell
+
+```shell
     sudo vim /etc/environment
-~~~
+```
+
 We add the following lines to the file, you must duplicate them in upper and lower case because (unfortunately) some programs only search for one or the other:
-~~~text
+
+```text
     http_proxy http://username:password@proxyserver:puerto
     https_proxy http://username:password@proxyserver:puerto
     ftp_proxy http://username:password@proxyserver:puerto
@@ -42,24 +57,33 @@ We add the following lines to the file, you must duplicate them in upper and low
     HTTPS_PROXY http://username:password@proxyserver:puerto
     FTP_PROXY http://username:password@proxyserver:puerto
     NO_PROXY localhost,127.0.0.1,localaddress,.localdomain.com
-~~~
+```
+
 ## Setting environment variables for distributions of the RedHat|Fedora|Centos family:
-~~~shell
+
+```shell
     sudo vim /etc/profile.d/proxy.sh
-~~~
+```
+
 We modify the necessary parameters
-~~~text
+
+```text
     export http_proxy="http://username:password@proxyserver:puerto/"
     export https_proxy="http://username:password@proxyserver:puerto/"
     export ftp_proxy="http://username:password@proxyserver:puerto/"
-~~~
+```
+
 ## Proxy settings for apt-get, apt, aptitude:
+
 We create or edit file `/etc/apt/apt.conf`
-~~~shell
+
+```shell
     sudo vim /etc/apt/apt.conf
-~~~
+```
+
 We add the following lines:
-~~~text
+
+```text
     Acquire::http::Proxy "http://username:password@proxyserver:puerto";
     Acquire::https::Proxy "http://username:password@proxyserver:puerto";
     Acquire::ftp::Proxy "http://username:password@proxyserver:puerto";
@@ -68,48 +92,61 @@ We add the following lines:
     repositorio.localdomain.com DIRECT;
     repositorio2.localdomain.com DIRECT;
     };
-~~~
+```
+
 ## Proxy settings for yum:
+
 Edit file `/etc/yum.conf`
-~~~text
+
+```text
     # proxy server address and port
     proxy=http://proxyserver:puerto
     # user and password
     proxy_username=usuario
     proxy_password=contraseña
-~~~
+```
+
 ## Proxy settings for pacman:
+
 We edit the file `/etc/pacman.conf` and we must uncomment `XferCommand` as follows:
-~~~text
+
+```text
     XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
-~~~
+```
+
 ![pacman.conf.png](./images/configure-proxy-global-on-linux/pacman.conf.png)
 
 We save the changes and proceed to edit the configuration file for `wget`, a tool used to download packages.
-~~~shell
+
+```shell
     sudo vim /etc/wgetrc
-~~~
+```
+
 We edit the configuration file `/etc/wgetrc`, look for the following lines and uncomment or add them to the end of the file.
-~~~shell
+
+```shell
     https_proxy = http://username:password@proxyserver:puerto
     http_proxy = http://username:password@proxyserver:puerto
     ftp_proxy = http://username:password@proxyserver:puerto
     use_proxy = on
-~~~
+```
+
 ## Proxy configuration for nodejs (npm)
-~~~shell
+
+```shell
     npm config set proxy http://username:password@proxyserver:puerto
     npm config set https-proxy http://username:password@proxyserver:puerto
-~~~
+```
+
 ## Proxy configuration for Git
 
-~~~shell
+```shell
     git config --global http.proxy http//proxyserver:puerto
     git config --global https.proxy https//proxyserver:puerto
     # In case we have a direct connection and we need to remove the proxy settings from git
     git config --global --unset http.proxy
     git config --global --unset https.proxy
-~~~
+```
 
 As you can see, it is very complex to constantly maintain the configuration of a proxy on your pc, but luckily there are other options that allow you to configure a proxy globally to the entire operating system. In systems such as Windows or MacOS there are tools such as Proxifier, ProxyCap among others that facilitate access to the internet through a proxy, on the other hand GNU/Linux operating systems have alternatives to these programs like the ones listed below.
 
@@ -119,27 +156,33 @@ As you can see, it is very complex to constantly maintain the configuration of a
 
 ## Packages for the different linux distributions
 
----
-- Archlinux/Manjaro: [redsocks-git](https://aur.archlinux.org/packages/redsocks-git)
-- Debian: [redsocks](http://packages.debian.org/search?searchon=names&keywords=redsocks)
-- Gentoo (zugaina overlay): [redsocks](http://gpo.zugaina.org/net-proxy/redsocks)
-- Gentoo: [redsocks](https://packages.gentoo.org/packages/net-proxy/redsocks)
-- Ubuntu: [redsocks](http://packages.ubuntu.com/search?searchon=names&keywords=redsocks)
+- - -
+
+* Archlinux/Manjaro: [redsocks-git](https://aur.archlinux.org/packages/redsocks-git)
+* Debian: [redsocks](http://packages.debian.org/search?searchon=names&keywords=redsocks)
+* Gentoo (zugaina overlay): [redsocks](http://gpo.zugaina.org/net-proxy/redsocks)
+* Gentoo: [redsocks](https://packages.gentoo.org/packages/net-proxy/redsocks)
+* Ubuntu: [redsocks](http://packages.ubuntu.com/search?searchon=names&keywords=redsocks)
 
 ## Manual compilation of redsock
-To compile redsock we need to clone its repository on GitHub [https://github.com/darkk/redsocks](https://github.com/darkk/redsocks) and follow the instructions in the README.md. ** [libevent-2.0.x] (http://libevent.org/) ** must be installed on our system, as well as the `gcc` and` clang` compilers. Compilation is as easy as running `make` in the project's root directory.
+
+To compile redsock we need to clone its repository on GitHub <https://github.com/darkk/redsocks> and follow the instructions in the README.md. ** [libevent-2.0.x](http://libevent.org/)**  must be installed on our system, as well as the `gcc` and`clang` compilers. Compilation is as easy as running `make` in the project's root directory.
 
 ## Run redsock
+
 Running redsock depends a lot on the distribution you are using and how the package installed redsock. The program has the following command line options:
-* **-c** specifies the path to the configuration file (`./redsocks.conf` is used by default)
-* **-t** this option checks the syntax of the configuration file.
-* **-p** set a file to write the `getpid()` where the following signals are specified: `SIGUSR1` dumps the list of connected clients to the registry,` SIGTERM` and `SIGINT` terminate the daemon, all active connections are closed.
+
+* **\-c** specifies the path to the configuration file (`./redsocks.conf` is used by default)
+* **\-t** this option checks the syntax of the configuration file.
+* **\-p** set a file to write the `getpid()` where the following signals are specified: `SIGUSR1` dumps the list of connected clients to the registry,`SIGTERM` and `SIGINT` terminate the daemon, all active connections are closed.
 
 You can see an example of the configuration file in [redsocks.conf.example](https://github.com/darkk/redsocks/blob/master/redsocks.conf.example).
 
 ### Iptables example
+
 You have to build iptables with connection tracking and `REDIRECT` target.
-~~~text
+
+```text
   # Create new chain
   root# iptables -t nat -N REDSOCKS
   
@@ -186,98 +229,114 @@ You have to build iptables with connection tracking and `REDIRECT` target.
   # REDIRECT target for details.
   # Depending on your network configuration iptables conf. may be as easy as:
   root# iptables -t nat -A PREROUTING --in-interface eth_int -p tcp -j REDSOCKS
-~~~
+```
 
 Redsock is one of my favorite tools for configuring all my internet traffic through a proxy using the TCP protocol. Below I show you another more recent alternative that is very interesting and easy to configure.
 
 # Proxifier-For-Linux
+
 Proxifier-For-Linux is a tool that acts as an intermediary between the proxy server and client programs that need internet access. Proxifier works through proxy servers on behalf of the other programs. Proxifier acts as a global point to configure proxy rules, which will apply to all programs on the system. As I mentioned above it is a new project so currently it only has support for http proxies.
 
 As explained in the official [Proxifier-for-linux](https://github.com/m0hithreddy/Proxifier-For-Linux) repository, our operating system must have the following dependencies
 
 ## Dependencies
+
 Below is the list of dependencies required to compile and run Proxifier, as well as the installation depending on the operating system you use.
 
 ### Install dependencies
+
 To check if you already have the dependencies installed you can use the command `which <package name>`. Example `which autoconf` and if it returns the path, that dependency is already installed
-- [autoconf](https://github.com/autotools-mirror/autoconf) [sudo apt install autoconf]
-- [automake](https://github.com/autotools-mirror/automake) [sudo apt install automake]
-- [libtool](https://github.com/autotools-mirror/libtool) [sudo apt install libtool]
-- [txt2man](https://github.com/mvertes/txt2man) [sudo apt install txt2man]
+
+* [autoconf](https://github.com/autotools-mirror/autoconf) \[sudo apt install autoconf]
+* [automake](https://github.com/autotools-mirror/automake) \[sudo apt install automake]
+* [libtool](https://github.com/autotools-mirror/libtool) \[sudo apt install libtool]
+* [txt2man](https://github.com/mvertes/txt2man) \[sudo apt install txt2man]
 
 ## Download Proxifier
+
 Get the latest stable version of Proxifier by cloning the GitHub repository.
-~~~shell
+
+```shell
 git clone https://github.com/m0hithreddy/Proxifier-For-Linux.git && cd Proxifier-For-Linux
-~~~
+```
+
 ## Build and Install
+
 After installing all the dependencies, get the Proxifier source code and inside the directory where the code is, run the following commands:
-~~~shell
+
+```shell
 autoreconf -vfi
 ./configure
 make all
 sudo make uninstall
 sudo make install
-~~~
+```
+
 ## How to use Proxifier
+
 The Proxifier service can be enabled by running the command:
-~~~shell
+
+```shell
 sudo systemctl daemon-reload # Reload the service units
 sudo systemctl start proxifier
-~~~
+```
+
 For more information about Proxifier you can consult the help by executing the command `man proxifier`. The configuration file can be found in the path `/usr/local/etc/proxifier.conf` where you can specify your proxy settings.
 
 The next tool I want to show you is Proxychains
 
 # Proxychains
+
 [Proxychains-ng](https://github.com/haad/proxychains) is a proxy server that supports the HTTPs, SOCKS4 and SOCKS5 internet protocols and works on Unix-based platforms. It allows any TCP connection made by a program to follow a series of proxies (of the aforementioned protocols) to its destination. The list of proxies as well as the proxy selection strategy are defined beforehand.
 
 ## Install proxychains
-Proxychains is available with [pkgsrc] (https://github.com/haad/proxychains/blob/master/www.pkgsrc.org) for everyone who uses it on Linux, NetBSD, FreeBSD, OpenBSD, DragonFlyBSD or Mac OS X You just need to install [pkgsrc-wip](http://pkgsrc-wip.sourceforge.net/) and run `make install` in the` wip/proxychains` directory
+
+Proxychains is available with [pkgsrc](https://github.com/haad/proxychains/blob/master/www.pkgsrc.org) for everyone who uses it on Linux, NetBSD, FreeBSD, OpenBSD, DragonFlyBSD or Mac OS X You just need to install [pkgsrc-wip](http://pkgsrc-wip.sourceforge.net/) and run `make install` in the`wip/proxychains` directory
 
 ### Install proxychains from source code
 
 Clone the GitHub source code and run the following commands:
-~~~shell
+
+```shell
  git clone https://github.com/haad/proxychains.git && cd proxychains
  # se necesita un compilador de C, preferiblemente gcc
  ./configure
  make
  sudo make install
-~~~
+```
 
 ### Packages for the different linux distributions
 
----
-- Archlinux/Manjaro: [proxychains-ng/](https://www.archlinux.org/packages/community/x86_64/proxychains-ng/)
-- Debian: [proxychains](https://packages.debian.org/search?keywords=proxychains)
-- Gentoo: [proxychains](https://packages.gentoo.org/packages/net-proxy/proxychains)
-- Fedora: [proxychains-ng](https://fedora.pkgs.org/32/fedora-x86_64/proxychains-ng-4.13-5.fc32.x86_64.rpm.html)
-- Ubuntu: [proxychains](http://packages.ubuntu.com/search?searchon=names&keywords=proxychains)
+- - -
+
+* Archlinux/Manjaro: [proxychains-ng/](https://www.archlinux.org/packages/community/x86_64/proxychains-ng/)
+* Debian: [proxychains](https://packages.debian.org/search?keywords=proxychains)
+* Gentoo: [proxychains](https://packages.gentoo.org/packages/net-proxy/proxychains)
+* Fedora: [proxychains-ng](https://fedora.pkgs.org/32/fedora-x86_64/proxychains-ng-4.13-5.fc32.x86_64.rpm.html)
+* Ubuntu: [proxychains](http://packages.ubuntu.com/search?searchon=names&keywords=proxychains)
 
 ## Setting
+
 Proxychains looks for the settings in the following order:
 
-- SOCKS5 proxy port in environment variable **${PROXYCHAINS_SOCKS5}** (if set, no further settings will be searched)
-- File listed in the environment variable **${PROXYCHAINS_CONF_FILE}** or provided as an -f argument to the proxychains script or binary.
-- ./proxychains.conf
-- $(HOME)/.proxychains/proxychains.conf
-- /etc/proxychains.conf
+* SOCKS5 proxy port in environment variable **${PROXYCHAINS_SOCKS5}** (if set, no further settings will be searched)
+* File listed in the environment variable **${PROXYCHAINS_CONF_FILE}** or provided as an -f argument to the proxychains script or binary.
+* ./proxychains.conf
+* $(HOME)/.proxychains/proxychains.conf
+* /etc/proxychains.conf
 
 See more of the configuration in the file `/etc/proxychains.conf`
+
 ### Example of how to configure multiple proxies
 
 At the end of the `/etc/proxychains.conf` file is the list where we can add our proxies. Proxy selection strategies vary between `dynamic_chain, strict_chain, round_robin_chain, random_chain` and only one can be uncommented.
 
-- dynamic_chain: Dynamic - Each connection will be made through chained proxies, all proxies chained in the order listed, at least one proxy must be online to play chained (dead proxies are skipped) otherwise EINTR is returned to the application
+* dynamic_chain: Dynamic - Each connection will be made through chained proxies, all proxies chained in the order listed, at least one proxy must be online to play chained (dead proxies are skipped) otherwise EINTR is returned to the application
+* strict_chain: Strict: each connection will be made through chained proxies, all proxies chained in the order they appear in the list, all proxies must be online to play chain; otherwise, EINTR is returned to the application
+* round_robin_chain: Round Robin: each connection will be made through chained proxies of length `chain_len`, all proxies chained in the order they appear in the list, at least one proxy must be online to play chain (dead proxies are skipped ). the start of the current proxy chain is the proxy after the last proxy in the previously invoked proxy chain. If the end of the proxy chain is reached while searching for proxies, start over from the beginning. Otherwise, EINTR is returned to the application. These semantics are not guaranteed in a multithreaded environment.
+* random_chain: Random - Each connection will be made using a random proxy (or proxy chain, see `chain_len`) from the list.
 
-- strict_chain: Strict: each connection will be made through chained proxies, all proxies chained in the order they appear in the list, all proxies must be online to play chain; otherwise, EINTR is returned to the application
-
-- round_robin_chain: Round Robin: each connection will be made through chained proxies of length `chain_len`, all proxies chained in the order they appear in the list, at least one proxy must be online to play chain (dead proxies are skipped ). the start of the current proxy chain is the proxy after the last proxy in the previously invoked proxy chain. If the end of the proxy chain is reached while searching for proxies, start over from the beginning. Otherwise, EINTR is returned to the application. These semantics are not guaranteed in a multithreaded environment.
-
-- random_chain: Random - Each connection will be made using a random proxy (or proxy chain, see `chain_len`) from the list.
-
-~~~text
+```text
  [ProxyList]
  # add proxy here ...
  # meanwile
@@ -290,13 +349,15 @@ At the end of the `/etc/proxychains.conf` file is the list where we can add our 
  http 192.168.1.11 8080 user password
  #Mobile proxy
  http 192.168.44.244 3128 user password
-~~~
+```
+
 Examples of use
 
 Run `proxychains <programa a ejecutar a través de un proxy>`
-~~~shell
+
+```shell
 proxychains telnet targethost.com
-~~~
+```
 
 In this example it will run **telnet** through proxy(or chained proxies) specified by **proxychains.conf**
 
@@ -315,29 +376,36 @@ The desktop application is a VPN (Virtual Private Network) client. Create an enc
 1. The IP address of your Internet Service Provider (ISP) is masked, so any website you visit or any application you use (Skype, email providers, BitTorrent, etc.) will see our IP address shared by thousands of persons.
 2. Your Internet Service Provider cannot see what you are doing online. This is much more important than you think.
 
-The first thing to do is create an account at [Windscribe](https://windscribe.com/?friend=abhyp2zr) by registering [here](https://windscribe.com/?friend=abhyp2zr). Windscribe gives us 2GB of free monthly consumption, but if we confirm our email this increases 5GB, you can also increase up to 15GB per month if you create a post on twitter by clicking the *__Tweet4Data__* button in your account settings.
+The first thing to do is create an account at [Windscribe](https://windscribe.com/?friend=abhyp2zr) by registering [here](https://windscribe.com/?friend=abhyp2zr). Windscribe gives us 2GB of free monthly consumption, but if we confirm our email this increases 5GB, you can also increase up to 15GB per month if you create a post on twitter by clicking the ***Tweet4Data*** button in your account settings.
 
 ![More data](./images/configure-proxy-global-on-linux/more-data.png)
 
 ## Install Windscribe
+
 After registering, the desktop client or the extension for your favorite browser is downloaded in the [Downloads](https://windscribe.com/?friend=abhyp2zr) session. Follow the instructions in the download link depending on the operating system you use.
 
 ## Configuring the Windscribe Client for Linux
+
 The first thing we have to do is start the windscribe service for this we execute the command:
-~~~shell
+
+```shell
     sudo systemctl start windscribe
-~~~
+```
+
 Once the windscribe service is running, we must configure the proxy by executing the command `windscribe proxy --host <proxy address> --port <port> --user <user> --password <password>`:
-~~~shell
+
+```shell
 windscribe proxy --host 19.18.4.54 --port 3128 --user acosta --password "super password"
 windscribe proxy on
-~~~
-With the previous commands we configure and activate windscribe to use our proxy. Now when to connect all the applications go to the internet through Windscribe we execute the command:
-~~~shell
-windscribe connect best # Nos conecta al servidor de windscribe con mejor rendimiento
-~~~
-To consult the help of windscribe we can execute the command `windscribe --help`
+```
 
+With the previous commands we configure and activate windscribe to use our proxy. Now when to connect all the applications go to the internet through Windscribe we execute the command:
+
+```shell
+windscribe connect best # Nos conecta al servidor de windscribe con mejor rendimiento
+```
+
+To consult the help of windscribe we can execute the command `windscribe --help`
 
 ![Windscribe Help](./images/configure-proxy-global-on-linux/windscribe-help.png)
 
