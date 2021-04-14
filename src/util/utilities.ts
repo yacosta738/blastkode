@@ -1,4 +1,6 @@
 import {format} from 'date-fns';
+import DOMPurify from 'dompurify';
+import marked from 'marked';
 
 // Sets target="_blank" rel="noopener noreferrer" on external links
 export const handleExternalLinks = () => {
@@ -50,3 +52,5 @@ export const formatDate = (date: string, dateFormat: string = 'MMMM, yyyy'): str
     const dateT = date? Date.parse(date): new Date();
     return format(dateT, dateFormat);
 };
+
+export const markdownfy = (str: string) => DOMPurify.sanitize(marked(str));

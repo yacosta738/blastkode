@@ -40,7 +40,7 @@
 <script lang="ts">
 import "reflect-metadata";
 import {Component, Prop, Vue} from 'vue-property-decorator';
-import {formatDate} from "~/util/utilities";
+import {formatDate, markdownfy} from "~/util/utilities";
 
 @Component
 export default class ResumeTimeline extends Vue {
@@ -48,6 +48,9 @@ export default class ResumeTimeline extends Vue {
 
   formatDate(date: string): string {
     return formatDate(date);
+  }
+  markdownfy(str: string): string {
+    return markdownfy(str);
   }
 }
 </script>
