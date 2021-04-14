@@ -1,13 +1,21 @@
 ---
 title: Countdown to new year
-url: /countdown-to-new-year-astronomy
+summary: Astronomy and programming are two of my passions that this time I have
+  decided to join together. With this objective in mind, we will create a simple
+  website to count down how many days until the new year, simulating the
+  movement of the planet earth.
 date: 2020-12-27
-summary: After switching from Windows to Mac, I have reconsidered a few of the applications I use. To my own surprise I ended up with a paid one that’s only available on Apple devices – Bear.
-author: Yuniel Acosta
-tags: [JavaScript, TypeScript]
-categories: [Programming]
 cover: ./images/portada.jpg
+author: Yuniel Acosta
+tags:
+  - JavaScript
+  - TypeScript
+  - HTML
+  - CSS
+categories:
+  - Programming
 draft: false
+url: /countdown-to-new-year-astronomy
 ---
 
 
