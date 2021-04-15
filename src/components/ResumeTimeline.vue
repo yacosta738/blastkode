@@ -26,7 +26,7 @@
               <div class="flex items-center -ml-9">
                 <div class="flex justify-around my-4 relative">
                   <div class="bg-light-navy rounded-full h-4 w-4 absolute left-1 -ml-1"></div>
-                  <div class="ml-10" v-html="markdownfy(item.main_activities)"></div>
+                  <div class="ml-10 styled-list-arrow" v-html="markdownfy(item.main_activities)"></div>
                 </div>
               </div>
             </div>
@@ -55,5 +55,32 @@ export default class ResumeTimeline extends Vue {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+
+.styled-list-arrow {
+  ul{
+    display: grid;
+    padding: 0;
+    margin: 20px 0 0 0;
+    overflow: hidden;
+    list-style: none;
+
+    li {
+      position: relative;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      font-family: var(--font-mono);
+      font-size: var(--fz-xs);
+
+      &:before {
+        content: '▹';
+        position: absolute;
+        left: 0;
+        color: var(--green);
+        font-size: var(--fz-sm);
+        line-height: 12px;
+      }
+    }
+  }
+}
 </style>
