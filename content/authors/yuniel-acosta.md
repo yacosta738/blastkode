@@ -1,4 +1,28 @@
 ---
+path: /yuniel-acosta
+name: Yuniel Acosta
+rol: Full Stack Developer
+image: /uploads/yuniel-acosta.jpg
+summary: Web, mobile and desktop application developer. Science and technology
+  enthusiast. More than [-YEAR-{2017}] years of experience in the software
+  industry.
+social:
+  - icon:
+      type: fab
+      value: facebook
+    url: https://facebook.com/yacosta738
+  - icon:
+      type: fab
+      value: twitter
+    url: https://twitter.com/yacosta738
+  - icon:
+      type: fab
+      value: github
+    url: https://github.com/yacosta738
+  - icon:
+      type: fab
+      value: linkedin
+    url: https://linkedin.com/in/yacosta738
 contact_items:
   - icon:
       type: fa
@@ -35,30 +59,6 @@ contact_items:
     link: https://goo.gl/maps/HoNArb98EDX9GbFGA
     text: Ciego de Ávila, Cuba
     target: _blank
-path: /yuniel-acosta
-name: Yuniel Acosta
-rol: Full Stack Developer
-image: /uploads/yuniel-acosta.jpg
-summary: Web, mobile and desktop application developer. Science and technology
-  enthusiast. More than [-YEAR-{2017}] years of experience in the software
-  industry.
-social:
-  - icon:
-      type: fab
-      value: facebook
-    url: https://facebook.com/yacosta738
-  - icon:
-      type: fab
-      value: twitter
-    url: https://twitter.com/yacosta738
-  - icon:
-      type: fab
-      value: github
-    url: https://github.com/yacosta738
-  - icon:
-      type: fab
-      value: linkedin
-    url: https://linkedin.com/in/yacosta738
 resume:
   - experience:
       title: Professional Experience
@@ -69,7 +69,7 @@ resume:
             value: connectdevelop
           start_date: 2020-08-21
           location: Desoft, Ciego de Ávila, Ciego de Ávila
-          content: >-
+          main_activities: >-
             * Collaborating with various stakeholders to
             determine software requirements.
 
@@ -94,7 +94,7 @@ resume:
           start_date: 2018-01-01
           end_date: 2020-08-09
           location: Desoft, Ciego de Ávila, Ciego de Ávila
-          content: >-
+          main_activities: >-
             *  Developing front end website architecture.
 
             * Designing user interactions on web pages.
@@ -123,7 +123,7 @@ resume:
           start_date: 2017-10-01
           end_date: 2017-12-31
           location: Desoft, Ciego de Ávila, Ciego de Ávila
-          content: >-
+          main_activities: >-
             * Website interfaces built with HTML, CSS, JavaScript
 
             * Code developed and maintained for internal and client websites that mainly use HTML, CSS, Sass, JavaScript, Typescript, Angular and Vuejs
@@ -139,7 +139,7 @@ resume:
           start_date: 2012-09-03
           end_date: 2017-07-14
           location: Santa Clara, Villa Clara, Cuba
-          content: "[Manipulation of spatio-temporal data series using scientific and
+          main_activities: "[Manipulation of spatio-temporal data series using scientific and
             geographic data formats in
             R](https://dspace.uclv.edu.cu/handle/123456789/9227)"
         - name: High School Diploma
@@ -149,7 +149,7 @@ resume:
           start_date: 2008-09-08
           end_date: 2012-03-09
           location: Ciego de Ávila, Cuba
-          content: IPVCE Ignacio Agramonte Ciego De Ávila
+          main_activities: IPVCE Ignacio Agramonte Ciego De Ávila
 ---
 
 I'm a software engineer based in Ciego de Ávila, Cuba specializing in building (and occasionally designing) exceptional websites, applications, and everything in between.
