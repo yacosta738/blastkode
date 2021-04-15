@@ -1,5 +1,5 @@
 ---
-name: John Wick Test
+name: John Wick
 rol: Web Developer
 image: https://media.gq.com.mx/photos/5ce19f41d09b9ac33d16885a/16:9/w_1920%2cc_limit/john%20wick%203.jpg
 summary: John Wick es una película de acción estadounidense de 2014, dirigida
