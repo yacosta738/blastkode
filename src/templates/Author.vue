@@ -97,7 +97,7 @@
                 start_date
                 end_date
                 location
-                content
+                main_activities
               }
             }
           }

@@ -26,7 +26,7 @@
               <div class="flex items-center -ml-9">
                 <div class="flex justify-around my-4 relative">
                   <div class="bg-light-navy rounded-full h-4 w-4 absolute left-1 -ml-1"></div>
-                  <div class="ml-10" v-html="item.content"></div>
+                  <div class="ml-10" v-html="markdownfy(item.main_activities)"></div>
                 </div>
               </div>
             </div>
