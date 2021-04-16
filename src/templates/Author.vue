@@ -48,9 +48,6 @@
                 </li>
               </ul>
             </div>
-            <p class="font-thin">
-              I am interested in new opportunities especially ambitious or large projects. However, if you have other request or question, don't hesitate [to contact me](/#contact-me) using below form either.
-            </p>
           </div>
         </div>
       </div>
