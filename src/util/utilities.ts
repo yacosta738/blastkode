@@ -1,6 +1,7 @@
 import {format} from 'date-fns';
 import DOMPurify from 'dompurify';
 import marked from 'marked';
+import {Configuration, init} from 'ityped';
 
 // Sets target="_blank" rel="noopener noreferrer" on external links
 export const handleExternalLinks = () => {
@@ -49,8 +50,19 @@ export const yearsOfExperience = (text: string): string => {
 };
 
 export const formatDate = (date: string, dateFormat: string = 'MMMM, yyyy'): string => {
-    const dateT = date? Date.parse(date): new Date();
+    const dateT = date ? Date.parse(date) : new Date();
     return format(dateT, dateFormat);
 };
 
 export const markdownfy = (str: string) => DOMPurify.sanitize(marked(str));
+
+export const typed = (element: string | Element,
+                      config: Configuration = {showCursor: false, strings: ['Yuniel', 'Acosta']}) => {
+    const elementNODE = (typeof element === 'string') ? document.querySelector(element) : element;
+    if (elementNODE) {
+        elementNODE.innerHTML = "";
+    }
+    if (elementNODE) {
+        init(elementNODE, config);
+    }
+};
