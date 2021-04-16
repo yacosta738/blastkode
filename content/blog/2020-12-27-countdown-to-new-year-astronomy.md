@@ -17,17 +17,15 @@ categories:
 draft: false
 url: /countdown-to-new-year-astronomy
 ---
-
-
 ![background](./images/portada.jpg)
 
-Astronomy and programming are two of my passions that this time I have decided to join together. With this objective in mind, we will create a simple website to count down how many days until the new year, simulating the movement of the planet earth. The demo can be seen at the following link [https://yacosta738.github.io/countdown-to-new-year/](https://yacosta738.github.io/countdown-to-new-year/)
+Astronomy and programming are two of my passions that this time I have decided to join together. With this goal in mind, we will create a simple website to count down how many days until the new year, simulating the movement of the planet earth. The demo can be seen at the following link <https://yacosta738.github.io/countdown-to-new-year/>
 
 ![Example](./images/example.png)
 
-Lo primero es crear un fichero **`style.css`** donde se define el estilo y la órbita de cada planeta:
+The first thing is to create a file ** `style.css`**  where the style and orbit of each planet is defined:
 
-~~~css
+```css
     html {
     box-sizing: border-box;
 }
@@ -460,10 +458,11 @@ body {
         transform: rotate(-360deg);
     }
 }
-~~~
+```
+
 Then we create the file **`script.js`** where all the logic is defined to calculate the number of days left for the new year:
 
-~~~js
+```js
 //prevent loading error
 document.getElementById('warning').remove();
 
@@ -533,12 +532,11 @@ const countDown = setInterval(function () {
     }
 
 }, 1000);
-~~~
+```
 
 Finally, a file **`index.html`** is created that will contain all the html code for our website. The html document begins with the definition of the document type followed by the language of the page, in the header section we find the title, some metadata as well as the import of the page styles. In the body of the document we make use of the classes created previously to be able to visualize the planets and their orbits. At the end we import the previously created javascript file:
 
-
-~~~html
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -590,9 +588,7 @@ Finally, a file **`index.html`** is created that will contain all the html code 
 
 </body>
 </html>
-
-~~~
+```
 
 ~[Project Structure](./images/project-structure.png)
-All the code can be downloaded from GitHub at the following link [https://github.com/yacosta738/countdown-to-new-year](https://github.com/yacosta738/countdown-to-new-year)
-
+All the code can be downloaded from GitHub at the following link <https://github.com/yacosta738/countdown-to-new-year>
