@@ -54,7 +54,7 @@ export const formatDate = (date: string, dateFormat: string = 'MMMM, yyyy'): str
     return format(dateT, dateFormat);
 };
 
-export const markdownfy = (str: string) => DOMPurify.sanitize(marked(str));
+export const markdownfy = (str: string): string => (isClient()) ? DOMPurify.sanitize(marked(str)): '';
 
 export const typed = (element: string | Element,
                       config: Configuration = {showCursor: false, strings: ['Yuniel', 'Acosta']}) => {
