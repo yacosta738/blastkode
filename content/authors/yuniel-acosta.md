@@ -1,28 +1,4 @@
 ---
-path: /yuniel-acosta
-name: Yuniel Acosta
-rol: Full Stack Developer
-image: /uploads/yuniel-acosta.jpg
-summary: Web, mobile and desktop application developer. Science and technology
-  enthusiast. More than [-YEAR-{2017}] years of experience in the software
-  industry.
-social:
-  - icon:
-      type: fab
-      value: facebook
-    url: https://facebook.com/yacosta738
-  - icon:
-      type: fab
-      value: twitter
-    url: https://twitter.com/yacosta738
-  - icon:
-      type: fab
-      value: github
-    url: https://github.com/yacosta738
-  - icon:
-      type: fab
-      value: linkedin
-    url: https://linkedin.com/in/yacosta738
 contact_items:
   - icon:
       type: fa
@@ -59,6 +35,30 @@ contact_items:
     link: https://goo.gl/maps/HoNArb98EDX9GbFGA
     text: Ciego de Ávila, Cuba
     target: _blank
+path: /yuniel-acosta
+name: Yuniel Acosta
+rol: Full Stack Developer
+image: /uploads/yuniel-acosta.jpg
+summary: Web, mobile and desktop application developer. Science and technology
+  enthusiast. More than [-YEAR-{2017}] years of experience in the software
+  industry.
+social:
+  - icon:
+      type: fab
+      value: facebook
+    url: https://facebook.com/yacosta738
+  - icon:
+      type: fab
+      value: twitter
+    url: https://twitter.com/yacosta738
+  - icon:
+      type: fab
+      value: github
+    url: https://github.com/yacosta738
+  - icon:
+      type: fab
+      value: linkedin
+    url: https://linkedin.com/in/yacosta738
 resume:
   - experience:
       title: Professional Experience
@@ -139,9 +139,10 @@ resume:
           start_date: 2012-09-03
           end_date: 2017-07-14
           location: Santa Clara, Villa Clara, Cuba
-          main_activities: "[Manipulation of spatio-temporal data series using scientific and
-            geographic data formats in
-            R](https://dspace.uclv.edu.cu/handle/123456789/9227)"
+          main_activities: >-2
+             Central University “Marta Abreu” of Las Villas.
+
+            * Thesis: [Manipulation of spatio-temporal data series using scientific and geographic data formats in R](https://dspace.uclv.edu.cu/handle/123456789/9227)
         - name: High School Diploma
           icon:
             type: fa
