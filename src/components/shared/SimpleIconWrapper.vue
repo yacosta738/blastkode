@@ -7,25 +7,37 @@ import {Component, Prop, Vue} from 'vue-property-decorator';
 //@ts-ignore
 import {
   AngularIcon,
+  CIcon,
+  CPlusPlusIcon,
+  Css3Icon,
   DartIcon,
   FlaskIcon,
   FlutterIcon,
+  GoIcon,
   GraphQlIcon,
   GridsomeIcon,
+  HugoIcon,
   IntelliJIdeaIcon,
   JavaIcon,
   JavaScriptIcon,
+  JekyllIcon,
   KotlinIcon,
   LumenIcon,
   Neo4jIcon,
   NetlifyIcon,
+  NodeJsIcon,
   PhpIcon,
   PostgreSqlIcon,
   PythonIcon,
+  RubyIcon,
+  SassIcon,
   ScalaIcon,
   SpringIcon,
+  TailwindCssIcon,
   TypeScriptIcon,
-  VisualStudioCodeIcon, VueJsIcon, NodeJsIcon, HugoIcon,GoIcon, JekyllIcon, RubyIcon, SassIcon
+  VisualStudioCodeIcon,
+  VueJsIcon,
+  VuetifyIcon,CSharpIcon,FigmaIcon, PyTorchIcon, TensorFlowIcon, KerasIcon, NumPyIcon, PandasIcon, ApacheSparkIcon
 } from "vue-simple-icons";
 
 @Component({
@@ -49,7 +61,19 @@ import {
     SpringIcon,
     Neo4jIcon,
     JavaScriptIcon,
-    ScalaIcon, VueJsIcon, NodeJsIcon, HugoIcon,GoIcon, JekyllIcon, RubyIcon, SassIcon
+    ScalaIcon,
+    VueJsIcon,
+    NodeJsIcon,
+    HugoIcon,
+    GoIcon,
+    JekyllIcon,
+    RubyIcon,
+    SassIcon,
+    TailwindCssIcon,
+    Css3Icon,
+    VuetifyIcon,
+    CIcon,
+    CPlusPlusIcon,CSharpIcon,FigmaIcon, PyTorchIcon, TensorFlowIcon, KerasIcon, NumPyIcon, PandasIcon, ApacheSparkIcon
   }
 })
 export default class SimpleIconWrapper extends Vue {

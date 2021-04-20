@@ -139,3 +139,19 @@ collections:
       - { label: "Show in Projects", name: "showInProjects", widget: "boolean", default: false }
       - { label: "Featured", name: "featured", widget: "boolean", default: false }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "technologies"
+    label: "Technologies"
+    extension: json
+    files: "src/data/tech.json"
+    label_singular: "Tech"
+    fields:
+      - { label: "id", name: "id", widget: "string" }
+      - { label: "Name", name: "name", widget: "string" }
+      - label: "Icon"
+        name: "icon"
+        widget: "object"
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "Value", name: "value", widget: "string" }
+      - { label: "URL", name: "url", widget: "string", required: false }
+

@@ -234,6 +234,123 @@
         "value": "sass-icon"
       },
       "url": "https://sass-lang.com/"
+    },
+    {
+      "id": "tailwind",
+      "name": "Tailwind Css",
+      "icon": {
+        "type": "simple-icon",
+        "value": "tailwind-css-icon"
+      },
+      "url": "https://tailwindcss.com/"
+    },
+    {
+      "id": "css",
+      "name": "CSS3",
+      "icon": {
+        "type": "simple-icon",
+        "value": "css3-icon"
+      },
+      "url": "https://www.w3.org/Style/CSS"
+    },
+    {
+      "id": "vuetify",
+      "name": "Vuetify",
+      "icon": {
+        "type": "simple-icon",
+        "value": "vuetify-icon"
+      },
+      "url": "https://vuetifyjs.com/"
+    },
+    {
+      "id": "c",
+      "name": "C",
+      "icon": {
+        "type": "simple-icon",
+        "value": "c-icon"
+      },
+      "url": "https://devdocs.io/c/"
+    },
+    {
+      "id": "c++",
+      "name": "C++",
+      "icon": {
+        "type": "simple-icon",
+        "value": "c-plus-plus-icon"
+      },
+      "url": "https://isocpp.org/"
+    },
+    {
+      "id": "c#",
+      "name": "C#",
+      "icon": {
+        "type": "simple-icon",
+        "value": "c-sharp-icon"
+      },
+      "url": "https://docs.microsoft.com/en-us/dotnet/csharp/"
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "icon": {
+        "type": "simple-icon",
+        "value": "figma-icon"
+      },
+      "url": "https://www.figma.com/"
+    },
+    {
+      "id": "pytorch",
+      "name": "PyTorch",
+      "icon": {
+        "type": "simple-icon",
+        "value": "py-torch-icon"
+      },
+      "url": "https://pytorch.org/"
+    },
+    {
+      "id": "tensorflow",
+      "name": "TensorFlow",
+      "icon": {
+        "type": "simple-icon",
+        "value": "tensor-flow-icon"
+      },
+      "url": "https://www.tensorflow.org/"
+    },
+    {
+      "id": "keras",
+      "name": "Keras",
+      "icon": {
+        "type": "simple-icon",
+        "value": "keras-icon"
+      },
+      "url": "https://vuetifyjs.com/"
+    },
+    {
+      "id": "numpy",
+      "name": "NumPy",
+      "icon": {
+        "type": "simple-icon",
+        "value": "num-py-icon"
+      },
+      "url": "https://keras.io/"
+    },
+    {
+      "id": "pandas",
+      "name": "Pandas",
+      "icon": {
+        "type": "simple-icon",
+        "value": "pandas-icon"
+      },
+      "url": "https://pandas.pydata.org/"
+    },
+    {
+      "id": "spark",
+      "name": "Apache Spark",
+      "icon": {
+        "type": "simple-icon",
+        "value": "apache-spark-icon"
+      },
+      "url": "https://spark.apache.org/"
     }
   ]
 }
