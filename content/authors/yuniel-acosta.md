@@ -78,7 +78,7 @@ resume:
             * Trained over 15 staff members in microservices architecture with Kubernetes and Istio.
 
             * Designed, implemented and developed microservice architecture for online reputation management system.
-          end_date: 2021-04-14T21:29:13.387Z
+          end_date: 2021-04-20T01:21:57.228Z
         - name: Full Stack Developer
           icon:
             type: fa
