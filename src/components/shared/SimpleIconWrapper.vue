@@ -25,7 +25,7 @@ import {
   ScalaIcon,
   SpringIcon,
   TypeScriptIcon,
-  VisualStudioCodeIcon, VueJsIcon, NodeJsIcon
+  VisualStudioCodeIcon, VueJsIcon, NodeJsIcon, HugoIcon,GoIcon, JekyllIcon, RubyIcon, SassIcon
 } from "vue-simple-icons";
 
 @Component({
@@ -49,7 +49,7 @@ import {
     SpringIcon,
     Neo4jIcon,
     JavaScriptIcon,
-    ScalaIcon, VueJsIcon, NodeJsIcon
+    ScalaIcon, VueJsIcon, NodeJsIcon, HugoIcon,GoIcon, JekyllIcon, RubyIcon, SassIcon
   }
 })
 export default class SimpleIconWrapper extends Vue {

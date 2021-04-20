@@ -70,23 +70,14 @@ resume:
           start_date: 2020-08-21
           location: Desoft, Ciego de Ávila, Ciego de Ávila
           main_activities: >-
-            * Collaborating with various stakeholders to
-            determine software requirements.
-
-            * Providing the development team with architectural blueprints to follow.
-
-            * Guiding and assisting the development team throughout the process.
-
-            * Troubleshooting and resolving issues with coding or design.
-
-            * Ensuring that you and the team adhere to development schedules and deadlines.
-
-            * Presenting regular progress reports and setting goals.
-
-            * Testing the final product to ensure it is completely functional and meets requirements.
-
-            * Updating software solutions as required.
-          end_date: 2021-04-14T21:29:13.387Z
+            * Trained over 10 staff members in internal web functions, including steps on how to make minor updates and changes.
+            
+            * Guided and assisted the development team throughout the process of implementing software requirements with new technologies.
+            
+            * Trained over 15 staff members in microservices architecture with Kubernetes and Istio.
+            
+            * Designed, implemented and developed microservice architecture for online reputation management system.
+          
         - name: Full Stack Developer
           icon:
             type: fa
@@ -95,27 +86,13 @@ resume:
           end_date: 2020-08-09
           location: Desoft, Ciego de Ávila, Ciego de Ávila
           main_activities: >-
-            *  Developing front end website architecture.
-
-            * Designing user interactions on web pages.
-
-            * Developing back end website applications.
-
-            * Creating servers and databases for functionality.
-
-            * Ensuring cross-platform optimization for mobile phones.
-
-            * Ensuring responsiveness of applications.
-
-            * Working alongside graphic designers for web design features.
-
-            * Seeing through a project from conception to finished product.
-
-            * Designing and developing APIs.
-
-            * Meeting both technical and consumer needs.
-
-            * Staying abreast of developments in web applications and programming languages.
+            * Developed dynamic and interactive website that ensured high traffic, pages views, and user experience, resulting in 40% increase in sales revenue.
+           
+            * Designed processes for cleanup and performance improvement that minimized downtime by 13%.
+            
+            * Fixed bugs from existing websites and implemented enhancements that significantly improved web functionality and speed.
+            
+            * Developed APIs for internal communication between different systems.
         - name: Web Developer
           icon:
             type: fa
@@ -124,11 +101,11 @@ resume:
           end_date: 2017-12-31
           location: Desoft, Ciego de Ávila, Ciego de Ávila
           main_activities: >-
-            * Website interfaces built with HTML, CSS, JavaScript
+            * Developed websites interfaces built with HTML, CSS, JavaScript.
 
-            * Code developed and maintained for internal and client websites that mainly use HTML, CSS, Sass, JavaScript, Typescript, Angular and Vuejs
+            * Developed and fixed issues and mistakes for internal and client websites that mainly use HTML, CSS, JavaScript, Typescript, Angular and Vuejs.
 
-            * Sites manually tested on multiple browsers and mobile devices to ensure cross-browser compatibility and responsiveness
+            * Manually tested sites in various browsers and mobile devices to ensure cross-browser compatibility and responsiveness.
   - experience:
       title: Educational
       items:
