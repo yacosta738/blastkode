@@ -70,15 +70,13 @@ resume:
           start_date: 2020-08-21
           location: Desoft, Ciego de Ávila, Ciego de Ávila
           main_activities: >-
-            * Trained over 10 staff members in internal web functions, including
-            steps on how to make minor updates and changes.
-
+            * Trained over 10 staff members in internal web functions, including steps on how to make minor updates and changes.
+            
             * Guided and assisted the development team throughout the process of implementing software requirements with new technologies.
-
+            
             * Trained over 15 staff members in microservices architecture with Kubernetes and Istio.
-
+            
             * Designed, implemented and developed microservice architecture for online reputation management system.
-          end_date: 2021-04-20T01:21:57.228Z
         - name: Full Stack Developer
           icon:
             type: fa
@@ -87,14 +85,12 @@ resume:
           end_date: 2020-08-09
           location: Desoft, Ciego de Ávila, Ciego de Ávila
           main_activities: >-
-            * Developed dynamic and interactive website that ensured high
-            traffic, pages views, and user experience, resulting in 40% increase
-            in sales revenue.
-
+            * Developed dynamic and interactive website that ensured high traffic, pages views, and user experience, resulting in 40% increase in sales revenue.
+           
             * Designed processes for cleanup and performance improvement that minimized downtime by 13%.
-
+            
             * Fixed bugs from existing websites and implemented enhancements that significantly improved web functionality and speed.
-
+            
             * Developed APIs for internal communication between different systems.
         - name: Web Developer
           icon:

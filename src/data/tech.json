@@ -180,6 +180,60 @@
       "id": "spotify-web-api",
       "name": "Spotify Web API",
       "url": "https://developer.spotify.com/documentation/web-api/"
+    },
+    {
+      "id": "hugo",
+      "name": "Hugo",
+      "icon": {
+        "type": "simple-icon",
+        "value": "hugo-icon"
+      },
+      "url": "https://gohugo.io/"
+    },
+    {
+      "id": "go",
+      "name": "Go",
+      "icon": {
+        "type": "simple-icon",
+        "value": "go-icon"
+      },
+      "url": "https://golang.org/"
+    },
+    {
+      "id": "jekyll",
+      "name": "Jekyll",
+      "icon": {
+        "type": "simple-icon",
+        "value": "jekyll-icon"
+      },
+      "url": "https://jekyllrb.com/"
+    },
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "icon": {
+        "type": "simple-icon",
+        "value": "ruby-icon"
+      },
+      "url": "https://www.ruby-lang.org/en/"
+    },
+    {
+      "id": "sass",
+      "name": "Sass",
+      "icon": {
+        "type": "simple-icon",
+        "value": "sass-icon"
+      },
+      "url": "https://sass-lang.com/"
+    },
+    {
+      "id": "scss",
+      "name": "Scss",
+      "icon": {
+        "type": "simple-icon",
+        "value": "scss-icon"
+      },
+      "url": "https://sass-lang.com/"
     }
   ]
 }
