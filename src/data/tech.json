@@ -231,7 +231,7 @@
       "name": "Scss",
       "icon": {
         "type": "simple-icon",
-        "value": "scss-icon"
+        "value": "sass-icon"
       },
       "url": "https://sass-lang.com/"
     }
