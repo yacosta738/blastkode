@@ -142,16 +142,22 @@ collections:
   - name: "technologies"
     label: "Technologies"
     extension: json
-    files: "src/data/tech.json"
-    label_singular: "Tech"
-    fields:
-      - { label: "id", name: "id", widget: "string" }
-      - { label: "Name", name: "name", widget: "string" }
-      - label: "Icon"
-        name: "icon"
-        widget: "object"
+    files:
+      - label: "tech"
+        name: "tech"
+        file: "src/data/tech.json"
         fields:
-          - { label: "Type", name: "type", widget: "string" }
-          - { label: "Value", name: "value", widget: "string" }
-      - { label: "URL", name: "url", widget: "string", required: false }
+          - label: "tech"
+            name: "tech"
+            widget: "list"
+            fields:
+              - { label: "id", name: "id", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - label: "Icon"
+                name: "icon"
+                widget: "object"
+                fields:
+                  - { label: "Type", name: "type", widget: "string" }
+                  - { label: "Value", name: "value", widget: "string" }
+              - { label: "URL", name: "url", widget: "string", required: false }
 
