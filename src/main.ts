@@ -36,9 +36,10 @@ export default function(Vue, {router, head, isClient, appOptions}) {
     if (isClient) {
         // Vue Scroll Reveal
         initVueScrollReveal(Vue, isClient);
-        // Fontawesome
-        initFontawesome(Vue);
+        
     }
+    // Fontawesome
+        initFontawesome(Vue);
     // Vue Disqus
     Vue.use(VueDisqus, {shortname: 'blastkode'});
     // Vue Screen
