@@ -19,8 +19,8 @@
               {{ `${formatDate(item.start_date)} - ${item.end_date ? formatDate(item.end_date) : 'Present'}` }}
             </h5>
             <div class="flex items-center">
-              <div class="bg-light-navy rounded-full h-4 w-4 ml-3"></div>
-              <p class="font-mono italic font-thin text-sm mx-5">{{ item.location }}</p>
+              <div class="bg-light-navy rounded-full h-4 w-4 ml-3 absolute"></div>
+              <p class="pl-5 font-mono italic font-thin text-sm mx-5">{{ item.location }}</p>
             </div>
             <div class="ml-12">
               <div class="flex items-center -ml-9">
