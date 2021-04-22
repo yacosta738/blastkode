@@ -131,7 +131,7 @@ describe('Theme Switcher', () => {
     cy.visit('/')
 
     cy.get('[data-cypress=switchTheme]').click({force: true})
-    cy.get('.content-wrapper').should('have.class', 'theme-dark')
+    cy.get('.content-wrapper').should('have.class', 'dark')
   })
 
   it('can change to light theme', () => {
@@ -139,7 +139,7 @@ describe('Theme Switcher', () => {
 
     cy.get('[data-cypress=switchTheme]').click({force: true})
     cy.get('[data-cypress=switchTheme]').click({force: true})
-    cy.get('.content-wrapper').should('have.class', 'theme-light')
+    cy.get('.content-wrapper').should('have.class', 'light')
   })
 })
 

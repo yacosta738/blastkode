@@ -94,7 +94,7 @@
   font-display: auto;
 }
 
-.theme-light {
+.light {
   --bg-background-primary: white;
   --bg-background-secondary: #f7fafc;
   --bg-background-tertiary: #e2e8f0;
@@ -139,27 +139,27 @@
   --tab-width: 120px;
 }
 
-.theme-light .search-highlighted {
+.light .search-highlighted {
   background: #f0fff4;
 }
 
-.theme-light .search-hover:hover {
+.light .search-hover:hover {
   background: #f0fff4;
 }
 
-.theme-dark .markdown-body {
+.dark .markdown-body {
   color: #24292e;
 }
 
-.theme-dark .search-highlighted {
+.dark .search-highlighted {
   background: #2d3748;
 }
 
-.theme-dark .search-hover:hover {
+.dark .search-hover:hover {
   background: #2d3748;
 }
 
-.theme-dark {
+.dark {
   --bg-background-primary: #0a192f;
   --bg-background-secondary: #102c44;
   --bg-background-tertiary: #1e3951;
@@ -204,11 +204,11 @@
   --tab-width: 120px;
 }
 
-.theme-dark .markdown-body {
+.dark .markdown-body {
   color: #cbd5e0;
 }
 
-.theme-dark nav .active {
+.dark nav .active {
   @apply border-white border-b;
 }
 

@@ -7,9 +7,9 @@
     <!--        <li class="mb-6 lg:mb-0">-->
     <!--          <search-input/>-->
     <!--        </li>-->
-    <!--    <li>-->
-    <!--      <theme-switcher/>-->
-    <!--    </li>-->
+<!--        <li>-->
+<!--          <theme-switcher/>-->
+<!--        </li>-->
     <li>
       <ol class="order-list lg:space-x-8 space-y-6 lg:space-y-0 lg:flex lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0">
         <li v-for="(menu, i) in menus" :key="i">
