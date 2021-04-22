@@ -102,61 +102,50 @@ module.exports = {
             }
         },
         {
-            use: 'gridsome-plugin-pwa',
+            use: '@allanchain/gridsome-plugin-pwa',
             options: {
-                // Service Worker Options
-                disableServiceWorker: false,
-                preventAssignment: true,
-                serviceWorkerPath: 'static/service-worker.js',
-                cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg,gif',
-                disableTemplatedUrls: false,       // Optional
-                // Manifest Options (https://developer.mozilla.org/en-US/docs/Web/Manifest)
                 manifestPath: 'manifest.json',
-                title: 'Blastkode',
-                startUrl: '/',
-                display: 'standalone',
-                statusBarStyle: 'default',
-                themeColor: '#0a192f',
-                backgroundColor: '#ffffff',
-                icon: 'static/logo.svg',
-                shortName: 'Blastkode',              // Optional
-                description: 'Yuniel Acosta\'s blog and portfolio',// Optional
-                categories: ['blog', 'tech', 'portfolio'],          // Optional
-                lang: 'en-GB',                      // Optional
-                dir: 'auto',                        // Optional
-                maskableIcon: true,                 // Optional
-                screenshots: [                      // Optional
-                    {
-                        src: 'screenshots/demo.png',
-                        sizes: '1280x720',
-                        type: 'image/png',
-                    },
-                ],
-                gcmSenderId: undefined,             // Optional
-
-                // Standard Meta Tags
-                svgFavicon: './src/favicon.png',          // Optional. Requires favicon.ico fallback
-
-                // Microsoft Windows Meta Tags
-                msTileColor: '#0a192f',             // Optional
-
-                // Apple MacOS Meta Tags
-                appleMaskIcon: './src/favicon.png',       // Optional
-                appleMaskIconColor: '#0a192f',      // Optional
-
+                name: 'Blastkode',
+                themeColor: '#64ffda',
+                icon: {
+                    androidChrome: [
+                        {
+                            src: './src/favicon.png',
+                            sizes: [512, 384, 192, 144],
+                            purpose: 'maskable'
+                        },
+                        {
+                            sizes: [512, 384, 192, 144, 96, 72, 48],
+                            purpose: 'any'
+                        }
+                    ]
+                },
+                manifestOptions: {
+                    short_name: 'Blastkode',
+                    description: 'Yuniel Acosta\'s blog and portfolio',
+                    start_url: '.',
+                    display: 'standalone',
+                    background_color: '#112240'
+                },
+                appShellPath: 'offline/index.html',
+                workboxPluginMode: 'generateSW',
+                workboxOptions: {
+                    globPatterns: ['assets/@(js|css)/*', 'offline/index.html'],
+                    navigateFallback: '/blog/offline/index.html',
+                    navigateFallbackAllowlist: [/\/$/],
+                    runtimeCaching: [
+                        {
+                            urlPattern: new RegExp('/search.json$'),
+                            handler: 'NetworkFirst',
+                            options: {
+                                cacheName: 'Post-Data',
+                                networkTimeoutSeconds: 3,
+                                expiration: {maxEntries: 20}
+                            }
+                        }
+                    ]
+                }
             }
-        },
-        {
-            use: "gridsome-plugin-manifest",
-            options: {
-                background_color: "#ffffff",
-                icon_path: "static/logo.svg",
-                name: "Blastkode",
-                short_name: "Blastkode",
-                theme_color: "#ffffff",
-                lang: "en",
-                display: "standalone"
-            },
         },
         {
             use: 'gridsome-plugin-robots-txt',
