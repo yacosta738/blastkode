@@ -19,7 +19,8 @@ export default function initStore(Vue, isClient: boolean) {
             showNavbar: true,
             showSide: true,
             loading: false,
-            firstTimeLoading: true
+            firstTimeLoading: true,
+            swStatus: 'pending'
         },
         mutations: {
             toggleTheme(state) {
@@ -52,6 +53,9 @@ export default function initStore(Vue, isClient: boolean) {
             },
             loadingOff(state) {
                 state.loading = !state.loading;
+            },
+            swUpdate (state, status) {
+                state.swStatus = status
             }
         }
     });

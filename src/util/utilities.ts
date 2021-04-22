@@ -53,8 +53,18 @@ export const formatDate = (date: string, dateFormat: string = 'MMMM, yyyy'): str
     const dateT = date ? Date.parse(date) : new Date();
     return format(dateT, dateFormat);
 };
-
-export const markdownfy = (str: string): string => (isClient()) ? DOMPurify.sanitize(marked(str)): '';
+/**
+ * Capitalize first char of string
+ * @param {string} s String to capitalize
+ * @returns {string}
+ */
+export const capitalize = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1);
+/**
+ * markdownfy the string
+ * @param {string} str String to markdownfy
+ * @returns {string}
+ */
+export const markdownfy = (str: string): string => (isClient()) ? DOMPurify.sanitize(marked(str)) : '';
 
 export const typed = (element: string | Element,
                       config: Configuration = {showCursor: false, strings: ['Yuniel', 'Acosta']}) => {
