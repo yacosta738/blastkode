@@ -16,11 +16,19 @@
         "order": [
           {
             "name": "static field",
-            "kinds": ["public-static-field", "protected-static-field", "private-static-field"]
+            "kinds": [
+              "public-static-field",
+              "protected-static-field",
+              "private-static-field"
+            ]
           },
           {
             "name": "instance field",
-            "kinds": ["public-instance-field", "protected-instance-field", "private-instance-field"]
+            "kinds": [
+              "public-instance-field",
+              "protected-instance-field",
+              "private-instance-field"
+            ]
           },
           {
             "name": "static method",
@@ -66,7 +74,13 @@
     "no-unused-expression": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
-    "one-line": [true, "check-open-brace", "check-catch", "check-else", "check-whitespace"],
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-catch",
+      "check-else",
+      "check-whitespace"
+    ],
     "quotemark": [true, "single", "avoid-escape"],
     "radix": true,
     "semicolon": [true, "always", "ignore-bound-class-methods"],
@@ -82,7 +96,14 @@
       }
     ],
     "variable-name": false,
-    "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-separator", "check-type"],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ],
     "prefer-const": true,
     "arrow-parens": [true, "ban-single-arg-parens"],
     "arrow-return-shorthand": [true],
