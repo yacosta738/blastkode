@@ -4,9 +4,9 @@
       :class="$store.state.drawer ? 'block': 'hidden'"
       data-cypress="menu"
   >
-    <!--        <li class="mb-6 lg:mb-0">-->
-    <!--          <search-input/>-->
-    <!--        </li>-->
+<!--            <li class="mb-6 lg:mb-0">-->
+<!--              <search-box/>-->
+<!--            </li>-->
 <!--        <li>-->
 <!--          <theme-switcher/>-->
 <!--        </li>-->
@@ -34,8 +34,9 @@ import {Menu, navMenus} from '~/config/config';
 import {addEventToClassName} from '~/util/utilities';
 
 const ThemeSwitcher = () => import('./ThemeSwitcher.vue');
+const SearchBox = () => import('~/components/search-box/SearchBox.vue');
 
-@Component({components: {ThemeSwitcher}})
+@Component({components: {ThemeSwitcher,SearchBox}})
 export default class Menus extends Vue {
   get menus(): Menu[] {
     return navMenus;

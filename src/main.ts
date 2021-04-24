@@ -48,6 +48,8 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.use(VueDisqus, { shortname: "blastkode" });
   // Vue Screen
   Vue.use(VueScreen);
+  // Vue Fuse
+  Vue.use(VueFuse);
   // Store
   appOptions.store = initStore(Vue, isClient);
 

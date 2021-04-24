@@ -51,6 +51,7 @@ export default function initStore(Vue, isClient: boolean) {
                 state.postId = id;
             },
             toggle(state) {
+                console.log('close menu...');
                 state.drawer = !state.drawer;
             },
             updateDrawer(state, drawer) {
