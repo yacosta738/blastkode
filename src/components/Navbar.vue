@@ -30,14 +30,26 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from "vue-property-decorator";
-const Menus = ()=> import("./Menus.vue");
+import {Component, Vue, Watch} from "vue-property-decorator";
 import {isClient} from '~/util/utilities';
+
+const Menus = () => import("./Menus.vue");
 
 @Component({components: {Menus}})
 export default class Navbar extends Vue {
   scrollDirection: string = 'DOWN';
   lastScrollPosition: number = 0;
+
+  get breakpoint(): string {
+    return this.$screen?.breakpoint ? this.$screen?.breakpoint : '';
+  }
+
+  @Watch('breakpoint')
+  changedBreakpoint() {
+    if (this.isOpen && (this.$screen.breakpoint === 'md' || this.$screen.breakpoint === 'xl')) {
+      this.$store.commit('toggle');
+    }
+  }
 
   get showNavbar(): boolean {
     return this.$store.state.showNavbar;
