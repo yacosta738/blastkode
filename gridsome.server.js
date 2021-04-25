@@ -30,8 +30,8 @@ module.exports = function (api, options) {
           axios: {
             test: /[\\/]node_modules[\\/]axios[\\/]/,
             minSize: 10000,
-            name: 'axios'
-          }
+            name: "axios",
+          },
         },
       });
     }

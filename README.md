@@ -18,7 +18,7 @@ A simple portfolio starter theme for Gridsome
 - Blog with markdown content for posts
 - Documentation type that shows how to use Vue components in Markdown (click Docs)
 - Theme Switcher with Dark Mode
-- Search posts with [Fuse.js](https://fusejs.io) 
+- Search posts with [Fuse.js](https://fusejs.io)
 - Tags for posts
 - Basic pagination
 - Syntax highlighting with [Shiki](https://shiki.matsu.io) (using [this gridsome plugin](https://gridsome.org/plugins/gridsome-plugin-remark-shiki))

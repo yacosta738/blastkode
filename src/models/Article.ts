@@ -42,7 +42,7 @@ export default class Article implements IArticle {
       node?.tags?.map((tag) => Tag.fromJson(tag)),
       node?.categories?.map((category) => Category.fromJson(category)),
       node?.author,
-        node?.cover && Image.fromJson(node?.cover),
+      node?.cover && Image.fromJson(node?.cover),
       node?.content
     );
   }
