@@ -1,13 +1,13 @@
 <template>
   <ul class="flex flex-col md:flex-row relative list-none p-0 mb-4 text-light-slate font-mono text-sm">
-    <li class="my-2 whitespace-nowrap mx-1">
+    <li v-if="article.date" class="my-2 whitespace-nowrap mx-1">
       <font-awesome :icon="['fa', 'calendar-alt']"/>
       <span class="mx-2">{{ article.date }}</span>
     </li>
-    <li class="my-2 whitespace-nowrap mx-1">
+    <li v-if="article.timeToRead" class="my-2 whitespace-nowrap mx-1">
       <span>Reading time &middot; {{ article.timeToRead }} min</span>
     </li>
-    <li class="my-2 whitespace-nowrap mx-1">
+    <li v-if="article.path" class="my-2 whitespace-nowrap mx-1">
       <g-link :to="article.path" class="flex text-green-500">
         <svg fill="none" viewBox="0 0 24 24" class="w-6 h-6" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -16,7 +16,7 @@
         <DisqusCount shortname='blastkode' :identifier="article.path" class="mx-1" />
       </g-link>
     </li>
-    <li class="my-2 whitespace-nowrap mx-1">
+    <li v-if="article.author" class="my-2 whitespace-nowrap mx-1">
       <span>Author: <g-link :to="urlizeAuthorName(article.author)" class="inline-link">{{ article.author }}</g-link></span>
     </li>
   </ul>

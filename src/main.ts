@@ -3,7 +3,6 @@
 
 import DefaultLayout from "~/layouts/Default.vue";
 import VueScrollTo from "vue-scrollto";
-import VueFuse from "vue-fuse";
 import VueScreen from "vue-screen";
 import { isClient } from "~/util/utilities";
 import initFontawesome from "~/config/fontawesome";
@@ -48,8 +47,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.use(VueDisqus, { shortname: "blastkode" });
   // Vue Screen
   Vue.use(VueScreen);
-  // Vue Fuse
-  Vue.use(VueFuse);
   // Store
   appOptions.store = initStore(Vue, isClient);
 
@@ -57,6 +54,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
     if (to.path !== "/") {
       appOptions.store.commit("updateShowSide", false);
     }
+    appOptions.store.commit("updateSearchModels", false);
     next();
   });
 
@@ -67,8 +65,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
     duration: 500,
     easing: "ease",
   });
-
-  Vue.use(VueFuse);
 
   head.meta.push({
     name: "keywords",

@@ -27,11 +27,11 @@ module.exports = function (api, options) {
             test: /[\\/]node_modules[\\/]core-js[\\/]/,
             name: "core-js",
           },
-          // axios: {
-          //   test: /[\\/]node_modules[\\/]axios[\\/]/,
-          //   minSize: 10000,
-          //   name: 'axios'
-          // }
+          axios: {
+            test: /[\\/]node_modules[\\/]axios[\\/]/,
+            minSize: 10000,
+            name: 'axios'
+          }
         },
       });
     }

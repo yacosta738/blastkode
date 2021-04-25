@@ -33,17 +33,17 @@ export default class Article implements IArticle {
 
   static fromJson(node): Article {
     return new Article(
-      node.id,
-      node.title,
-      node.date,
-      node.path,
-      node.timeToRead,
-      node.summary,
-      node.tags.map((tag) => Tag.fromJson(tag)),
-      node.categories.map((category) => Category.fromJson(category)),
-      node.author,
-      Image.fromJson(node.cover),
-      node.content
+      node?.id,
+      node?.title,
+      node?.date,
+      node?.path,
+      node?.timeToRead,
+      node?.summary,
+      node?.tags?.map((tag) => Tag.fromJson(tag)),
+      node?.categories?.map((category) => Category.fromJson(category)),
+      node?.author,
+        node?.cover && Image.fromJson(node?.cover),
+      node?.content
     );
   }
 }

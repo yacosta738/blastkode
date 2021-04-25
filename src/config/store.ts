@@ -26,9 +26,10 @@ export default function initStore(Vue, isClient: boolean) {
             loading: false,
             firstTimeLoading: true,
             swStatus: "pending",
+            searchModal: false
         },
-        getters:{
-            themeClass: state => state.theme === DARK? 'dark': 'light',
+        getters: {
+            themeClass: state => state.theme === DARK ? 'dark' : 'light',
         },
         mutations: {
             toggleTheme(state) {
@@ -42,16 +43,15 @@ export default function initStore(Vue, isClient: boolean) {
                 }
 
                 state.theme = newTheme;
-                const classToAdd = newTheme
-                const classToRemove = isDark ? LIGHT : DARK
-                document.body.classList.add(classToAdd)
-                document.body.classList.remove(classToRemove)
+                const classToAdd = newTheme;
+                const classToRemove = isDark ? LIGHT : DARK;
+                document.body.classList.add(classToAdd);
+                document.body.classList.remove(classToRemove);
             },
             changePostId(state, id) {
                 state.postId = id;
             },
             toggle(state) {
-                console.log('close menu...');
                 state.drawer = !state.drawer;
             },
             updateDrawer(state, drawer) {
@@ -74,6 +74,12 @@ export default function initStore(Vue, isClient: boolean) {
             },
             swUpdate(state, status) {
                 state.swStatus = status;
+            },
+            toggleSearchModal(state) {
+                state.searchModal = !state.searchModal;
+            },
+            updateSearchModels(state, searchModal) {
+                state.searchModal = searchModal;
             },
         },
     });

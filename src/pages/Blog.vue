@@ -2,15 +2,7 @@
   <Layout aside>
     <div class="container-inner mx-auto pl-80 py-16" v-scroll-reveal.reset>
       <div v-for="post in $page.posts.edges" :key="post.node.id" class="post border-gray-400 border-b mb-20">
-        <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider"><g-link :to="post.node.path" class="inline-link">{{ post.node.title }}</g-link></h2>
-        <post-header :article="post.node"/>
-        <div class="flex flex-col md:flex-row mb-16">
-          <g-image alt="Cover image" v-if="post.node.cover" class="object-cover md:w-1/3 border border-green-500 md:mr-5" :src="post.node.cover" />
-          <div class="text-center md:text-left mt-5 md:mt-0">
-            {{ post.node.summary }}
-            <g-link :to="post.node.path" class="font-bold uppercase inline-link">Read&nbsp;→</g-link>
-          </div>
-        </div>
+       <article-summary :article="post.node" />
       </div> <!-- end post -->
 
       <pagination-posts
@@ -51,8 +43,7 @@ query Posts ($page: Int) {
 import {Component, Vue} from "vue-property-decorator";
 const PaginationPosts = () => import('@/components/PaginationPosts.vue');
 import "@/declarations/vue-meta";
-const PostHeader = () => import('~/components/PostHeader.vue');
-
+import ArticleSummary from '~/components/ArticleSummary.vue'
 @Component<Blog>({
   metaInfo() {
     return {
@@ -60,7 +51,7 @@ const PostHeader = () => import('~/components/PostHeader.vue');
     };
   },
   components: {
-    PostHeader,
+    ArticleSummary,
     PaginationPosts
   }
 })
