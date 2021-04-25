@@ -138,6 +138,7 @@ collections:
       - { label: "Technologies", name: "tech", widget: "list" }
       - { label: "Show in Projects", name: "showInProjects", widget: "boolean", default: false }
       - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "technologies"
     label: "Technologies"

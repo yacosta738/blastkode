@@ -11,6 +11,7 @@ tech:
   - Idea
 showInProjects: true 
 featured: false
+draft: false
 ---
 
 A simple application made in flutter to keep track of your daily personal expenses. You can have control of how much you have spent weekly as well as daily.

@@ -7,7 +7,7 @@
 <static-query>
 # Write your query or mutation here
 query {
-  featuredProjects: allProject(sortBy: "date", order: DESC, filter: { featured: { eq: true }}) {
+  featuredProjects: allProject(sortBy: "date", order: DESC, filter: { draft: { eq: false }, featured: { eq: true }}) {
     edges {
       node {
         id
@@ -26,7 +26,7 @@ query {
       }
     }
   }
-  commonProjects: allProject(sortBy: "date", order: DESC, filter: { showInProjects: { eq: true }, featured: {eq: false}}) {
+  commonProjects: allProject(sortBy: "date", order: DESC, filter: { draft: { eq: false }, showInProjects: { eq: true }, featured: {eq: false}}) {
     edges {
       node {
         id
