@@ -1,10 +1,11 @@
 <template>
   <Layout>
     <div class="container-inner mx-auto py-16">
-      <h2 class="text-4xl font-bold mb-16">Page Not Found</h2>
-      <g-image src="../../static/404.svg" alt="404 page not found"/>
+      <h1 class="text-4xl font-bold mb-16">Page Not Found (404)</h1>
+      <g-image class="w-1/2" src="../../static/oops.png" alt="404 page not found"/>
+      <p>Don't know how you ended up here, but the page doesn't exist. Or well, <em>this</em> page
+        exists, but it's a <em>page not found</em> page...you get the point.</p>
     </div>
-
   </Layout>
 </template>
 

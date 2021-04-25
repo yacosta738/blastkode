@@ -26,10 +26,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "./src/**/*",
-    "./gridsome.*.js"
-  ],
+  "include": ["./src/**/*", "./gridsome.*.js"],
   "exclude": [
     "content",
     "node_modules",

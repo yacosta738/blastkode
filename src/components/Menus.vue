@@ -4,12 +4,15 @@
       :class="$store.state.drawer ? 'block': 'hidden'"
       data-cypress="menu"
   >
-    <!--        <li class="mb-6 lg:mb-0">-->
-    <!--          <search-input/>-->
-    <!--        </li>-->
-    <!--    <li>-->
-    <!--      <theme-switcher/>-->
-    <!--    </li>-->
+    <li class="mb-6 lg:mb-0">
+      <div class="text-lightest-slate hover:text-gray-600 cursor-pointer">
+        <font-awesome :icon="['fa', 'search']"
+                      class="cursor-pointer mt-3" @click="openSearchBox()"/>
+      </div>
+    </li>
+<!--    <li>-->
+<!--      <theme-switcher/>-->
+<!--    </li>-->
     <li>
       <ol class="order-list lg:space-x-8 space-y-6 lg:space-y-0 lg:flex lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0">
         <li v-for="(menu, i) in menus" :key="i">
@@ -50,6 +53,15 @@ export default class Menus extends Vue {
 
   mounted() {
     addEventToClassName('close-menu-dummy', this.closeMenu);
+  }
+  openSearchBox(){
+    this.$store.commit('toggleSearchModal');
+    this.$store.commit('updateDrawer', false);
+    if (this.$store.state.searchModal){
+      const searchBox = document.getElementById('search-box');
+      if(searchBox)
+          searchBox.autofocus = true;
+    }
   }
 }
 </script>

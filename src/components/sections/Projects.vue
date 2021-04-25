@@ -1,7 +1,7 @@
 <template>
   <section id="projects" class="mx-4 md:mx-auto" v-scroll-reveal.reset>
-    <featured-projects  :projects="featuredProjects" />
-    <common-projects :projects="commonProjects"/>
+    <featured-projects v-if="featuredProjects.length > 0"  :projects="featuredProjects" />
+    <common-projects v-if="commonProjects.length > 0" :projects="commonProjects"/>
   </section>
 </template>
 <static-query>
