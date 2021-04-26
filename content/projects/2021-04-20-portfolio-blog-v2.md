@@ -10,5 +10,6 @@ tech:
   - SCSS
 showInProjects: true
 featured: false
+draft: false
 ---
 Template for personal Blog and portfolio made with [HUGO](https://gohugo.io/). The template is part of the migration of my personal blog in its version 2 with the static website generator [HUGO](https://gohugo.io/).
