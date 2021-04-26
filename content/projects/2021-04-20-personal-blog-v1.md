@@ -13,4 +13,5 @@ showInProjects: true
 featured: false
 draft: false
 ---
-First personal blog made with [jenkyll](https://jekyllrb.com/) static websites generator and deployed in Github Pages.
+
+First personal blog made with [jekyll](https://jekyllrb.com/) static websites generator and deployed in [Github Pages.](https://pages.github.com/)
