@@ -41,7 +41,7 @@
 
 <page-query>
 query Project {
-projects: allProject (sortBy: "date", order: DESC) {
+projects: allProject (sortBy: "date", order: DESC, , filter: { draft: { eq: false } }) {
 edges {
 node {
 id
