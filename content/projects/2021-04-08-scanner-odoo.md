@@ -8,5 +8,6 @@ tech:
   - Libinsane
 showInProjects: false
 featured: false
+draft: false
 ---
 Module that allows the ORM odoo to use scanners remotely that are on the same subnet.
