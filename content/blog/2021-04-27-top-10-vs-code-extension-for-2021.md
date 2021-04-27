@@ -1,12 +1,11 @@
 ---
 title: Top 10 VS Code extension for 2021
-summary: "[Visual Studio Code](https://code.visualstudio.com/) is one of the
-  most widely used code editors in the developer community. One of the reasons
-  for VS Code’s popularity is its many extensions that speed up the development
-  process.  In this guide, we’ll explore the 10 [VS Code
-  extensions](https://code.visualstudio.com/docs/editor/extension-gallery) every
-  web developer should know in 2021. These tools are designed to improve the
-  developer experience and make your job easier in various ways."
+summary: Visual Studio Code is one of the most widely used code editors in the
+  developer community. One of the reasons for VS Code’s popularity is its many
+  extensions that speed up the development process.  In this guide, we’ll
+  explore the 10 VS Code extensions every web developer should know in 2021.
+  These tools are designed to improve the developer experience and make your job
+  easier in various ways.
 date: 2021-04-27T02:23:12.784Z
 cover: https://www.elegantthemes.com/blog/wp-content/uploads/2019/01/000-VS-Code.png
 author: Yuniel Acosta
