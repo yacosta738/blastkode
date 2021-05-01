@@ -102,11 +102,7 @@
     {
       "id": "libinsane",
       "name": "Libinsane",
-      "url": "https://gitlab.gnome.org/World/OpenPaperwork/libinsane",
-      "icon": {
-        "type": "simple-icon",
-        "value": "yuniel"
-      }
+      "url": "https://gitlab.gnome.org/World/OpenPaperwork/libinsane"
     },
     {
       "id": "java",
@@ -183,11 +179,7 @@
     {
       "id": "spotify-web-api",
       "name": "Spotify Web API",
-      "url": "https://developer.spotify.com/documentation/web-api/",
-      "icon": {
-        "type": "simple-icon",
-        "value": "yuniel"
-      }
+      "url": "https://developer.spotify.com/documentation/web-api/"
     },
     {
       "id": "hugo",
@@ -373,10 +365,6 @@
       "id": "itunes-api",
       "name": "iTunes API",
       "url": "https://itunes.apple.com/",
-      "icon": {
-        "type": "simple-icon",
-        "value": "vite-icon"
-      }
     }
   ]
 }
