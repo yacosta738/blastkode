@@ -1,7 +1,6 @@
 # Gridsome Portfolio Starter
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/349b8978-6ef0-4260-ac99-841444977aca/deploy-status)](https://app.netlify.com/sites/blastkode/deploys)
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6524ca6f-ab89-431b-bfb4-57c814094dfd/deploy-status)](https://app.netlify.com/sites/blastkode/deploys)
 A simple portfolio starter theme for Gridsome
 
 ![screenshot](screenshots/demo.png)

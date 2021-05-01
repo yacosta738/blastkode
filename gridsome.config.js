@@ -133,7 +133,7 @@ module.exports = {
         workboxPluginMode: "generateSW",
         workboxOptions: {
           globPatterns: ["assets/@(js|css)/*", "offline/index.html"],
-          navigateFallback: "/blog/offline/index.html",
+          navigateFallback: "/offline/index.html",
           navigateFallbackAllowlist: [/\/$/],
           runtimeCaching: [
             {
