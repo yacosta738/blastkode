@@ -133,11 +133,20 @@ module.exports = {
         workboxPluginMode: "generateSW",
         workboxOptions: {
           globPatterns: ["assets/@(js|css)/*", "offline/index.html"],
-          navigateFallback: "/offline/index.html",
+          navigateFallback: "offline/index.html",
           navigateFallbackAllowlist: [/\/$/],
           runtimeCaching: [
             {
               urlPattern: new RegExp("/search.json$"),
+              handler: "NetworkFirst",
+              options: {
+                cacheName: "Post-Data",
+                networkTimeoutSeconds: 3,
+                expiration: { maxEntries: 20 },
+              },
+            },
+            {
+              urlPattern: new RegExp("/blog"),
               handler: "NetworkFirst",
               options: {
                 cacheName: "Post-Data",
