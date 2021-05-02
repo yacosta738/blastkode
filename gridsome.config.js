@@ -121,6 +121,7 @@ module.exports = {
               purpose: "any",
             },
           ],
+          appleMaskIcon: { url: './safari-pinned-tab.svg' }
         },
         manifestOptions: {
           short_name: "Blastkode",
@@ -129,12 +130,14 @@ module.exports = {
           display: "standalone",
           background_color: "#112240",
         },
-        appShellPath: "offline/index.html",
+        msTileColor: '#64ffda',
+        appShellPath: 'offline/index.html',
         workboxPluginMode: "generateSW",
         workboxOptions: {
-          globPatterns: ["assets/@(js|css)/*", "offline/index.html"],
-          navigateFallback: "offline/index.html",
+          globPatterns: ['assets/@(js|css)/*', 'offline/index.html'],
+          navigateFallback: '/gridsome/offline/index.html',
           navigateFallbackAllowlist: [/\/$/],
+          skipWaiting: true,
           runtimeCaching: [
             {
               urlPattern: new RegExp("/search.json$"),
@@ -147,6 +150,24 @@ module.exports = {
             },
             {
               urlPattern: new RegExp("/blog"),
+              handler: "NetworkFirst",
+              options: {
+                cacheName: "Post-Data",
+                networkTimeoutSeconds: 3,
+                expiration: { maxEntries: 20 },
+              },
+            },
+            {
+              urlPattern: new RegExp("/projects"),
+              handler: "NetworkFirst",
+              options: {
+                cacheName: "Post-Data",
+                networkTimeoutSeconds: 3,
+                expiration: { maxEntries: 20 },
+              },
+            },
+            {
+              urlPattern: new RegExp("/authors"),
               handler: "NetworkFirst",
               options: {
                 cacheName: "Post-Data",
