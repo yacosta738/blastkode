@@ -6,6 +6,12 @@ export interface ITag {
 }
 
 export default class Tag implements ITag {
+
+  static fromJson(node): Tag {
+    return node.belongsTo?.totalCount
+      ? new Tag(node.id, node.title, node.path, node.belongsTo?.totalCount)
+      : new Tag(node.id, node.title);
+  }
   constructor(
     public id?: string,
     public title?: string,
@@ -13,11 +19,5 @@ export default class Tag implements ITag {
     public totalCountInArticles?: number
   ) {
     this.totalCountInArticles = this.totalCountInArticles || 0;
-  }
-
-  static fromJson(node): Tag {
-    return node.belongsTo?.totalCount
-      ? new Tag(node.id, node.title, node.path, node.belongsTo?.totalCount)
-      : new Tag(node.id, node.title);
   }
 }

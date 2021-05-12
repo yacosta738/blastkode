@@ -19,6 +19,6 @@ jobs:
       - name: Install Node.js dependencies
         run: npm install
 
-      - name: format with Prettier
+      - name: Running Tests
         run: npm run test
 

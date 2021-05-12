@@ -121,7 +121,7 @@ module.exports = {
               purpose: "any",
             },
           ],
-          appleMaskIcon: { url: './safari-pinned-tab.svg' }
+          appleMaskIcon: { url: "./safari-pinned-tab.svg" },
         },
         manifestOptions: {
           short_name: "Blastkode",
@@ -130,12 +130,12 @@ module.exports = {
           display: "standalone",
           background_color: "#112240",
         },
-        msTileColor: '#64ffda',
-        appShellPath: 'offline/index.html',
+        msTileColor: "#64ffda",
+        appShellPath: "offline/index.html",
         workboxPluginMode: "generateSW",
         workboxOptions: {
-          globPatterns: ['assets/@(js|css)/*', 'offline/index.html'],
-          navigateFallback: '/gridsome/offline/index.html',
+          globPatterns: ["assets/@(js|css)/*", "offline/index.html"],
+          navigateFallback: "/gridsome/offline/index.html",
           navigateFallbackAllowlist: [/\/$/],
           skipWaiting: true,
           runtimeCaching: [

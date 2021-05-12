@@ -20,13 +20,13 @@
       </div>
       <div class="px-4 py-2 mt-2">
         <h2 class="text-3xl tracking-normal">
-          <g-link :to="article.path" class="inline-link">{{ article.name }}</g-link>
+          <g-link :to="article.path" class="inline-link">{{ article.title }}</g-link>
         </h2>
         <p class="line-clamp-4 md:line-clamp-3 hover:line-clamp-none px-2">
           {{ article.summary }}
         </p>
         <div class="flex items-center justify-between mt-2 mx-6">
-          <g-link :to="article.path" :aria-label="`To post ${article.name}`"
+          <g-link :to="article.path" :aria-label="`To post ${article.title}`"
                   class="inline-link text-xs -ml-3 ">Read More
           </g-link>
           <g-link :to="article.path" class="flex text-green-500">

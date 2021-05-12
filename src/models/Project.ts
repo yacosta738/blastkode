@@ -1,8 +1,8 @@
-import Tech, { ITech } from "~/models/Tech";
-import { Image } from "~/models/Image";
-import { urlize } from "~/util/utilities";
+import Tech, { ITech } from '~/models/Tech';
+import { Image } from '~/models/Image';
+import { urlize } from '~/util/utilities';
 
-const allTech = require("@/data/tech.json");
+const allTech = require('@/data/tech.json');
 
 export interface IProject {
   id?: string | undefined;
@@ -21,27 +21,12 @@ export interface IProject {
 }
 
 export default class Project implements IProject {
-  constructor(
-    public id?: string,
-    public title?: string,
-    public date?: string | Date,
-    public cover?: string | Image,
-    public github?: string,
-    public external?: string,
-    public ios?: string,
-    public android?: string,
-    public company?: string,
-    public tech?: ITech[],
-    public showInProjects?: boolean,
-    public featured?: boolean,
-    public content?: string
-  ) {}
 
   static fromJson(node): Project {
-    const techId = node?.tech?.map((tech) => urlize(tech));
+    const techId = node?.tech?.map(tech => urlize(tech));
     const tech = allTech?.tech
-      ?.filter((te) => techId?.includes(te.id))
-      ?.map((t) => new Tech(t.id, t.name, t.icon, t.url));
+      ?.filter(te => techId?.includes(te.id))
+      ?.map(t => new Tech(t.id, t.name, t.icon, t.url));
     return new Project(
       node?.id,
       node?.title,
@@ -58,4 +43,19 @@ export default class Project implements IProject {
       node?.content
     );
   }
+  constructor(
+    public id?: string,
+    public title?: string,
+    public date?: string | Date,
+    public cover?: string | Image,
+    public github?: string,
+    public external?: string,
+    public ios?: string,
+    public android?: string,
+    public company?: string,
+    public tech?: ITech[],
+    public showInProjects?: boolean,
+    public featured?: boolean,
+    public content?: string
+  ) {}
 }
