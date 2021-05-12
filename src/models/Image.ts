@@ -12,18 +12,9 @@ export interface IImage {
 }
 
 export class Image implements IImage {
-  constructor(
-    public type?: string,
-    public mimeType?: string,
-    public src?: string,
-    public size?: { width: number; height: number },
-    public sizes?: string,
-    public srcset?: string[],
-    public dataUri?: string
-  ) {}
 
   static fromJson(cover): string | Image {
-    if (typeof cover === "string") {
+    if (typeof cover === 'string') {
       return cover;
     } else {
       return new Image(
@@ -37,4 +28,13 @@ export class Image implements IImage {
       );
     }
   }
+  constructor(
+    public type?: string,
+    public mimeType?: string,
+    public src?: string,
+    public size?: { width: number; height: number },
+    public sizes?: string,
+    public srcset?: string[],
+    public dataUri?: string
+  ) {}
 }

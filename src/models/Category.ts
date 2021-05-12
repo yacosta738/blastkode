@@ -6,6 +6,12 @@ export interface ICategory {
 }
 
 export default class Category implements ICategory {
+
+  static fromJson(node): Category {
+    return node.belongsTo?.totalCount
+      ? new Category(node.id, node.title, node.path, node.belongsTo?.totalCount)
+      : new Category(node.id, node.title);
+  }
   constructor(
     public id?: string,
     public title?: string,
@@ -13,11 +19,5 @@ export default class Category implements ICategory {
     public totalCountInArticles?: number
   ) {
     this.totalCountInArticles = this.totalCountInArticles || 0;
-  }
-
-  static fromJson(node): Category {
-    return node.belongsTo?.totalCount
-      ? new Category(node.id, node.title, node.path, node.belongsTo?.totalCount)
-      : new Category(node.id, node.title);
   }
 }
