@@ -1,5 +1,6 @@
 ---
 title: Countdown to new year
+path: /countdown-to-new-year-astronomy
 summary: Astronomy and programming are two of my passions that this time I have
   decided to join together. With this objective in mind, we will create a simple
   website to count down how many days until the new year, simulating the
@@ -15,7 +16,6 @@ tags:
 categories:
   - Programming
 draft: false
-url: /countdown-to-new-year-astronomy
 ---
 ![background](./images/portada.jpg)
 
