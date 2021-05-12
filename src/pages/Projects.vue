@@ -69,8 +69,8 @@ import {Component, Vue} from 'vue-property-decorator';
 import Project from '~/models/Project';
 import {isAfter, isBefore} from 'date-fns';
 
-const ProjectLinks = () => import('~/components/ProjectLinks.vue');
-const ProjectTechList = () => import('~/components/ProjectTechList.vue');
+import ProjectLinks from '~/components/ProjectLinks.vue';
+import ProjectTechList from '~/components/ProjectTechList.vue';
 
 @Component<Projects>({
   components: {ProjectTechList, ProjectLinks},
