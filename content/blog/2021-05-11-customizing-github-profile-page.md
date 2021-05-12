@@ -1,5 +1,6 @@
 ---
 title: Customizing Github Profile Page
+path: /customizing-github-profile-page
 summary: "You can customize your profile so that other people can get a better
   sense of who you are and the work you do. "
 date: 2021-05-11T02:05:59.285Z

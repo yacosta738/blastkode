@@ -23,6 +23,7 @@ collections:
     label_singular: "Post"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Path", name: "path", widget: "string", default: "{{title}}" }
       - { label: "Summary", name: "summary", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Featured Image", name: "cover", widget: "image", required: false }
