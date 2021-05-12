@@ -1,6 +1,6 @@
-import Tag, { ITag } from '~/models/Tag';
-import Category, { ICategory } from '~/models/Category';
-import { Image } from '~/models/Image';
+import Tag, { ITag } from "~/models/Tag";
+import Category, { ICategory } from "~/models/Category";
+import { Image } from "~/models/Image";
 
 export interface IArticle {
   id?: string;
@@ -17,7 +17,6 @@ export interface IArticle {
 }
 
 export default class Article implements IArticle {
-
   static fromJson(node): Article {
     return new Article(
       node?.id,
@@ -26,8 +25,8 @@ export default class Article implements IArticle {
       node?.path,
       node?.timeToRead,
       node?.summary,
-      node?.tags?.map(tag => Tag.fromJson(tag)),
-      node?.categories?.map(category => Category.fromJson(category)),
+      node?.tags?.map((tag) => Tag.fromJson(tag)),
+      node?.categories?.map((category) => Category.fromJson(category)),
       node?.author,
       node?.cover && Image.fromJson(node?.cover),
       node?.content

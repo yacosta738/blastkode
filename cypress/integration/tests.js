@@ -34,36 +34,6 @@ describe('Loading Pages', () => {
     cy.contains('Introduction to Gridsome')
   })
 
-  it('visits the docs page', () => {
-    cy.visit('/docs')
-      .contains('Vue Components in Markdown')
-  })
-
-  it('can click the docs page', () => {
-    cy.visit('/')
-
-    cy.get('[data-cypress=docs]').click()
-
-    cy.url().should('include', '/docs')
-    cy.contains('Vue Components in Markdown')
-  })
-
-  it('can visit a single doc post', () => {
-    cy.visit('/docs/vue-components-in-markdown')
-
-    cy.url().should('include', '/docs/vue-components-in-markdown')
-    cy.contains('Vue Components in Markdown')
-  })
-
-  it('can click a single doc post', () => {
-    cy.visit('/docs')
-
-    cy.contains('Vue Components in Markdown').click()
-
-    cy.url().should('include', '/docs/vue-components-in-markdown')
-    cy.contains('Vue Components in Markdown')
-  })
-})
 
 describe('Page Scroll to Sections', () => {
   it('can scroll to Project', () => {
@@ -126,43 +96,43 @@ describe('Tags for posts', () => {
   })
 })
 
-describe('Theme Switcher', () => {
-  it('can change to dark theme', () => {
-    cy.visit('/')
+// describe('Theme Switcher', () => {
+//   it('can change to dark theme', () => {
+//     cy.visit('/')
 
-    cy.get('[data-cypress=switchTheme]').click({force: true})
-    cy.get('.content-wrapper').should('have.class', 'dark')
-  })
+//     cy.get('[data-cypress=switchTheme]').click({force: true})
+//     cy.get('.content-wrapper').should('have.class', 'dark')
+//   })
 
-  it('can change to light theme', () => {
-    cy.visit('/')
+//   it('can change to light theme', () => {
+//     cy.visit('/')
 
-    cy.get('[data-cypress=switchTheme]').click({force: true})
-    cy.get('[data-cypress=switchTheme]').click({force: true})
-    cy.get('.content-wrapper').should('have.class', 'light')
-  })
-})
+//     cy.get('[data-cypress=switchTheme]').click({force: true})
+//     cy.get('[data-cypress=switchTheme]').click({force: true})
+//     cy.get('.content-wrapper').should('have.class', 'light')
+//   })
+// })
 
-describe('Search with Vue Fuse', () => {
-  it('can search for blog posts', () => {
-    cy.visit('/')
+// describe('Search with Vue Fuse', () => {
+//   it('can search for blog posts', () => {
+//     cy.visit('/')
 
-    cy.get('[data-cypress=search-results]').should('not.be.visible')
-    cy.get('[data-cypress=search]').type('Introduction')
-    cy.get('[data-cypress=search-results]').should('be.visible')
-    cy.contains('Introduction to Gridsome')
-    cy.contains('Gridsome is a Vue.js-powered')
-  })
+//     cy.get('[data-cypress=search-results]').should('not.be.visible')
+//     cy.get('[data-cypress=search]').type('Introduction')
+//     cy.get('[data-cypress=search-results]').should('be.visible')
+//     cy.contains('Introduction to Gridsome')
+//     cy.contains('Gridsome is a Vue.js-powered')
+//   })
 
-  it('can search for docs', () => {
-    cy.visit('/')
+//   it('can search for docs', () => {
+//     cy.visit('/')
 
-    cy.get('[data-cypress=search-results]').should('not.be.visible')
-    cy.get('[data-cypress=search]').type('mark')
-    cy.get('[data-cypress=search-results]').should('be.visible')
-    cy.contains('Vue Components in Markdown')
-  })
-})
+//     cy.get('[data-cypress=search-results]').should('not.be.visible')
+//     cy.get('[data-cypress=search]').type('mark')
+//     cy.get('[data-cypress=search-results]').should('be.visible')
+//     cy.contains('Vue Components in Markdown')
+//   })
+// })
 
 // Doesn't work all the time, so I'm skipping it until I figure it out
 describe.skip('Mobile View', {

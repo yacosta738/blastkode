@@ -12,9 +12,8 @@ export interface IImage {
 }
 
 export class Image implements IImage {
-
   static fromJson(cover): string | Image {
-    if (typeof cover === 'string') {
+    if (typeof cover === "string") {
       return cover;
     } else {
       return new Image(
