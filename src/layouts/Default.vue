@@ -42,12 +42,12 @@ import {Component, Prop} from "vue-property-decorator";
 import {mixins} from 'vue-class-component';
 import ConfigurationMixin from "@/util/configuration.mixin";
 
-import Navbar from"@/components/Navbar.vue";
-import Social from"@/components/Social.vue";
-import Email from"@/components/Email.vue";
-import FooterSection from"@/components/FooterSection.vue";
-import TagCloudWidget from"@/components/shared/TagCloudWidget.vue";
-import CategoryWidget from"@/components/shared/CategoryWidget.vue";
+import Navbar from "@/components/Navbar.vue";
+import Social from "@/components/Social.vue";
+import Email from "@/components/Email.vue";
+import FooterSection from "@/components/FooterSection.vue";
+import TagCloudWidget from "@/components/shared/TagCloudWidget.vue";
+import CategoryWidget from "@/components/shared/CategoryWidget.vue";
 import RecentPostWidget from "~/components/shared/RecentPostWidget.vue";
 import Loader from "~/components/shared/Loader.vue";
 import SearchBox from'~/components/SearchBox.vue';

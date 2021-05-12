@@ -87,6 +87,7 @@ export default class Post extends Vue {
     this.$store.commit('changePostId', this.$page.post.id)
 
     inlineLinks('markdown-body');
+    console.log(this.$store.getters.themeClass);
   }
 }
 </script>

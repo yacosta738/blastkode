@@ -6,7 +6,6 @@ export interface ICategory {
 }
 
 export default class Category implements ICategory {
-
   static fromJson(node): Category {
     return node.belongsTo?.totalCount
       ? new Category(node.id, node.title, node.path, node.belongsTo?.totalCount)

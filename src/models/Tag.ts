@@ -6,7 +6,6 @@ export interface ITag {
 }
 
 export default class Tag implements ITag {
-
   static fromJson(node): Tag {
     return node.belongsTo?.totalCount
       ? new Tag(node.id, node.title, node.path, node.belongsTo?.totalCount)

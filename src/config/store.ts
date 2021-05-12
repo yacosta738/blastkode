@@ -1,17 +1,17 @@
 // Store
-import Vuex from 'vuex';
+import Vuex from "vuex";
 
-const DARK = 'dark';
-const LIGHT = 'light';
+const DARK = "dark";
+const LIGHT = "light";
 
 export default function initStore(Vue, isClient: boolean) {
   Vue.use(Vuex);
 
   function getTheme() {
-    if (isClient && !localStorage.getItem('theme')) {
-      localStorage.setItem('theme', DARK);
+    if (isClient && !localStorage.getItem("theme")) {
+      localStorage.setItem("theme", DARK);
     }
-    return isClient ? !localStorage.getItem('theme') || DARK : DARK;
+    return isClient ? !localStorage.getItem("theme") || DARK : DARK;
   }
 
   return new Vuex.Store({
@@ -23,23 +23,23 @@ export default function initStore(Vue, isClient: boolean) {
       showSide: true,
       loading: false,
       firstTimeLoading: true,
-      swStatus: 'pending',
+      swStatus: "pending",
       searchModal: false,
     },
     getters: {
-      themeClass: state => (state.theme === DARK ? 'dark' : 'light'),
+      themeClass: (state) => (state.theme === DARK ? "dark" : "light"),
     },
     mutations: {
       toggleTheme(state) {
         const isDark = state.theme === DARK;
         const message = isDark
-          ? '🌙 Setting dark mode'
-          : '🌞 Setting light mode';
+          ? "🌙 Setting dark mode"
+          : "🌞 Setting light mode";
         console.log(message);
         const newTheme = isDark ? LIGHT : DARK;
 
         if (isClient) {
-          localStorage.setItem('theme', newTheme);
+          localStorage.setItem("theme", newTheme);
         }
 
         state.theme = newTheme;
