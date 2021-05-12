@@ -1,10 +1,10 @@
-name: Lint
+name: Tests
 
 on: push
 
 jobs:
-  run-linters:
-    name: Run linters
+  run-tests:
+    name: Run tests
     runs-on: ubuntu-latest
 
     steps:
@@ -16,12 +16,9 @@ jobs:
         with:
           node-version: 14.16.1
 
-      # ESLint and Prettier must be in `package.json`
       - name: Install Node.js dependencies
         run: npm install
 
       - name: format with Prettier
-        run: npm run format
+        run: npm run test
 
-      - name: linter
-        run: npm run lint
