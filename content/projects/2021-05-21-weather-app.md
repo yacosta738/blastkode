@@ -7,7 +7,7 @@ external: https://weather-app-vuejs-acosta.vercel.app/
 company: Personal
 tech:
   - Vuejs
-  - Tailwindcss
+  - Tailwind
   - Vite
 showInProjects: false
 featured: true
