@@ -1,5 +1,6 @@
 ---
 title: Top 10 VS Code extension for 2021
+path: top-10-vs-code-2021
 summary: Visual Studio Code is one of the most widely used code editors in the
   developer community. One of the reasons for VS Code’s popularity is its many
   extensions that speed up the development process.  In this guide, we’ll
@@ -19,13 +20,11 @@ categories:
   - Tools
 draft: false
 ---
-
-
 # Top 10 VS Code extensions for 2021
 
 January 25, 2021  3 min read 
 
-![Top-Ten-Code-Extensions-of-2021](https://blog.logrocket.com/wp-content/uploads/2021/01/Top-10-Code-Extensions-of-2021.png)
+![Top-Ten-Code-Extensions-of-2021](/uploads/visual-studio-code.jpg "top 10 vs code extensions")
 
 [Visual Studio Code](https://code.visualstudio.com/) is one of the most widely used code editors in the developer community. One of the reasons for VS Code’s popularity is its many extensions that speed up the development process.
 
@@ -33,26 +32,26 @@ In this guide, we’ll explore the 10 [VS Code extensions](https://code.visuals
 
 We’ll cover the following VS Code extensions:
 
-1. [Auto Rename Tag](https://blog.logrocket.com/top-10-vs-code-extensions-2021/#autorenametag)
-2. [Bracket Pair Colorizer](https://blog.logrocket.com/top-10-vs-code-extensions-2021/#bracketpaircolorizer)
-3. [Snippets](https://blog.logrocket.com/top-10-vs-code-extensions-2021/#snippets)
-4. [Better Comments](https://blog.logrocket.com/top-10-vs-code-extensions-2021/#bettercomments)
-5. [Markdown All in One](https://blog.logrocket.com/top-10-vs-code-extensions-2021/#markdownallinone)
-6. [Icons](https://blog.logrocket.com/top-10-vs-code-extensions-2021/#Icons)
-7. [Prettier](https://blog.logrocket.com/top-10-vs-code-extensions-2021/#prettier)
-8. [Import Cost](https://blog.logrocket.com/top-10-vs-code-extensions-2021/#importcost)
-9. [Profile Switcher](https://blog.logrocket.com/top-10-vs-code-extensions-2021/#profileswitcher)
-10. [GitLens](https://blog.logrocket.com/top-10-vs-code-extensions-2021/#GitLens)
+1. Auto Rename Tag
+2. Bracket Pair Colorizer
+3. Snippets
+4. Better Comments
+5. Markdown All in One
+6. Icons
+7. Prettier
+8. Import Cost
+9. [](https://blog.logrocket.com/top-10-vs-code-extensions-2021/#profileswitcher)Tabnine
+10. GitLens
 
 ## 1. Auto Rename Tag
 
 [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) is a super useful VS Code extension for web developers. As the names suggest, Auto Rename Tag renames the second tag as the first one is updated and vice versa:
 
-![Auto-Rename-Tag-Gif](https://blog.logrocket.com/wp-content/uploads/2021/01/Auto-Rename-Tag.gif)
+![Auto-Rename-Tag-Gif](/uploads/auto-rename-tag.gif "auto rename")
 
 You will find this extension helpful not only with HTML, but also with React because of [JSX](https://reactjs.org/docs/introducing-jsx.html).
 
-![React-JSX-Auto-Rename-Tag](https://blog.logrocket.com/wp-content/uploads/2021/01/JSX.gif)
+![React-JSX-Auto-Rename-Tag](/uploads/jsx.gif "react jsx auto rename tag")
 
 In the above example there is only text inside the tags, but in a real application, there can be nested tags and elements, making manual updates difficult and tedious.
 
@@ -60,17 +59,17 @@ In the above example there is only text inside the tags, but in a real applicati
 
 [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) is an extension that matches corresponding brackets with the same color. Having nested components, functions, objects, etc., in a file, can become confusing with multiple parentheses, brackets, etc.
 
-![Bracket-Pair-Colorizer-Example](https://blog.logrocket.com/wp-content/uploads/2021/01/Bracket-Pair-Colorizer-Example.gif)
+![Bracket-Pair-Colorizer-Example](/uploads/bracket-pair-colorizer-example.gif "bracket pair colorizzer example")
 
 [](https://blog.logrocket.com/top-10-vs-code-extensions-2021/)
 
 For example, consider the following code snippet:
 
-![Bracket-Pair-Colorizer-Code-Snippet](https://blog.logrocket.com/wp-content/uploads/2021/01/Bracket-Pair-Colorizer-Code-Snippet.png)
+![Bracket-Pair-Colorizer-Code-Snippet](/uploads/bracket-pair-colorizer-code-snippet.avif "bracket pair colorizer code snippet")
 
 At first glance, it’s quite hard to differentiate between different code blocks in the code, but the Bracket Pair Colorizer extension colors the corresponding parenthesis and brackets for easy navigation and accessibility.
 
-![Bracket-Pair-Colorizer-Extension-Example](https://blog.logrocket.com/wp-content/uploads/2021/01/Bracket-Pair-Colorizer-Extension-Example.png)
+![Bracket-Pair-Colorizer-Extension-Example](/uploads/bracket-pair-colorizer-extension-example.avif "bracket pair colorizer extension example")
 
 ## 3. Snippets
 
@@ -87,7 +86,7 @@ Below are some popular code snippets extensions:
 
 For example, it can be quite tedious to repeat the syntax for functional components in React every time you create a new component. Using the [ES7 React/Redux/GraphQL/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets) extension, you can use the shorthand `rfc` for functional components and hit enter.
 
-![React-Redux-GraphQL-Extension](https://blog.logrocket.com/wp-content/uploads/2021/01/React-Redux-GraphQL-Extension.gif)
+![React-Redux-GraphQL-Extension](/uploads/react-redux-graphql-extension.gif "react redux graphql extension")
 
 ## 4. Better Comments
 
@@ -105,7 +104,7 @@ You can use either of the following characters after double forward slash (`//`)
 * `//` for strikethrough
 * `TODO` for to-dos
 
-![Better-Comments-VS-Code-Extension-Example](https://blog.logrocket.com/wp-content/uploads/2021/01/Better-Comments-VS-Code-Extension-Example.png)
+![Better-Comments-VS-Code-Extension-Example](/uploads/better-comments-vs-code-extension-example.avif "better comments vs code extension example")
 
 ## 5. Markdown All in One
 
@@ -115,7 +114,7 @@ Since its release in 2004, Markdown has become one of the most popular and prefe
 
 For example, to bold some text in Markdown, you can select that text and use the shortcut `Ctrl + B` to increase your productivity.
 
-![Markdown-All-In-One-Extension](https://blog.logrocket.com/wp-content/uploads/2021/01/Markdown-All-In-One-Extension.gif)
+![Markdown-All-In-One-Extension](/uploads/markdown-all-in-one-extension.gif "markdown all in one extension")
 
 ## 6. Icons
 
@@ -123,7 +122,7 @@ Having descriptive icons can help you differentiate between files and folders. I
 
 Here is a comparison between two VS Code tabs. One has icons, the other does not.
 
-![VS-Code-Tabs-Comparison](https://blog.logrocket.com/wp-content/uploads/2021/01/VS-Code-Tabs-Comparison.png)
+![VS-Code-Tabs-Comparison](/uploads/vs-code-tabs-comparison.avif "vs code tabs comparison")
 
 There are many icons extension that you can choose from. Popular icon collections include:
 
@@ -138,7 +137,7 @@ There are many icons extension that you can choose from. Popular icon collection
 
 Consider the following code block:
 
-![Prettier-Demo-Code-Example](https://blog.logrocket.com/wp-content/uploads/2021/01/Prettier-Code-Formatter-Example.png)
+![Prettier-Demo-Code-Example](/uploads/prettier-code-formatter-example.avif "prettier demo code example")
 
 You may notice a handful of formatting issues with this code, including:
 
@@ -148,7 +147,7 @@ You may notice a handful of formatting issues with this code, including:
 
 Here’s how Prettier would format and fix the above code:
 
-![](https://blog.logrocket.com/wp-content/uploads/2021/01/Prettier-Formatted-Code-Example.gif)
+![prettier format](/uploads/prettier-formatted-code-example.gif "prettier example")
 
 This extension supports [Prettier plugins](https://prettier.io/docs/en/plugins.html) when you’re using a locally resolved version of Prettier.\
 You can configure this extension further to suit your formatting needs and even trigger it with autosave.
@@ -157,19 +156,23 @@ You can configure this extension further to suit your formatting needs and even 
 
 [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost) is an extension that shows you an estimated size of the import package in your code. When working on a project, it’s important not to compromise the user experience by importing heft packages. One way to avoid this is to keep track of the size of additional dependencies in your code.
 
-![Import-Cost-Extension-Example](https://blog.logrocket.com/wp-content/uploads/2021/01/Import-Cost-Extension-Example.png)
+![Import-Cost-Extension-Example](/uploads/import-cost-extension-example.avif "import cost extension example")
 
 When the import is too large, Import Cost warns you by displaying the size in red. You can configure what size should be considered small, medium, or large.
 
-## 9. Profile Switcher
+## 9. Tabnine
 
-[Profile Switcher](https://marketplace.visualstudio.com/items?itemName=aaronpowell.vscode-profile-switcher) enables you to switch between and set up multiple profiles in your VS Code with various configurations and settings.
+[Tabnine](https://www.tabnine.com/) was created to help developers **code faster, reduce mistakes, and discover best coding practices** using Machine Learning. Tabnine's powerful Artificial Intelligence assistant works right where you are, in the comfort of your IDE. Tabnine studies publicly shared code and uses AI deep learning to predict one-click code completions
 
-This extension is especially useful for content creators such as technical bloggers, YouTubers, etc. Instead of changing your settings/configurations every time you need to show your VS Code screen, you can set up a profile required settings.
+Deep TabNine is built upon [GPT-2,](https://medium.com/syncedreview/openai-guards-its-ml-model-code-data-to-thwart-malicious-usage-d9f7e9c43cd0) a large transformer-based language model that can generate realistic paragraphs of text. The model, developed by San Francisco-based research company OpenAI, demonstrates compelling performance across a range of language tasks such as machine translation, question answering, reading comprehension and summarization.
 
-Here’s how to switch between two profiles: `Default` and `Content Creation`.
+Unlike other code completion plug-ins, Deep TabNine is automatically compiled based on a programmer’s past usage and habits, and includes the probability of the different predictions it provides. If a similar code appears in previous projects, Deep TabNine will also display the address directly in the completion candidate box.
 
-![Profile-Switcher-Content-Creation-Default-Example](https://blog.logrocket.com/wp-content/uploads/2021/01/Profile-Switcher-Content-Creation-Default-Example.gif)
+Tabnine works with all major programming languages including JavaScript, Python, TypeScript, PHP, C/C++, HTML/CSS, Go, Java, Ruby, C#, Rust, SQL, Bash, Kotlin, Julia, Lua, OCaml, Perl, Haskell, and React.
+
+The TabNine website with install instructions and other information is [here](https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode).
+
+![Profile-Switcher-Content-Creation-Default-Example](/uploads/deep_tabnine.0.gif "Profile switcher content creation defaul example")
 
 ## 10. GitLens
 
@@ -179,11 +182,11 @@ One of the best features of this extension is the ability to visualize code auth
 
 Below is a screenshot from the [React example](https://finalspaceapi.com/docs/react) docs of the [Final Space API](https://finalspaceapi.com/).
 
-![React-Example-Final-Space-Api](https://blog.logrocket.com/wp-content/uploads/2021/01/React-Example-Final-Space-Api.png)
+![React-Example-Final-Space-Api](/uploads/react-example-final-space-api.avif "react example final space api")
 
 Here’s an expanded version of the code authorship:
 
-![Code-Authorship-Expanded-Version](https://blog.logrocket.com/wp-content/uploads/2021/01/Code-Authorship-Expanded-Version.png)
+![Code-Authorship-Expanded-Version](/uploads/code-authorship-expanded-version.avif "code authorship expanded version")
 
 This is just one of the many [features of GitLens extension](https://gitlens.amod.io/#features). Other notable features include:
 
@@ -203,3 +206,4 @@ There are many more VS Code extensions that you can explore for all kinds of use
 * [Better Align](https://marketplace.visualstudio.com/items?itemName=wwm.better-align)
 * [Quokka.js](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode)
 * [indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow)
+* [Profile Switcher](https://marketplace.visualstudio.com/items?itemName=aaronpowell.vscode-profile-switcher)
