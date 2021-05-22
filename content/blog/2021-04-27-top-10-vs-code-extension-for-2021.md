@@ -1,14 +1,14 @@
 ---
 title: Top 10 VS Code extension for 2021
-path: top-ten-visual-studio-code
+path: /top-ten-visual-studio-code
 summary: Visual Studio Code is one of the most widely used code editors in the
   developer community. One of the reasons for VS Code’s popularity is its many
   extensions that speed up the development process.  In this guide, we’ll
   explore the 10 VS Code extensions every web developer should know in 2021.
   These tools are designed to improve the developer experience and make your job
   easier in various ways.
-date: 2021-04-27T02:23:12.784Z
-cover: https://www.elegantthemes.com/blog/wp-content/uploads/2019/01/000-VS-Code.png
+date: 2021-05-27T02:23:12.784Z
+cover: /uploads/visual-studio-code.jpg
 author: Yuniel Acosta
 tags:
   - VS Code
@@ -17,12 +17,9 @@ tags:
   - extensions
   - plugins
 categories:
-  - Tools
+  - Tooling
 draft: false
 ---
-# Top 10 VS Code extensions for 2021
-
-January 25, 2021  3 min read 
 
 ![Top-Ten-Code-Extensions-of-2021](/uploads/visual-studio-code.jpg "top 10 vs code extensions")
 

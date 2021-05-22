@@ -112,7 +112,7 @@ module.exports = {
         icon: {
           androidChrome: [
             {
-              src: "./src/favicon.png",
+              src: "./logo.png",
               sizes: [512, 384, 192, 144],
               purpose: "maskable",
             },
@@ -135,7 +135,7 @@ module.exports = {
         workboxPluginMode: "generateSW",
         workboxOptions: {
           globPatterns: ["assets/@(js|css)/*", "offline/index.html"],
-          navigateFallback: "/gridsome/offline/index.html",
+          navigateFallback: "/offline/index.html",
           navigateFallbackAllowlist: [/\/$/],
           skipWaiting: true,
           runtimeCaching: [
