@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between text-xl items-center"  v-scroll-reveal.reset>
+  <div class="flex justify-between text-xl items-center">
     <g-link :to="previousPage" :class="{ 'text-gray-400 hover:text-gray-400 cursor-not-allowed': !showPreviousPage, 'small-button':showPreviousPage }"
             data-cypress="prev">&larr; Prev
     </g-link>

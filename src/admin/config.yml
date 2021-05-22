@@ -23,7 +23,7 @@ collections:
     label_singular: "Post"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Path", name: "path", widget: "string", default: "{{title}}" }
+      - { label: "Path ( must start with / )", name: "path", widget: "string", default: "/" }
       - { label: "Summary", name: "summary", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Featured Image", name: "cover", widget: "image", required: false }
@@ -136,7 +136,15 @@ collections:
       - { label: "IOS", name: "ios", widget: "string", required: false }
       - { label: "Android", name: "android", widget: "string", required: false }
       - { label: "Company", name: "company", widget: "string" }
-      - { label: "Technologies", name: "tech", widget: "list" }
+      - label: "Technologies"
+        name: "tech"
+        widget: "relation"
+        collection: "technologies"
+        multiple: true
+        file: "tech"
+        search_fields: ["tech.*.name"]
+        display_fields: ["tech.*.name"]
+        value_field: "tech.*.id"
       - { label: "Show in Projects", name: "showInProjects", widget: "boolean", default: false }
       - { label: "Featured", name: "featured", widget: "boolean", default: false }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
