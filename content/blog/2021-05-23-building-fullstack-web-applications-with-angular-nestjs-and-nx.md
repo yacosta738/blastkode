@@ -19,13 +19,13 @@ draft: false
 ---
 ## Why this post?
 
-Angular is one of the most highly recommended frontend frameworks in the software industry. However, if you want to create a full-stack web-application, it only covers half of the requirements. For a while now, I've been pairing it with NestJS and it's been working really well in multiple projects.
+[Angular](https://angular.io/) is one of the most highly recommended frontend frameworks in the software industry. However, if you want to create a full-stack web-application, it only covers half of the requirements. For a while now, I've been pairing it with [NestJS](https://nestjs.com/) and it's been working really well in multiple projects.
 
 I keep recommending this combination to friends and coworkers, so I wanted to finally write down the setup I use as a reference/starting point. Maybe this post inspires you to also give it a try. If so, please let me know how it worked for you.
 
 [Angular](https://angular.io/) will be our frontend-framework for this example, we will use [NestJS](https://nestjs.com/) for our backend, and all of this will function as a whole inside [Nx](https://nx.dev/) workspace. We will introduce a few quality-of-life improvements as well as bundle both projects up into one single package.
 
-NestJS is an abstraction layer that sits on top of [Express](https://expressjs.com/es/) or [Fastify](https://www.fastify.io/), both NodeJS-powered REST-frameworks. It is written in Typescript and follows a lot of the same patterns found in Angular (annotations, DI, etc.). Nx is a set of tools developed by ex-Googlers which help develop in Monorepos. They also offer pretty sensible default choices and configuration overrides.
+[NestJS](https://nestjs.com/) is an abstraction layer that sits on top of [Express](https://expressjs.com/es/) or [Fastify](https://www.fastify.io/), both NodeJS-powered REST-frameworks. It is written in Typescript and follows a lot of the same patterns found in Angular (annotations, DI, etc.). Nx is a set of tools developed by ex-Googlers which help develop in Monorepos. They also offer pretty sensible default choices and configuration overrides.
 
 You ready? Let's go!
 
