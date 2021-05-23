@@ -17,15 +17,17 @@ categories:
   - Programming
 draft: false
 ---
+![nx](/uploads/nx.png "angular + nestjs + nx")
+
 ## Why this post?
 
-Angular is one of the most highly recommended frontend frameworks in the software industry. However, if you want to create a full-stack web-application, it only covers half of the requirements. For a while now, I've been pairing it with NestJS and it's been working really well in multiple projects.
+[Angular](https://angular.io/) is one of the most highly recommended frontend frameworks in the software industry. However, if you want to create a full-stack web-application, it only covers half of the requirements. For a while now, I've been pairing it with [NestJS](https://nestjs.com/) and it's been working really well in multiple projects.
 
 I keep recommending this combination to friends and coworkers, so I wanted to finally write down the setup I use as a reference/starting point. Maybe this post inspires you to also give it a try. If so, please let me know how it worked for you.
 
 [Angular](https://angular.io/) will be our frontend-framework for this example, we will use [NestJS](https://nestjs.com/) for our backend, and all of this will function as a whole inside [Nx](https://nx.dev/) workspace. We will introduce a few quality-of-life improvements as well as bundle both projects up into one single package.
 
-NestJS is an abstraction layer that sits on top of Express or Fastify, both NodeJS-powered REST-frameworks. It is written in Typescript and follows a lot of the same patterns found in Angular (annotations, DI, etc.). Nx is a set of tools developed by ex-Googlers which help develop in Monorepos. They also offer pretty sensible default choices and configuration overrides.
+[NestJS](https://nestjs.com/) is an abstraction layer that sits on top of [Express](https://expressjs.com/es/) or [Fastify](https://www.fastify.io/), both NodeJS-powered REST-frameworks. It is written in Typescript and follows a lot of the same patterns found in Angular (annotations, DI, etc.). Nx is a set of tools developed by ex-Googlers which help develop in Monorepos. They also offer pretty sensible default choices and configuration overrides.
 
 You ready? Let's go!
 
@@ -175,11 +177,8 @@ Let's configure NestJS to serve this folder when we access its root path.
 
 First, we'll install the NestJS `serve-static` package to allow serving of static assets
 
-
-
 ```shell
 npm install --save @nestjs/serve-static
-
 ```
 
 Now all we need to do is import and configure the `ServeStaticModule` provided by this package inside the AppModule (`apps/api/src/app/app.module.ts`)
@@ -199,14 +198,11 @@ import { join } from 'path';
   // ...
 })
 export class AppModule {}
-
 ```
 
 which instructs NestJS to traverse into `../client` from its own dist-folder (`dist/apps/api`) and serve the contents on its root path.
 
 And sure enough, running only the backend via `npm run start:be` and navigating to [](http://localhost:3333/)<http://localhost:3333/> should yield the same result as before, when we ran the Angular dev-server:
-
-
 
 # Packaging the application for deployment
 
@@ -224,7 +220,6 @@ We need to edit the `package.json` to only include the dist-files and as a conve
     ...
     }
 }
-
 ```
 
 Now, if we run `npm pack`, a tarball file will be generated for us in the project directory:
