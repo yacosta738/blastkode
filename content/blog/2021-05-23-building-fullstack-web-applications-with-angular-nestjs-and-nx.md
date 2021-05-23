@@ -6,9 +6,11 @@ date: 2021-05-22T23:32:13.655Z
 cover: /uploads/nx.png
 author: Yuniel Acosta
 tags:
-  - IT
+  - Angular
+  - NestJS
+  - Nx
 categories:
-  - IT
+  - Programming
 draft: false
 ---
 ## Why this post?
@@ -68,8 +70,6 @@ If you open now your browser on [](http://localhost:4200/)<http://localhost:4200
 
 ![localhost:4200](/uploads/localhost.png "App running in localhost")
 
-
-
 If you inspect the network and refresh, you'll see an XHR request to [](http://localhost:4200/api/hello)<http://localhost:4200/api/hello> showing that the proxy has been set up properly.
 
 ## Wait, what?
@@ -78,53 +78,48 @@ Let me explain what's going on:
 
 The NestJS project was configured with a prefix to use for all controllers. This prefix was defined as follows under (`apps/api/src/main.ts`)
 
-```
+```typescript
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
 ```
 
 Nx also generated a sample REST-controller, called AppController (`apps/api/src/app/app.controller.ts`) that currently serves a static chunk of data, in our case an object of the Typescript interface `Message` defined like this (`libs/api-interfaces/src/lib/api-interfaces.ts`):
 
-```
+```typescript
 export interface Message {
   message: string;
 }
-
 ```
 
 Because the interface `Message` is defined in the shared library, it can be used both by frontend and backend. Sweet, type-safety across both projects!
 
 The AppController method is annotated with
 
-```
+```typescript
  @Get('hello')
   getData(): Message {
     return this.appService.getData();
   }
-
 ```
 
 which tells NestJS to expose a new GET-endpoint under [](http://localhost:3333/api/hello)<http://localhost:3333/api/hello> and return our message object, when the server is running.
 
 On the other end of the stack we have the Angular project, which was configured to do a sample GET request to this exact endpoint. The sample code can be found in the AppComponent of the frontend under `apps/client/src/app/app.component.ts`
 
-```
+```typescript
 export class AppComponent {
   hello$ = this.http.get<Message>('/api/hello');
   constructor(private http: HttpClient) {}
 }
-
 ```
 
 and it's invoked using the async pipe directly in the template:
 
-```
+```html
 <div>Message: {{ hello$ | async | json }}</div>
 ```
 
 Now, since the Angular dev-server is running on [](http://localhost:4200/)<http://localhost:4200>, the request will go to [](http://localhost/4200/api/hello)<http://localhost/4200/api/hello> due to the relative path in the `httpClient` call. This gets picked up by the Angular proxy config and is forwarded to our NestJS server. Awesome 🎉
-
-
 
 # Tweaking the application for development
 
@@ -132,13 +127,13 @@ Congratulations, we now have a workspace with both NestJS and Angular running be
 
 What I like to do in order to make for a better development experience, is starting both frontend and backend dev-server in parallel, with a single command. For this we will install a node-helper called [concurrently](https://www.npmjs.com/package/concurrently).
 
-```
+```shell
 npm install --save-dev concurrently
 ```
 
 Once that's done, we can adapt the `package.json` as follows:
 
-```
+```shell
 "start:fe": "ng serve client",
 "start:be": "ng serve api",
 "dev": "concurrently -p=\"{name}\" -n=\"Angular,NestJS\" -c=\"green,blue\" \"npm run start:fe\" \"npm run start:be\"",
@@ -154,7 +149,7 @@ To achieve this we will create a production build of our Angular application and
 
 First, we'll create a production build of the Angular frontend:
 
-```
+```shell
 >  npm run nx -- build client --prod
 
 > hn-feed@0.0.0 nx /Users/acosta/Projects/hn-feed
@@ -168,7 +163,6 @@ ES5 bundle generation complete.
 // ... A few seconds later...
 
 Date: 2020-06-17T16:14:41.427Z - Hash: 4957569a994e1b83d273 - Time: 34832ms
-
 ```
 
 Now our frontends compiled (minified, uglified, polyfilled) output can be found under `dist/apps/client`
@@ -176,3 +170,78 @@ Now our frontends compiled (minified, uglified, polyfilled) output can be found 
 Let's configure NestJS to serve this folder when we access its root path.
 
 First, we'll install the NestJS `serve-static` package to allow serving of static assets
+
+
+
+```shell
+npm install --save @nestjs/serve-static
+
+```
+
+Now all we need to do is import and configure the `ServeStaticModule` provided by this package inside the AppModule (`apps/api/src/app/app.module.ts`)
+
+```typescript
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+
+// ...
+
+@Module({
+  imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'client'),
+    }),
+  ],
+  // ...
+})
+export class AppModule {}
+
+```
+
+which instructs NestJS to traverse into `../client` from its own dist-folder (`dist/apps/api`) and serve the contents on its root path.
+
+And sure enough, running only the backend via `npm run start:be` and navigating to [](http://localhost:3333/)<http://localhost:3333/> should yield the same result as before, when we ran the Angular dev-server:
+
+
+
+# Packaging the application for deployment
+
+All that's left now is to bundle everything in an `npm` package and we'll be ready to deploy our full-stack application. Let's do that now.
+
+We need to edit the `package.json` to only include the dist-files and as a convenience we'll add a start-script:
+
+```json
+{
+    ...
+    "files": ["dist/apps/client", "dist/apps/api"],
+    ...
+    scripts: {
+    "serve": "node dist/apps/api/main.js",
+    ...
+    }
+}
+
+```
+
+Now, if we run `npm pack`, a tarball file will be generated for us in the project directory:
+
+```shell
+npm pack
+npm notice
+npm notice 📦  hn-feed@0.0.0
+npm notice === Tarball Contents ===
+// ...
+npm notice === Tarball Details ===
+npm notice name:          hn-feed
+npm notice version:       0.0.0
+npm notice filename:      hn-feed-0.0.0.tgz
+npm notice total files:   14
+```
+
+We can now upload this package to our favorite cloud provider, have it run `npm install --production` after the upload and provide the `serve` script as a startup command for the package (this step varies depending on your cloud provider).
+
+Of course you can also run this package locally, by simply unpacking the tarball file, running `npm install --production` inside the directory, then running `npm run serve`.
+
+I hope you found this post helpful. Let me know if you're missing any important steps! There's obviously a lot more we can do now that we have this setup, like runtime type validation for our frontend or backend, sharing logic across frontend and backend by using a shared library in the same workspace, etc. If you're interested in those topics, I'll gladly write a follow-up post to this one :)
+
+Thanks for reading!
