@@ -17,6 +17,8 @@ categories:
   - Programming
 draft: false
 ---
+![nx](/uploads/nx.png "angular + nestjs + nx")
+
 ## Why this post?
 
 [Angular](https://angular.io/) is one of the most highly recommended frontend frameworks in the software industry. However, if you want to create a full-stack web-application, it only covers half of the requirements. For a while now, I've been pairing it with [NestJS](https://nestjs.com/) and it's been working really well in multiple projects.
