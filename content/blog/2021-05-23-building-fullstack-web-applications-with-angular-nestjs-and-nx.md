@@ -13,6 +13,7 @@ tags:
   - Angular
   - NestJS
   - Nx
+  - TypeScript
 categories:
   - Programming
 draft: false
