@@ -15,7 +15,7 @@
 <static-query>
 # Write your query or mutation here
 query {
-  last3Post: allPost(sortBy: "date", order: DESC, perPage: 3, filter:{draft:{ eq: false }}) {
+  last3Post: allPost(sortBy: "date", order: DESC, filter:{draft:{ eq: false }}) {
     edges {
       node {
         id
@@ -45,11 +45,13 @@ query {
 import {Component, Vue} from "vue-property-decorator";
 import CardPost from "@/components/CardPost.vue"
 import Article from '~/models/Article';
+import {compareAsc} from 'date-fns';
 @Component({components:{CardPost}})
 export default class LastArticles extends Vue {
   get last3Post(): Article[] {
     //@ts-ignore
-    return this.$static.last3Post.edges.map(edge => Article.fromJson(edge.node));
+    const edges = this.$static.last3Post.edges.filter(post => compareAsc(new Date(post.node.date), new Date()) === -1).filter((post, index)=>index < 3);
+    return edges.map(edge => Article.fromJson(edge.node));
   }
 }
 </script>

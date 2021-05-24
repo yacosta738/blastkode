@@ -1,7 +1,7 @@
 <template>
   <Layout aside>
     <div class="container-inner mx-auto pl-80 py-16" v-scroll-reveal.reset>
-      <div v-for="post in $page.posts.edges" :key="post.node.id" class="post border-gray-400 border-b mb-20">
+      <div v-for="post in posts" :key="post.node.id" class="post border-gray-400 border-b mb-20">
        <article-summary :article="post.node" />
       </div> <!-- end post -->
 
@@ -44,6 +44,7 @@ import {Component, Vue} from "vue-property-decorator";
 import PaginationPosts from '@/components/PaginationPosts.vue';
 import "@/declarations/vue-meta";
 import ArticleSummary from '~/components/ArticleSummary.vue'
+import {compareAsc} from 'date-fns';
 @Component<Blog>({
   metaInfo() {
     return {
@@ -62,7 +63,10 @@ export default class Blog extends Vue {
   private get pageTitle() {
     return this.$context.title;
   }
-
+get posts(){
+    //@ts-ignore
+    return this.$page.posts.edges.filter(post => compareAsc(new Date(post.node.date), new Date()) === -1);
+}
   mounted() {
     this.$store.commit('changePostId', -1);
     this.$store.commit('updateShowSide', false);
