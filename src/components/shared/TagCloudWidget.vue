@@ -35,7 +35,7 @@ import Tag from '~/models/Tag';
 export default class TagCloudWidget extends Vue {
   get allTags(): Tag[] {
     // @ts-ignore
-    return this.$static.tags.edges.map(edge => Tag.fromJson(edge.node)).sort((tag1: Tag, tag2: Tag) => tag1.title < tag2.title ? -1 : tag1.title > tag2.title ? 1 : 0);
+    return this.$static.tags.edges.map(edge => Tag.fromJson(edge.node)).sort((tag1: Tag, tag2: Tag) => tag1?.title < tag2?.title ? -1 : tag1?.title > tag2?.title ? 1 : 0);
   }
   get totalCount():number{
     // @ts-ignore
@@ -46,21 +46,21 @@ export default class TagCloudWidget extends Vue {
     const totalCountInPost: number = (tag.totalCountInArticles && tag.totalCountInArticles > 0) ? tag.totalCountInArticles : 1;
     const percent = (totalCountInPost / this.totalCount) * 100;
     if (percent <= 12.5) {
-      return 'text-xs';
-    } else if (percent > 12.5 && percent <= 25) {
-      return 'text-sm';
-    } else if (percent > 25 && percent <= 37.5) {
       return 'text-base';
-    } else if (percent > 37.5 && percent <= 50) {
+    } else if (percent > 12.5 && percent <= 25) {
       return 'text-lg';
-    } else if (percent > 50 && percent <= 62.5) {
+    } else if (percent > 25 && percent <= 37.5) {
       return 'text-xl';
-    } else if (percent > 62.5 && percent <= 75) {
+    } else if (percent > 37.5 && percent <= 50) {
       return 'text-2xl';
-    } else if (percent > 75 && percent <= 87.5) {
+    } else if (percent > 50 && percent <= 62.5) {
       return 'text-3xl';
-    } else {
+    } else if (percent > 62.5 && percent <= 75) {
       return 'text-4xl';
+    } else if (percent > 75 && percent <= 87.5) {
+      return 'text-5xl';
+    } else {
+      return 'text-6xl';
     }
   }
 }
