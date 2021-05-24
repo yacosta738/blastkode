@@ -32,6 +32,7 @@ const init = (appOptions) => {
   }
 };
 
+// tslint:disable-next-line:no-shadowed-variable
 export default function (Vue, { router, head, isClient, appOptions }) {
   init(appOptions);
   if (isClient && process.env.NODE_ENV === "production") {

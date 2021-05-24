@@ -50,7 +50,7 @@ import {compareAsc} from 'date-fns';
 export default class LastArticles extends Vue {
   get last3Post(): Article[] {
     //@ts-ignore
-    const edges = this.$static.last3Post.edges.filter(post => compareAsc(new Date(post.node.date), new Date()) === -1).filter((post, index)=>index<3);
+    const edges = this.$static.last3Post.edges.filter(post => compareAsc(new Date(post.node.date), new Date()) === -1).filter((post, index)=>index < 3);
     return edges.map(edge => Article.fromJson(edge.node));
   }
 }
