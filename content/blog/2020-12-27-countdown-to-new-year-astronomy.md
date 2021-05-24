@@ -21,7 +21,7 @@ draft: false
 
 Astronomy and programming are two of my passions that this time I have decided to join together. With this goal in mind, we will create a simple website to count down how many days until the new year, simulating the movement of the planet earth. The demo can be seen at the following link <https://yacosta738.github.io/countdown-to-new-year/>
 
-![Example](./images/example.png)
+![Example](./images/example.png "Example")
 
 The first thing is to create a file ** `style.css`**  where the style and orbit of each planet is defined:
 
@@ -462,7 +462,7 @@ body {
 
 Then we create the file **`script.js`** where all the logic is defined to calculate the number of days left for the new year:
 
-```js
+```javascript
 //prevent loading error
 document.getElementById('warning').remove();
 
