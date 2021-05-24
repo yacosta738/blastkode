@@ -7,7 +7,7 @@ summary: Visual Studio Code is one of the most widely used code editors in the
   explore the 10 VS Code extensions every web developer should know in 2021.
   These tools are designed to improve the developer experience and make your job
   easier in various ways.
-date: 2021-05-27T02:23:12.784Z
+date: 2021-05-25T02:23:12.784Z
 cover: /uploads/visual-studio-code.jpg
 author: Yuniel Acosta
 tags:
