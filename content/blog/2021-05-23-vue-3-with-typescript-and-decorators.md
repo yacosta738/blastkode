@@ -12,8 +12,8 @@ cover: /uploads/vue3-typescript.png
 author: Yuniel Acosta
 tags:
   - VueJS
-  - Typescript
-  - decorators
+  - TypeScript
+  - Decorators
   - VueX
   - Components
 categories:
