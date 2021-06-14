@@ -37,7 +37,7 @@ import {
   TypeScriptIcon,
   VisualStudioCodeIcon,
   VueJsIcon,
-  VuetifyIcon,CSharpIcon,FigmaIcon, PyTorchIcon, TensorFlowIcon, KerasIcon, NumPyIcon, PandasIcon, ApacheSparkIcon
+  VuetifyIcon,CSharpIcon,FigmaIcon, PyTorchIcon, TensorFlowIcon, KerasIcon, NumPyIcon, PandasIcon, ApacheSparkIcon, ReactIcon
 } from "vue-simple-icons";
 
 @Component({
@@ -73,7 +73,7 @@ import {
     Css3Icon,
     VuetifyIcon,
     CIcon,
-    CPlusPlusIcon,CSharpIcon,FigmaIcon, PyTorchIcon, TensorFlowIcon, KerasIcon, NumPyIcon, PandasIcon, ApacheSparkIcon
+    CPlusPlusIcon,CSharpIcon,FigmaIcon, PyTorchIcon, TensorFlowIcon, KerasIcon, NumPyIcon, PandasIcon, ApacheSparkIcon, ReactIcon
   }
 })
 export default class SimpleIconWrapper extends Vue {

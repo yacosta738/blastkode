@@ -365,6 +365,15 @@
       "id": "itunes-api",
       "name": "iTunes API",
       "url": "https://itunes.apple.com/"
+    },
+    {
+      "id": "react",
+      "name": "React.js",
+      "icon": {
+        "type": "simple-icon",
+        "value": "react-icon"
+      },
+      "url": "https://reactjs.org/"
     }
   ]
 }
