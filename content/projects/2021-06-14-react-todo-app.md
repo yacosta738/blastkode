@@ -6,7 +6,7 @@ github: https://github.com/yacosta738/react-todos-app
 external: https://yacosta738.github.io/react-todos-app
 company: Personal
 tech:
-  - flutter
+  - react
 showInProjects: true
 featured: false
 draft: false
