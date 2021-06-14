@@ -1,0 +1,14 @@
+---
+title: React Todo App
+cover: /uploads/todos-react.png
+date: 2021-06-14T16:46:27.482Z
+github: https://github.com/yacosta738/react-todos-app
+external: https://yacosta738.github.io/react-todos-app
+company: Personal
+tech:
+  - flutter
+showInProjects: true
+featured: false
+draft: false
+---
+Simple todo app made with React.js
