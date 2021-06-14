@@ -11,4 +11,6 @@ showInProjects: true
 featured: false
 draft: false
 ---
-Simple todo app made with React.js
+A simple to-do list application to demonstrate my React knowledge.
+
+Front-end project only, no backend or database storage.
