@@ -20,8 +20,11 @@ jobs:
       - name: Install Node.js dependencies
         run: npm install
 
-      - name: format with Prettier
-        run: npm run prettier:format
+      - name: linter
+        run: npm run lint:fix
 
       - name: linter
         run: npm run lint
+
+      - name: format with Prettier
+        run: npm run prettier:format
