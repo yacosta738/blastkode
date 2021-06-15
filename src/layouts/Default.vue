@@ -10,6 +10,7 @@
         <transition name="fade" appear>
           <main ref="content" class="flex-grow mt-8 md:mt-20 lg:mt-15">
             <slot/>
+            <scroll-top/>
           </main>
         </transition>
         <transition v-if="aside" name="fade" mode="out-in" appear>
@@ -51,6 +52,7 @@ import CategoryWidget from "@/components/shared/CategoryWidget.vue";
 import RecentPostWidget from "~/components/shared/RecentPostWidget.vue";
 import Loader from "~/components/shared/Loader.vue";
 import SearchBox from'~/components/SearchBox.vue';
+import ScrollTop from '~/components/ScrollTop.vue';
 
 @Component({
   components: {
@@ -62,7 +64,8 @@ import SearchBox from'~/components/SearchBox.vue';
     CategoryWidget,
     RecentPostWidget,
     Loader,
-    SearchBox
+    SearchBox,
+    ScrollTop
   }
 })
 export default class Default extends mixins(ConfigurationMixin) {
