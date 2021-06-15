@@ -6,7 +6,7 @@
     <loader v-if="$store.state.loading"/>
     <div id="page-wrapper" :class="{'filter blur':$store.state.searchModal}" v-else>
       <navbar/>
-      <div class="flex flex-wrap flex-col md:flex-row justify-between">
+      <div class="flex flex-wrap flex-col md:flex-row justify-around">
         <transition name="fade" appear>
           <main ref="content" class="flex-grow mt-8 md:mt-20 lg:mt-15">
             <slot/>
