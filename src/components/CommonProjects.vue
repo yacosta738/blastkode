@@ -18,7 +18,7 @@
         <project-tech-list :project="project" position="start" :showIcon="false"/>
       </div>
     </div>
-    <button v-if="projectsToShow.length > 6" class="big-button m-5" @click="showMore=!showMore">
+    <button v-if="projects.length > 6" class="big-button m-5" @click="showMore=!showMore">
       {{ (showMore) ? 'Show Less' : 'Show More' }}
     </button>
   </div>

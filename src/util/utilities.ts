@@ -53,8 +53,8 @@ export const addEventToClassName = (
 export const yearsOfExperience = (text: string): string => {
   const mask: RegExpMatchArray | null = text?.match('{[0-9]+}');
   const year: number = mask
-      // tslint:disable-next-line:radix
-    ? Number.parseInt(mask[0].replace('{', '').replace('}', ''))
+    ? // tslint:disable-next-line:radix
+      Number.parseInt(mask[0].replace('{', '').replace('}', ''))
     : 1993;
   const currentYear: number = new Date()?.getFullYear();
   return text?.replace(`[-YEAR-{${year}}]`, `${currentYear - year}`);
