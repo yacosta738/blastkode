@@ -16,16 +16,16 @@
 
 <static-query>
 query {
-recentPost: allPost( sortBy: "date" order: DESC filter: { draft: { eq: false }}) {
-edges {
-node {
-id
-title
-date (format: "MMMM D, Y")
-path
-}
-}
-}
+  recentPost: allPost( sortBy: "date" order: DESC filter: { draft: { eq: false }}) {
+    edges {
+      node {
+        id
+        title
+        date (format: "MMMM D, Y")
+        path
+      }
+    }
+  }
 }
 </static-query>
 

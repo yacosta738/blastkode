@@ -32,6 +32,7 @@
             </g-link>
           </div>
         </div>
+        <cryptos :address="bitcoinAddress" />
         <div class='comments'>
           <Disqus :identifier="$page.post.path" />
         </div>
@@ -65,6 +66,7 @@ query Post ($path: String!) {
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 import PostHeader from '~/components/PostHeader.vue';
+import Cryptos from '~/components/shared/Cryptos.vue'
 import {inlineLinks} from '~/util/utilities';
 
 @Component<Post>({
@@ -73,7 +75,7 @@ import {inlineLinks} from '~/util/utilities';
       //@ts-ignore
       title: this.$page.post.title
     };
-  }, components: {PostHeader}
+  }, components: {PostHeader, Cryptos}
 })
 export default class Post extends Vue {
   // ? $context has to be defined here. Otherwise TypeScript complains about not existing variable
@@ -82,12 +84,14 @@ export default class Post extends Vue {
   private get pageTitle() {
     return this.$context.title;
   }
+  get bitcoinAddress(): string  {
+    return process.env.GRIDSOME_BITCOIN_WALLET || 'bc1qpm2s4m6er9yj249wpwg8uq0ysqkr636clu9jka';
+  }
   mounted() {
     //@ts-ignore
     this.$store.commit('changePostId', this.$page.post.id)
 
     inlineLinks('markdown-body');
-    console.log(this.$store.getters.themeClass);
   }
 }
 </script>
