@@ -1,3 +1,5 @@
 [build]
   publish = "dist"
   command = "gridsome build"
+[template.environment]
+  GRIDSOME_BITCOIN_WALLET = "bc1qpm2s4m6er9yj249wpwg8uq0ysqkr636clu9jka"

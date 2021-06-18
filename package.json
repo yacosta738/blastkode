@@ -20,6 +20,7 @@
     "@gridsome/transformer-remark": "^0.6.4",
     "@gridsome/vue-remark": "^0.2.6",
     "@tailwindcss/line-clamp": "^0.2.0",
+    "@xkeshi/vue-qrcode": "^1.0.0",
     "date-fns": "^2.19.0",
     "dompurify": "^2.2.7",
     "fuse.js": "^6.4.6",
