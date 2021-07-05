@@ -31,7 +31,7 @@
               <span>{{ job.node.rol }}</span>
               <span class="company">
                 &nbsp;@&nbsp;
-                <g-link :to="job.node.url" class="inline-link">
+                <g-link :to="$tp(job.node.url)" class="inline-link">
                   {{ job.node.company }}
                 </g-link>
               </span>

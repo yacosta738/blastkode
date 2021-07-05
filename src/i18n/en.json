@@ -1,5 +1,8 @@
 {
-  "welcome": "Welcome to Gridsome i18n!",
+  "welcome": "Hi, my name is",
+  "name": "Yuniel Acosta.",
+  "slogan": "If I cannot do great things, I can do small things in a great way",
+  "aboutMe": "I’m a software engineer, technology and science enthusiast, specialized in building mobile and web applications.",
   "en": "English",
   "es": "Spanish"
 }

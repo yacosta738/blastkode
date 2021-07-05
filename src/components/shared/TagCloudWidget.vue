@@ -1,7 +1,7 @@
 <template>
   <widget title="Tags" v-if="totalCount > 0">
     <div class="tag-cloud-tags">
-    <g-link v-for="tag in allTags" :key="tag.id" :to="tag.path"
+    <g-link v-for="tag in allTags" :key="tag.id" :to="$tp(tag.path)"
        :aria-label="`${tag.title} (${tag.totalCountInArticles} posts)`"
        :class="textSize(tag)" class="inline-link">{{ tag.title }}</g-link>
     </div>

@@ -20,16 +20,16 @@
       </div>
       <div class="px-4 py-2 mt-2">
         <h2 class="text-3xl tracking-normal">
-          <g-link :to="article.path" class="inline-link">{{ article.title }}</g-link>
+          <g-link :to="$tp(article.path)" class="inline-link">{{ article.title }}</g-link>
         </h2>
         <p class="line-clamp-4 md:line-clamp-3 hover:line-clamp-none px-2">
           {{ article.summary }}
         </p>
         <div class="flex items-center justify-between mt-2 mx-6">
-          <g-link :to="article.path" :aria-label="`To post ${article.title}`"
+          <g-link :to="$tp(article.path)" :aria-label="`To post ${article.title}`"
                   class="inline-link text-xs -ml-3 ">Read More
           </g-link>
-          <g-link :to="article.path" class="flex text-green-500">
+          <g-link :to="$tp(article.path)" class="flex text-green-500">
             <svg fill="none" viewBox="0 0 24 24" class="w-6 h-6" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
@@ -46,7 +46,7 @@
             />
             <div>
               <!--Author name-->
-              <g-link :to="author.path" class="inline-link font-semibold">{{ article.author }}</g-link>
+              <g-link :to="$tp(author.path)" class="inline-link font-semibold">{{ article.author }}</g-link>
               <p class="text-gray-500 font-semibold text-sm">
                 {{ author.rol }}
               </p>

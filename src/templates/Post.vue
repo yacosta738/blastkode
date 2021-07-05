@@ -13,7 +13,7 @@
           <div class="mb-8 text-sm mx-1">
             <font-awesome :icon="['fa', 'folder-open']" class="mr-2"/>
             <g-link
-                :to="category.path"
+                :to="$tp(category.path)"
                 v-for="category in $page.post.categories"
                 :key="category.id"
                 class="inline-link mx-1">
@@ -24,7 +24,7 @@
           <div class="mb-8 text-sm mx-1">
             <font-awesome :icon="['fa', 'tags']" class="mr-2"/>
             <g-link
-                :to="tag.path"
+                :to="$tp(tag.path)"
                 v-for="tag in $page.post.tags"
                 :key="tag.id"
                 class="inline-link mx-1">

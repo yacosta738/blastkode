@@ -1,10 +1,10 @@
 <template>
   <div class="flex justify-between text-xl items-center">
-    <g-link :to="previousPage" :class="{ 'text-gray-400 hover:text-gray-400 cursor-not-allowed': !showPreviousPage, 'small-button':showPreviousPage }"
+    <g-link :to="$tp(previousPage)" :class="{ 'text-gray-400 hover:text-gray-400 cursor-not-allowed': !showPreviousPage, 'small-button':showPreviousPage }"
             data-cypress="prev">&larr; Prev
     </g-link>
     <div class="text-base">Page {{ currentPage }} of {{ totalPages }}</div>
-    <g-link :to="nextPage" :class="{ 'text-gray-400 hover:text-gray-400 cursor-not-allowed': !showNextPage, 'small-button':showNextPage }"
+    <g-link :to="$tp(nextPage)" :class="{ 'text-gray-400 hover:text-gray-400 cursor-not-allowed': !showNextPage, 'small-button':showNextPage }"
             data-cypress="next">Next &rarr;
     </g-link>
   </div>

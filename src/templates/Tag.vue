@@ -4,24 +4,13 @@
       <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider mb-10 uppercase">Tag: {{ $page.tag.title }}</h2>
 
       <div v-for="post in $page.tag.belongsTo.edges" :key="post.node.id" class="post border-gray-400 border-b mb-12">
-        <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider"><g-link :to="post.node.path" class="inline-link">{{ post.node.title }}</g-link></h2>
-        <ul class="flex flex-wrap relative list-none p-0 mb-4 text-light-slate font-mono text-sm">
-          <li class="my-2 whitespace-nowrap mx-1">
-            <font-awesome :icon="['fa', 'calendar-alt']"/>
-            <span class="mx-2">{{ post.node.date }}</span>
-          </li>
-          <li class="my-2 whitespace-nowrap mx-1">
-            <span>Reading time &middot; {{ post.node.timeToRead }} min</span>
-          </li>
-          <li class="my-2 whitespace-nowrap mx-1">
-            <span>Author: {{ post.node.author }}</span>
-          </li>
-        </ul>
+        <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider"><g-link :to="$tp(post.node.path)" class="inline-link">{{ post.node.title }}</g-link></h2>
+        <post-header :article="post.node"/>
         <div class="flex flex-col md:flex-row mb-16">
           <g-image alt="Cover image" v-if="post.node.cover" class="object-cover md:w-1/3 border border-green-500 md:mr-5" :src="post.node.cover" />
           <div class="text-center md:text-left mt-5 md:mt-0">
             {{ post.node.summary }}
-            <g-link :to="post.node.path" class="font-bold uppercase inline-link">Read&nbsp;→</g-link>
+            <g-link :to="$tp(post.node.path)" class="font-bold uppercase inline-link">Read&nbsp;→</g-link>
           </div>
         </div>
       </div> <!-- end post -->
@@ -71,6 +60,7 @@ query Tag ($id: ID!, $page: Int) {
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 const PaginationPosts = () => import('@/components/PaginationPosts.vue');
+import PostHeader from '~/components/PostHeader.vue';
 
 @Component<Tag>({
   metaInfo() {
@@ -80,7 +70,7 @@ const PaginationPosts = () => import('@/components/PaginationPosts.vue');
     };
   },
   components: {
-    PaginationPosts
+    PaginationPosts,  PostHeader
   }
 })
 export default class Tag extends Vue {

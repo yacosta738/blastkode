@@ -3,7 +3,7 @@
     <ul class="flex flex-col relative list-none p-0 my-4">
       <li v-for="category in allCategories" :key="category.id"
           class="my-2 flex flex-row text-light-slate font-mono text-base whitespace-nowrap">
-        <g-link :to="category.path" class="inline-link">
+        <g-link :to="$tp(category.path)" class="inline-link">
           <div class="flex flex-row">
             <font-awesome :icon="['fa', 'chevron-right']"/>
             <p class="pl-2"> {{ category.title }} </p>

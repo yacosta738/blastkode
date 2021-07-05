@@ -1,12 +1,12 @@
 <template>
   <section class="min-h-screen" v-scroll-reveal.reset>
     <div class="container mx-auto flex flex-col items-start h-full">
-      <h1 class="text-base text-green-500 font-mono my-2 md:my-6 font-normal">Hi, my name is</h1>
-      <h2 id="generalName" class="text-5xl md:text-8xl">Yuniel Acosta</h2>
-      <h3 id="phrase" class="text-4xl md:text-7xl md:my-2 text-gray-500">
+      <h1 class="text-base text-green-500 font-mono my-2 md:my-6 font-normal" v-text="$t('welcome')">Hi, my name is</h1>
+      <h2 id="generalName" class="text-5xl md:text-8xl" v-text="$t('name')">Yuniel Acosta</h2>
+      <h3 id="phrase" class="text-4xl md:text-7xl md:my-2 text-gray-500" v-text="$t('slogan')">
         If I cannot do great things, I can do small things in a great way
       </h3>
-      <p class="my-4 max-w-none md:max-w-2xl">
+      <p class="my-4 max-w-none md:max-w-2xl" v-text="$t('aboutMe')">
         I’m a software engineer, technology and science enthusiast, specialized in building mobile and web applications.
       </p>
       <g-link :to="`mailto:${myEmail}`" class="big-button my-10">Get In Touch</g-link>

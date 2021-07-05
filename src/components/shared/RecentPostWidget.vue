@@ -3,7 +3,7 @@
     <ul class="flex flex-col relative list-none p-0 my-4">
       <li v-for="post in recentPosts" :key="post.id" @click="$store.commit('changePostId', post.id)"
           class="my-2 flex flex-row text-light-slate font-mono text-base">
-        <g-link :to="post.path" class="inline-link">
+        <g-link :to="$tp(post.path)" class="inline-link">
           <div class="flex flex-row">
             <font-awesome :icon="['fa', 'chevron-right']"/>
             <p class="pl-2"> {{ post.title }} </p>
