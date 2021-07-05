@@ -32,9 +32,9 @@
 
 <static-query>
 query {
-  metadata {
-    siteName
-  }
+metadata {
+siteName
+}
 }
 </static-query>
 
@@ -84,7 +84,8 @@ export default class Default extends mixins(ConfigurationMixin, LanguageMixin) {
   }
 
   fetchBrowserLocale() {
-    let fetchedLocale = navigator.language.split('-')[0];
+    const lang: string | null = localStorage?.getItem('lang');
+    const fetchedLocale: string = lang ? lang : navigator.language.split('-')[0];
     this.loadLanguageAsync(fetchedLocale).catch(() => {
       console.log('Async language fetch failed');
     });

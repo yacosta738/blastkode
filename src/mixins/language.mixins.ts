@@ -9,6 +9,7 @@ export default class LanguageMixin extends Vue {
         this.$router.push({
             path: this.$tp(this.$route.path, lang, true),
         });
+        localStorage.setItem('lang', lang);
         return lang;
     }
 
