@@ -1,3 +1,5 @@
 {
-  "welcome": "Welcome to Gridsome i18n!"
+  "welcome": "Welcome to Gridsome i18n!",
+  "en": "English",
+  "es": "Spanish"
 }

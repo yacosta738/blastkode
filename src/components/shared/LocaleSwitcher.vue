@@ -2,13 +2,15 @@
   <div class="inline-flex align-middle w-full">
     <button class="language-button"
             type="button" @click="toggleDropdown()" ref="btnDropdownRef">
+      <span v-if="languageName" class="mr-2 uppercase text-light-slate tracking-wide font-bold" v-text="$t(currentLocale)"> Language </span>
       <country-flag :country="countryFlag(currentLocale)" size="small"/>
     </button>
     <div v-bind:class="{'hidden': !dropdownPopoverShow, 'block': dropdownPopoverShow}" class="menu-language"
          v-closable="{ exclude:['btnDropdownRef'], handler: 'onClose'  }" ref="popoverDropdownRef">
-      <div class="flex flex-col justify-center items-center">
+      <div class="flex flex-col justify-center items-start">
         <div class="my-0.5 mx-2 cursor-pointer" v-for="locale in localeList" :key="locale"
              @click="localeChanged(locale)">
+          <span v-if="languageName" class="mr-2" v-text="$t(locale)"> Language </span>
           <country-flag class="hover:scale-75" :country="countryFlag(locale)" size="small"/>
         </div>
       </div>
@@ -17,14 +19,24 @@
 </template>
 
 <script lang="ts">
-import {Component} from "vue-property-decorator";
+const flag = (locale: string): string => {
+  switch (locale) {
+    case 'en':
+      return 'gb';
+    case 'es':
+      return 'es';
+    default:
+      return 'gb';
+  }
+};
+import {Component, Prop} from "vue-property-decorator";
 import LanguageMixin from "~/mixins/language.mixins";
 import {mixins} from 'vue-class-component';
-import {flag} from '~/util/utilities';
 import {createPopper} from "@popperjs/core";
 
 @Component
 export default class LocaleSwitcher extends mixins(LanguageMixin) {
+  @Prop({type: Boolean, default: false}) readonly languageName;
   dropdownPopoverShow: boolean = false;
 
   get currentLocale() {

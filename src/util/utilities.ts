@@ -92,13 +92,3 @@ export const typed = (
         init(elementNODE, config);
     }
 };
-export const flag = (locale: string): string => {
-    switch (locale) {
-        case 'en':
-            return 'gb';
-        case 'es':
-            return 'es';
-        default:
-            return 'gb';
-    }
-};

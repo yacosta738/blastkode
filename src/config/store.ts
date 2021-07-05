@@ -28,6 +28,13 @@ export default function initStore(Vue, isClient: boolean) {
     },
     getters: {
       themeClass: state => (state.theme === DARK ? 'dark' : 'light'),
+      drawer: state => state.drawer,
+      showNavbar: state => state.showNavbar,
+      showSide: state => state.showSide,
+      loading: state => state.loading,
+      firstTimeLoading: state => state.firstTimeLoading,
+      swStatus: state => state.swStatus,
+      searchModal: state => state.searchModal,
     },
     mutations: {
       toggleTheme(state) {

@@ -24,11 +24,12 @@
       </ol>
     </li>
     <li>
-      <locale-switcher/>
+      <locale-switcher :language-name="$store.getters.drawer"/>
     </li>
     <li>
       <g-link to="../../static/files/Yuniel.Acosta.CV.pdf"
-              target="_blank" class="resume-button">Resume
+              target="_blank" class="resume-button">
+        Resume
       </g-link>
     </li>
   </ul>
