@@ -8,7 +8,7 @@
       <div class="z-50 block lg:hidden">
         <svg @click="$store.commit('toggle')" class="ham hamRotate ham7" :class="{'active-menu': isOpen}"
              viewBox="0 0 100 100"
-             width="60">
+             width="60" ref="menu-svg">
           <path
               class="line top"
               d="m 70,33 h -40 c 0,0 -6,1.368796 -6,8.5 0,7.131204 6,8.5013 6,8.5013 l 20,-0.0013"/>
@@ -22,7 +22,8 @@
       </div>
       <menus class="hidden lg:block"></menus>
       <div v-if="isOpen" :class="{ 'navbar-menu-open':isOpen, 'navbar-menu-close':!isOpen}"
-           class="navbar-menu z-40 w-64 absolute bg-light-navy top-0 right-0 h-screen flex-grow px-4 py-8 md:pb-0 overflow-y-hidden -mx-14">
+           class="navbar-menu z-40 w-64 absolute bg-light-navy top-0 right-0 h-screen flex-grow px-4 py-8 md:pb-0 overflow-y-hidden -mx-14"
+           v-closable="{ exclude:['menu-svg'], handler: 'onClose'  }">
         <menus/>
       </div>
     </nav>
@@ -61,6 +62,10 @@ export default class Navbar extends Vue {
 
   get isOpen(): boolean {
     return this.$store.state.drawer;
+  }
+
+  onClose() {
+    this.$store.commit('updateDrawer', false);
   }
 
   get theme(): string {

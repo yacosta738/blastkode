@@ -10,9 +10,9 @@
                       class="cursor-pointer mt-3" @click="openSearchBox()"/>
       </div>
     </li>
-<!--    <li>-->
-<!--      <theme-switcher/>-->
-<!--    </li>-->
+    <!--    <li>-->
+    <!--      <theme-switcher/>-->
+    <!--    </li>-->
     <li>
       <ol class="order-list lg:space-x-8 space-y-6 lg:space-y-0 lg:flex lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0">
         <li v-for="(menu, i) in menus" :key="i">
@@ -22,6 +22,9 @@
           <g-link v-else :to="menu.url" class="close-menu-dummy">{{ menu.name }}</g-link>
         </li>
       </ol>
+    </li>
+    <li>
+      <locale-switcher/>
     </li>
     <li>
       <g-link to="../../static/files/Yuniel.Acosta.CV.pdf"
@@ -37,8 +40,9 @@ import {Menu, navMenus} from '~/config/config';
 import {addEventToClassName} from '~/util/utilities';
 
 const ThemeSwitcher = () => import('./ThemeSwitcher.vue');
+const LocaleSwitcher = () => import('./shared/LocaleSwitcher.vue');
 
-@Component({components: {ThemeSwitcher}})
+@Component({components: {ThemeSwitcher, LocaleSwitcher}})
 export default class Menus extends Vue {
   get menus(): Menu[] {
     return navMenus;
@@ -54,13 +58,15 @@ export default class Menus extends Vue {
   mounted() {
     addEventToClassName('close-menu-dummy', this.closeMenu);
   }
-  openSearchBox(){
+
+  openSearchBox() {
     this.$store.commit('toggleSearchModal');
     this.$store.commit('updateDrawer', false);
-    if (this.$store.state.searchModal){
+    if (this.$store.state.searchModal) {
       const searchBox = document.getElementById('search-box');
-      if(searchBox)
-          searchBox.autofocus = true;
+      if (searchBox) {
+        searchBox.autofocus = true;
+      }
     }
   }
 }

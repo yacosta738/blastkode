@@ -41,7 +41,9 @@ query {
 <script lang="ts">
 import {Component, Prop} from "vue-property-decorator";
 import {mixins} from 'vue-class-component';
-import ConfigurationMixin from "@/util/configuration.mixin";
+import ConfigurationMixin from "~/mixins/configuration.mixin";
+import LanguageMixin from "~/mixins/language.mixins";
+import {isClient} from '~/util/utilities';
 
 import Navbar from "@/components/Navbar.vue";
 import Social from "@/components/Social.vue";
@@ -51,7 +53,7 @@ import TagCloudWidget from "@/components/shared/TagCloudWidget.vue";
 import CategoryWidget from "@/components/shared/CategoryWidget.vue";
 import RecentPostWidget from "~/components/shared/RecentPostWidget.vue";
 import Loader from "~/components/shared/Loader.vue";
-import SearchBox from'~/components/SearchBox.vue';
+import SearchBox from '~/components/SearchBox.vue';
 import ScrollTop from '~/components/ScrollTop.vue';
 
 @Component({
@@ -68,11 +70,24 @@ import ScrollTop from '~/components/ScrollTop.vue';
     ScrollTop
   }
 })
-export default class Default extends mixins(ConfigurationMixin) {
+export default class Default extends mixins(ConfigurationMixin, LanguageMixin) {
   @Prop({default: false, type: Boolean}) readonly aside: boolean | undefined;
 
   get theme(): string {
     return this.$store.state.theme;
+  }
+
+  created() {
+    if (isClient()) {
+      this.fetchBrowserLocale();
+    }
+  }
+
+  fetchBrowserLocale() {
+    let fetchedLocale = navigator.language.split('-')[0];
+    this.loadLanguageAsync(fetchedLocale).catch(() => {
+      console.log('Async language fetch failed');
+    });
   }
 }
 </script>
