@@ -59,7 +59,9 @@ export default function(Vue, {router, head, isClient, appOptions}) {
     appOptions.store = initStore(Vue, isClient);
 
     router.beforeEach((to, from, next) => {
-        if (to.path !== '/') {
+        if (to.path === `/${appOptions.i18n.locale}/` || to.path === '/') {
+            appOptions.store.commit('updateShowSide', true);
+        } else {
             appOptions.store.commit('updateShowSide', false);
         }
         appOptions.store.commit('updateSearchModels', false);

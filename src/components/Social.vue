@@ -19,7 +19,7 @@ const Side = () => import('./Side.vue');
 @Component({components: {Side}})
 export default class Social extends Vue {
   get show() {
-    return this.$store.state.showSide;
+    return this.$store.getters.showSide;
   }
 
   get socialMedia(): SocialMedia[] {

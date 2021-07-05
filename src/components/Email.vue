@@ -1,18 +1,21 @@
 <template>
   <side :show="show" orientation="right">
-    <div class="email-side"><g-link :to="`mailto:${email}`">{{ email }}</g-link></div>
+    <div class="email-side">
+      <g-link :to="`mailto:${email}`">{{ email }}</g-link>
+    </div>
   </side>
 </template>
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
 import {email} from '~/config/config';
+
 const Side = () => import( './Side.vue');
 
 @Component({components: {Side}})
 export default class Email extends Vue {
   get show() {
-    return this.$store.state.showSide;
+    return this.$store.getters.showSide;
   }
 
   get email() {
