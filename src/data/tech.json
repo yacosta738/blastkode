@@ -356,8 +356,8 @@
       "id": "vite",
       "name": "Vite",
       "icon": {
-        "type": "simple-icon",
-        "value": "vite-icon"
+        "type": "iconify",
+        "value": "vite"
       },
       "url": "https://vitejs.dev/"
     },
