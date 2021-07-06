@@ -17,9 +17,9 @@
       <ol class="order-list lg:space-x-8 space-y-6 lg:space-y-0 lg:flex lg:flex-initial lg:w-auto items-center mt-8 lg:mt-0">
         <li v-for="(menu, i) in menus" :key="i">
           <g-link v-if="$route.path === '/' || $route.path === `/${$i18n.locale}/`" :to="$tp(menu.url)" v-scroll-to="menu.vScrollTo" class="close-menu-dummy"
-                  data-cypress="projects">{{ menu.name }}
+                  data-cypress="projects">{{ $t(menu.name) }}
           </g-link>
-          <g-link v-else :to="$tp(menu.url)" class="close-menu-dummy">{{ menu.name }}</g-link>
+          <g-link v-else :to="$tp(menu.url)" class="close-menu-dummy">{{ $t(menu.name) }}</g-link>
         </li>
       </ol>
     </li>
@@ -28,7 +28,7 @@
     </li>
     <li>
       <g-link to="../../static/files/Yuniel.Acosta.CV.pdf"
-              target="_blank" class="resume-button">
+              target="_blank" class="resume-button" v-text="$t('resume')">
         Resume
       </g-link>
     </li>

@@ -1,23 +1,23 @@
 <template>
   <Layout aside>
     <div class="container-inner mx-auto pl-80 py-16" v-scroll-reveal.reset>
-      <div v-for="author in $page.authors.edges" :key="author.node.id" class="post border-gray-400 border-b mb-20">
-        <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider"><g-link :to="$tp(author.node.path)" class="inline-link">{{ author.node.name }}</g-link></h2>
+      <div v-for="author in authors" :key="author.id" class="post border-gray-400 border-b mb-20">
+        <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider"><g-link :to="$tp(author.path)" class="inline-link">{{ author.name }}</g-link></h2>
         <ul class="flex flex-wrap relative list-none p-0 mb-4 text-light-slate font-mono text-sm">
           <li class="my-2 whitespace-nowrap mx-1">
             <font-awesome :icon="['fa', 'newspaper']"/>
-            <span class="mx-2">{{ articlesCountByUser(author.node.title) }} articles written</span>
+            <span class="mx-2">{{ articlesCountByUser(author.name) }} articles written</span>
           </li>
           <li class="my-2 whitespace-nowrap mx-1">
             <font-awesome :icon="['fa', 'address-card']"/>
-            <span class="mx-2">{{ author.node.rol }}</span>
+            <span class="mx-2">{{ author.rol }}</span>
           </li>
         </ul>
         <div class="flex flex-col md:flex-row mb-16">
-          <g-image :alt="author.node.name" v-if="author.node.image" class="object-cover md:w-1/3 border border-green-500 md:mr-5" :src="author.node.image" />
+          <g-image :alt="author.name" v-if="author.image" class="object-cover md:w-1/3 border border-green-500 md:mr-5" :src="author.image" />
           <div class="text-center md:text-left mt-5 md:mt-0">
-            {{ yearsExperience(author.node.summary) }}
-            <g-link :to="$tp(author.node.path)" class="font-bold uppercase inline-link">More&nbsp;→</g-link>
+            {{ yearsExperience(author.summary) }}
+            <g-link :to="$tp(author.path)" class="font-bold uppercase inline-link">More&nbsp;→</g-link>
           </div>
         </div>
       </div> <!-- end post -->
@@ -33,8 +33,8 @@
 </template>
 
 <page-query>
-query Authors ($page: Int) {
-  authors: allAuthor (sortBy: "date", order: DESC, perPage: 5, page: $page) @paginate {
+query Authors ($page: Int, $lang: String) {
+  authors: allAuthor (sortBy: "date", filter:{ lang: {eq: $lang} } , order: DESC, perPage: 5, page: $page) @paginate {
     totalCount
     pageInfo {
       totalPages
@@ -44,6 +44,7 @@ query Authors ($page: Int) {
       node {
         id
         name
+        lang
         image
         path
         rol
@@ -76,11 +77,15 @@ import {Component, Vue} from "vue-property-decorator";
 import PaginationPosts from '@/components/PaginationPosts.vue';
 import "@/declarations/vue-meta";
 import {yearsOfExperience} from '~/util/utilities';
+import Author from '~/models/Author';
 
 @Component<Authors>({
   metaInfo() {
     return {
-      title: 'Authors'
+      title: 'Authors',
+      htmlAttrs: {
+        lang: this.$i18n.locale
+      }
     };
   },
   components: {
@@ -94,8 +99,12 @@ export default class Authors extends Vue {
   private get pageTitle() {
     return this.$context.title;
   }
+  get authors(): Author[]{
+    return this.$page.authors.edges
+        .filter(edge => edge.node.lang === this.$i18n.locale)
+        .map(edge => Author.fromJson(edge.node));
+  }
   articlesCountByUser(username:string): number{
-    //@ts-ignore
     return this.$page.posts.edges.filter(edge => edge.node.author === username).length;
   }
 

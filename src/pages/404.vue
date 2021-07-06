@@ -12,7 +12,10 @@
 <script>
 export default {
   metaInfo: {
-    title: 'Page Not Found'
+    title: 'Page Not Found',
+    htmlAttrs: {
+      lang: this.$i18n.locale
+    }
   }
 }
 </script>

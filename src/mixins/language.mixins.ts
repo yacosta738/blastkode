@@ -6,10 +6,16 @@ export default class LanguageMixin extends Vue {
 
     setI18nLanguage(lang) {
         this.$i18n.locale = lang;
-        this.$router.push({
-            path: this.$tp(this.$route.path, lang, true),
-        });
         localStorage.setItem('lang', lang);
+        const route = this.$tp(this.$route.path, lang, true);
+        if (this.$router.currentRoute.path !== route) {
+            this.$router.push({
+                path: route,
+            });
+        }
+        if (this.$i18n.locale !== lang) {
+            this.$i18n.locale = lang;
+        }
         return lang;
     }
 

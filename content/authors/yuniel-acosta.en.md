@@ -1,4 +1,5 @@
 ---
+lang: en
 contact_items:
   - icon:
       type: fa
@@ -35,7 +36,8 @@ contact_items:
     link: https://goo.gl/maps/HoNArb98EDX9GbFGA
     text: Ciego de Ávila, Cuba
     target: _blank
-path: /yuniel-acosta
+path: /en/yuniel-acosta 
+title: yuniel-acosta-en    
 name: Yuniel Acosta
 rol: Full Stack Developer
 image: /uploads/yuniel-acosta.jpg
@@ -130,3 +132,8 @@ resume:
 ---
 
 I'm a software engineer based in Ciego de Ávila, Cuba specializing in building (and occasionally designing) exceptional websites, applications, and everything in between.
+I'm a very outgoing and curious person, who's passionate about coding, space, nature, and sports.
+I enjoy creating awesome software, whether that be websites, applications, or anything in between. My goal
+is always to create products that deliver high-performance
+Shortly after graduating from [Central University “Marta Abreu” Of Las Villas](https://www.uclv.edu.cu/institucion), I joined the development team at
+[Desoft](https://www.desoft.cu/en) where I work on a wide variety of interesting and meaningful projects on a daily basis.

@@ -1,8 +1,18 @@
 {
+  "en": "Inglés",
+  "es": "Español",
   "welcome": "Hola, mi nombre es",
   "name": "Yuniel Acosta.",
   "slogan": "Si no puedo hacer grandes cosas, puedo hacer pequeñas cosas excelentes",
-  "aboutMe": "Soy ingeniero de software, entusiasta de la ciencia y la tecnología, especializado en construir aplicaciones web y mobiles.",
-  "en": "Ingles",
-  "es": "Español"
+  "my-self": "Soy ingeniero de software, entusiasta de la ciencia y la tecnología, especializado en construir aplicaciones web y mobiles.",
+  "get-in-touch": "Contácteme",
+  "resume": "Currículum",
+  "about": "Sobre mí",
+  "experience": "Experiencias",
+  "work": "Trabajo",
+  "last-articles": "Últimos Artículos",
+  "contact": "Contacto",
+  "contact-information": "Información de Contacto",
+  "blog": "Blog",
+  "about-me-p1": "I'm a very outgoing and curious person, who's passionate about coding, space, nature, and sports.\n            I enjoy creating awesome software, whether that be websites, applications, or anything in between. My goal\n            is always to create products that deliver high-performance. ESPAÑOL"
 }

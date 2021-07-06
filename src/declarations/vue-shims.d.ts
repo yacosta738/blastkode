@@ -9,5 +9,6 @@ declare module 'vue/types/vue' {
     $router: VueRouter;
     $i18n: VueI18n;
     $tp: (pathToResolve, targetLocale, forceChange) => string;
+    $page: any;
   }
 }

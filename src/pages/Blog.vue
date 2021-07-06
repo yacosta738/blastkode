@@ -48,7 +48,10 @@ import {compareAsc} from 'date-fns';
 @Component<Blog>({
   metaInfo() {
     return {
-      title: 'Blog'
+      title: 'Blog',
+      htmlAttrs: {
+        lang: this.$i18n.locale
+      }
     };
   },
   components: {

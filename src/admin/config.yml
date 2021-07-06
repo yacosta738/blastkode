@@ -42,11 +42,12 @@ collections:
     label_singular: "Author"
     folder: "content/authors" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    identifier_field: name
+    slug: "{{slug}}.{{lang}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    identifier_field: title
     fields: # The fields for each document, usually in front matter
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Rol", name: "rol", widget: "string" }
+      - { label: "Languages", name: "lang", widget: "string", default: "en"}
       - { label: "Author image", name: "image", widget: "image", required: false }
       - { label: "Summary", name: "summary", widget: "string" }
       - label: "Social"

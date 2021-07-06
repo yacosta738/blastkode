@@ -52,13 +52,13 @@ export default function(Vue, {router, head, isClient, appOptions}) {
     Vue.use(VueDisqus, {shortname: 'blastkode'});
     // Vue Screen
     Vue.use(VueScreen);
-    // Internationalization
-    appOptions.i18n.setLocaleMessage('en', require('./i18n/en.json'));
-    appOptions.i18n.setLocaleMessage('es', require('./i18n/es.json'));
     // Store
     appOptions.store = initStore(Vue, isClient);
 
     router.beforeEach((to, from, next) => {
+        if (appOptions.i18n.availableLocales.length === 0) {
+            appOptions.i18n.setLocaleMessage(`${appOptions.i18n.locale}`, require(`./i18n/${appOptions.i18n.locale}.json`));
+        }
         if (to.path === `/${appOptions.i18n.locale}/` || to.path === '/') {
             appOptions.store.commit('updateShowSide', true);
         } else {

@@ -1,10 +1,10 @@
 <template>
   <section id="about" class="container mx-auto" v-scroll-reveal.reset>
-    <h2 class="numbered-heading">About Me</h2>
+    <h2 class="numbered-heading" v-text="$t('about')">About Me</h2>
     <div class="inner">
       <div class="styled-text">
         <div class="styled-text">
-          <p>
+          <p v-text="$t('about-me-p1')">
             I'm a very outgoing and curious person, who's passionate about coding, space, nature, and sports.
             I enjoy creating awesome software, whether that be websites, applications, or anything in between. My goal
             is always to create products that deliver high-performance

@@ -6,10 +6,10 @@
       <h3 id="phrase" class="text-4xl md:text-7xl md:my-2 text-gray-500" v-text="$t('slogan')">
         If I cannot do great things, I can do small things in a great way
       </h3>
-      <p class="my-4 max-w-none md:max-w-2xl" v-text="$t('aboutMe')">
+      <p class="my-4 max-w-none md:max-w-2xl" v-text="$t('my-self')">
         I’m a software engineer, technology and science enthusiast, specialized in building mobile and web applications.
       </p>
-      <g-link :to="`mailto:${myEmail}`" class="big-button my-10">Get In Touch</g-link>
+      <g-link :to="`mailto:${myEmail}`" class="big-button my-10" v-text="$t('get-in-touch')">Get In Touch</g-link>
     </div>
   </section>
 </template>
@@ -32,7 +32,7 @@ export default class Hero extends Vue {
     });
     typed('#phrase', {
       showCursor: false,
-      strings: ['If I cannot do great things, I can do small things in a great way'],
+      strings: [this.$t('slogan') as string],
       disableBackTyping: true,
       startDelay: startDelay + 2000
     });

@@ -41,26 +41,26 @@
 
 <page-query>
 query Project {
-projects: allProject (sortBy: "date", order: DESC, , filter: { draft: { eq: false } }) {
-edges {
-node {
-id
-path
-title
-date (format: "MMMM D, Y")
-cover
-github
-external
-ios
-android
-company
-tech
-showInProjects
-featured
-content
-}
-}
-}
+  projects: allProject (sortBy: "date", order: DESC, , filter: { draft: { eq: false } }) {
+    edges {
+      node {
+        id
+        path
+        title
+        date (format: "MMMM D, Y")
+        cover
+        github
+        external
+        ios
+        android
+        company
+        tech
+        showInProjects
+        featured
+        content
+      }
+    }
+  }
 }
 </page-query>
 
@@ -76,7 +76,10 @@ import ProjectTechList from '~/components/ProjectTechList.vue';
   components: {ProjectTechList, ProjectLinks},
   metaInfo() {
     return {
-      title: 'All Projects'
+      title: 'All Projects',
+      htmlAttrs: {
+        lang: this.$i18n.locale
+      }
     };
   }
 })

@@ -28,7 +28,7 @@
         </div>
         <div class="" data-aos="fade-left">
           <div class="contact-info mx-6">
-            <h3 class="font-bold text-3xl text-lightest-slate">Contact Information</h3>
+            <h3 class="font-bold text-3xl text-lightest-slate" v-text="$t('contact-information')">Contact Information</h3>
             <p class="font-thin">
               {{ yearsExperience($page.author.summary) }}
             </p>
@@ -64,6 +64,7 @@
           id
           name
           image
+          lang
           rol
           summary
           contact_items {
@@ -104,12 +105,16 @@
 </page-query>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
+import {Component, Vue, Watch} from 'vue-property-decorator';
 import {yearsOfExperience} from '~/util/utilities';
 const ResumeTimeline = () => import("~/components/ResumeTimeline.vue");
 
 @Component({components:{ResumeTimeline}})
 export default class Author extends Vue {
+  @Watch('$page.author.lang')
+  languageChanged(){
+    this.$i18n.locale = this.$page.author.lang;
+  }
   yearsExperience(text: string): string {
     return yearsOfExperience(text);
   }

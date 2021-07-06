@@ -22,7 +22,10 @@ const Contact = () => import("@/components/sections/Contact.vue");
   components: {Hero, About, Jobs, Projects, LastArticles, Contact},
   metaInfo() {
     return {
-      title: 'Home'
+      title: 'Home',
+      htmlAttrs: {
+        lang: this.$i18n.locale
+      }
     };
   }
 })

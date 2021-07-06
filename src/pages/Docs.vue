@@ -35,7 +35,10 @@ query Documentation {
 <script>
 export default {
   metaInfo: {
-    title: 'Docs'
+    title: 'Docs',
+    htmlAttrs: {
+      lang: this.$i18n.locale
+    }
   }
 }
 </script>

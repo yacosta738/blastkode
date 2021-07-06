@@ -2,8 +2,8 @@
   <div class="inline-flex align-middle w-full">
     <button class="language-button"
             type="button" @click="toggleDropdown()" ref="btnDropdownRef">
-      <span v-if="languageName" class="mr-2 uppercase text-light-slate tracking-wide font-bold" v-text="$t(currentLocale)"> Language </span>
-      <country-flag :country="countryFlag(currentLocale)" size="small"/>
+      <span v-if="languageName" class="mr-2 uppercase text-light-slate tracking-wide font-bold" v-text="$t($i18n.locale)"> Language </span>
+      <country-flag :country="countryFlag($i18n.locale)" size="small"/>
     </button>
     <div v-bind:class="{'hidden': !dropdownPopoverShow, 'block': dropdownPopoverShow}" class="menu-language"
          v-closable="{ exclude:['btnDropdownRef'], handler: 'onClose'  }" ref="popoverDropdownRef">
@@ -38,10 +38,6 @@ import {createPopper} from "@popperjs/core";
 export default class LocaleSwitcher extends mixins(LanguageMixin) {
   @Prop({type: Boolean, default: false}) readonly languageName;
   dropdownPopoverShow: boolean = false;
-
-  get currentLocale() {
-    return this.$i18n.locale;
-  }
 
   countryFlag(locale: string) {
     return flag(locale);
