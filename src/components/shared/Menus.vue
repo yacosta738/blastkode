@@ -27,7 +27,7 @@
       <locale-switcher :language-name="$store.getters.drawer"/>
     </li>
     <li>
-      <g-link to="../../static/files/Yuniel.Acosta.CV.pdf"
+      <g-link to="../../../static/files/Yuniel.Acosta.CV.pdf"
               target="_blank" class="resume-button" v-text="$t('resume')">
         Resume
       </g-link>
@@ -41,7 +41,7 @@ import {Menu, navMenus} from '~/config/config';
 import {addEventToClassName} from '~/util/utilities';
 
 const ThemeSwitcher = () => import('./ThemeSwitcher.vue');
-const LocaleSwitcher = () => import('./shared/LocaleSwitcher.vue');
+const LocaleSwitcher = () => import('./LocaleSwitcher.vue');
 
 @Component({components: {ThemeSwitcher, LocaleSwitcher}})
 export default class Menus extends Vue {

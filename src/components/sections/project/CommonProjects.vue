@@ -28,8 +28,8 @@
 <script lang="ts">
 import 'reflect-metadata';
 import {Component, Prop, Vue} from "vue-property-decorator";
-import ProjectLinks from "@/components/ProjectLinks.vue";
-import ProjectTechList from "@/components/ProjectTechList.vue";
+import ProjectLinks from "~/components/sections/project/ProjectLinks.vue";
+import ProjectTechList from "~/components/sections/project/ProjectTechList.vue";
 import Project from '~/models/Project';
 import {inlineLinks} from '~/util/utilities';
 

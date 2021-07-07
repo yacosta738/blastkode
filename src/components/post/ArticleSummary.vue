@@ -17,8 +17,8 @@
 <script lang="ts">
 import "reflect-metadata"
 import {Component, Prop, Vue} from 'vue-property-decorator';
-import  PostHeader from '~/components/PostHeader.vue'
-import Article from '../models/Article';
+import  PostHeader from '~/components/post/PostHeader.vue'
+import Article from '../../models/Article';
 @Component({components:{PostHeader}})
 export default class ArticleSummary extends Vue{
   @Prop({required: true}) readonly article: Article | undefined;

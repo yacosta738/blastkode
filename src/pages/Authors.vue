@@ -74,7 +74,7 @@ query Authors ($page: Int, $lang: String) {
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import PaginationPosts from '@/components/PaginationPosts.vue';
+import PaginationPosts from '~/components/post/PaginationPosts.vue';
 import "@/declarations/vue-meta";
 import {yearsOfExperience} from '~/util/utilities';
 import Author from '~/models/Author';

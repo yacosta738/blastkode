@@ -35,17 +35,15 @@ query {
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-const Widget = () => import( '~/components/shared/Widget.vue');
+const Widget = () => import( '~/components/shared/widget/Widget.vue');
 import Category from '~/models/Category';
 
 @Component({components:{Widget}})
 export default class CategoryWidget extends Vue {
   get totalCount():number{
-    // @ts-ignore
     return this.$static.categories.totalCount;
   }
   get allCategories(): Category[]{
-    // @ts-ignore
     return this.$static.categories.edges.map(edge => Category.fromJson(edge.node)).sort((c1: Category, c2: Category) => c1.totalCountInArticles < c2.totalCountInArticles ? 1 : c1.totalCountInArticles > c2.totalCountInArticles ? -1 : 0);
   }
 }

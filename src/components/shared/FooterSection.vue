@@ -7,8 +7,8 @@
             <g-link :href="social.url"><font-awesome :icon="['fab', social.name.toLowerCase() ]"/></g-link>
           </li>
         </ul>
-        <p class="text-sm text-lightest-slate font-mono">Built by Yuniel Acosta</p>
-        <p class="text-xs text-light-slate font-mono my-2">Design based on Brittany Chiang portfolio
+        <p class="text-sm text-lightest-slate font-mono" v-text="$t('built-by')">Built by Yuniel Acosta</p>
+        <p class="text-xs text-light-slate font-mono my-2" v-text="$t('design-by')">Design based on Brittany Chiang portfolio
         </p>
         <ul class="flex flex-wrap relative list-none p-0">
           <li class="my-2 text-light-slate font-mono text-xs whitespace-nowrap mx-1">

@@ -16,7 +16,7 @@
               <h4 class="flex-1 ml-4 uppercase font-bold tracking-wider">{{ item.name }} </h4>
             </div>
             <h5 class="ml-12 my-2 p-1 rounded inline-block bg-green-200 text-gray-600 text-base">
-              {{ `${formatDate(item.start_date)} - ${item.end_date ? formatDate(item.end_date) : 'Present'}` }}
+              {{ `${formatDate(item.start_date)} - ${item.end_date ? formatDate(item.end_date) : $t('present')}` }}
             </h5>
             <div class="flex items-center">
               <div class="bg-light-navy rounded-full h-4 w-4 ml-3 absolute"></div>
@@ -46,8 +46,8 @@ import {formatDate, markdownfy} from "~/util/utilities";
 export default class ResumeTimeline extends Vue {
   @Prop({required: true}) readonly experience: any;
 
-  formatDate(date: string): string {
-    return formatDate(date);
+  formatDate(date: string, dateFormat = 'MMMM, yyyy'): string {
+    return formatDate(date, dateFormat, this.$i18n.locale);
   }
   markdownfy(str: string): string {
     return markdownfy(str);

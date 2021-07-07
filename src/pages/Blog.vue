@@ -41,9 +41,9 @@ query Posts ($page: Int) {
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import PaginationPosts from '@/components/PaginationPosts.vue';
+import PaginationPosts from '~/components/post/PaginationPosts.vue';
 import "@/declarations/vue-meta";
-import ArticleSummary from '~/components/ArticleSummary.vue'
+import ArticleSummary from '~/components/post/ArticleSummary.vue'
 import {compareAsc} from 'date-fns';
 @Component<Blog>({
   metaInfo() {

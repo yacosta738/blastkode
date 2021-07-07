@@ -15,7 +15,7 @@ const Hero = () => import("@/components/sections/Hero.vue");
 const About = () => import("@/components/sections/About.vue");
 const Jobs = () => import("@/components/sections/Jobs.vue");
 const LastArticles = () => import("@/components/sections/LastArticles.vue");
-const Projects = () => import("@/components/sections/Projects.vue");
+const Projects = () => import("~/components/sections/project/Projects.vue");
 const Contact = () => import("@/components/sections/Contact.vue");
 
 @Component<Home>({

@@ -84,7 +84,6 @@ export default class CardPost extends Vue {
   @Prop({required: true}) readonly article: Article | undefined;
 
   get author() {
-    //@ts-ignore
     const edges = this.$static.author.edges;
     const author = edges.filter(edge => edge?.node?.name === this.article?.author);
     return author ? author[0]?.node : edges[0];

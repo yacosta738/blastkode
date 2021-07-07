@@ -49,19 +49,17 @@ query {
 </static-query>
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import FeaturedProjects from "@/components/FeaturedProjects.vue"
-import CommonProjects from "@/components/CommonProjects.vue"
+import FeaturedProjects from "~/components/sections/project/FeaturedProjects.vue"
+import CommonProjects from "~/components/sections/project/CommonProjects.vue"
 import Project from '~/models/Project';
 
 @Component({components:{FeaturedProjects, CommonProjects}})
 export default class Projects extends Vue {
 
   get featuredProjects(): Project[] {
-    // @ts-ignore
     return this.$static.featuredProjects.edges.map(edge => Project.fromJson(edge.node));
   }
   get commonProjects(): Project[] {
-    // @ts-ignore
     return this.$static.commonProjects.edges.map(edge => Project.fromJson(edge.node));
   }
 }

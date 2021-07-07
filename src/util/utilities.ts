@@ -1,4 +1,6 @@
 import {format} from 'date-fns';
+import es from 'date-fns/locale/es';
+import en from 'date-fns/locale/en-US';
 import DOMPurify from 'dompurify';
 import marked from 'marked';
 import {Configuration, init} from 'ityped';
@@ -60,9 +62,20 @@ export const yearsOfExperience = (text: string): string => {
     return text?.replace(`[-YEAR-{${year}}]`, `${currentYear - year}`);
 };
 
-export const formatDate = (date: string, dateFormat = 'MMMM, yyyy'): string => {
+export const formatDate = (date: string, dateFormat = 'MMMM, yyyy', locale = 'en'): string => {
+    let lc = en;
+    switch (locale) {
+        case 'en':
+            lc = en;
+            break;
+        case 'es':
+            lc = es;
+            break;
+        default:
+            lc = en;
+    }
     const dateT = date ? Date.parse(date) : new Date();
-    return format(dateT, dateFormat);
+    return format(dateT, dateFormat, {locale: lc});
 };
 /**
  * Capitalize first char of string

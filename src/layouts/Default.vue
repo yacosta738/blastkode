@@ -45,16 +45,16 @@ import ConfigurationMixin from "~/mixins/configuration.mixin";
 import LanguageMixin from "~/mixins/language.mixins";
 import {isClient} from '~/util/utilities';
 
-import Navbar from "@/components/Navbar.vue";
-import Social from "@/components/Social.vue";
-import Email from "@/components/Email.vue";
-import FooterSection from "@/components/FooterSection.vue";
-import TagCloudWidget from "@/components/shared/TagCloudWidget.vue";
-import CategoryWidget from "@/components/shared/CategoryWidget.vue";
-import RecentPostWidget from "~/components/shared/RecentPostWidget.vue";
+import Navbar from "~/components/shared/Navbar.vue";
+import Social from "~/components/shared/Social.vue";
+import Email from "~/components/shared/Email.vue";
+import FooterSection from "~/components/shared/FooterSection.vue";
+import TagCloudWidget from "~/components/shared/widget/TagCloudWidget.vue";
+import CategoryWidget from "~/components/shared/widget/CategoryWidget.vue";
+import RecentPostWidget from "~/components/shared/widget/RecentPostWidget.vue";
 import Loader from "~/components/shared/Loader.vue";
-import SearchBox from '~/components/SearchBox.vue';
-import ScrollTop from '~/components/ScrollTop.vue';
+import SearchBox from '~/components/shared/SearchBox.vue';
+import ScrollTop from '~/components/shared/ScrollTop.vue';
 
 @Component({
   components: {

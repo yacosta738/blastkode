@@ -56,7 +56,7 @@ query Search {
 
 <script lang="ts">
 import {Component, Vue, Watch} from "vue-property-decorator";
-import ArticleSummary from '~/components/ArticleSummary.vue';
+import ArticleSummary from '~/components/post/ArticleSummary.vue';
 import Article from '~/models/Article';
 import Fuse from 'fuse.js';
 
@@ -90,7 +90,6 @@ export default class SearchBox extends Vue {
   }
 
   get allArticles(): Article[] {
-    // @ts-ignore
     return this.$static.allPost.edges.map(edge => Article.fromJson(edge.node));
   }
 

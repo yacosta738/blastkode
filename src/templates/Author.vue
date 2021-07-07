@@ -107,7 +107,7 @@
 <script lang="ts">
 import {Component, Vue, Watch} from 'vue-property-decorator';
 import {yearsOfExperience} from '~/util/utilities';
-const ResumeTimeline = () => import("~/components/ResumeTimeline.vue");
+const ResumeTimeline = () => import("~/components/shared/ResumeTimeline.vue");
 
 @Component({components:{ResumeTimeline}})
 export default class Author extends Vue {

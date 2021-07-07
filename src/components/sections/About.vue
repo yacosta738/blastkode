@@ -4,21 +4,12 @@
     <div class="inner">
       <div class="styled-text">
         <div class="styled-text">
-          <p v-text="$t('about-me-p1')">
-            I'm a very outgoing and curious person, who's passionate about coding, space, nature, and sports.
-            I enjoy creating awesome software, whether that be websites, applications, or anything in between. My goal
-            is always to create products that deliver high-performance
+          <p v-html="markdownfy(yacosta.content)" class="mb-2">
+            I'm a software engineer based in Ciego de Ávila, Cuba specializing in building (and occasionally designing)
+            exceptional websites, applications, and everything in between.
           </p>
 
-          <p>
-            Shortly after graduating from
-            <g-link to="https://www.uclv.edu.cu/institucion" class="inline-link">Central University “Marta Abreu” Of Las Villas</g-link>
-            , I joined the development team at
-            <g-link to="https://www.desoft.cu/en" class="inline-link">Desoft</g-link>
-            where I work on a wide variety of interesting and meaningful projects on a daily basis.
-          </p>
-
-          <p>Here are a few technologies I've been working with recently:</p>
+          <p v-text="$t('about-tech')">Here are a few technologies I've been working with recently:</p>
         </div>
         <ul class="skills-list">
           <li v-for="(skill, i) in skills" :key="i">{{ skill }}</li>
@@ -33,12 +24,49 @@
   </section>
 </template>
 
+<static-query>
+query Author {
+author: allAuthor(filter: {path:{in: ["/en/yuniel-acosta", "/es/yuniel-acosta"]}}) {
+edges{
+node{
+id
+name
+image
+lang
+rol
+content
+}
+}
+}
+}
+</static-query>
+
 <script lang="ts">
-import {Component, Vue} from "vue-property-decorator";
+import {Component, Vue, Watch} from "vue-property-decorator";
+import {inlineLinks, markdownfy} from "~/util/utilities";
 
 @Component
 export default class About extends Vue {
   skills = ['TypeScript', 'HTML & (S)CSS', 'Angular', 'Vue', 'Node.js', 'Spring Boot'];
+
+  @Watch('$i18n.locale')
+  private setInlineLink() {
+    setTimeout(() => {
+      inlineLinks('styled-text');
+    }, 2000);
+  }
+
+  mounted(): void {
+    this.setInlineLink();
+  }
+
+  get yacosta() {
+    return this.$static.author.edges.filter(edge => edge.node.lang === this.$i18n.locale)[0].node;
+  }
+
+  markdownfy(str: string): string {
+    return markdownfy(str);
+  }
 }
 </script>
 

@@ -34,13 +34,12 @@ import {Component, Vue, Watch} from "vue-property-decorator";
 import IArticle from '~/models/Article';
 import {compareAsc} from 'date-fns';
 
-const Widget = () => import( '~/components/shared/Widget.vue');
+const Widget = () => import( '~/components/shared/widget/Widget.vue');
 
 @Component({components: {Widget}})
 export default class RecentPostWidget extends Vue {
 
   get recentPosts(): IArticle[] {
-    //@ts-ignore
     return  this.$static.recentPost.edges.filter(post => compareAsc(new Date(post.node.date), new Date()) === -1).filter((post, index) => index < 5)
         .filter(rp => rp.node.id !== this.$store.state.postId).map(edge => {
           return {id: edge.node.id, title: edge.node.title, path: edge.node.path};

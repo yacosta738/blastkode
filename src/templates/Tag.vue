@@ -59,8 +59,8 @@ query Tag ($id: ID!, $page: Int) {
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-const PaginationPosts = () => import('@/components/PaginationPosts.vue');
-import PostHeader from '~/components/PostHeader.vue';
+const PaginationPosts = () => import('~/components/post/PaginationPosts.vue');
+import PostHeader from '~/components/post/PostHeader.vue';
 
 @Component<Tag>({
   metaInfo() {

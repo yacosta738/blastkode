@@ -25,8 +25,8 @@ import 'reflect-metadata';
 import {Component, Prop, Vue} from "vue-property-decorator";
 import Project from '~/models/Project';
 import {inlineLinks} from '~/util/utilities';
-import ProjectTechList from '~/components/ProjectTechList.vue';
-import ProjectLinks from '~/components/ProjectLinks.vue';
+import ProjectTechList from '~/components/sections/project/ProjectTechList.vue';
+import ProjectLinks from '~/components/sections/project/ProjectLinks.vue';
 
 @Component({components: {ProjectLinks, ProjectTechList}})
 export default class FeaturedProjects extends Vue {

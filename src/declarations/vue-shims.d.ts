@@ -10,5 +10,6 @@ declare module 'vue/types/vue' {
     $i18n: VueI18n;
     $tp: (pathToResolve, targetLocale, forceChange) => string;
     $page: any;
+    $static: any;
   }
 }
