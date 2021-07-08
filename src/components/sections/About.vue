@@ -17,7 +17,7 @@
       </div>
       <div class="styled-pic">
         <div class="wrapper">
-          <g-image src="../../../static/me.png" alt="avatar" class="img"/>
+          <g-image :src="yacosta.image? yacosta.image : '../../../static/me.png'" alt="avatar" class="Yuniel Acosta"/>
         </div>
       </div>
     </div>
@@ -26,18 +26,18 @@
 
 <static-query>
 query Author {
-author: allAuthor(filter: {path:{in: ["/en/yuniel-acosta", "/es/yuniel-acosta"]}}) {
-edges{
-node{
-id
-name
-image
-lang
-rol
-content
-}
-}
-}
+  author: allAuthor(filter: {path:{in: ["/en/yuniel-acosta", "/es/yuniel-acosta"]}}) {
+    edges{
+      node{
+        id
+        name
+        image
+        lang
+        rol
+        content
+      }
+    }
+  }
 }
 </static-query>
 

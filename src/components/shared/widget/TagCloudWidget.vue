@@ -34,7 +34,7 @@ import Tag from '~/models/Tag';
 @Component({components:{Widget}})
 export default class TagCloudWidget extends Vue {
   get allTags(): Tag[] {
-    return this.$static.tags.edges.map(edge => Tag.fromJson(edge.node)).sort((tag1: Tag, tag2: Tag) => tag1?.title < tag2?.title ? -1 : tag1?.title > tag2?.title ? 1 : 0);
+    return this.$static.tags.edges.map(edge => Tag.fromJson(edge.node)).sort((tag1, tag2) => tag1?.title < tag2?.title ? -1 : tag1?.title > tag2?.title ? 1 : 0);
   }
   get totalCount():number{
     return this.$static.tags.totalCount;
