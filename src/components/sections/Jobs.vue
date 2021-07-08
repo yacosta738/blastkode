@@ -1,9 +1,9 @@
 <template>
   <section id="jobs" class="container styled-jobs-section" v-scroll-reveal.reset>
-    <h2 class="numbered-heading">Where I've Worked</h2>
+    <h2 class="numbered-heading" v-text="$t('where-worked')">Where I've Worked</h2>
     <div class="inner">
       <ul class="styled-tab-list" role="tablist" aria-label="Job tabs">
-        <li v-for="(job, i) in $static.jobs.edges" :key="job.node.id">
+        <li v-for="(job, i) in jobs" :key="job.id">
           <button class="styled-tab-button"
                   :class="{'text-green-500':activeTabId === i}"
                   :id="`tab-${i}`"
@@ -12,10 +12,10 @@
                   :aria-controls="`panel-${i}`"
                   :tabIndex="activeTabId === i ? '0' : '-1'"
                   @click="activeTabId = i"
-                  @keyup.up.prevent.stop="(activeTabId - 1 >= 0 )?activeTabId -= 1:activeTabId = $static.jobs.edges.length - 1"
-                  @keyup.down.prevent.stop="(activeTabId + 1 >= $static.jobs.edges.length)?activeTabId = 0:activeTabId+=1"
+                  @keyup.up.prevent.stop="(activeTabId - 1 >= 0 )?activeTabId -= 1:activeTabId = jobs.length - 1"
+                  @keyup.down.prevent.stop="(activeTabId + 1 >= jobs.length)?activeTabId = 0:activeTabId+=1"
           >
-            <span>{{ job.node.company }}</span>
+            <span>{{ job.company }}</span>
           </button>
         </li>
         <div class="styled-high-light"
@@ -23,21 +23,21 @@
       </ul>
       <transition name="fade" mode="out-in">
         <div>
-          <div v-for="(job, i) in $static.jobs.edges" :id="`panel-${i}`" :key="job.node.id"
+          <div v-for="(job, i) in jobs" :id="`panel-${i}`" :key="job.id"
                class="styled-tab-content" role="tabpanel" :tabIndex="(activeTabId === i)? 0 : -1"
                :aria-labelledby="`tab-${i}`"
                :aria-hidden="activeTabId !== i" :hidden="activeTabId !== i">
             <h3>
-              <span>{{ job.node.rol }}</span>
+              <span>{{ job.rol }}</span>
               <span class="company">
                 &nbsp;@&nbsp;
-                <g-link :to="$tp(job.node.url)" class="inline-link">
-                  {{ job.node.company }}
+                <g-link :to="$tp(job.url)" class="inline-link">
+                  {{ job.company }}
                 </g-link>
               </span>
             </h3>
-            <p class="range">{{ range(job.node) }}</p>
-            <div v-html="job.node.content"></div>
+            <p class="range">{{ range(job) }}</p>
+            <div v-html="job.content"></div>
           </div>
         </div>
       </transition>
@@ -56,6 +56,7 @@ query Jobs ($page: Int) {
     edges {
       node {
         id
+        lang
         rol
         start_date
         end_date
@@ -72,18 +73,27 @@ query Jobs ($page: Int) {
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
 import {formatDate, inlineLinks} from '~/util/utilities';
+import Job from '~/models/Job';
 
 @Component
 export default class Jobs extends Vue {
   activeTabId: number = 0;
 
-  get isSmallScreen(){
+  get jobs(): Job[] {
+    return this.$static.jobs.edges
+        .filter(edge => edge.node.lang === this.$i18n.locale)
+        .map(edge => Job.fromJson(edge.node));
+  }
+
+  get isSmallScreen() {
     return this.$screen.breakpoint === 'xs' || this.$screen.breakpoint === 'sm';
   }
-  range(job): string{
+
+  range(job): string {
     return `${formatDate(job.start_date)} - ${job.end_date ? formatDate(job.end_date) : 'Present'}`;
   }
-  mounted():void {
+
+  mounted(): void {
     inlineLinks('styled-tab-content');
   }
 }

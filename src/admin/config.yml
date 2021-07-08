@@ -111,10 +111,11 @@ collections:
     label: "Jobs"
     folder: "content/jobs"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}.{{lang}}" # Filename template, e.g., YYYY-MM-DD-title.en.md
     label_singular: "Job"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Language", name: "lang", widget: "string" }
       - { label: "Role", name: "rol", widget: "string" }
       - { label: "Company`", name: "company", widget: "string" }
       - { label: "Location", name: "location", widget: "string" }
