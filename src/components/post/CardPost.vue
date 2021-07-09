@@ -65,7 +65,7 @@
           id
           name
           path
-          rol
+          role
           image
         }
       }

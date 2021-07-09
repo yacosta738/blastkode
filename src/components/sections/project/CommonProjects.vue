@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col items-center" v-scroll-reveal.reset="{ delay: 550 }">
     <div class="mt-10 mb-20 text-center">
-      <h2 class="section-title">Other Noteworthy Projects</h2>
-      <g-link :to="$tp('/projects/')" class="inline-link">view all projects</g-link>
+      <h2 class="section-title" v-text="$t('project-subtitle')">Other Noteworthy Projects</h2>
+      <g-link :to="$tp('/projects/')" class="inline-link" v-text="$t('project-view')">view all projects</g-link>
     </div>
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
       <div v-for="project in projectsToShow" class="style-project-card" :key="project.id"
@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import 'reflect-metadata';
-import {Component, Prop, Vue} from "vue-property-decorator";
+import {Component, Prop, Vue, Watch} from "vue-property-decorator";
 import ProjectLinks from "~/components/sections/project/ProjectLinks.vue";
 import ProjectTechList from "~/components/sections/project/ProjectTechList.vue";
 import Project from '~/models/Project';
@@ -42,6 +42,13 @@ export default class CommonProjects extends Vue {
     const GRID_LIMIT = 6;
     const firstSix: Project[] = (this.projects) ? this.projects.slice(0, GRID_LIMIT) : [];
     return this.showMore ? this.projects : firstSix;
+  }
+
+  @Watch('$i18n.locale')
+  private setInlineLink() {
+    setTimeout(() => {
+      inlineLinks('project-description');
+    }, 2000);
   }
 
   mounted(): void {

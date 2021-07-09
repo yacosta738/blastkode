@@ -1,5 +1,6 @@
 ---
 title: Portfolio Blog V2
+lang: es
 date: 2020-03-12T02:53:17.048Z
 github: https://github.com/yacosta738/nomada.digital
 external: https://yacosta738.github.io/nomada.digital/
@@ -12,4 +13,4 @@ showInProjects: true
 featured: false
 draft: false
 ---
-Template for personal Blog and portfolio made with [HUGO](https://gohugo.io/). The template is part of the migration of my personal blog in its version 2 with the static website generator [HUGO](https://gohugo.io/).
+Plantilla para Blog personal y portafolio realizado con [HUGO](https://gohugo.io/). La plantilla es parte de la migración de mi blog personal en su versión 2 con el generador de sitios web estáticos [HUGO](https://gohugo.io/).

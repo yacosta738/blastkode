@@ -12,6 +12,7 @@ query {
       node {
         id
         title
+        lang
         date (format: "MMMM D, Y")
         cover
         github
@@ -31,6 +32,7 @@ query {
       node {
         id
         title
+        lang
         date (format: "MMMM D, Y")
         cover
         github
@@ -57,10 +59,14 @@ import Project from '~/models/Project';
 export default class Projects extends Vue {
 
   get featuredProjects(): Project[] {
-    return this.$static.featuredProjects.edges.map(edge => Project.fromJson(edge.node));
+    return this.$static.featuredProjects.edges
+        .filter(edge => edge.node.lang === this.$i18n.locale)
+        .map(edge => Project.fromJson(edge.node));
   }
   get commonProjects(): Project[] {
-    return this.$static.commonProjects.edges.map(edge => Project.fromJson(edge.node));
+    return this.$static.commonProjects.edges
+        .filter(edge => edge.node.lang === this.$i18n.locale)
+        .map(edge => Project.fromJson(edge.node));
   }
 }
 </script>

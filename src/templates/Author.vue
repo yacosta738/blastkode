@@ -65,7 +65,7 @@
           name
           image
           lang
-          rol
+          role
           summary
           contact_items {
             icon {

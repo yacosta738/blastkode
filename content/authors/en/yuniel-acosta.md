@@ -39,7 +39,7 @@ contact_items:
 path: /en/yuniel-acosta 
 title: yuniel-acosta-en    
 name: Yuniel Acosta
-rol: Full Stack Developer
+role: Full Stack Developer
 image: /uploads/yuniel-acosta.jpg
 summary: Web, mobile and desktop application developer. Science and technology
   enthusiast. More than [-YEAR-{2017}] years of experience in the software

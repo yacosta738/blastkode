@@ -40,14 +40,18 @@ collections:
   - name: "authors" # Used in routes, e.g., /admin/collections/blog
     label: "Authors" # Used in the UI
     label_singular: "Author"
-    folder: "content/authors" # The path to the folder where the documents are stored
+    folder: "content/authors/en" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}.{{lang}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     identifier_field: title
     fields: # The fields for each document, usually in front matter
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Rol", name: "rol", widget: "string" }
-      - { label: "Languages", name: "lang", widget: "string", default: "en"}
+      - label: "Language"
+        name: "lang"
+        widget: "select"
+        options: [ "en", "es"]
+        default: "en"
       - { label: "Author image", name: "image", widget: "image", required: false }
       - { label: "Summary", name: "summary", widget: "string" }
       - label: "Social"
@@ -107,30 +111,136 @@ collections:
                   - { label: "Location", name: "location", widget: "string" }
                   - { label: "Main activities and responsibilities", name: "main_activities", widget: "markdown", minimal: true }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "autores" # Used in routes, e.g., /admin/collections/blog
+    label: "Autores" # Used in the UI
+    label_singular: "Autor"
+    folder: "content/authors/es" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    identifier_field: title
+    fields: # The fields for each document, usually in front matter
+      - { label: "Nombre", name: "name", widget: "string" }
+      - { label: "Rol", name: "role", widget: "string" }
+      - label: "Idioma"
+        name: "lang"
+        widget: "select"
+        options: [ "en", "es"]
+        default: "en"
+      - { label: "Imagen del Autor", name: "image", widget: "image", required: false }
+      - { label: "Resumen", name: "summary", widget: "string" }
+      - label: "Social"
+        name: "social"
+        widget: "list"
+        fields:
+          - label: "Icono"
+            name: "icon"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Tipo", name: "type", widget: "string" }
+              - { label: "Valor", name: "value", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - label: "Contacto"
+        name: "contact_items"
+        widget: "list"
+        fields:
+          - label: "Icono"
+            name: "icon"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Tipo", name: "type", widget: "string" }
+              - { label: "Valor", name: "value", widget: "string" }
+          - { label: "Nombre", name: "name", widget: "string" }
+          - { label: "Enlace", name: "link", widget: "string" }
+          - { label: "Texto", name: "text", widget: "string" }
+          - label: "Target"
+            name: "target"
+            widget: "select"
+            options: [ "_blank", "_self",  "_parent", "_top", "framename" ]
+            default: "_blank"
+      - label: "Resumen"
+        name: "resume"
+        widget: "list"
+        fields:
+          - label: "Experiencia"
+            name: "experience"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - label: "Elementos"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Nombre", name: "name", widget: "string" }
+                  - label: "Icono"
+                    name: "icon"
+                    widget: "object"
+                    fields:
+                      - { label: "Tipo", name: "type", widget: "string" }
+                      - { label: "Valor", name: "value", widget: "string" }
+                  - { label: "Fecha inicial", name: "start_date", widget: "datetime" }
+                  - { label: "Fecha final", name: "end_date", widget: "datetime" }
+                  - { label: "Ubicación", name: "location", widget: "string" }
+                  - { label: "Actividades principales y responsabilidades", name: "main_activities", widget: "markdown", minimal: true }
+      - { label: "Cuerpo", name: "body", widget: "markdown" }
   - name: "jobs"
     label: "Jobs"
-    folder: "content/jobs"
+    folder: "content/jobs/en"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}.{{lang}}" # Filename template, e.g., YYYY-MM-DD-title.en.md
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     label_singular: "Job"
+    filter: {field: "lang", value: "en"}
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Language", name: "lang", widget: "string" }
-      - { label: "Role", name: "rol", widget: "string" }
-      - { label: "Company`", name: "company", widget: "string" }
+      - label: "Language"
+        name: "lang"
+        widget: "select"
+        options: [ "en", "es"]
+        default: "en"
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Company", name: "company", widget: "string" }
       - { label: "Location", name: "location", widget: "string" }
       - { label: "Start Date", name: "start_date", widget: "datetime" }
       - { label: "End Date", name: "end_date", widget: "datetime" }
       - { label: "URL", name: "url", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "trabajos"
+    label: "Trabajos"
+    folder: "content/jobs/es"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    label_singular: "Trabajo"
+    filter: { field: "lang", value: "es" }
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - label: "Idioma"
+        name: "lang"
+        widget: "select"
+        options: [ "en", "es"]
+        default: "en"
+      - { label: "Rol", name: "role", widget: "string" }
+      - { label: "Empresa", name: "company", widget: "string" }
+      - { label: "Ubicación", name: "location", widget: "string" }
+      - { label: "Fecha Inicial", name: "start_date", widget: "datetime" }
+      - { label: "Fecha Final", name: "end_date", widget: "datetime" }
+      - { label: "URL", name: "url", widget: "string" }
+      - { label: "Cuerpo", name: "body", widget: "markdown" }
   - name: "projects"
     label: "Projects"
-    folder: "content/projects"
+    folder: "content/projects/en"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     label_singular: "Project"
+    filter: { field: "lang", value: "en" }
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - label: "Language"
+        name: "lang"
+        widget: "select"
+        options: [ "en", "es" ]
+        default: "en"
       - { label: "Cover", name: "cover", widget: "image", required: false }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Github", name: "github", widget: "string", required: false }
@@ -138,6 +248,40 @@ collections:
       - { label: "IOS", name: "ios", widget: "string", required: false }
       - { label: "Android", name: "android", widget: "string", required: false }
       - { label: "Company", name: "company", widget: "string" }
+      - label: "Technologies"
+        name: "tech"
+        widget: "relation"
+        collection: "technologies"
+        multiple: true
+        file: "tech"
+        search_fields: ["tech.*.name"]
+        display_fields: ["tech.*.name"]
+        value_field: "tech.*.id"
+      - { label: "Show in Projects", name: "showInProjects", widget: "boolean", default: false }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "proyectos"
+    label: "Proyectos"
+    folder: "content/projects/es"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    label_singular: "Proyecto"
+    filter: { field: "lang", value: "es" }
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - label: "Idioma"
+        name: "lang"
+        widget: "select"
+        options: [ "en", "es" ]
+        default: "en"
+      - { label: "Cover", name: "cover", widget: "image", required: false }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Github", name: "github", widget: "string", required: false }
+      - { label: "Externo", name: "external", widget: "string", required: false }
+      - { label: "IOS", name: "ios", widget: "string", required: false }
+      - { label: "Android", name: "android", widget: "string", required: false }
+      - { label: "Empresa", name: "company", widget: "string" }
       - label: "Technologies"
         name: "tech"
         widget: "relation"
@@ -173,4 +317,3 @@ collections:
                   - { label: "Type", name: "type", widget: "string" }
                   - { label: "Value", name: "value", widget: "string" }
               - { label: "URL", name: "url", widget: "string", required: false }
-

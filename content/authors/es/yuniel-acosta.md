@@ -39,7 +39,7 @@ contact_items:
 path: /es/yuniel-acosta
 title: yuniel-acosta-es
 name: Yuniel Acosta
-rol: Full Stack Developer
+role: Full Stack Developer
 image: /uploads/yuniel-acosta.jpg
 summary: Desarrollador de aplicaciones Web, mobil y desktop. Entusiasta de la ciencia y la tecnología. Más de [-YEAR-{2017}] años de experiencia en la industria del software.
 social:

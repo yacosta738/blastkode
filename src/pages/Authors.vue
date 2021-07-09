@@ -10,7 +10,7 @@
           </li>
           <li class="my-2 whitespace-nowrap mx-1">
             <font-awesome :icon="['fa', 'address-card']"/>
-            <span class="mx-2">{{ author.rol }}</span>
+            <span class="mx-2">{{ author.role }}</span>
           </li>
         </ul>
         <div class="flex flex-col md:flex-row mb-16">
@@ -47,7 +47,7 @@ query Authors ($page: Int, $lang: String) {
         lang
         image
         path
-        rol
+        role
         summary
         content
       }

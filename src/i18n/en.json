@@ -26,5 +26,15 @@
   "built-by": "Build by Yuniel Acosta",
   "design-by": "Design based on Brittany Chiang portfolio",
   "about-tech": "Here are a few technologies that I've been working with recently:",
-  "where-worked": "Where I've Worked"
+  "where-worked": "Where I've Worked",
+  "project-title": "Some Things I’ve Built",
+  "project-subtitle": "Other Noteworthy Projects",
+  "project-view": "view all projects",
+  "all-projects": "All projects",
+  "big-list": "A big list of things I've worked on",
+  "year":"Year",
+  "title":"Title",
+  "made-at":"Made at",
+  "built-at":"Built with",
+  "link":"Link"
 }

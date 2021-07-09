@@ -28,7 +28,7 @@
                :aria-labelledby="`tab-${i}`"
                :aria-hidden="activeTabId !== i" :hidden="activeTabId !== i">
             <h3>
-              <span>{{ job.rol }}</span>
+              <span>{{ job.role }}</span>
               <span class="company">
                 &nbsp;@&nbsp;
                 <g-link :to="$tp(job.url)" class="inline-link">
@@ -57,7 +57,7 @@ query Jobs ($page: Int) {
       node {
         id
         lang
-        rol
+        role
         start_date
         end_date
         company
@@ -89,8 +89,8 @@ export default class Jobs extends Vue {
     return this.$screen.breakpoint === 'xs' || this.$screen.breakpoint === 'sm';
   }
 
-  range(job): string {
-    return `${formatDate(job.start_date)} - ${job.end_date ? formatDate(job.end_date) : 'Present'}`;
+  range(job, dateFormat = 'MMMM, yyyy', locale = this.$i18n.locale): string {
+    return `${formatDate(job.startDate, dateFormat, locale)} - ${job.endDate ? formatDate(job.endDate, dateFormat, locale) : this.$t('present')}`;
   }
 
   mounted(): void {

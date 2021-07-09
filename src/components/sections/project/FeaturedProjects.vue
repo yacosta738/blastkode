@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="numbered-heading">Some Things I’ve Built</h2>
+    <h2 class="numbered-heading" v-text="$t('project-title')">Some Things I’ve Built</h2>
     <div>
       <div v-for="(project, i) in projects" :key="project.id" class="styled-project">
         <div class="project-content">
@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import 'reflect-metadata';
-import {Component, Prop, Vue} from "vue-property-decorator";
+import {Component, Prop, Vue, Watch} from "vue-property-decorator";
 import Project from '~/models/Project';
 import {inlineLinks} from '~/util/utilities';
 import ProjectTechList from '~/components/sections/project/ProjectTechList.vue';
@@ -31,6 +31,13 @@ import ProjectLinks from '~/components/sections/project/ProjectLinks.vue';
 @Component({components: {ProjectLinks, ProjectTechList}})
 export default class FeaturedProjects extends Vue {
   @Prop({required: true}) readonly projects: Project[] | undefined;
+
+  @Watch('$i18n.locale')
+  private setInlineLink() {
+    setTimeout(() => {
+      inlineLinks('project-description');
+    }, 2000);
+  }
 
   mounted(): void {
     inlineLinks('project-description');

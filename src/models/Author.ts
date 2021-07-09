@@ -5,7 +5,7 @@ export interface IAuthor {
   name?: string;
   lang?: string;
   path?: string;
-  rol?: string;
+  role?: string;
   summary?: any;
   image?: Image | string;
   content?: string;
@@ -18,7 +18,7 @@ export default class Author implements IAuthor {
       node?.name,
       node?.lang,
       node?.path,
-      node?.rol,
+      node?.role,
       node?.summary,
       node?.image && Image.fromJson(node?.image),
       node?.content
@@ -29,7 +29,7 @@ export default class Author implements IAuthor {
     public name?: string,
     public lang?: string,
     public path?: string,
-    public rol?: string,
+    public role?: string,
     public summary?: any,
     public image?: Image | string,
     public content?: string

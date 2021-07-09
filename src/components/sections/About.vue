@@ -17,7 +17,7 @@
       </div>
       <div class="styled-pic">
         <div class="wrapper">
-          <g-image :src="yacosta.image? yacosta.image : '../../../static/me.png'" alt="avatar" class="Yuniel Acosta"/>
+          <g-image :src="yacosta.image? yacosta.image : '../../../static/me.png'" alt="Yuniel Acosta" class="img"/>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@ query Author {
         name
         image
         lang
-        rol
+        role
         content
       }
     }

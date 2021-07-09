@@ -1,5 +1,6 @@
 ---
 title: Weather App
+lang: en
 cover: /uploads/weather-app.png
 date: 2021-05-21T03:38:16.099Z
 github: https://github.com/yacosta738/weather-app

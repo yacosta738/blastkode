@@ -1,5 +1,6 @@
 ---
 title: scanner-odoo
+lang: en
 date: 2021-01-14T01:24:20.619Z
 company: Desoft
 tech:
