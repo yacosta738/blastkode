@@ -10,6 +10,7 @@ summary: Visual Studio Code is one of the most widely used code editors in the
 date: 2021-05-27T02:23:12.784Z
 cover: /uploads/visual-studio-code.jpg
 author: Yuniel Acosta
+lang: en
 tags:
   - VS Code
   - IDE
@@ -37,12 +38,12 @@ We’ll cover the following VS Code extensions:
 6. Icons
 7. Prettier
 8. Import Cost
-9. [](https://blog.logrocket.com/top-10-vs-code-extensions-2021/#profileswitcher)Tabnine
+9. Tabnine
 10. GitLens
 
 ## 1. Auto Rename Tag
 
-[Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) is a super useful VS Code extension for web developers. As the names suggest, Auto Rename Tag renames the second tag as the first one is updated and vice versa:
+[Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) is a super useful VS Code extension for web developers. As the name suggests, `Auto Rename Tag` renames the second tag as the first one is updated and vice versa:
 
 ![Auto-Rename-Tag-Gif](/uploads/auto-rename-tag.gif "auto rename")
 
@@ -64,7 +65,7 @@ For example, consider the following code snippet:
 
 ![Bracket-Pair-Colorizer-Code-Snippet](/uploads/bracket-pair-colorizer-code-snippet.avif "bracket pair colorizer code snippet")
 
-At first glance, it’s quite hard to differentiate between different code blocks in the code, but the Bracket Pair Colorizer extension colors the corresponding parenthesis and brackets for easy navigation and accessibility.
+At first glance, it’s quite hard to differentiate between different code blocks in the code, but the `Bracket Pair Colorizer` extension colors the corresponding parenthesis and brackets for easy navigation and accessibility.
 
 ![Bracket-Pair-Colorizer-Extension-Example](/uploads/bracket-pair-colorizer-extension-example.avif "bracket pair colorizer extension example")
 
@@ -89,7 +90,7 @@ For example, it can be quite tedious to repeat the syntax for functional compone
 
 [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments) is designed to help you write more human-friendly comments in your code.
 
-Clear, digestible comments are beneficial not only for someone going through your code but also for you. It’s quite common for developers to get lost in their own code when visiting it after some time. Having descriptive comments can save a lot of time for you and your team.
+Clear comments are beneficial not only for someone going through your code but also for you. It’s quite common for developers to get lost in their own code when visiting it after some time. Having descriptive comments can save a lot of time for you and your team.
 
 With the Better Comments VS Code extension, you can categorize your annotations into alerts, queries, to-dos, highlights, etc.
 
@@ -187,7 +188,7 @@ Here’s an expanded version of the code authorship:
 
 This is just one of the many [features of GitLens extension](https://gitlens.amod.io/#features). Other notable features include:
 
-* [R](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#revision-navigation-)[evision navigation](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#revision-navigation-) (backward and forward) through the history of a file
+* [R](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#revision-navigation-) [revision navigation](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#revision-navigation) (backward and forward) through the history of a file
 * An unobtrusive [current line blame](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#current-line-blame-) annotation at the end of the line showing the commit
 * A [status bar blame](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#status-bar-blame-) annotation showing the commit and author who last modified the current line
 

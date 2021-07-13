@@ -6,7 +6,7 @@
         <post-header :article="$page.post"/>
         <div class="markdown-body mb-8" v-html="$page.post.content"/>
         <div class="mb-8">
-          <g-link to="/blog" class="font-bold uppercase">Back to Blog</g-link>
+          <g-link to="/blog" class="font-bold uppercase" v-text="$t('back-to-block')">Back to Blog</g-link>
         </div>
         <div class="flex flex-col md:flex-row">
           <!--category-->
@@ -32,9 +32,10 @@
             </g-link>
           </div>
         </div>
-        <cryptos :address="bitcoinAddress" />
+        <cryptos :title="$t('buy-me-a-coffee')" :address="bitcoinAddress" />
         <div class='comments'>
-          <Disqus :identifier="$page.post.path" />
+          <button v-if="!showDisqus" class="small-button m-4" @click="showDisqus = true" v-text="$t('comments')">Comments</button>
+          <Disqus v-if="showDisqus"  :identifier="$page.post.path" />
         </div>
       </article>
     </div>
@@ -64,7 +65,7 @@ query Post ($path: String!) {
 </page-query>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
+import {Component, Vue, Watch} from 'vue-property-decorator';
 import PostHeader from '~/components/post/PostHeader.vue';
 import Cryptos from '~/components/shared/Cryptos.vue'
 import {inlineLinks} from '~/util/utilities';
@@ -81,16 +82,22 @@ export default class Post extends Vue {
   // ? $context has to be defined here. Otherwise TypeScript complains about not existing variable
   public $context: any;
 
+  public showDisqus = false;
+
   private get pageTitle() {
     return this.$context.title;
   }
   get bitcoinAddress(): string  {
     return process.env.GRIDSOME_BITCOIN_WALLET || 'bc1qpm2s4m6er9yj249wpwg8uq0ysqkr636clu9jka';
   }
+  @Watch('$i18n.locale')
+  private setInlineLink() {
+    setTimeout(() => {
+      inlineLinks('markdown-body');
+    }, 2000);
+  }
   mounted() {
-    //@ts-ignore
     this.$store.commit('changePostId', this.$page.post.id)
-
     inlineLinks('markdown-body');
   }
 }

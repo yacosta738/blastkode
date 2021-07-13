@@ -6,9 +6,10 @@ summary: "You can customize your profile so that other people can get a better
 date: 2021-05-11T02:05:59.285Z
 cover: /uploads/acosta-github-profile.png
 author: Yuniel Acosta
+lang: en
 tags:
   - Github
-  - Profile
+  - User Profile
   - markdown
   - gh
 categories:
@@ -48,7 +49,7 @@ When you have completed making the change and you are ready, preview your change
 
 ### Step 4: Verify your changes on your Github Profile
 
-Page Next and final step is to go to your github profile page and verify that your changes are showing up there.
+Last step is to go to your github profile page and verify that the changes appear there.
 
 ![acosta github profile](/uploads/acosta-github-profile.png "Verify your changes on your Github Profile Page")
 
@@ -56,6 +57,4 @@ You can use this tool to generate your profile **Readme.md** without coding [gh-
 
 Hopefully, you have learned something new today and like this post
 
-
-
-Happy Coding.
+Happy Coding 🤠.

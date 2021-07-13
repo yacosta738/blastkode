@@ -1,5 +1,5 @@
 <template>
-  <widget title="Categories" v-if="totalCount > 0">
+  <widget :title="$t('categories')" v-if="totalCount > 0">
     <ul class="flex flex-col relative list-none p-0 my-4">
       <li v-for="category in allCategories" :key="category.id"
           class="my-2 flex flex-row text-light-slate font-mono text-base whitespace-nowrap">
@@ -17,15 +17,29 @@
 
 <static-query>
 query {
-  categories: allCategory {
+  categories: allCategory  {
     totalCount
     edges {
       node {
         id
         title
+        lang
         path
         belongsTo {
           totalCount
+          pageInfo {
+            totalPages
+          }
+          edges{
+            node{
+              __typename
+              ... on Post{
+                id
+                path
+                lang
+              }
+            }
+          }
         }
       }
     }
@@ -46,8 +60,10 @@ export default class CategoryWidget extends Vue {
   }
 
   get allCategories(): Category[] {
-    return this.$static.categories.edges.map(edge => Category.fromJson(edge.node))
-        .sort((c1, c2) => c1?.totalCountInArticles < c2?.totalCountInArticles ? 1 : c1?.totalCountInArticles > c2?.totalCountInArticles ? -1 : 0);
+    return this.$static.categories.edges
+      .filter(edge => edge.node.lang.includes(this.$i18n.locale))
+      .map(edge => Category.fromJson(edge.node))
+      .sort((c1, c2) => c1?.totalCountInArticles < c2?.totalCountInArticles ? 1 : c1?.totalCountInArticles > c2?.totalCountInArticles ? -1 : 0);
   }
 }
 </script>

@@ -8,7 +8,7 @@
                :src="article.cover" />
       <div class="text-center md:text-left mt-5 md:mt-0">
         {{ article.summary }}
-        <g-link :to="$tp(article.path)" class="font-bold uppercase inline-link">Read&nbsp;→</g-link>
+        <g-link :to="$tp(article.path)" class="font-bold uppercase inline-link" v-text="$t('read')">Read&nbsp;→</g-link>
       </div>
     </div>
   </div> <!-- end post -->

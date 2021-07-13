@@ -17,12 +17,17 @@ slug:
 collections:
   - name: "posts"
     label: "Posts"
-    folder: "content/blog"
+    folder: "content/blog/en"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     label_singular: "Post"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - label: "Language"
+        name: "lang"
+        widget: "select"
+        options: [ "en", "es" ]
+        default: "en"
       - { label: "Path ( must start with / )", name: "path", widget: "string", default: "/" }
       - { label: "Summary", name: "summary", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
@@ -37,6 +42,33 @@ collections:
       - { label: "Tags", name: "tags", widget: "list", allow_add: true, default: [ "IT" ] }
       - { label: "Categories", name: "categories", widget: "list", allow_add: true, default: [ "IT" ] }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
+  - name: "spanish_post"
+    label: "Artículos"
+    folder: "content/blog/es"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    label_singular: "Artículo"
+    fields:
+      - { label: "Título'", name: "title", widget: "string" }
+      - label: "Idioma"
+        name: "lang"
+        widget: "select"
+        options: [ "en", "es" ]
+        default: "en"
+      - { label: "Ruta ( debe comenzar con / )", name: "path", widget: "string", default: "/" }
+      - { label: "Resumen", name: "summary", widget: "string" }
+      - { label: "Fecha de publication", name: "date", widget: "datetime" }
+      - { label: "Imagen de Cover", name: "cover", widget: "image", required: false }
+      - label: "Autor del Artículo"
+        name: "author"
+        widget: "relation"
+        collection: "authors"
+        search_fields: [ "name" ]
+        value_field: "name"
+      - { label: "Cuerpo", name: "body", widget: "markdown" }
+      - { label: "Etiquetas", name: "tags", widget: "list", allow_add: true, default: [ "IT" ] }
+      - { label: "Categorías", name: "categories", widget: "list", allow_add: true, default: [ "IT" ] }
+      - { label: "Borrador", name: "draft", widget: "boolean", default: false }
   - name: "authors" # Used in routes, e.g., /admin/collections/blog
     label: "Authors" # Used in the UI
     label_singular: "Author"

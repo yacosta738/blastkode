@@ -19,7 +19,7 @@
       </div>
     </div>
     <button v-if="projects.length > 6" class="big-button m-5" @click="showMore=!showMore">
-      {{ (showMore) ? 'Show Less' : 'Show More' }}
+      {{ (showMore) ? $t('show-less') : $t('show-more')  }}
     </button>
   </div>
 

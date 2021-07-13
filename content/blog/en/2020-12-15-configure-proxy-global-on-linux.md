@@ -2,11 +2,11 @@
 draft: false
 path: /configure-proxy-global-on-linux
 title: Configure global proxy on linux
-summary: In this article I share some tips to In this article I share some tips
-  to configure a global proxy in GNU/Linux operating systems
+summary: In this article I share some tips to configure the internet through a global proxy in GNU/Linux operating systems.
 date: 2020-12-06
-cover: ./images/configure-proxy-global-on-linux/portada-proxy.jpg
+cover: ../images/configure-proxy-global-on-linux/portada-proxy.jpg
 author: Yuniel Acosta
+lang: en
 tags:
   - Proxy
   - Linux
@@ -18,15 +18,15 @@ tags:
 categories:
   - Tooling
 ---
-![background](./images/configure-proxy-global-on-linux/portada-proxy.jpg)
+![background](../images/configure-proxy-global-on-linux/portada-proxy.jpg)
 
 In GNU/Linux operating systems when we are behind a proxy server, it can become a bit cumbersome to use programs that do not have their own proxy configuration or commands like **apt-get**, or we simply want to configure it globally. Many of the GNU/Linux distributions use different package managers which are configured in different ways, in addition there are many programs that need their specifications to configure the Internet output through a proxy server. All this process becomes very cumbersome to do in environments where you use a proxy with authentication and it changes from time to time or you use a laptop where you can constantly connect to networks where proxy is not used. Imagine changing all the settings every time you change networks.
 
-![Proxy schema](./images/configure-proxy-global-on-linux/proxy-schema.png "Configure proxy global on linux")
+![Proxy schema](../images/configure-proxy-global-on-linux/proxy-schema.png "Configure proxy global on linux")
 
-Here are some examples of how to configure proxy in some GNU / Linux distros
+Here are some examples of how to configure proxy in some GNU/Linux distros
 
-![Proxy global](./images/configure-proxy-global-on-linux/proxy-global.jpg)
+![Proxy global](../images/configure-proxy-global-on-linux/proxy-global.jpg)
 
 ## Terminal Proxy Settings
 
@@ -37,7 +37,7 @@ If we want to use a proxy temporarily in the terminal, we execute the following 
     export https_proxy=$http_proxy
 ```
 
-## Setting environment variables for Debian | Ubuntu family distributions:
+## Setting environment variables for Debian|Ubuntu family distributions:
 
 Edit file `/etc/environment` with your favorite text editor.
 
@@ -52,7 +52,7 @@ We add the following lines to the file, you must duplicate them in upper and low
     https_proxy http://username:password@proxyserver:puerto
     ftp_proxy http://username:password@proxyserver:puerto
     no_proxy localhost,127.0.0.1,localaddress,.localdomain.com
-    #Duplicadas en mayúsculas
+    #Duplicated in uppercase
     HTTP_PROXY http://username:password@proxyserver:puerto
     HTTPS_PROXY http://username:password@proxyserver:puerto
     FTP_PROXY http://username:password@proxyserver:puerto
@@ -114,7 +114,7 @@ We edit the file `/etc/pacman.conf` and we must uncomment `XferCommand` as follo
     XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
 ```
 
-![pacman.conf.png](./images/configure-proxy-global-on-linux/pacman.conf.png)
+![pacman.conf.png](../images/configure-proxy-global-on-linux/pacman.conf.png)
 
 We save the changes and proceed to edit the configuration file for `wget`, a tool used to download packages.
 
@@ -378,7 +378,7 @@ The desktop application is a VPN (Virtual Private Network) client. Create an enc
 
 The first thing to do is create an account at [Windscribe](https://windscribe.com/?friend=abhyp2zr) by registering [here](https://windscribe.com/?friend=abhyp2zr). Windscribe gives us 2GB of free monthly consumption, but if we confirm our email this increases 5GB, you can also increase up to 15GB per month if you create a post on twitter by clicking the ***Tweet4Data*** button in your account settings.
 
-![More data](./images/configure-proxy-global-on-linux/more-data.png)
+![More data](../images/configure-proxy-global-on-linux/more-data.png)
 
 ## Install Windscribe
 
@@ -407,6 +407,6 @@ windscribe connect best # Nos conecta al servidor de windscribe con mejor rendim
 
 To consult the help of windscribe we can execute the command `windscribe --help`
 
-![Windscribe Help](./images/configure-proxy-global-on-linux/windscribe-help.png)
+![Windscribe Help](../images/configure-proxy-global-on-linux/windscribe-help.png)
 
 These are some options that exist to configure Internet accesses through a proxy in GNU-Linux operating systems. Of all the variants shown in this article my favorite without a doubt is windscribe for all the facilities it offers. I hope it helps you in case you want to have a proxy configured globally in linux.

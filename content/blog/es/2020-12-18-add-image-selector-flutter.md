@@ -1,27 +1,29 @@
 ---
-title: Add an image picker in flutter
+title: Agregar selector de imagen en flutter
 path: /add-an-image-picker-in-flutter
 date: 2020-12-18
-summary: The image picker is a common component that we often need for user profiles and other things. How to add an image picker to flutter to select images from gallery or camera
+summary: El selector de imágenes es un componente común que a menudo necesitamos para los perfiles de usuario y otras cosas. Cómo agregar un selector de imágenes para aletear para seleccionar imágenes de la galería o la cámara.
 author: Yuniel Acosta
-tags: [Flutter, Image Picker, Dart]
-categories: [Programming]
-cover: ./images/portada-add-images-selector-flutter.png
+lang: es
+tags: [Flutter, Seleccionador de Imágenes, Dart]
+categories: [Programación]
+cover: ../images/portada-add-images-selector-flutter.png
 draft: false
 ---
 
 
-![background](./images/portada-add-images-selector-flutter.png)
+![background](../images/portada-add-images-selector-flutter.png)
 
-The image picker is a common component that is often needed to change user profile photos among many other options where an image needs to be uploaded. In order to provide our application with the option to upload selected images from our device, either in the camera or the gallery, we will use the [plugin](https://pub.dev/packages/image_picker) made by developers of Flutter.
+El selector de imágenes es un componente común que a menudo se necesita para cambiar las fotos de los perfiles de usuario entre muchas otras opciones donde es necesario subir una imagen. Con el fin de proveer a nuestra aplicación de la opción de subir imágenes seleccionadas desde nuestro dispositivo, ya sea en la cámara o la galería, usaremos el [complemento](https://pub.dev/packages/image_picker) hecho por desarrolladores de Flutter.
 
-## **Step 1**: Add dependency to **_pubspec.yaml_** file.
+## **Paso 1**: Agregar la dependencia a su archivo **_pubspec.yaml_**.
 
     image_picker: ^0.6.7+14
 
-## **Step 2**: Configure native platforms
+## **Paso 2**: Configurar las plataformas nativas
 
-Next, we need to configure the native settings. For the Android platform, nothing needs to be configured. For iOS, open the `Info.plist` file found in the` ios/Runner` folder and add the following keys.
+A continuación, necesitamos configurar los ajustes nativos. Para la plataforma Android, no se necesita configurar nada. Para iOS, abra el archivo `Info.plist` que se encuentra en la carpeta `ios/Runner` y agregue las siguientes claves.
+
 ~~~text
 <key>NSPhotoLibraryUsageDescription</key>
 <string>Allow access to photo library</string>
@@ -32,13 +34,15 @@ Next, we need to configure the native settings. For the Android platform, nothin
 <key>NSMicrophoneUsageDescription</key>
 <string>Allow access to microphone</string>
 ~~~
-## **Step 3**: Image selector function
 
-In the `State` class of` StatefulWidget` on our screen, declare a variable of type `File` to contain the image chosen by the user.
+## **Paso 3**: Función de selector de imágenes
+
+En la clase `State` de `StatefulWidget` de nuestra pantalla, declare una variable de tipo `File` para contener la imagen
+elegida por el usuario.
 
     File _image;
 
-Now write two functions to select images via camera and photo gallery respectively. The optional parameter `imageQuality` accepts any value between 0 and 100, this parameter can be adjusted according to the size and quality required by the application. After getting the image file, we save it in the variable `_image` and call` setState() `so that it can be displayed on the screen.
+Ahora escriba dos funciones para seleccionar imágenes a través de la cámara y la galería de fotos, respectivamente. El parámetro opcional `imageQuality` acepta cualquier valor entre 0 y 100, este parámetro se puede ajustar según el tamaño y la calidad que requiera la aplicación. Después de obtener el archivo de imagen, lo guardamos en la variable `_image` y llamamos a `setState ()` para que se pueda mostrar en la pantalla.
 
 ~~~dart
     _imgFromCamera() async {
@@ -62,9 +66,9 @@ Now write two functions to select images via camera and photo gallery respective
   }
 ~~~
 
-## **Step 4**: Create an option selector to select the camera or gallery
+## **Paso 4**: Crear un selector de opciones para seleccionar la cámara o la galería
 
-Next, we observe the function to show a `bottom sheet` for the user to choose the camera or gallery option.
+A continuación, se observa la función para mostrar un `bottom sheet` para que el usuario elija la opción de cámara o galería.
 
 ~~~dart
 void _showPicker(context) {
@@ -99,8 +103,8 @@ void _showPicker(context) {
 }
 ~~~
 
-## **Step 5**: Create and configure screen image view
-Finally, let's create a profile image bracket on the screen, which opens the selector when clicked and displays the selected image.
+## **Paso 5**: Crear y configurar la vista de imagen en pantalla
+Finalmente, creemos un soporte de imagen de perfil en la pantalla, que abre el selector al hacer clic y muestra la imagen seleccionada.
 
 ~~~dart
 @override
@@ -151,6 +155,6 @@ Widget build(BuildContext context) {
 
 ~~~
 
-Done, run the app, and you should see something like this.
+Listo, ejecute la aplicación y debería ver algo como esto.
 
-![Result](./images/resultado.gif)
+![Result](../images/resultado.gif)

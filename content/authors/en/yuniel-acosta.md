@@ -36,7 +36,7 @@ contact_items:
     link: https://goo.gl/maps/HoNArb98EDX9GbFGA
     text: Ciego de Ávila, Cuba
     target: _blank
-path: /en/yuniel-acosta 
+path: /yuniel-acosta 
 title: yuniel-acosta-en    
 name: Yuniel Acosta
 role: Full Stack Developer

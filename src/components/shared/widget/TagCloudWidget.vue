@@ -1,5 +1,5 @@
 <template>
-  <widget title="Tags" v-if="totalCount > 0">
+  <widget :title="$t('tags')" v-if="totalCount > 0">
     <div class="tag-cloud-tags">
     <g-link v-for="tag in allTags" :key="tag.id" :to="$tp(tag.path)"
        :aria-label="`${tag.title} (${tag.totalCountInArticles} posts)`"
@@ -17,6 +17,7 @@ query {
         id
         title
         path
+        lang
         belongsTo {
           totalCount
         }
@@ -28,15 +29,20 @@ query {
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-const Widget = () => import( '~/components/shared/widget/Widget.vue');
 import Tag from '~/models/Tag';
 
-@Component({components:{Widget}})
+const Widget = () => import( '~/components/shared/widget/Widget.vue');
+
+@Component({components: {Widget}})
 export default class TagCloudWidget extends Vue {
   get allTags(): Tag[] {
-    return this.$static.tags.edges.map(edge => Tag.fromJson(edge.node)).sort((tag1, tag2) => tag1?.title < tag2?.title ? -1 : tag1?.title > tag2?.title ? 1 : 0);
+    return this.$static.tags.edges
+      .filter(edge => edge.node.lang.includes(this.$i18n.locale))
+      .map(edge => Tag.fromJson(edge.node))
+      .sort((tag1, tag2) => tag1?.title < tag2?.title ? -1 : tag1?.title > tag2?.title ? 1 : 0);
   }
-  get totalCount():number{
+
+  get totalCount(): number {
     return this.$static.tags.totalCount;
   }
 

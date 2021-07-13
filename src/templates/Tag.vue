@@ -1,16 +1,21 @@
 <template>
   <Layout aside>
     <div class="container-inner mx-auto my-16">
-      <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider mb-10 uppercase">Tag: {{ $page.tag.title }}</h2>
+      <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider mb-10 uppercase"
+          v-text="$t('tag-title', {tag: $page.tag.title})">Tag: Java</h2>
 
-      <div v-for="post in $page.tag.belongsTo.edges" :key="post.node.id" class="post border-gray-400 border-b mb-12">
-        <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider"><g-link :to="$tp(post.node.path)" class="inline-link">{{ post.node.title }}</g-link></h2>
-        <post-header :article="post.node"/>
+      <div v-for="post in posts" :key="post.id" class="post border-gray-400 border-b mb-12">
+        <h2 class="text-3xl md:text-4xl text-center md:text-left font-bold tracking-wider">
+          <g-link :to="$tp(post.path)" class="inline-link">{{ post.title }}</g-link>
+        </h2>
+        <post-header :article="post"/>
         <div class="flex flex-col md:flex-row mb-16">
-          <g-image alt="Cover image" v-if="post.node.cover" class="object-cover md:w-1/3 border border-green-500 md:mr-5" :src="post.node.cover" />
+          <g-image alt="Cover image" v-if="post.cover" class="object-cover md:w-1/3 border border-green-500 md:mr-5"
+                   :src="post.cover"/>
           <div class="text-center md:text-left mt-5 md:mt-0">
-            {{ post.node.summary }}
-            <g-link :to="$tp(post.node.path)" class="font-bold uppercase inline-link">Read&nbsp;→</g-link>
+            {{ post.summary }}
+            <g-link :to="$tp(post.path)" class="font-bold uppercase inline-link" v-text="$t('read')">Read&nbsp;→
+            </g-link>
           </div>
         </div>
       </div> <!-- end post -->
@@ -43,6 +48,7 @@ query Tag ($id: ID!, $page: Int) {
             timeToRead
     	      date (format: "MMMM D, YYYY")
             path
+            lang
             summary
             cover
             author
@@ -59,8 +65,10 @@ query Tag ($id: ID!, $page: Int) {
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-const PaginationPosts = () => import('~/components/post/PaginationPosts.vue');
 import PostHeader from '~/components/post/PostHeader.vue';
+import Article from '~/models/Article';
+
+const PaginationPosts = () => import('~/components/post/PaginationPosts.vue');
 
 @Component<Tag>({
   metaInfo() {
@@ -80,8 +88,12 @@ export default class Tag extends Vue {
   private get pageTitle() {
     return this.$context.title;
   }
+  get posts(): Article[]{
+    return this.$page.tag.belongsTo.edges
+      .filter(edge => edge.node.lang === this.$i18n.locale)
+      .map(edge => Article.fromJson(edge.node));
+  }
   mounted() {
-    //@ts-ignore
     this.$store.commit('changePostId', 0)
   }
 }
