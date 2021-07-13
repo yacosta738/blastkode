@@ -7,6 +7,7 @@ export interface IArticle {
   title?: string;
   date?: Date | string;
   path?: string;
+  lang?: string;
   timeToRead?: number;
   summary?: string;
   tags?: ITag[];
@@ -23,6 +24,7 @@ export default class Article implements IArticle {
       node?.title,
       node?.date,
       node?.path,
+      node?.lang,
       node?.timeToRead,
       node?.summary,
       node?.tags?.map(tag => Tag.fromJson(tag)),
@@ -37,6 +39,7 @@ export default class Article implements IArticle {
     public title?: string,
     public date?: Date | string,
     public path?: string,
+    public lang?: string,
     public timeToRead?: number,
     public summary?: string,
     public tags?: ITag[],

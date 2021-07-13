@@ -16,8 +16,8 @@
 </template>
 
 <page-query>
-query Posts ($page: Int) {
-  posts: allPost (sortBy: "date", order: DESC, perPage: 5, page: $page) @paginate {
+query Posts ($page: Int, $locale: String) {
+  posts: allPost (sortBy: "date", order: DESC, perPage: 5, page: $page, filter:{lang:{eq: $locale}}) @paginate {
     totalCount
     pageInfo {
       totalPages
@@ -28,6 +28,7 @@ query Posts ($page: Int) {
         id
         title
         date (format: "MMMM D, Y")
+        lang
         summary
         timeToRead
         author
@@ -41,14 +42,18 @@ query Posts ($page: Int) {
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
-import PaginationPosts from '@/components/PaginationPosts.vue';
+import PaginationPosts from '~/components/post/PaginationPosts.vue';
 import "@/declarations/vue-meta";
-import ArticleSummary from '~/components/ArticleSummary.vue'
+import ArticleSummary from '~/components/post/ArticleSummary.vue';
 import {compareAsc} from 'date-fns';
+
 @Component<Blog>({
   metaInfo() {
     return {
-      title: 'Blog'
+      title: 'Blog',
+      htmlAttrs: {
+        lang: this.$i18n.locale
+      }
     };
   },
   components: {
@@ -63,10 +68,13 @@ export default class Blog extends Vue {
   private get pageTitle() {
     return this.$context.title;
   }
-get posts(){
-    //@ts-ignore
-    return this.$page.posts.edges.filter(post => compareAsc(new Date(post.node.date), new Date()) === -1);
-}
+
+  get posts() {
+    return this.$page.posts.edges
+      .filter(edge => edge.node.lang === this.$i18n.locale)
+      .filter(post => compareAsc(new Date(post.node.date), new Date()) === -1);
+  }
+
   mounted() {
     this.$store.commit('changePostId', -1);
     this.$store.commit('updateShowSide', false);

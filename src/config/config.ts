@@ -34,40 +34,41 @@ export const socialMedia: SocialMedia[] = [
     url: 'https://codepen.io/yacosta738',
   },
 ];
+import Vue from 'vue';
 
 export const navMenus: Menu[] = [
   {
-    name: 'About',
+    name: 'about',
     url: '/#about',
     dataCypress: 'about',
     vScrollTo: '#about',
   },
   {
-    name: 'Experience',
+    name: 'experience',
     url: '/#jobs',
     dataCypress: 'jobs',
     vScrollTo: '#jobs',
   },
   {
-    name: 'Work',
+    name: 'work',
     url: '/#projects',
     dataCypress: 'projects',
     vScrollTo: '#projects',
   },
   {
-    name: 'Last Articles',
+    name: 'last-articles',
     url: '/#last3articles',
     dataCypress: 'last3articles',
     vScrollTo: '#plast3articles',
   },
   {
-    name: 'Contact',
+    name: 'contact',
     url: '/#contact',
     dataCypress: 'contact',
     vScrollTo: '#contact',
   },
   {
-    name: 'Blog',
+    name: 'blog',
     url: '/blog/',
     dataCypress: 'blog',
   },

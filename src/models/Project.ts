@@ -7,6 +7,7 @@ const allTech = require('@/data/tech.json');
 export interface IProject {
   id?: string | undefined;
   title?: string | undefined;
+  lang?: string | undefined;
   date?: string | Date | undefined;
   cover?: string | Image | undefined;
   github?: string | undefined;
@@ -30,6 +31,7 @@ export default class Project implements IProject {
     return new Project(
       node?.id,
       node?.title,
+      node?.lang,
       node?.date,
       node?.cover !== null ? Image.fromJson(node?.cover) : undefined,
       node?.github,
@@ -46,6 +48,7 @@ export default class Project implements IProject {
   constructor(
     public id?: string,
     public title?: string,
+    public lang?: string,
     public date?: string | Date,
     public cover?: string | Image,
     public github?: string,

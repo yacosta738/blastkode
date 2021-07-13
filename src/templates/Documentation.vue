@@ -19,13 +19,17 @@ query Documentation ($id: ID!) {
 }
 </page-query>
 
-<script>
-export default {
+<script lang="ts">
+import {Component, Vue} from "vue-property-decorator";
+@Component({
   metaInfo() {
     return {
-      title: this.$page.documentation.title
+      title: this.$page?.documentation?.title
     }
   }
+})
+export default class Documentation extends Vue {
+
 }
 </script>
 

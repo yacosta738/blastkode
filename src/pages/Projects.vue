@@ -2,18 +2,18 @@
   <Layout>
     <div class="container mx-auto py-16" v-scroll-reveal.reset>
       <div>
-        <h1 class="big-heading">All Projects</h1>
-        <p class="subtitle">A big list of things I've worked on</p>
+        <h1 class="big-heading" v-text="$t('all-projects')">All Projects</h1>
+        <p class="subtitle" v-text="$t('big-list')">A big list of things I've worked on</p>
       </div>
       <div class="styled-table-container">
         <table>
           <thead>
           <tr>
-            <th>Year</th>
-            <th>Title</th>
-            <th class="hide-on-mobile">Made at</th>
-            <th class="hide-on-mobile">Built with</th>
-            <th>Link</th>
+            <th v-text="$t('year')">Year</th>
+            <th v-text="$t('title')">Title</th>
+            <th class="hide-on-mobile" v-text="$t('made-at')">Made at</th>
+            <th class="hide-on-mobile" v-text="$t('built-at')">Built with</th>
+            <th v-text="$t('link')">Link</th>
           </tr>
           </thead>
           <tbody>
@@ -41,26 +41,26 @@
 
 <page-query>
 query Project {
-projects: allProject (sortBy: "date", order: DESC, , filter: { draft: { eq: false } }) {
-edges {
-node {
-id
-path
-title
-date (format: "MMMM D, Y")
-cover
-github
-external
-ios
-android
-company
-tech
-showInProjects
-featured
-content
-}
-}
-}
+  projects: allProject (sortBy: "date", order: DESC, , filter: { draft: { eq: false } }) {
+    edges {
+      node {
+        id
+        path
+        title
+        date (format: "MMMM D, Y")
+        cover
+        github
+        external
+        ios
+        android
+        company
+        tech
+        showInProjects
+        featured
+        content
+      }
+    }
+  }
 }
 </page-query>
 
@@ -69,14 +69,17 @@ import {Component, Vue} from 'vue-property-decorator';
 import Project from '~/models/Project';
 import {isAfter, isBefore} from 'date-fns';
 
-import ProjectLinks from '~/components/ProjectLinks.vue';
-import ProjectTechList from '~/components/ProjectTechList.vue';
+import ProjectLinks from '~/components/sections/project/ProjectLinks.vue';
+import ProjectTechList from '~/components/sections/project/ProjectTechList.vue';
 
 @Component<Projects>({
   components: {ProjectTechList, ProjectLinks},
   metaInfo() {
     return {
-      title: 'All Projects'
+      title: 'All Projects',
+      htmlAttrs: {
+        lang: this.$i18n.locale
+      }
     };
   }
 })
@@ -89,7 +92,6 @@ export default class Projects extends Vue {
   }
 
   get projects(): Project[] {
-    //@ts-ignore
     return this.$page.projects.edges.map(edge => Project.fromJson(edge.node)).sort((a, b) => {
      const dateA = typeof a?.date === 'string'? Date.parse(a.date) : a.date;
      const dateB = typeof b?.date === 'string'? Date.parse(b.date) : b.date;

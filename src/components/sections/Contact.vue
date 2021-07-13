@@ -4,9 +4,9 @@
       <div class="grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-light-navy text-light-slate rounded-lg shadow-lg">
         <div class="flex flex-col justify-between">
           <div>
-            <h2 class="numbered-heading">Contact me</h2>
-            <h3 class="text-4xl lg:text-5xl text-center md:text-left font-bold leading-tight text-lightest-slate">Lets talk about everything!</h3>
-            <div class="text-light-slate mt-8  text-center md:text-left">
+            <h2 class="numbered-heading" v-text="$t('contact-me')">Contact me</h2>
+            <h3 class="text-4xl lg:text-5xl text-center md:text-left font-bold leading-tight text-lightest-slate" v-text="$t('lets-talk')">Lets talk about everything!</h3>
+            <div class="text-light-slate mt-8  text-center md:text-left" v-text="$t('contact-description')">
               I am interested in new opportunities especially ambitious or large projects. However, if you have other request or question, don't hesitate to contact me using below form either.
             </div>
           </div>
@@ -517,31 +517,31 @@
         </div>
         <form id="contact-form" class="mx-auto" method="POST" action="https://formspree.io/f/xknperzd">
           <div>
-            <span class="uppercase text-sm text-lightest-slate font-bold">Your Full Name</span>
+            <span class="uppercase text-sm text-lightest-slate font-bold" v-text="$t('your-full-name')">Your Full Name</span>
             <input id="form-name"
                    class="w-full bg-transparent text-green-500 border-2 border-green-500 rounded-lg mt-2 p-3 focus:outline-none focus:shadow-outline"
-                   name="name" required type="text" placeholder="Your Full Name">
+                   name="name" required type="text" :placeholder="$t('your-full-name').toLocaleLowerCase()">
           </div>
           <div class="mt-8">
-            <span class="uppercase text-sm text-lightest-slate font-bold">Your Email</span>
+            <span class="uppercase text-sm text-lightest-slate font-bold" v-text="$t('your-email')">Your Email</span>
             <input id="form-email"
                    class="w-full bg-transparent text-green-500 border-2 border-green-500 rounded-lg mt-2 p-3 focus:outline-none focus:shadow-outline"
-                   placeholder="Your Email" name="email" required type="email">
+                   :placeholder="$t('your-email').toLocaleLowerCase()" name="email" required type="email">
           </div>
           <div class="mt-8">
-            <span class="uppercase text-sm text-lightest-slate font-bold">Subject</span>
+            <span class="uppercase text-sm text-lightest-slate font-bold" v-text="$t('subject')">Subject</span>
             <input id="form-subject"
                    class="w-full bg-transparent text-green-500 border-2 border-green-500 rounded-lg mt-2 p-3 focus:outline-none focus:shadow-outline"
-                   placeholder="Subject" name="subject" required type="text">
+                   :placeholder="$t('subject').toLocaleLowerCase()" name="subject" required type="text">
           </div>
           <div class="mt-8">
-            <span class="uppercase text-sm text-lightest-slate font-bold">Message</span>
-            <textarea id="form-message" placeholder="Message" name="message" required
+            <span class="uppercase text-sm text-lightest-slate font-bold" v-text="$t('message')">Message</span>
+            <textarea id="form-message" :placeholder="$t('message').toLocaleLowerCase()" name="message" required
                       class="w-full h-32 bg-transparent text-green-500 border-2 border-green-500 rounded-lg mt-2 p-3 focus:outline-none focus:shadow-outline"></textarea>
           </div>
           <div class="mt-8">
             <button class="big-button w-full"
-                    type="submit" value="Send Message">
+                    type="submit" value="Send Message" v-text="$t('send-message')">
               Send Message
             </button>
           </div>
