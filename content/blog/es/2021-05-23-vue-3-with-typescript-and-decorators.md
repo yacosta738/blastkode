@@ -316,4 +316,4 @@ npm run serve
 
 ```
 
-Now just go to [](http://localhost:8080/)<http://localhost:8080/>. You can find the example source code [here](https://github.com/yacosta738/vue-typescript-decorators).
+Now just go to <http://localhost:8080/>. You can find the example source code [here](https://github.com/yacosta738/vue-typescript-decorators).
