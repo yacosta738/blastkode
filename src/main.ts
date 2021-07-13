@@ -71,7 +71,7 @@ export default function(Vue, {router, head, isClient, appOptions}) {
     // Set default layout as a global component
     Vue.component('Layout', DefaultLayout);
     // Vue Flag Component
-    Vue.component('country-flag', CountryFlag);
+    if (isClient) { Vue.component('country-flag', CountryFlag); }
     Vue.use(VueScrollTo, {
         duration: 500,
         easing: 'ease',

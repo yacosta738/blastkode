@@ -1,12 +1,7 @@
 ---
 title: Vue 3 with Typescript and Decorators
 path: /vue3-with-ypescript-and-decorators
-summary: I always use Typescript and some decorator libraries on my VueJS
-  projects. It has allowed me to use a class syntax for my components and store
-  files which, I feel, is easier to read than the normal VueJS javascript
-  syntax. I'll be going through a step by step process on how to achieve this.
-  We will be building a counter component that will allow you to
-  increment/decrement a counter.
+summary: Siempre uso Typecript y algunas bibliotecas de decoradores en mis proyectos de VueJS. Me ha permitido usar una sintaxis de clase para mis componentes y almacenar archivos que, creo, es más fácil de leer que la sintaxis normal de javascript de VueJS. Pasaré por un proceso paso a paso sobre cómo lograr esto. Construiremos un componente de contador que le permitirá incrementar / disminuir un contador.
 date: 2021-05-30T19:54:13.642Z
 cover: /uploads/vue3-typescript.png
 author: Yuniel Acosta
@@ -18,26 +13,26 @@ tags:
   - VueX
   - Components
 categories:
-  - Programming
+  - Programación
 draft: false
 ---
-![vue3+typescript](/uploads/vue3-typescript.png "Vue 3 with Typescript")
+![vue3+typescript](/uploads/vue3-typescript.png "Vue 3 con Typescript")
 
-I always use Typescript and some decorator libraries on my [VueJS](https://vuejs.org/) projects. It has allowed me to use a class syntax for my components and store files which, I feel, is easier to read than the normal VueJS javascript syntax. I'll be going through a step by step process on how to achieve this. We will be building a counter component that will allow you to increment/decrement a counter.
+Siempre uso Typecript y algunas bibliotecas de decoradores en mis proyectos de [VueJS](https://vuejs.org/). Me ha permitido usar una sintaxis de clase para mis componentes y almacenar archivos que, creo, es más fácil de leer que la sintaxis normal de javascript de VueJS. Pasaré por un proceso paso a paso sobre cómo lograr esto. Construiremos un componente de contador que le permitirá incrementar / disminuir un contador.
 
-First we want to start off by creating a new VueJS project using the [Vue CLI](https://cli.vuejs.org/). If you haven't already done so, you can easily install the CLI with the following command:
+Primero, queremos comenzar creando un nuevo proyecto de VueJS usando la [Vue CLI](https://cli.vuejs.org/). Si aún no lo ha hecho, puede instalar fácilmente la CLI con el siguiente comando:
 
 ```shell
 npm install -g @vue/cli
 ```
 
-Next, we are going to create a new VueJS project with the `vue create` command.
+A continuación, vamos a crear un nuevo proyecto de VueJS con el comando `vue create`.
 
 ```shell
 vue create vue-typescript-decorators
 ```
 
-With the latest version of the CLI, you can create a Vue 2 or 3 project. Once you run the `vue create` command, you will be prompted with the following options. We will pick `Manually select features` so that we can create a Typescript project with Vue 3.
+Con la última versión de la CLI, puede crear un proyecto Vue 2 o 3. Una vez que ejecute el comando `vue create`, se le solicitarán las siguientes opciones. Elegiremos `Manually select features` para que podamos crear un proyecto de TypeScript con Vue 3.
 
 ```shell
 Vue CLI v4.5.9
@@ -48,7 +43,7 @@ Vue CLI v4.5.9
 ❯ Manually select features
 ```
 
-You will be prompted with which features you want to add to the project. For now, we will just add Typescript, Router and Vuex.
+Se le preguntará qué funciones desea agregar al proyecto. Por ahora, solo agregaremos TypeScript, Router y Vuex.
 
 ```shell
 Vue CLI v4.5.9
@@ -66,7 +61,7 @@ Vue CLI v4.5.9
  ◯ E2E Testing
 ```
 
-You will be prompted with which version of VueJS you want to use. In this example, we are going to use version 3 but this example should work just fine with version 2 or 3 (expect for how you register Vuex in 2 vs 3).
+Se le preguntará qué versión de VueJS desea utilizar. En este ejemplo, vamos a usar la versión 3, pero este ejemplo debería funcionar bien con la versión 2 o 3 (espere cómo registra Vuex en 2 vs 3).
 
 ```shell
 ? Choose a version of Vue.js that you want to start the project with
@@ -74,18 +69,18 @@ You will be prompted with which version of VueJS you want to use. In this exampl
 ❯ 3.x (Preview)
 ```
 
-Before we start coding, we need to install the libraries that add decorator support to our project. Here is a list of libraries we will be adding:
+Antes de comenzar a codificar, necesitamos instalar las bibliotecas que agregan soporte de decorador a nuestro proyecto. Aquí hay una lista de bibliotecas que agregaremos:
 
-* [vue-class-component](https://github.com/vuejs/vue-class-component) used to define components which is installed by default when Typescript Vue 3 project created
-* [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator) used to define props, watches, etc.
-* [vuex-class](https://github.com/ktsn/vuex-class) used to import state, getters, mutations and actions in components
-* [vuex-class-modules](https://github.com/gertqin/vuex-class-modules) used to define state, getters, mutations and actions
+* [vue-class-component](https://github.com/vuejs/vue-class-component) utilizado para definir componentes que se instalan de forma predeterminada cuando se crea el proyecto Typescript Vue 3
+* [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator) utilizado para definir **props**, **watches**, etc.
+* [vuex-class](https://github.com/ktsn/vuex-class) utilizado para importar **state**, **getters**, **mutations** y **actions** en componentes
+* [vuex-class-modules](https://github.com/gertqin/vuex-class-modules) utilizado para definir **state**, **getters**, **mutations** y **actions**
 
 ```shell
  npm install vue-property-decorator vuex-class vuex-class-modules -P
 ```
 
-If we look at the `Home.vue` view, the generated view already uses `vue-class-component` which uses the `Options` decorator to define a Vue component. Inside the `@Options` decorator, I added the `name` attribute and called this view `Home`. I noticed that if you do not do this, it is much harder to figure out what is what in the Vue tools when inspecting the different components. Also notice how you define a class called `Home` as the default export and extend from `Vue` from the `vue-class-component` library.
+Si miramos `Home.vue` en la carpeta views, la vista generada ya usa` vue-class-component` que usa el decorador `Options` para definir un componente Vue. Dentro del decorador `@Options`, agregué el atributo `name` y llamé a esta vista `Home`. Noté que si no hace esto, es mucho más difícil averiguar qué es qué en las herramientas de Vue al inspeccionar los diferentes componentes. También observé cómo define una clase llamada `Home` como la exportación predeterminada y se extiende desde` Vue` de la biblioteca `vue-class-component`.
 
 ```typescript
 // src/views/Home.vue
@@ -103,14 +98,14 @@ export default class Home extends Vue {}
 </script>
 ```
 
-Next we are going to setup the Vuex store. I will create a vuex module so you can see what that looks like using the `vuex-class-modules` libary. This counter example doesn't require a module since it is so simple but most projects increase in complexity pretty quickly where splitting out your stores into modules becomes important.
+A continuación, configuraremos la Vuex store. Crearé un módulo vuex para que puedas ver cómo se ve usando la biblioteca `vuex-class-modules`. Este contraejemplo no requiere un módulo, ya que es muy simple, pero la mayoría de los proyectos aumentan en complejidad con bastante rapidez, donde dividir los stores en módulos se vuelve importante.
 
-We will go ahead and create a new store called `counter.ts` under `src/store`. You will notice that we just need to export a default class that extends `VueModule` from `vuex-class-modules`. Inside the class we will create examples of state, getters, mutations and actions.
+Seguiremos adelante y crearemos una nueva store llamada `counter.ts` en `src/store`. Notarás que solo necesitamos exportar una clase predeterminada que extiende `VueModule` de` vuex-class-modules`. Dentro de la clase crearemos ejemplos de **state**, **getters**, **mutations** y **actions**.
 
-* State - Inside the class we will add a private level variable called `_count`. All state will be defined as class level variables.
-* Getters - I created a getter method called `count` to return the value of the class level variable. All vuex getters will be defined as javascript getters in the class. This getter was not necessary for this simple example but I threw it in there so that you can see examples of a getter.
-* Mutations - Two mutations are added, one to add to the counter and one to subtract from the counter. These are just standard methods in the class but need to be decorated with `@Mutation`.
-* Actions - Two actions are added, one to add to the counter and one to subtract from the counter. Each method has been defined with `async` since actions are asynchronous functions. These are just standard methods in the class but need to be decorated with `@Action`.
+* State - Dentro de la clase agregaremos una variable de nivel privado llamada `_count`. Todo el estado se definirá como variables de nivel de clase.
+* Getters: creé un método getter llamado `count` para devolver el valor de la variable de nivel de clase. Todos los getters de vuex se definirán como getters de JavaScript en la clase. Este getter no era necesario para este ejemplo simple, pero lo incluí para que puedas ver ejemplos de un getter.
+* Mutations: se agregan dos mutaciones, una para agregar al contador y otra para restar del contador. Estos son solo métodos estándar en la clase, pero deben decorarse con `@Mutation`.
+* Actions: se agregan dos acciones, una para agregar al contador y otra para restar del contador. Cada método se ha definido con `async` ya que las acciones son funciones asincrónicas. Estos son solo métodos estándar en la clase, pero deben decorarse con `@Action`.
 
 ```typescript
 // src/store/counter.ts
@@ -152,7 +147,7 @@ export default class Counter extends VuexModule {
 }
 ```
 
-We now need to register `counter.ts` as a module using Vuex 4 (version 4 is used automatically in a Vue 3 project). Using the new Vuex 4 syntax, we create an empty store with `createStore` and then create a new instance of `Counter` and register it with the module name of `counter`. We will do this in `index.ts` to define the counter module and any subsequent modules we create.
+Ahora necesitamos registrar `counter.ts` como un módulo usando Vuex 4 (la versión 4 se usa automáticamente en un proyecto de Vue 3). Usando la nueva sintaxis de Vuex 4, creamos una store vacía con `createStore` y luego creamos una nueva instancia de `Counter` y la registramos con el nombre de módulo de `counter`. Haremos esto en `index.ts` para definir el módulo contador y cualquier módulo subsiguiente que creemos.
 
 ```typescript
 // src/store/index.ts
@@ -168,7 +163,7 @@ export default store;
 
 ```
 
-We are now going to create the counter component. Create a file called `Counter.vue` under `src/components`. We'll start by exporting a class level component. We will use the `@Options` annotation to define the name of the component as `Counter`. Last, we will create a constant that makes a reference to the `counter` Vuex module using the `vuex-class` library.
+Ahora vamos a crear el componente contador. Cree un archivo llamado `Counter.vue` en `src/components`. Comenzaremos exportando un componente de nivel de clase. Usaremos la anotación `@Options` para definir el nombre del componente como `Counter`. Por último, crearemos una constante que haga referencia al módulo Vuex `counter` usando la biblioteca `vuex-class`.
 
 ```typescript
 <script lang="ts">
@@ -188,14 +183,14 @@ export default class Counter extends Vue {
 
 ```
 
-We'll add a property to the `Counter` component just as an example of how to use the `@Prop` decorator from the `vue-property-decorator` library. This property serves no real purpose in this example but just gives you an idea on how to use it. There is a way to define the property in the `@Options` decorator but I prefer to use `vue-property-decorator` instead.
+Agregaremos una propiedad al componente `Counter` solo como un ejemplo de cómo usar el decorador `@Prop` de la biblioteca `vue-property-decorator`. Esta propiedad no tiene ningún propósito real en este ejemplo, solo le da una idea de cómo usarla. Hay una forma de definir la propiedad en el decorador `@Options` pero prefiero usar `vue-property-decorator` en su lugar.
 
 ```typescript
 @Prop({ type: String })
 private msg!: string;
 ```
 
-To reference the count in the Vuex state, we can use the namespaced decorator from `vuex-class` to create a private level variable in the component. We can also do the same thing for the getters in Vuex. In both cases, I specified the name of the property in the Vuex store inside the decorator. This is only necessary if the name of the Vuex property differs from private level variable you are creating.
+Para hacer referencia al recuento en el estado de Vuex, podemos usar el decorador de espacio de nombres de `vuex-class` para crear una variable de nivel privado en el componente. También podemos hacer lo mismo con los getters en Vuex. En ambos casos, especifiqué el nombre de la propiedad en la store Vuex dentro del decorador. Esto solo es necesario si el nombre de la propiedad Vuex difiere de la variable de nivel privado que está creando.
 
 ```typescript
   @counterModule.State("_count")
@@ -206,7 +201,7 @@ To reference the count in the Vuex state, we can use the namespaced decorator fr
 
 ```
 
-To reference the actions in the Vuex store, we will use the namespaced decorator again to create private level variables in the component to reference the Vuex actions.
+Para hacer referencia a las acciones en la Vuex store, usaremos el decorador namespaced nuevamente para crear variables de nivel privado en el componente para hacer referencia a las acciones de Vuex.
 
 ```typescript
   @counterModule.Action
@@ -217,7 +212,7 @@ To reference the actions in the Vuex store, we will use the namespaced decorator
 
 ```
 
-Last thing to do in the component is to create the template. This is pretty straight forward. We will create an `h1` that displays the passed property, two buttons for adding and subtracting from the counter and two divs to display the counter from the Vuex state and getters.
+Lo último que debe hacer en el componente es crear la plantilla (template). Esto es bastante sencillo. Crearemos un `h1` que muestre la propiedad pasada, dos botones para sumar y restar del contador y dos `divs` para mostrar el contador del estado de Vuex y los getters.
 
 ```html
 <template>
@@ -234,7 +229,7 @@ Last thing to do in the component is to create the template. This is pretty stra
 
 ```
 
-The final version of `Counter.vue` should look like this.
+La versión final de `Counter.vue` se debe ver así. 
 
 ```html
 // src/components/Counter.vue
@@ -280,7 +275,7 @@ export default class Counter extends Vue {
 
 ```
 
-Lastly, we are going to drop in the `Counter` component onto the home page. We will pass the message of `Counter` to the component.
+Por último, vamos a colocar el componente `Counter` en la página de inicio. Pasaremos el mensaje de `Counter` al componente.
 
 ```html
 // src/views/Home.vue
@@ -309,11 +304,11 @@ export default class Home extends Vue {}
 
 ```
 
-All you need to do now is run the project.
+Todo lo que necesitas ahora es correr el proyecto.
 
 ```shell
 npm run serve
 
 ```
 
-Now just go to <http://localhost:8080/>. You can find the example source code [here](https://github.com/yacosta738/vue-typescript-decorators).
+Ahora simplemente vaya a <http://localhost:8080/>. Puede encontrar el código fuente de ejemplo [aquí](https://github.com/yacosta738/vue-typescript-decorators).

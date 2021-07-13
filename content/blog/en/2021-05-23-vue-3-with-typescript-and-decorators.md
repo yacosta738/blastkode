@@ -217,7 +217,7 @@ To reference the actions in the Vuex store, we will use the namespaced decorator
 
 ```
 
-Last thing to do in the component is to create the template. This is pretty straight forward. We will create an `h1` that displays the passed property, two buttons for adding and subtracting from the counter and two divs to display the counter from the Vuex state and getters.
+Last thing to do in the component is to create the template. This is pretty straight forward. We will create an `h1` that displays the passed property, two buttons for adding and subtracting from the counter and two `divs` to display the counter from the Vuex state and getters.
 
 ```html
 <template>

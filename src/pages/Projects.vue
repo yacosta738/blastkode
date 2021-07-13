@@ -92,7 +92,6 @@ export default class Projects extends Vue {
   }
 
   get projects(): Project[] {
-    //@ts-ignore
     return this.$page.projects.edges.map(edge => Project.fromJson(edge.node)).sort((a, b) => {
      const dateA = typeof a?.date === 'string'? Date.parse(a.date) : a.date;
      const dateB = typeof b?.date === 'string'? Date.parse(b.date) : b.date;
