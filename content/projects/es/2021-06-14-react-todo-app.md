@@ -1,5 +1,6 @@
 ---
 title: React Todo App
+lang: es
 cover: /uploads/todos-react.png
 date: 2021-06-14T16:46:27.482Z
 github: https://github.com/yacosta738/react-todos-app
@@ -11,6 +12,7 @@ showInProjects: true
 featured: false
 draft: false
 ---
-A simple to-do list application to demonstrate my React knowledge.
 
-Front-end project only, no backend or database storage.
+Una sencilla aplicación de lista de tareas para demostrar mi conocimiento de React.
+
+Solo proyecto de front-end, sin backend ni almacenamiento de base de datos.
