@@ -40,13 +40,14 @@
 </template>
 
 <page-query>
-query Project {
-  projects: allProject (sortBy: "date", order: DESC, , filter: { draft: { eq: false } }) {
+query Project($locale: String) {
+  projects: allProject (sortBy: "date", order: DESC, filter: { lang: {eq: $locale}, draft: { eq: false }}) {
     edges {
       node {
         id
         path
         title
+        lang
         date (format: "MMMM D, Y")
         cover
         github
