@@ -10,11 +10,41 @@
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
+import {isClient} from '~/util/utilities';
+import {scroller} from 'vue-scrollto/src/scrollTo';
+
+const scrollTo = scroller();
 
 @Component
 export default class Loader extends Vue {
-  mounted(){
+  mounted() {
+    const currentRoute = this.$router.currentRoute;
+    if (isClient()) {
+      sessionStorage.setItem('url-to-navigate', JSON.stringify({
+        fullPath: currentRoute.fullPath,
+        path: currentRoute.path,
+        name: currentRoute.name,
+        hash: currentRoute.hash,
+        meta: currentRoute.meta
+      }));
+    }
     this.$store.commit('updateFirstTimeLoading', false);
+  }
+
+  beforeDestroy() {
+    if (isClient() && sessionStorage.getItem('url-to-navigate')) {
+      const url = sessionStorage.getItem('url-to-navigate');
+      if (url) {
+        const route = JSON.parse(url);
+        if (route && route.hash) {
+          setTimeout(() => {
+            scrollTo(route.hash);
+            this.$store.commit('updateShowNavbar', true);
+          }, 1000);
+        }
+      }
+      sessionStorage.removeItem('url-to-navigate');
+    }
   }
 }
 </script>
@@ -27,7 +57,7 @@ export default class Loader extends Vue {
   left: 0;
   right: 0;
   width: 100%;
-  height:100vh;
+  height: 100vh;
   background-image: radial-gradient(circle farthest-corner at center, #112240 0%, #0a192f 100%);
   z-index: 99;
   transition: var(--transition);

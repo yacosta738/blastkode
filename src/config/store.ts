@@ -1,5 +1,6 @@
 // Store
 import Vuex from 'vuex';
+import {Menu, navMenus} from '~/config/config';
 
 const DARK = 'dark';
 const LIGHT = 'light';
@@ -14,6 +15,10 @@ export default function initStore(Vue, isClient: boolean) {
     return isClient ? !localStorage.getItem('theme') || DARK : DARK;
   }
 
+  function getNavMenus(): Menu[] {
+    return navMenus;
+  }
+
   return new Vuex.Store({
     state: {
       theme: getTheme(),
@@ -25,6 +30,7 @@ export default function initStore(Vue, isClient: boolean) {
       firstTimeLoading: true,
       swStatus: 'pending',
       searchModal: false,
+      menus: getNavMenus(),
     },
     getters: {
       themeClass: state => (state.theme === DARK ? 'dark' : 'light'),
@@ -35,6 +41,7 @@ export default function initStore(Vue, isClient: boolean) {
       firstTimeLoading: state => state.firstTimeLoading,
       swStatus: state => state.swStatus,
       searchModal: state => state.searchModal,
+      menus: state => state.menus,
     },
     mutations: {
       toggleTheme(state) {
@@ -88,6 +95,15 @@ export default function initStore(Vue, isClient: boolean) {
       updateSearchModels(state, searchModal) {
         state.searchModal = searchModal;
       },
+      updateMenus(state, menus: Menu[]) {
+        state.menus = menus;
+      },
+      addMenu(state, menu: Menu) {
+        state.menus.push(menu);
+      },
+      removeMenu(state, menu: Menu) {
+        state.menus = state.menus.filter(m => m.name !== menu.name && m.url !== menu.url);
+      }
     },
   });
 }

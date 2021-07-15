@@ -11,7 +11,6 @@ export default function initVueScrollReveal(Vue, isClient: boolean) {
       if (currentScrollPosition < 0) {
         return;
       }
-      // currentScrollPosition < lastScrollPosition? 'UP' : 'DOWN
       duration = currentScrollPosition < lastScrollPosition ? 50 : 800;
       lastScrollPosition = currentScrollPosition;
     });
