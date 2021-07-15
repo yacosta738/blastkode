@@ -73,8 +73,17 @@ export default function(Vue, {router, head, isClient, appOptions}) {
     // Vue Flag Component
     if (isClient) { Vue.component('country-flag', CountryFlag); }
     Vue.use(VueScrollTo, {
-        duration: 500,
-        easing: 'ease',
+      duration: 500,
+      lazy: false,
+      easing: 'ease',
+      offset: 0,
+      force: true,
+      cancelable: true,
+      onStart: false,
+      onDone: false,
+      onCancel: false,
+      x: false,
+      y: true
     });
 
     head.meta.push({

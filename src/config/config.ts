@@ -34,7 +34,6 @@ export const socialMedia: SocialMedia[] = [
     url: 'https://codepen.io/yacosta738',
   },
 ];
-import Vue from 'vue';
 
 export const navMenus: Menu[] = [
   {

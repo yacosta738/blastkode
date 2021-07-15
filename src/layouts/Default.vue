@@ -4,7 +4,7 @@
       :class="theme">
     <search-box/>
     <loader v-if="$store.state.loading"/>
-    <div id="page-wrapper" :class="{'filter blur':$store.state.searchModal}" v-else>
+    <div id="page-wrapper" :class="{'filter blur':$store.state.searchModal}">
       <navbar/>
       <div class="flex flex-wrap flex-col md:flex-row justify-around">
         <transition name="fade" appear>
