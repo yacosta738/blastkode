@@ -1,3 +1,3 @@
-module.exports =     {
-    use: 'gridsome-plugin-typescript',
+module.exports = {
+  use: 'gridsome-plugin-typescript',
 };

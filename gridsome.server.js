@@ -4,12 +4,12 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-const {version} = require("./package.json");
+const { version } = require("./package.json");
 
 module.exports = function (api, options) {
   process.env.GRIDSOME_BASE_URL = api.config.publicPath;
   process.env.GRIDSOME_VERSION = version;
-  api.chainWebpack(async (config, {isClient, isProd}) => {
+  api.chainWebpack(async (config, { isClient, isProd }) => {
     if (isProd && isClient) {
       config.optimization.splitChunks({
         chunks: "all",
@@ -36,38 +36,48 @@ module.exports = function (api, options) {
       });
     }
   });
-  api.onCreateNode(options => {
-    if (options.internal.typeName === 'Post' || options.internal.typeName === 'Author') {
+  api.onCreateNode((options) => {
+    if (
+      options.internal.typeName === "Post" ||
+      options.internal.typeName === "Author"
+    ) {
       // modify the options directly
-      options.path = `/${options.lang}${options.path}`
+      options.path = `/${options.lang}${options.path}`;
       // or return new options
-      return {...options}
+      return { ...options };
     }
-  })
+  });
   api.loadSource((store) => {
     const categoryHash = {};
     const tagHash = {};
-    const categories = store.getCollection('Category');
-    const tags = store.getCollection('Tag');
-    const posts = store.getCollection('Post');
-    posts.collection.data.forEach(post => {
+    const categories = store.getCollection("Category");
+    const tags = store.getCollection("Tag");
+    const posts = store.getCollection("Post");
+    posts.collection.data.forEach((post) => {
       const tags = post.tags;
       const categories = post.categories;
       const postLang = post.lang;
-      tags.forEach(postTag => {
+      tags.forEach((postTag) => {
         const tag = postTag.toLowerCase();
         if (tagHash[tag] && !tagHash[tag].includes(postLang)) {
           tagHash[tag].push(postLang);
         } else tagHash[tag] = [postLang];
       });
-      categories.forEach(postCategory => {
+      categories.forEach((postCategory) => {
         const category = postCategory.toLowerCase();
-        if (categoryHash[category] && !categoryHash[category].includes(postLang)) {
+        if (
+          categoryHash[category] &&
+          !categoryHash[category].includes(postLang)
+        ) {
           categoryHash[category].push(postLang);
         } else categoryHash[category] = [postLang];
       });
     });
-    categories.collection.data.forEach(category => category.lang = categoryHash[category.title.toLowerCase()]);
-    tags.collection.data.forEach(tag => tag.lang = tagHash[tag.title.toLowerCase()]);
+    categories.collection.data.forEach(
+      (category) => (category.lang = categoryHash[category.title.toLowerCase()])
+    );
+    tags.collection.data.forEach(
+      (tag) => (tag.lang = tagHash[tag.title.toLowerCase()])
+    );
   });
 };

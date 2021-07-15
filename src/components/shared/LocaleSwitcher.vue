@@ -3,7 +3,7 @@
     <button class="language-button flex justify-center items-center"
             type="button" @click="toggleDropdown()" ref="btnDropdownRef">
       <ClientOnly>
-        <country-flag :country="countryFlag($i18n.locale)" size="normal" />
+        <country-flag :country="countryFlag($i18n.locale)" size="normal"/>
       </ClientOnly>
     </button>
     <div v-bind:class="{'hidden': !dropdownPopoverShow, 'block': dropdownPopoverShow}" class="menu-language"
@@ -11,9 +11,8 @@
       <div class="flex flex-col justify-center items-center">
         <div class="m-1 cursor-pointer flex justify-around items-start" v-for="locale in localeList" :key="locale"
              @click="localeChanged(locale)">
-          <span v-if="languageName" v-text="locale" class="mx-1"> Language </span>
           <ClientOnly>
-            <country-flag :country="countryFlag(locale)" size="normal" />
+            <country-flag :country="countryFlag(locale)" size="normal"/>
           </ClientOnly>
         </div>
       </div>
@@ -32,15 +31,14 @@ const flag = (locale: string): string => {
       return 'gb';
   }
 };
-import {Component, Prop} from "vue-property-decorator";
+import {Component} from "vue-property-decorator";
 import LanguageMixin from "~/mixins/language.mixins";
 import {mixins} from 'vue-class-component';
 import {createPopper} from "@popperjs/core";
 import CountryFlag from 'vue-country-flag';
 
-@Component({components:{CountryFlag}})
+@Component({components: {CountryFlag}})
 export default class LocaleSwitcher extends mixins(LanguageMixin) {
-  @Prop({type: Boolean, default: true}) readonly languageName;
   dropdownPopoverShow: boolean = false;
 
   countryFlag(locale: string) {
@@ -73,7 +71,7 @@ export default class LocaleSwitcher extends mixins(LanguageMixin) {
 </script>
 <style lang="scss">
 .language-button {
-  @apply bg-transparent text-green-500 text-sm p-2 cursor-pointer border-b border-transparent  hover:border-green-500 hover:bg-green-900 select-none;
+  @apply bg-transparent text-green-500 text-sm cursor-pointer border-b border-transparent  hover:border-green-500 hover:bg-green-900 select-none;
 }
 
 .menu-language {

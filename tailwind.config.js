@@ -39,7 +39,7 @@ module.exports = {
       borderWidth: {
         14: "14px",
       },
-      borderStyle: ['hover'],
+      borderStyle: ["hover"],
       colors: {
         background: {
           primary: "var(--bg-background-primary)",

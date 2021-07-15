@@ -1,6 +1,6 @@
 // Store
 import Vuex from 'vuex';
-import {Menu, navMenus} from '~/config/config';
+import { Menu, navMenus } from '~/config/config';
 
 const DARK = 'dark';
 const LIGHT = 'light';
@@ -102,8 +102,9 @@ export default function initStore(Vue, isClient: boolean) {
         state.menus.push(menu);
       },
       removeMenu(state, menu: Menu) {
-        state.menus = state.menus.filter(m => m.name !== menu.name && m.url !== menu.url);
-      }
+        state.menus = state.menus.filter(m => m.name !== menu.name && m.url !== menu.url
+        );
+      },
     },
   });
 }
