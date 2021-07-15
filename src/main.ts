@@ -10,7 +10,6 @@ import initFontawesome from '~/config/fontawesome';
 import initStore from '~/config/store';
 import initVueScrollReveal from '~/config/vue-scroll-reveal';
 import VueDisqus from 'vue-disqus';
-import CountryFlag from 'vue-country-flag';
 
 const init = appOptions => {
     if (isClient()) {
@@ -70,8 +69,6 @@ export default function(Vue, {router, head, isClient, appOptions}) {
 
     // Set default layout as a global component
     Vue.component('Layout', DefaultLayout);
-    // Vue Flag Component
-    if (isClient) { Vue.component('country-flag', CountryFlag); }
     Vue.use(VueScrollTo, {
       duration: 500,
       lazy: false,
