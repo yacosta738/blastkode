@@ -1,17 +1,20 @@
 <template>
   <div class="inline-flex align-middle w-full">
-    <button class="language-button"
+    <button class="language-button flex justify-center items-center"
             type="button" @click="toggleDropdown()" ref="btnDropdownRef">
-      <span v-if="languageName" class="mr-2 uppercase text-light-slate tracking-wide font-bold" v-text="$t($i18n.locale)"> Language </span>
-      <country-flag :country="countryFlag($i18n.locale)" size="small"/>
+      <ClientOnly>
+        <country-flag :country="countryFlag($i18n.locale)" size="normal" />
+      </ClientOnly>
     </button>
     <div v-bind:class="{'hidden': !dropdownPopoverShow, 'block': dropdownPopoverShow}" class="menu-language"
          v-closable="{ exclude:['btnDropdownRef'], handler: 'onClose'  }" ref="popoverDropdownRef">
-      <div class="flex flex-col justify-center items-start">
-        <div class="my-0.5 mx-2 cursor-pointer" v-for="locale in localeList" :key="locale"
+      <div class="flex flex-col justify-center items-center">
+        <div class="m-1 cursor-pointer flex justify-around items-start" v-for="locale in localeList" :key="locale"
              @click="localeChanged(locale)">
-          <span v-if="languageName" class="mr-2" v-text="$t(locale)"> Language </span>
-          <country-flag class="hover:scale-75" :country="countryFlag(locale)" size="small"/>
+          <span v-if="languageName" v-text="locale" class="mx-1"> Language </span>
+          <ClientOnly>
+            <country-flag :country="countryFlag(locale)" size="normal" />
+          </ClientOnly>
         </div>
       </div>
     </div>
@@ -33,10 +36,11 @@ import {Component, Prop} from "vue-property-decorator";
 import LanguageMixin from "~/mixins/language.mixins";
 import {mixins} from 'vue-class-component';
 import {createPopper} from "@popperjs/core";
+import CountryFlag from 'vue-country-flag';
 
-@Component
+@Component({components:{CountryFlag}})
 export default class LocaleSwitcher extends mixins(LanguageMixin) {
-  @Prop({type: Boolean, default: false}) readonly languageName;
+  @Prop({type: Boolean, default: true}) readonly languageName;
   dropdownPopoverShow: boolean = false;
 
   countryFlag(locale: string) {

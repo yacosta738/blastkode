@@ -133,6 +133,8 @@ resume:
 ---
 
 Soy un ingeniero de software con sede en Ciego de Ávila, Cuba y me especializo en la creación (y ocasionalmente en el diseño) de sitios web excepcionales y aplicaciones.
+
 Soy una persona muy extrovertida y curiosa, apasionado por la codificación, el espacio, la naturaleza y los deportes.
 Disfruto creando software asombroso, ya sean sitios web o aplicaciones. Mi objetivo es siempre crear productos que ofrezcan un alto rendimiento.
+
 Poco después de graduarme de la [Universidad Central “Marta Abreu” de Las Villas](https://www.uclv.edu.cu/institucion), me uní al equipo de desarrollo de [Desoft](https://www.desoft.cu) donde trabajo en una amplia variedad de proyectos interesantes y significativos a diario.

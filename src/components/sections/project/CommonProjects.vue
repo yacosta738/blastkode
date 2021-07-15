@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center" v-scroll-reveal.reset="{ delay: 550 }">
+  <div class="flex flex-col items-center"">
     <div class="mt-10 mb-20 text-center">
       <h2 class="section-title" v-text="$t('project-subtitle')">Other Noteworthy Projects</h2>
       <g-link :to="$tp('/projects/')" class="inline-link" v-text="$t('project-view')">view all projects</g-link>

@@ -26,7 +26,7 @@
       </ol>
     </li>
     <li>
-      <locale-switcher :language-name="$store.getters.drawer"/>
+      <locale-switcher/>
     </li>
     <li>
       <g-link to="../../../static/files/Yuniel.Acosta.CV.pdf"
