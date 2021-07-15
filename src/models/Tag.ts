@@ -7,11 +7,17 @@ export interface ITag {
 }
 
 export default class Tag implements ITag {
-
   static fromJson(node): Tag {
     return node?.belongsTo?.totalCount
-      ? new Tag(node?.id, node?.title, node?.path, node?.lang,
-        node?.lang.length > 1 ? node?.belongsTo?.totalCount - (node?.lang.length - 1) : node?.belongsTo?.totalCount)
+      ? new Tag(
+          node?.id,
+          node?.title,
+          node?.path,
+          node?.lang,
+          node?.lang.length > 1
+            ? node?.belongsTo?.totalCount - (node?.lang.length - 1)
+            : node?.belongsTo?.totalCount
+        )
       : new Tag(node?.id, node?.title, node?.path, node?.lang);
   }
   constructor(
