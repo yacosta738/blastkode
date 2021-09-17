@@ -66,7 +66,7 @@ export default class Menus extends Vue {
     this.$store.commit('toggleSearchModal');
     this.$store.commit('updateDrawer', false);
     if (this.$store.state.searchModal) {
-      const searchBox = document.getElementById('search-box');
+      const searchBox: any = <HTMLInputElement>document.getElementById('search-box');
       if (searchBox) {
         searchBox.autofocus = true;
       }
