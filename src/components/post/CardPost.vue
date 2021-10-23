@@ -34,7 +34,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
             </svg>
-            <DisqusCount shortname='blastkode' :identifier="article.path" class="mx-1" />
+            <DisqusCount shortname='blastkode' :identifier="$tp(article.path)" class="mx-1" />
           </g-link>
         </div>
           <div class="flex items-center space-x-2 mt-5">
@@ -48,7 +48,7 @@
               <!--Author name-->
               <g-link :to="$tp(author.path)" class="inline-link font-semibold">{{ article.author }}</g-link>
               <p class="text-gray-500 font-semibold text-sm">
-                {{ author.rol }}
+                {{ author.role }}
               </p>
             </div>
           </div>
@@ -67,6 +67,7 @@
           path
           role
           image
+          lang
         }
       }
     }
@@ -77,7 +78,7 @@ import 'reflect-metadata';
 import {Component, Prop, Vue} from "vue-property-decorator";
 import Article from '~/models/Article';
 //@ts-ignore
-import { DisqusCount } from 'vue-disqus'
+import {DisqusCount} from 'vue-disqus'
 
 @Component({components:{DisqusCount}})
 export default class CardPost extends Vue {
@@ -85,7 +86,8 @@ export default class CardPost extends Vue {
 
   get author() {
     const edges = this.$static.author.edges;
-    const author = edges.filter(edge => edge?.node?.name === this.article?.author);
+    const author = edges.filter(edge => edge?.node?.name === this.article?.author
+      && edge?.node?.lang === this.$i18n.locale.toString());
     return author ? author[0]?.node : edges[0];
   }
 }
