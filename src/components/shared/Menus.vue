@@ -5,7 +5,8 @@
     data-cypress="menu"
   >
     <li class="mb-6 lg:mb-0">
-      <div class="text-lightest-slate hover:text-gray-600 cursor-pointer">
+      <div v-if="!$store.getters.showSide"
+           class="text-lightest-slate hover:text-gray-600 cursor-pointer">
         <font-awesome :icon="['fa', 'search']"
                       class="cursor-pointer mt-3" @click="openSearchBox()"/>
       </div>

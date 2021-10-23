@@ -35,66 +35,66 @@ describe('Loading Pages', () => {
   })
 
 
-describe('Page Scroll to Sections', () => {
-  it('can scroll to Project', () => {
-    cy.visit('/')
+  describe('Page Scroll to Sections', () => {
+    it('can scroll to Project', () => {
+      cy.visit('/')
 
-    cy.get('[data-cypress=projects]').click()
-    cy.get('#projects').should('be.visible')
+      cy.get('[data-cypress=projects]').click()
+      cy.get('#projects').should('be.visible')
+    })
+
+    it('can scroll to About', () => {
+      cy.visit('/')
+
+      cy.get('[data-cypress=about]').click()
+      cy.get('#about').should('be.visible')
+    })
+
+    it('can scroll to Contact', () => {
+      cy.visit('/')
+
+      cy.get('[data-cypress=contact]').click()
+      cy.get('#contact').should('be.visible')
+    })
   })
 
-  it('can scroll to About', () => {
-    cy.visit('/')
+  describe('Pagination', () => {
+    it('the next button works', () => {
+      cy.visit('/blog')
 
-    cy.get('[data-cypress=about]').click()
-    cy.get('#about').should('be.visible')
+      cy.get('[data-cypress=next').click()
+      cy.url().should('include', '/blog/2')
+      cy.contains('Vue vs React Comparison')
+    })
+
+    it('the prev button works', () => {
+      cy.visit('/blog/2')
+
+      cy.get('[data-cypress=prev').click()
+      cy.url().should('include', '/blog')
+      cy.contains('Introduction to Gridsome')
+    })
   })
 
-  it('can scroll to Contact', () => {
-    cy.visit('/')
+  describe('Tags for posts', () => {
+    it('can visit tags page', () => {
+      cy.visit('/tag/frontend')
 
-    cy.get('[data-cypress=contact]').click()
-    cy.get('#contact').should('be.visible')
+      cy.contains('Tag: frontend')
+      cy.contains('Introduction to Gridsome')
+      cy.contains('How to Get Better At Coding')
+      cy.contains('Top 5 Static Site Generators in Vue')
+    })
+
+    it('can click on tags from blog post page', () => {
+      cy.visit('/introduction-to-gridsome')
+
+      cy.contains('frontend').click()
+      cy.url().should('include', '/tag/frontend')
+      cy.contains('Tag: frontend')
+      cy.contains('Introduction to Gridsome')
+    })
   })
-})
-
-describe('Pagination', () => {
-  it('the next button works', () => {
-    cy.visit('/blog')
-
-    cy.get('[data-cypress=next').click()
-    cy.url().should('include', '/blog/2')
-    cy.contains('Vue vs React Comparison')
-  })
-
-  it('the prev button works', () => {
-    cy.visit('/blog/2')
-
-    cy.get('[data-cypress=prev').click()
-    cy.url().should('include', '/blog')
-    cy.contains('Introduction to Gridsome')
-  })
-})
-
-describe('Tags for posts', () => {
-  it('can visit tags page', () => {
-    cy.visit('/tag/frontend')
-
-    cy.contains('Tag: frontend')
-    cy.contains('Introduction to Gridsome')
-    cy.contains('How to Get Better At Coding')
-    cy.contains('Top 5 Static Site Generators in Vue')
-  })
-
-  it('can click on tags from blog post page', () => {
-    cy.visit('/introduction-to-gridsome')
-
-    cy.contains('frontend').click()
-    cy.url().should('include', '/tag/frontend')
-    cy.contains('Tag: frontend')
-    cy.contains('Introduction to Gridsome')
-  })
-})
 
 // describe('Theme Switcher', () => {
 //   it('can change to dark theme', () => {
@@ -135,14 +135,15 @@ describe('Tags for posts', () => {
 // })
 
 // Doesn't work all the time, so I'm skipping it until I figure it out
-describe.skip('Mobile View', {
-  viewportWidth: 400,
-}, () => {
-  it('shows the hamburger menu', () => {
-    cy.visit('/')
+  describe.skip('Mobile View', {
+    viewportWidth: 400,
+  }, () => {
+    it('shows the hamburger menu', () => {
+      cy.visit('/')
 
-    cy.get('[data-cypress=menu]').should('not.be.visible')
-    cy.get('[data-cypress=hamburger]').should('be.visible').click()
-    cy.get('[data-cypress=menu]').should('be.visible')
+      cy.get('[data-cypress=menu]').should('not.be.visible')
+      cy.get('[data-cypress=hamburger]').should('be.visible').click()
+      cy.get('[data-cypress=menu]').should('be.visible')
+    })
   })
 })
