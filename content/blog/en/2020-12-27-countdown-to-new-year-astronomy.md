@@ -591,7 +591,4 @@ Finally, a file **`index.html`** is created that will contain all the html code 
 </html>
 ```
 
-<img src="../images/project-structure.png" width="20" alt="Estructura del proyecto" />
-
-
 All the code can be downloaded from GitHub at the following link <https://github.com/yacosta738/countdown-to-new-year>

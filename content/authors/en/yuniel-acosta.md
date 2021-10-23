@@ -26,24 +26,23 @@ contact_items:
       type: fa
       value: phone
     name: Phone
-    text: +53 54739922
+    text: +598 97 669 421
     target: _blank
     link: _self
   - icon:
       type: fa
       value: map-marker
     name: City
-    link: https://goo.gl/maps/HoNArb98EDX9GbFGA
-    text: Ciego de Ávila, Cuba
+    link: https://goo.gl/maps/ZTJPvxqWLdiTuCQ86
+    text: Montevideo, Uruguay
     target: _blank
 path: /yuniel-acosta 
 title: yuniel-acosta-en    
 name: Yuniel Acosta
 role: Full Stack Developer
 image: /uploads/yuniel-acosta.jpg
-summary: Web, mobile and desktop application developer. Science and technology
-  enthusiast. More than [-YEAR-{2017}] years of experience in the software
-  industry.
+summary: I'm a very outgoing and curious person, who's passionate about coding, space, nature, and sports.
+         I enjoy creating awesome software, whether that be websites, applications, or anything in between. My goal is always to create products that deliver high-performance.
 social:
   - icon:
       type: fab
@@ -131,10 +130,12 @@ resume:
           main_activities: IPVCE Ignacio Agramonte Ciego De Ávila
 ---
 
-I'm a software engineer based in Ciego de Ávila, Cuba specializing in building (and occasionally designing) exceptional websites, applications, and everything in between.
+Software engineer with approximately [-YEAR-{2017}] years working in software development. Proficiency with front-end and back-end technologies. 
+Technology and science enthusiast. I am experienced with Web Application Architecture, Software Design Principles and Software Design Patterns. 
+Interested in object-oriented programming, design patterns, functional programming, domain driven design and microservices. 
+I am a versatile person with a wide-ranging skills, eager to learn and ready to face new and tough challenges in or out my country.
 
-I'm a very outgoing and curious person, who's passionate about coding, space, nature, and sports.
-I enjoy creating awesome software, whether that be websites, applications, or anything in between. My goal is always to create products that deliver high-performance.
 
-Shortly after graduating from [Central University “Marta Abreu” Of Las Villas](https://www.uclv.edu.cu/institucion), I joined the development team at
-[Desoft](https://www.desoft.cu/en) where I work on a wide variety of interesting and meaningful projects on a daily basis.
+Shortly after graduating from [Central University “Marta Abreu” Of Las Villas](https://www.uclv.edu.cu/institucion), 
+I joined the development team at [Desoft](https://www.desoft.cu/en) where I work on a wide variety of interesting and meaningful projects on a daily basis. 
+I am currently working on [Scanntech](https://www.scanntech.com) in the Data Integration team.

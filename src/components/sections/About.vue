@@ -4,7 +4,7 @@
     <div class="inner">
       <div class="styled-text">
         <div class="styled-text">
-          <p v-html="markdownfy(yacosta.content)" class="mb-2">
+          <p v-html="yearsExperience(markdownfy(yacosta.content))" class="mb-2">
             I'm a software engineer based in Ciego de Ávila, Cuba specializing in building (and occasionally designing)
             exceptional websites, applications, and everything in between.
           </p>
@@ -15,9 +15,9 @@
           <li v-for="(skill, i) in skills" :key="i">{{ skill }}</li>
         </ul>
       </div>
-      <div class="styled-pic">
+      <div class="styled-pic" @click="$router.push($tp('/yuniel-acosta'))">
         <div class="wrapper">
-          <g-image :src="yacosta.image? yacosta.image : '../../../static/me.png'" alt="Yuniel Acosta" class="img"/>
+          <g-image :src="yacosta.image? yacosta.image : '../../../static/me.png'" alt="Yuniel Acosta Pérez" class="img"/>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@ query Author {
 
 <script lang="ts">
 import {Component, Vue, Watch} from "vue-property-decorator";
-import {inlineLinks, markdownfy} from "~/util/utilities";
+import {inlineLinks, markdownfy, yearsOfExperience} from "~/util/utilities";
 
 @Component
 export default class About extends Vue {
@@ -66,6 +66,10 @@ export default class About extends Vue {
 
   markdownfy(str: string): string {
     return markdownfy(str);
+  }
+
+  yearsExperience(text: string): string {
+    return yearsOfExperience(text);
   }
 }
 </script>

@@ -8,7 +8,7 @@
         <div class="title-underline"></div>
       </div>
 
-      <div class="my-4 text-left" v-html="$page.author.content"></div>
+      <div class="my-4 text-left" v-html="yearsExperience(markdownfy($page.author.content))"></div>
 
 
       <div class="flex flex-col md:flex-row justify-center items-center mx-auto my-12">
@@ -30,7 +30,7 @@
           <div class="contact-info mx-6">
             <h3 class="font-bold text-3xl text-lightest-slate" v-text="$t('contact-information')">Contact Information</h3>
             <p class="font-thin">
-              {{ yearsExperience($page.author.summary) }}
+              {{ $page.author.summary }}
             </p>
 
             <div class="flex justify-center md:justify-start items-center my-2">
@@ -106,7 +106,7 @@
 
 <script lang="ts">
 import {Component, Vue, Watch} from 'vue-property-decorator';
-import {yearsOfExperience} from '~/util/utilities';
+import {markdownfy, yearsOfExperience} from '~/util/utilities';
 const ResumeTimeline = () => import("~/components/shared/ResumeTimeline.vue");
 
 @Component({components:{ResumeTimeline}})
@@ -114,6 +114,9 @@ export default class Author extends Vue {
   @Watch('$page.author.lang')
   languageChanged(){
     this.$i18n.locale = this.$page.author.lang;
+  }
+  markdownfy(str: string): string {
+    return markdownfy(str);
   }
   yearsExperience(text: string): string {
     return yearsOfExperience(text);

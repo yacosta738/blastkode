@@ -29,7 +29,7 @@
       <locale-switcher/>
     </li>
     <li>
-      <g-link to="../../../static/files/Yuniel.Acosta.CV.pdf"
+      <g-link to="../../../static/files/yuniel_acosta_cv.pdf"
               target="_blank" class="resume-button" v-text="$t('resume')">
         Resume
       </g-link>
