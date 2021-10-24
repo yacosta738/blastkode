@@ -9,7 +9,7 @@
     "build": "npm run clean && gridsome build",
     "develop": "gridsome develop",
     "explore": "gridsome explore",
-    "test": "./node_modules/.bin/cypress open",
+    "test": "cypress open",
     "lint": "tslint --project tsconfig.json -e 'node_modules/**'",
     "lint:fix": "npm run lint -- --fix"
   },

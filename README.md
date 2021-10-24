@@ -35,8 +35,8 @@ A simple portfolio starter theme for Gridsome
 
 ## Testing
 
-I have some basic end-to-end tests using [Cypress](https://cypress.io). You can find them in `/cypress/integration/tests.js`.
+I have some basic end-to-end tests using [Cypress](https://cypress.io). You can find them in `/cypress/integration/tests.ts`.
 
 To run tests, first make sure your dev server is running with `gridsome develop`. I'm assuming you're using the default port of 8080. If not, change the `baseUrl` key in the `cypress.json` file.
 
-After your dev server is running, you can run `npm run test` or `./node_modules/.bin/cypress open` to start Cypress. The Cypress electron app will run. Click the `tests.js` file and the tests will run in an automated browser.
+After your dev server is running, you can run `npm run test` or `./node_modules/.bin/cypress open` to start Cypress. The Cypress electron app will run. Click the `tests.ts` file and the tests will run in an automated browser.
