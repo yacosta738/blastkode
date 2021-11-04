@@ -1,5 +1,6 @@
 ---
-title: Building FullStack Web applications with Angular, NestJS and Nx
+title: Building FullStack Web app with Angular, NestJS and Nx
+lang: en
 path: /building-full-stack-web-applications-with-angular-nestjs-nx
 summary: Angular is one of the most highly recommended frontend frameworks in
   the software industry. However, if you want to create a full-stack
@@ -9,7 +10,6 @@ summary: Angular is one of the most highly recommended frontend frameworks in
 date: 2021-05-22T23:32:13.655Z
 cover: /uploads/nx.png
 author: Yuniel Acosta
-lang: en
 tags:
   - Angular
   - NestJS
