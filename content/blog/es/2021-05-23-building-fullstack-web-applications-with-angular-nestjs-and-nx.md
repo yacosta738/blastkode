@@ -1,11 +1,14 @@
 ---
-title: Creación de aplicaciones web FullStack con Angular, NestJS y Nx
+title: Creación de apps web FullStack con Angular, NestJS y Nx
+lang: es
 path: /building-full-stack-web-applications-with-angular-nestjs-nx
-summary: Angular es uno de los frameworks frontend más recomendados en la industria del software. Sin embargo, si desea crear una aplicación web fullStack, solo cubre la mitad de los requisitos. Desde hace un tiempo, lo he emparejado con NestJS y ha funcionado muy bien en varios proyectos.
+summary: Angular es uno de los frameworks frontend más recomendados en la
+  industria del software. Sin embargo, si desea crear una aplicación web
+  fullStack, solo cubre la mitad de los requisitos. Desde hace un tiempo, lo he
+  emparejado con NestJS y ha funcionado muy bien en varios proyectos.
 date: 2021-05-22T23:32:13.655Z
 cover: /uploads/nx.png
 author: Yuniel Acosta
-lang: es
 tags:
   - Angular
   - NestJS
