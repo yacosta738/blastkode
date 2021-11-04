@@ -19,8 +19,8 @@
         </div>
       </div>
       <div class="px-4 py-2 mt-2">
-        <h2 class="text-3xl tracking-normal">
-          <g-link :to="$tp(article.path)" class="inline-link">{{ article.title }}</g-link>
+        <h2 class="title tracking-normal">
+          <g-link :to="$tp(article.path)">{{ article.title }}</g-link>
         </h2>
         <p class="line-clamp-4 md:line-clamp-3 hover:line-clamp-none px-2">
           {{ article.summary }}
@@ -93,8 +93,15 @@ export default class CardPost extends Vue {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .card-post {
   min-height: 560px;
+}
+.title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  @apply text-green-500 hover:text-lightest-slate;
 }
 </style>
