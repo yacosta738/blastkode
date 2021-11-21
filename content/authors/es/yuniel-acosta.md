@@ -1,5 +1,4 @@
 ---
-lang: es
 contact_items:
   - icon:
       type: fa
@@ -37,14 +36,15 @@ contact_items:
     text: Montevideo, Uruguay
     target: _blank
 path: /yuniel-acosta
-title: yuniel-acosta-es
 name: Yuniel Acosta
-role: Full Stack Developer
+role: Ingeniero de Software
+lang: es
 image: /uploads/yuniel-acosta.jpg
-summary: Soy una persona muy extrovertida y curiosa, apasionado por la codificación, el espacio, la naturaleza y los deportes.
-         Disfruto creando software asombroso, ya sean sitios web o aplicaciones. Mi objetivo es siempre crear productos que ofrezcan un alto rendimiento.
-         Estoy interesado en nuevas oportunidades especialmente en proyectos grandes y ambiciosos.
-
+summary: Soy una persona muy extrovertida y curiosa, apasionado por la
+  codificación, el espacio, la naturaleza y los deportes. Disfruto creando
+  software asombroso, ya sean sitios web o aplicaciones. Mi objetivo es siempre
+  producir productos que ofrezcan un alto rendimiento. Estoy interesado en
+  nuevas oportunidades en especial en proyectos grandes y ambiciosos.
 social:
   - icon:
       type: fab
@@ -66,21 +66,23 @@ resume:
   - experience:
       title: Experiencia Profesional
       items:
-        - name: Arquitecto de Software 
+        - name: Arquitecto de Software
           icon:
             type: fab
             value: connectdevelop
           start_date: 2020-08-21
           location: Desoft, Ciego de Ávila, Ciego de Ávila
           main_activities: >-
-            * Capacité a más de 10 miembros del personal en funciones web internas, incluidos los pasos sobre cómo realizar actualizaciones y cambios menores.
-            
+            * Capacité a más de 10 miembros del personal en funciones web
+            internas, incluidos los pasos sobre cómo realizar actualizaciones y
+            cambios menores.
+
             * Guié y asistí al equipo de desarrollo durante todo el proceso de implementación de los requisitos de software con las nuevas tecnologías.
-    
+
             * Capacité a más de 15 miembros del personal en arquitectura de microservicios con Kubernetes e Istio.
-            
+
             * Diseñé, implementé y desarrollé una arquitectura de microservicios para el sistema de gestión de reputación online.
-    
+          end_date: 2021-11-21T13:12:37.173Z
         - name: Full Stack Developer
           icon:
             type: fa
@@ -89,14 +91,15 @@ resume:
           end_date: 2020-08-09
           location: Desoft, Ciego de Ávila, Ciego de Ávila
           main_activities: >-
-            *  Desarrollé un sitio web dinámico e interactivo que aseguró un alto tráfico, vistas de páginas y experiencia del usuario, lo que resultó en un aumento del 40% en los ingresos por ventas.
+            *  Desarrollé un sitio web dinámico e interactivo que aseguró un
+            alto tráfico, vistas de páginas y experiencia del usuario, lo que
+            resultó en un aumento del 40% en los ingresos por ventas.
 
             *  Diseñe procesos para la limpieza y la mejora del rendimiento que minimizan el tiempo de inactividad en un 13%.
-    
+
             *  Corregí errores de sitios web existentes e implementé arreglos que mejoraron significativamente la funcionalidad y velocidad web.
-            
+
             *  Desarrollé APIs para la comunicación interna entre diferentes sistemas.
-    
         - name: Desarrollador Web
           icon:
             type: fa
@@ -105,12 +108,12 @@ resume:
           end_date: 2017-12-31
           location: Desoft, Ciego de Ávila, Ciego de Ávila
           main_activities: >-
-            * Desarrollé interfaces de usuario de sitios web construidas con HTML, CSS, JavaScript.
+            * Desarrollé interfaces de usuario de sitios web construidas con
+            HTML, CSS, JavaScript.
 
             * Desarrollé y solucioné problemas y errores para sitios web internos y de clientes que utilizan principalmente HTML, CSS, JavaScript, TypeScript, Angular y Vuejs.
-            
+
             * Sitios probados manualmente en varios navegadores y dispositivos móviles para garantizar la compatibilidad y capacidad de respuesta entre navegadores.
-    
   - experience:
       title: Educación
       items:
@@ -133,6 +136,7 @@ resume:
           end_date: 2012-03-09
           location: Ciego de Ávila, Cuba
           main_activities: IPVCE Ignacio Agramonte Ciego De Ávila
+title: yuniel-acosta-es
 ---
 
 Ingeniero de software con aproximadamente [-YEAR-{2017}] años trabajando en desarrollo de software. 
