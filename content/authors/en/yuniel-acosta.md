@@ -1,5 +1,4 @@
 ---
-lang: en
 contact_items:
   - icon:
       type: fa
@@ -36,13 +35,15 @@ contact_items:
     link: https://goo.gl/maps/ZTJPvxqWLdiTuCQ86
     text: Montevideo, Uruguay
     target: _blank
-path: /yuniel-acosta 
-title: yuniel-acosta-en    
+path: /yuniel-acosta
 name: Yuniel Acosta
-role: Full Stack Developer
+rol: Software Engineer
+lang: en
 image: /uploads/yuniel-acosta.jpg
-summary: I'm a very outgoing and curious person, who's passionate about coding, space, nature, and sports.
-         I enjoy creating awesome software, whether that be websites, applications, or anything in between. My goal is always to create products that deliver high-performance.
+summary: I'm a very outgoing and curious person, who's passionate about coding,
+  space, nature, and sports. I enjoy creating awesome software, whether that be
+  websites, applications, or anything in between. My goal is always to create
+  products that deliver high-performance.
 social:
   - icon:
       type: fab
@@ -71,13 +72,15 @@ resume:
           start_date: 2020-08-21
           location: Desoft, Ciego de Ávila, Ciego de Ávila
           main_activities: >-
-            * Trained over 10 staff members in internal web functions, including steps on how to make minor updates and changes.
-            
+            * Trained over 10 staff members in internal web functions, including
+            steps on how to make minor updates and changes.
+
             * Guided and assisted the development team throughout the process of implementing software requirements with new technologies.
-            
+
             * Trained over 15 staff members in microservices architecture with Kubernetes and Istio.
-            
+
             * Designed, implemented and developed microservice architecture for online reputation management system.
+          end_date: 2021-11-21T13:05:40.019Z
         - name: Full Stack Developer
           icon:
             type: fa
@@ -86,12 +89,14 @@ resume:
           end_date: 2020-08-09
           location: Desoft, Ciego de Ávila, Ciego de Ávila
           main_activities: >-
-            * Developed dynamic and interactive website that ensured high traffic, pages views, and user experience, resulting in 40% increase in sales revenue.
-           
+            * Developed dynamic and interactive website that ensured high
+            traffic, pages views, and user experience, resulting in 40% increase
+            in sales revenue.
+
             * Designed processes for cleanup and performance improvement that minimized downtime by 13%.
-            
+
             * Fixed bugs from existing websites and implemented enhancements that significantly improved web functionality and speed.
-            
+
             * Developed APIs for internal communication between different systems.
         - name: Web Developer
           icon:
@@ -128,6 +133,8 @@ resume:
           end_date: 2012-03-09
           location: Ciego de Ávila, Cuba
           main_activities: IPVCE Ignacio Agramonte Ciego De Ávila
+role: Full Stack Developer
+title: yuniel-acosta-en
 ---
 
 Software engineer with approximately [-YEAR-{2017}] years working in software development. Proficiency with front-end and back-end technologies. 
