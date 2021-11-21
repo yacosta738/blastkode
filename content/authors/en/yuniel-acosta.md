@@ -43,7 +43,7 @@ image: /uploads/yuniel-acosta.jpg
 summary: I'm a very outgoing and curious person, who's passionate about coding,
   space, nature, and sports. I enjoy creating awesome software, whether that be
   websites, applications, or anything in between. My goal is always to create
-  products that deliver high-performance.
+  products that deliver high performance.
 social:
   - icon:
       type: fab
@@ -136,13 +136,11 @@ resume:
 role: Full Stack Developer
 title: yuniel-acosta-en
 ---
-
-Software engineer with approximately [-YEAR-{2017}] years working in software development. Proficiency with front-end and back-end technologies. 
-Technology and science enthusiast. I am experienced with Web Application Architecture, Software Design Principles and Software Design Patterns. 
-Interested in object-oriented programming, design patterns, functional programming, domain driven design and microservices. 
-I am a versatile person with a wide-ranging skills, eager to learn and ready to face new and tough challenges in or out my country.
-
+Software engineer with approximately \[-YEAR-{2017}] years working in software development. Proficiency with front-end and back-end technologies. 
+Technology and science enthusiast. I am experienced with Web Application Architecture, Software Design Principles, and Software Design Patterns. 
+Interested in object-oriented programming, design patterns, functional programming, domain-driven design, and microservices. 
+I am a versatile person with wide-ranging skills, eager to learn, and ready to face new and tough challenges in or out of my country.
 
 Shortly after graduating from [Central University “Marta Abreu” Of Las Villas](https://www.uclv.edu.cu/institucion), 
-I joined the development team at [Desoft](https://www.desoft.cu/en) where I work on a wide variety of interesting and meaningful projects on a daily basis. 
+I joined the development team at [Desoft](https://www.desoft.cu/en) where I work on a wide variety of interesting and meaningful projects daily. 
 I am currently working on [Scanntech](https://www.scanntech.com) in the Data Integration team.
