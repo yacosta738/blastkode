@@ -10,6 +10,7 @@ tech:
   - typescript
   - vuejs
   - tailwind
+  - vite
 showInProjects: true
 featured: false
 draft: false
