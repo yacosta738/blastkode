@@ -11,7 +11,7 @@
     "dev": "npm run clean && gridsome develop",
     "start": "npm run clean && gridsome develop",
     "explore": "gridsome explore",
-    "test": "cypress open",
+    "test": "start-server-and-test 'yarn start' http://localhost:8080 'yarn test:ci'",
     "test:ci": "cypress run --browser chrome",
     "lint": "tslint --project tsconfig.json -e 'node_modules/**'",
     "lint:fix": "npm run lint -- --fix"
@@ -72,6 +72,7 @@
     "sass": "^1.42.1",
     "sass-loader": "^10",
     "shx": "^0.3.3",
+    "start-server-and-test": "^1.14.0",
     "tailwindcss": "^2.1.2",
     "ts-loader": "^8.0.17",
     "tslint": "^6.1.3",
