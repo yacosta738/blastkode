@@ -8,8 +8,11 @@
     "prettier:format": "prettier --write \"{,src/**/}*.{md,json,js,ts,tsx,css,scss}\"",
     "build": "npm run clean && gridsome build",
     "develop": "gridsome develop",
+    "dev": "npm run clean && gridsome develop",
+    "start": "npm run clean && gridsome develop",
     "explore": "gridsome explore",
     "test": "cypress open",
+    "test:ci": "cypress run --browser chrome",
     "lint": "tslint --project tsconfig.json -e 'node_modules/**'",
     "lint:fix": "npm run lint -- --fix"
   },

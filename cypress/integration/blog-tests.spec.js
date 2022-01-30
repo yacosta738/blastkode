@@ -3,14 +3,15 @@ describe('Loading Pages', () => {
     cy.visit('/') // yields the window object
       .its('navigator.language') // yields window.navigator.language
       .should('equal', 'en-US') // asserts the expected value
-    cy.get('.loader-body').should('be.visible');
 
-    cy.contains('h1', 'Hi, my name is');
-    cy.contains('Yuniel Acosta');
+
+    // cy.contains('h1', 'Hi, my name is');
+    // cy.contains('Yuniel Acosta');
   });
 
   it('visits the blog page', () => {
-    cy.visit('/blog');
+    // wait for the page to load
+    cy.visit('/blog').wait(1000);
     cy.get('#sidebar').should('be.visible');
     cy.contains('Tags');
     cy.contains('Categories');
