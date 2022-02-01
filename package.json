@@ -40,7 +40,7 @@
     "netlify-cms": "^2.10.105",
     "reflect-metadata": "^0.1.13",
     "register-service-worker": "^1.7.2",
-    "remark-toc": "^7.2.0",
+    "remark-toc": "^8.0.1",
     "vue-class-component": "^7.2.6",
     "vue-country-flag": "^2.1.1",
     "vue-disqus": "^4.0.1",
