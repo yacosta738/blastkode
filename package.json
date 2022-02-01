@@ -22,7 +22,7 @@
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.4",
     "@gridsome/vue-remark": "^0.2.6",
-    "@popperjs/core": "2.10.2",
+    "@popperjs/core": "2.11.2",
     "@tailwindcss/line-clamp": "^0.2.0",
     "@xkeshi/vue-qrcode": "^1.0.0",
     "date-fns": "^2.19.0",
