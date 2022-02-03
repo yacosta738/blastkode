@@ -61,7 +61,7 @@
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@types/dompurify": "^2.2.1",
     "@types/ityped": "^1.0.0",
-    "@types/marked": "^3.0.2",
+    "@types/marked": "^4.0.2",
     "autoprefixer": "^9",
     "cypress": "^9.4.1",
     "gridsome-plugin-tailwindcss": "^4.1.1",
