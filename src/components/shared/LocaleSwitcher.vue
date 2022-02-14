@@ -3,7 +3,7 @@
     <button class="language-button flex justify-center items-center"
             type="button" @click="toggleDropdown()" ref="btnDropdownRef">
       <ClientOnly>
-        <country-flag :country="countryFlag($i18n.locale)" size="normal"/>
+        <country-flag :country="countryFlag($i18n.locale)" size="small"/>
       </ClientOnly>
     </button>
     <div v-bind:class="{'hidden': !dropdownPopoverShow, 'block': dropdownPopoverShow}" class="menu-language"
@@ -12,7 +12,7 @@
         <div class="m-1 cursor-pointer flex justify-around items-start" v-for="locale in localeList" :key="locale"
              @click="localeChanged(locale)">
           <ClientOnly>
-            <country-flag :country="countryFlag(locale)" size="normal"/>
+            <country-flag :country="countryFlag(locale)" size="small"/>
           </ClientOnly>
         </div>
       </div>

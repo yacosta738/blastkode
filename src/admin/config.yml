@@ -6,9 +6,9 @@ backend:
 publish_mode: editorial_workflow
 media_folder: "static/uploads"
 public_folder: "/uploads"
-site_url: https://blastkode.com
-display_url: https://blastkode.com
-logo_url: https://blastkode.com/logo.svg
+site_url: https://yunielacosta.com
+display_url: https://yunielacosta.com
+logo_url: https://yunielacosta.com/logo.svg
 slug:
   encoding: "ascii"
   clean_accents: true

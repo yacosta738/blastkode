@@ -14,7 +14,7 @@ register(`${process.env.GRIDSOME_BASE_URL}service-worker.js`, {
   cached() {
     // context.appOptions.store.commit("swUpdate", "cached");
     if (window.caches) {
-      caches.open("blastkode-cache-v1.1").then((cache) => {
+      caches.open("yap-cache-v1.1").then((cache) => {
         cache.addAll(["/index.html", "/assets/js/app.js"]);
       });
     }

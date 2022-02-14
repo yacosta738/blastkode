@@ -18,9 +18,9 @@ const sitemap = require("./src/config/plugins/sitemap.ts");
 const i18n = require("./src/config/plugins/i18n.ts");
 
 module.exports = {
-  siteName: "Blastkode",
+  siteName: "YAP",
   siteDescription: "Yuniel Acosta's blog and portfolio",
-  siteUrl: "https://blastkode.com",
+  siteUrl: "https://yunielacosta.com",
   plugins: [
     tailwindcss,
     typescript,

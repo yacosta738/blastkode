@@ -1,8 +1,8 @@
 module.exports = {
   use: 'gridsome-plugin-robots-txt',
   options: {
-    host: 'https://blastkode.com',
-    sitemap: 'https://blastkode.com/configs/sitemap.xml',
+    host: 'https://yunielacosta.com',
+    sitemap: 'https://yunielacosta.com/configs/sitemap.xml',
     policy: [
       {
         userAgent: 'Googlebot',

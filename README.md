@@ -7,7 +7,7 @@ A simple portfolio starter theme for Gridsome
 
 ## Demo URL
 
-[https://blastkode.com](https://blastkode.com)
+[https://yunielacosta.com](https://yunielacosta.com)
 
 ## Features
 

@@ -4,8 +4,8 @@ contact_items:
       type: fa
       value: globe
     name: Sitio web
-    link: https://blastkode.com/
-    text: blastkode.com
+    link: https://yunielacosta.com/
+    text: yunielacosta.com
     target: _blank
   - icon:
       type: fa

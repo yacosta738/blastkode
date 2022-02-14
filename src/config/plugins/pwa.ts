@@ -2,7 +2,7 @@ module.exports = {
   use: '@allanchain/gridsome-plugin-pwa',
   options: {
     manifestPath: 'manifest.json',
-    name: 'Blastkode',
+    name: 'YAP',
     themeColor: '#64ffda',
     icon: {
       androidChrome: [
@@ -19,7 +19,7 @@ module.exports = {
       appleMaskIcon: { url: './safari-pinned-tab.svg' },
     },
     manifestOptions: {
-      short_name: 'Blastkode',
+      short_name: 'YAP',
       description: "Yuniel Acosta's blog and portfolio",
       start_url: '.',
       display: 'standalone',
