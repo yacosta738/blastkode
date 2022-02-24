@@ -65,6 +65,17 @@ resume:
   - experience:
       title: Professional Experience
       items:
+        - start_date: 2021-09-13T12:00:13.017Z
+          end_date: 2022-02-24T21:34:13.113Z
+          name: Senior Software Engineer
+          icon:
+            type: fab
+            value: connectdevelop
+          location: Montevideo, Uruguay
+          main_activities: |-
+            * Integrator Support and Transaction Monitoring
+            * Analysis and system design
+            * Software development
         - name: Software Architect
           icon:
             type: fab
