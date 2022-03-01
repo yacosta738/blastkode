@@ -67,7 +67,7 @@
     "gridsome-plugin-tailwindcss": "^4.1.1",
     "gridsome-plugin-typescript": "^0.4.0",
     "husky": "^5.0.9",
-    "postcss": "^7",
+    "postcss": "^8",
     "prettier": "^2.2.1",
     "sass": "^1.42.1",
     "sass-loader": "^10",
